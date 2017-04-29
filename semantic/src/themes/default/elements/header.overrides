@@ -1,0 +1,10 @@
+/*******************************
+         Theme Overrides
+*******************************/
+
+.ui.header {
+  border-bottom: 3px solid #f3c91d;
+  padding-bottom: 5px;
+  display: table;
+  margin-bottom: 5px;
+}
