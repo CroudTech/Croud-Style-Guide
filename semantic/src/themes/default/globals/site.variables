@@ -91,7 +91,7 @@
 @focusedFormBorderColor: @primaryColor; // --
 
 /* Used on dropdowns, other larger blocks */
-@focusedFormMutedBorderColor: #96C8DA;
+@focusedFormMutedBorderColor: @primaryColor; // --
 
 /*-------------------
         Sizes
@@ -191,18 +191,19 @@
 
 /*---  Colors  ---*/
 @red              : #EA6B65; // --
-@orange           : #F2711C;
 @yellow           : #f3c91d; // --
-@olive            : #B5CC18;
 @green            : #6DD1BE; // --
-@teal             : #00B5AD;
 @blue             : #376688; // --
-@violet           : #6435C9;
-@purple           : #9f6daf; // --
-@pink             : #E03997;
-@brown            : #A5673F;
+@purple           : #79508a; // --
 @grey             : #8e979b; // --
 @black            : #272727; // --
+//
+@orange           : #F2711C;
+@olive            : #B5CC18;
+@teal             : #00B5AD;
+@violet           : #6435C9;
+@pink             : #E03997;
+@brown            : #A5673F;
 
 /*---  Light Colors  ---*/
 @lightRed         : #FF695E;
@@ -216,7 +217,7 @@
 @lightPurple      : #DC73FF;
 @lightPink        : #FF8EDF;
 @lightBrown       : #D67C1C;
-@lightGrey        : #DCDDDE;
+@lightGrey        : #c9cfd3; // --
 @lightBlack       : #545454;
 
 /*---   Neutrals  ---*/

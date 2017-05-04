@@ -1,7 +1,7 @@
 <template>
     <div>
         <keep-alive>
-            <hello></hello>
+            <guide></guide>
         </keep-alive>
     </div>
 </template>
@@ -9,12 +9,12 @@
 <script>
 import Vue from 'vue'
 
-import Hello from './components/Hello'
+import Guide from './components/Guide'
 
 export default {
     name: 'app',
     components: {
-        Hello,
+        Guide,
     },
     created() {
         Vue.http.options.root = `//${gateway_url}`
