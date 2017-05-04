@@ -3,7 +3,7 @@
         <h1 class="ui croud header">Croud Style Guide</h1>
 
         <h2 class="ui header">Welcome!</h2>
-        <p>The Croud Style Guide provides guidelines on how our applications should look, it shows an example of semantic ui elements in the style we should use them.</p>
+        <p>The Croud Style Guide provides guidelines on how our applications should look, it is based on our company branding at present.</br> It shows an example of semantic ui elements in the style we should use them.</p>
         <p>The style guide also incorporates the Vue-Semantic Showcase, so you can quickly grab Vue-Semantic component code to use in your applications.</p>
       
         <h2 class="ui dividing header">Site</h2>
@@ -72,6 +72,7 @@
       </div>
     </div>
 
+    <semantic-divider class="hidden"></semantic-divider>
     <div class="ui container">
         <h2 class="ui dividing header">Inputs</h2>
         <p>Inputs should have a square border, are fluid and they can be basic or include an icon or an action button/label, search boxes should search automatically where possible.</P>
@@ -135,6 +136,7 @@
 
     </div>
 
+    <semantic-divider class="hidden"></semantic-divider>
     <h2 class="ui dividing header">Other</h2> 
 
         <accordion-showcase></accordion-showcase>
