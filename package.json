@@ -18,8 +18,9 @@
     "sass-loader": "^6.0.3",
     "semantic-ui": "^2.2.9",
     "vue": "^2.2.2",
+    "vue-clipboard2": "0.0.6",
     "vue-resource": "^1.2.1",
-    "vue-semantic": "https://github.com/kingy04/vue-semantic.git#vue2",
+    "vue-semantic": "https://github.com/kingy04/vue-semantic.git#backup",
     "vue-semantic-showcase": "https://antony-king@bitbucket.org/croudtech/vue-semantic-showcase.git"
   },
   "devDependencies": {
