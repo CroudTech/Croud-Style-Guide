@@ -12,6 +12,8 @@
     "lint": "eslint --ext .js,.vue src test/unit/specs"
   },
   "dependencies": {
+    "croud-vue-semantic": "^1.0.2",
+    "eslint-config-croud": "^1.0.1",
     "jquery": "^3.1.1",
     "lodash": "^4.17.4",
     "node-sass": "^4.5.2",
@@ -20,8 +22,7 @@
     "vue": "^2.2.2",
     "vue-clipboard2": "0.0.6",
     "vue-resource": "^1.2.1",
-    "vue-semantic": "https://github.com/kingy04/vue-semantic.git#backup",
-    "vue-semantic-showcase": "https://antony-king@bitbucket.org/croudtech/vue-semantic-showcase.git"
+    "vue-semantic-showcase": "git+ssh://git@bitbucket.org:croudtech/vue-semantic-showcase.git"
   },
   "devDependencies": {
     "autoprefixer": "^6.7.2",

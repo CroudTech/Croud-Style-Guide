@@ -5,9 +5,9 @@
         <h2 class="ui header">Welcome!</h2>
         <p>The Croud Style Guide provides guidelines on how our applications should look, it is based on our company branding at present.</br> It shows an example of semantic ui elements in the style we should use them.</p>
         <p>The style guide also incorporates the Vue-Semantic Showcase, so you can quickly grab Vue-Semantic component code to use in your applications.</p>
-      
+
         <h2 class="ui dividing header">Site</h2>
-        
+
         <div class="ui three column stackable grid">
             <div class="column">
                 <h1 class="ui croud header">Heading 1</h1>
@@ -17,7 +17,7 @@
                 <h5 class="ui croud header">Heading 5</h5>
                 <p>Headings have our current branding font 'Pathway Gothic One' to add the yellow underlining add the class 'croud'</p>
             </div>
-            
+
             <div class="column">
                 <h2>Example body text</h2>
                 <p>This is example body text, to find out more about Croud take a look at the <a target="_blank" href="http://croud.co.uk">Croud Website</a>.</p>
@@ -42,7 +42,7 @@
                     <div class="column">#FFFFFF <br>rgba(255, 255, 255, 1)</div>
                 </div>
             </div>
-        
+
         </div>
 
         <h2 class="ui dividing header">Buttons</h2>
@@ -77,7 +77,7 @@
         <h2 class="ui dividing header">Inputs</h2>
         <p>Inputs should have a square border, are fluid and they can be basic or include an icon or an action button/label, search boxes should search automatically where possible.</P>
         <div class="ui two column stackable grid">
-          
+
           <div class="column">
               <div class="ui fluid input">
               <input type="text" placeholder="Standard input">
@@ -106,7 +106,7 @@
           </semantic-dropdown>
       </div>
       <div class="column">
-  
+
           <div class="ui icon fluid input">
               <input type="text" placeholder="Input with icon">
               <i class="search icon"></i>
@@ -120,7 +120,7 @@
           </div>
           <input type="text" placeholder="Left labeled input">
         </div>
-        
+
         <div class="ui divider"></div>
         <div class="ui input fluid error">
             <input placeholder="Input with error" type="text">
@@ -137,7 +137,7 @@
     </div>
 
     <semantic-divider class="hidden"></semantic-divider>
-    <h2 class="ui dividing header">Other</h2> 
+    <h2 class="ui dividing header">Other</h2>
 
         <accordion-showcase></accordion-showcase>
         <modal-showcase></modal-showcase>
