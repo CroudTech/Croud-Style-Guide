@@ -31,8 +31,12 @@ fs.readFile('./variables.json', 'utf-8', (error, data) => {
                         const fileName = `${varCatagory}.${fileExtension}`
                         const filePath = `${dir}/${fileName}`
 
-                        // console.log(varCatagories[varCatagory])
                         let styleData = ''
+
+                        if (varCatagory === 'fonts') {
+                            const fontImportPath = './../../fontImports'
+                            styleData += preprocessor === 'sass' ? `@import '${fontImportPath}';\n` : `@import '${fontImportPath}.css';\n`
+                        }
 
                         Object.getOwnPropertyNames(varCatagories[varCatagory]).forEach((varName) => {
                             const varValue = varCatagories[varCatagory][varName]
@@ -54,8 +58,8 @@ fs.readFile('./variables.json', 'utf-8', (error, data) => {
 
                         console.log(styleData)
 
-                        fs.writeFile(filePath, styleData, (err) => {
-                            if (err) throw err
+                        fs.writeFile(filePath, styleData, (err2) => {
+                            if (err2) throw err
                         })
                     })
                 })
