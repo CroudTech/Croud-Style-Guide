@@ -2,6 +2,8 @@
 // (runtime-only or standalone) has been set in webpack.base.conf with an alias.
 
 import Vue from 'vue'
+import CroudLayout from 'croud-layout'
+import store from './store'
 import App from './App'
 import './../semantic/dist/semantic.css'
 import './../semantic/dist/semantic'
@@ -11,9 +13,13 @@ Vue.use(require('croud-vue-semantic'))
 Vue.use(require('vue-resource'))
 Vue.use(require('vue-semantic-showcase'))
 
+Vue.use(CroudLayout, { store })
+
+
 /* eslint-disable no-new */
 new Vue({
     el: '#app',
-    template: '<App/>',
+    template: '<croud-layout><App slot="content"/></croud-layout>',
     components: { App },
+    store,
 })

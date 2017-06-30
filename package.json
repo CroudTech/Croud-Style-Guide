@@ -12,19 +12,22 @@
     "lint": "eslint --ext .js,.vue src test/unit/specs"
   },
   "dependencies": {
+    "croud-layout": "^1.0.6",
     "croud-vue-semantic": "^1.0.2",
     "eslint-config-croud": "^1.0.1",
     "jquery": "^3.1.1",
     "less": "^2.7.2",
     "less-loader": "^4.0.4",
     "lodash": "^4.17.4",
+    "mkdirp": "^0.5.1",
     "node-sass": "^4.5.3",
     "sass-loader": "^6.0.6",
     "semantic-ui": "^2.2.9",
-    "vue": "^2.2.2",
+    "vue": "^2.3.4",
     "vue-clipboard2": "0.0.6",
     "vue-resource": "^1.2.1",
-    "vue-semantic-showcase": "git+ssh://git@bitbucket.org:croudtech/vue-semantic-showcase.git"
+    "vue-semantic-showcase": "git+ssh://git@bitbucket.org:croudtech/vue-semantic-showcase.git",
+    "vuex": "^2.3.1"
   },
   "devDependencies": {
     "autoprefixer": "^6.7.2",
@@ -80,7 +83,7 @@
     "url-loader": "^0.5.7",
     "vue-loader": "^11.1.4",
     "vue-style-loader": "^2.0.0",
-    "vue-template-compiler": "^2.2.4",
+    "vue-template-compiler": "^2.3.4",
     "webpack": "^2.2.1",
     "webpack-bundle-analyzer": "^2.2.1",
     "webpack-dev-middleware": "^1.10.0",

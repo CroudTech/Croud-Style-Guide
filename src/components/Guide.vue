@@ -156,8 +156,8 @@
 
 export default {
     name: 'Guide',
-    components: {
-    },
+    components: [
+    ],
     data() {
         return {
         }

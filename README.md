@@ -1,6 +1,6 @@
-# croudie-onboarding
+# Croud Style Guide
 
-> A Vue.js project
+> A very early version of a style guide to be used by Croud.
 
 ## Build Setup
 
