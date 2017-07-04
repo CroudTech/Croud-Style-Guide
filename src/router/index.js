@@ -3,5 +3,4 @@ import routes from './routeConfig'
 
 export default new VueRouter({
     routes,
-    mode: 'history',
 })
