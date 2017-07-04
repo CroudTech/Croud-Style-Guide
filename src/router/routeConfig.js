@@ -3,7 +3,7 @@ import Fonts from '../components/Fonts'
 import Welcome from '../components/Welcome'
 
 export default [
-        { path: '/colour', component: ColourPalette },
-        { path: '/typography', component: Fonts },
+        { path: '/colour', component: ColourPalette, name: 'colour' },
+        { path: '/typography', component: Fonts, name: 'typography' },
         { path: '/', component: Welcome },
 ]
