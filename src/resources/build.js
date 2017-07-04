@@ -1,7 +1,7 @@
 const fs = require('fs')
 const mkdirp = require('mkdirp')
 
-const preprocessors = { sass: { 'comment-syntax': '//', variablePrefix: '$', fileExtension: 'scss' }, less: { variablePrefix: '@', fileExtension: 'less' } }
+const preprocessors = { sass: { variablePrefix: '$', fileExtension: 'scss' }, less: { variablePrefix: '@', fileExtension: 'less' } }
 
 fs.readFile('./variables.json', 'utf-8', (error, data) => {
     if (error) {
@@ -10,6 +10,72 @@ fs.readFile('./variables.json', 'utf-8', (error, data) => {
 
     const varCatagories = JSON.parse(data)
 
+    /**
+    *  Remove Sass Map Files
+    */
+    fs.readdir('./', (error1, files) => {
+        files.forEach((file) => {
+            const fileName = file.split('.')[0]
+            if (fileName.endsWith('Map')) {
+                fs.unlink(`./${file}`, (error2) => {
+                    if (error2) throw error2
+
+                    Object.getOwnPropertyNames(varCatagories).forEach((varCatagory) => {
+                        const filePath = `./${varCatagory}Map.scss`
+
+                        let mapData = `$${varCatagory}Map: (\n`
+                        let currentSection = 0
+
+                        Object.getOwnPropertyNames(varCatagories[varCatagory]).forEach((prop) => {
+                            if (prop.startsWith('//')) {
+                                const section = varCatagories[varCatagory][prop].slice(0, -1).toLowerCase()
+
+                                if (currentSection > 0) {
+                                    mapData += '\n\t), \n'
+                                }
+
+                                currentSection += 1
+
+                                mapData += `\t'${section}': (\n`
+                            } else {
+                                mapData += `\n\t\t'${prop}': `
+                                if (varCatagories[varCatagory][prop].startsWith('croud-')) {
+                                    mapData += `$${varCatagories[varCatagory][prop]},`
+                                } else {
+                                    mapData += `$${prop},`
+                                }
+                            }
+                        })
+
+                        mapData += '\n\t)\n);'
+
+                        console.log(mapData)
+
+                        fs.writeFile(filePath, mapData, (err3) => {
+                            if (err3) throw err3
+                        })
+                    })
+                })
+            }
+        })
+    })
+
+
+
+    // const ColourMapPath = './coulourMap.scss'
+    // const colourVars = varCatagories.colours
+    //
+    // const colours = {}
+    //
+    // Object.getOwnPropertyNames(colourVars).forEach((colour) => {
+    //     if (colour.startsWith('//')) {
+    //         colours[varCatagories.colours[colour]] = {}
+    //     } else {
+    //         Object.keys.length(colourVars)
+    //     }
+    // })
+    //
+    // console.log(colours)
     // create less and sass folder
     Object.getOwnPropertyNames(preprocessors).forEach((preprocessor) => {
         const dir = `./${preprocessor}/variables`
@@ -55,8 +121,6 @@ fs.readFile('./variables.json', 'utf-8', (error, data) => {
 
                             styleData += '\n'
                         })
-
-                        console.log(styleData)
 
                         fs.writeFile(filePath, styleData, (err2) => {
                             if (err2) throw err

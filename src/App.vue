@@ -8,9 +8,7 @@
 
 <script>
 import Vue from 'vue'
-
 import Guide from './components/Guide'
-
 
 export default {
     name: 'app',
@@ -24,3 +22,10 @@ export default {
 }
 
 </script>
+
+<style lang="scss">
+    @import './resources/sass/variables/colours.scss';
+    body {
+        background-color: $croud-colour-background;
+    }
+</style>

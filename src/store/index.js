@@ -9,7 +9,6 @@ export default new Vuex.Store({
     state: {
         variables,
     },
-    actions: {},
     getters: {
         colours: state => state.variables.colours,
         fonts: state => state.variables.fonts,

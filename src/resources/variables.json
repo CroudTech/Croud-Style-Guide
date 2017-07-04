@@ -1,12 +1,12 @@
 {
   "colours": {
-    "//1": "Primary Colours:",
-    "croud-colour-yellow": "#f4c91b",
-    "croud-colour-grey": "#484848",
+    "//1": "Primary:",
     "croud-colour-black": "#292929",
+    "croud-colour-grey": "#484848",
     "croud-colour-white": "#ffffff",
+    "croud-colour-yellow": "#f4c91b",
 
-    "//2": "Secondary Colours:",
+    "//2": "Secondary:",
     "croud-colour-blue": "#3e86a3",
     "croud-colour-blue-dark": "#376688",
     "croud-colour-purple": "#9f6daf",
@@ -21,23 +21,27 @@
     "croud-colour-grey-dark": "#4d555b",
     "croud-colour-grey-medium": "#8e979b",
     "croud-colour-grey-light": "#c9cfd3",
-    "croud-colour-grey-lighter": "#c9cfd3",
+    "croud-colour-grey-lighter": "#e4e7e9",
 
-    "//3": "Brand Colours: ",
-    "croud-colour-primary": "croud-colour-yellow-dark",
+    "//3": "Brand:",
+    "croud-colour-header": "croud-colour-black",
+    "croud-colour-background": "croud-colour-grey-lighter",
+    "croud-colour-card": "croud-colour-white",
+    "croud-colour-primary": "croud-colour-yellow",
     "croud-colour-info": "croud-colour-blue",
+    "croud-colour-info-accent": "croud-colour-blue-dark",
     "croud-colour-success": "croud-colour-green",
+    "croud-colour-success-accent": "croud-colour-green-dark",
     "croud-colour-danger": "croud-colour-red",
-    "croud-colour-warning": "croud-colour-yellow",
-    "croud-colour-error": "croud-colour-red"
+    "croud-colour-danger-accent": "croud-colour-red-dark",
+    "croud-colour-warning": "croud-colour-secondary-yellow",
+    "croud-colour-warning-accent": "croud-colour-secondary-yellow-dark"
   },
   "fonts": {
-    "//1": "Headline Fonts: ",
+    "//1": "Headline:",
     "croud-font-headline": "'Pathway Gothic One'",
     "croud-font-headline-accent": "'Libre Baskerville'",
-    "//2": "Body Fonts",
-    "croud-font-body": "'Lato'",
-    "//3": "Font-Sizes",
-    "croud-font-size-heading": "17px"
+    "//2": "Body:",
+    "croud-font-body": "'Lato'"
   }
 }

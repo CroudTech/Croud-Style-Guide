@@ -1,0 +1,42 @@
+$coloursMap: (
+	'primary': (
+
+		'croud-colour-yellow': $croud-colour-yellow,
+		'croud-colour-grey': $croud-colour-grey,
+		'croud-colour-black': $croud-colour-black,
+		'croud-colour-white': $croud-colour-white,
+	), 
+	'secondary': (
+
+		'croud-colour-blue': $croud-colour-blue,
+		'croud-colour-blue-dark': $croud-colour-blue-dark,
+		'croud-colour-purple': $croud-colour-purple,
+		'croud-colour-purple-dark': $croud-colour-purple-dark,
+		'croud-colour-red': $croud-colour-red,
+		'croud-colour-red-dark': $croud-colour-red-dark,
+		'croud-colour-green': $croud-colour-green,
+		'croud-colour-green-dark': $croud-colour-green-dark,
+		'croud-colour-secondary-yellow': $croud-colour-secondary-yellow,
+		'croud-colour-secondary-yellow-dark': $croud-colour-secondary-yellow-dark,
+		'croud-colour-grey-darker': $croud-colour-grey-darker,
+		'croud-colour-grey-dark': $croud-colour-grey-dark,
+		'croud-colour-grey-medium': $croud-colour-grey-medium,
+		'croud-colour-grey-light': $croud-colour-grey-light,
+		'croud-colour-grey-lighter': $croud-colour-grey-lighter,
+	), 
+	'brand': (
+
+		'croud-colour-header': $croud-colour-black,
+		'croud-colour-background': $croud-colour-grey-lighter,
+		'croud-colour-card': $croud-colour-white,
+		'croud-colour-primary': $croud-colour-yellow,
+		'croud-colour-info': $croud-colour-blue,
+		'croud-colour-info-accent': $croud-colour-blue-dark,
+		'croud-colour-success': $croud-colour-green,
+		'croud-colour-success-accent': $croud-colour-green-dark,
+		'croud-colour-danger': $croud-colour-red,
+		'croud-colour-danger-accent': $croud-colour-red-dark,
+		'croud-colour-warning': $croud-colour-secondary-yellow,
+		'croud-colour-warning-accent': $croud-colour-secondary-yellow-dark,
+	)
+);
