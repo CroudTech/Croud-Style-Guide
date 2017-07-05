@@ -26,7 +26,7 @@ export default {
 
 <style lang="scss">
 @import "../resources/sass/variables/colours.scss";
-@import "../resources/sass/functions/colours.scss";
+@import "../resources/sass/functions/colour/colourContrast.scss";
 @import "../resources/sass/variables/fonts.scss";
 @import "../resources/coloursMap.scss";
 

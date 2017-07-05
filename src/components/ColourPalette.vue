@@ -63,9 +63,11 @@
       <div class="ui divider"></div>
       <div>
           <h2 class="ui header croud">Contrast Colours</h2>
-          <p>If you are unsure about whether you need to use black or white text on a specific background-color, use the following function.</p>
+          <p>If you are unsure about whether you need to use black or white text on a specific background-color, use the following function:</p>
           <code-block>croud-colour-contrast($croud-colour-header)</code-block>
-          <file-path>resources/sass/functions/colours.scss</file-path>
+          <p>The function returns black or white by default but you can add your own light and dark arguments:</p>
+          <code-block>croud-colour-contrast($croud-colour-header, $croud-colour-success, $croud-colour-success-accent)</code-block>
+          <file-path>resources/sass/functions/colour/colourContrast.scss</file-path>
       </div>
   </div>
 
