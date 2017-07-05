@@ -1,7 +1,0 @@
-@function croud-colour-contrast($colour) {
-    @if lightness($colour) > 50% {
-        @return $croud-colour-black;
-    } @else {
-        @return $croud-colour-white;
-    }
-}

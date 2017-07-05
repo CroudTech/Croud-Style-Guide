@@ -1,0 +1,14 @@
+/**
+* GitHub Username: jlong
+* Gist: https://gist.github.com/jlong/f06f5843104ee10006fe
+*/
+
+@import './brightness.scss';
+
+@function croud-colour-contrast($color, $light:$croud-colour-white, $dark:$croud-colour-black) {
+  @if brightness($color) < 65% {
+    @return $light;
+  } @else {
+    @return $dark;
+  }
+}
