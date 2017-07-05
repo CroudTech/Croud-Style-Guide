@@ -60,23 +60,6 @@ fs.readFile('./variables.json', 'utf-8', (error, data) => {
         })
     })
 
-
-
-    // const ColourMapPath = './coulourMap.scss'
-    // const colourVars = varCatagories.colours
-    //
-    // const colours = {}
-    //
-    // Object.getOwnPropertyNames(colourVars).forEach((colour) => {
-    //     if (colour.startsWith('//')) {
-    //         colours[varCatagories.colours[colour]] = {}
-    //     } else {
-    //         Object.keys.length(colourVars)
-    //     }
-    // })
-    //
-    // console.log(colours)
-    // create less and sass folder
     Object.getOwnPropertyNames(preprocessors).forEach((preprocessor) => {
         const dir = `./${preprocessor}/variables`
 
@@ -94,7 +77,7 @@ fs.readFile('./variables.json', 'utf-8', (error, data) => {
 
                     Object.getOwnPropertyNames(varCatagories).forEach((varCatagory) => {
                         const fileExtension = preprocessors[preprocessor].fileExtension
-                        const fileName = `${varCatagory}.${fileExtension}`
+                        const fileName = `_${varCatagory}.${fileExtension}`
                         const filePath = `${dir}/${fileName}`
 
                         let styleData = ''
