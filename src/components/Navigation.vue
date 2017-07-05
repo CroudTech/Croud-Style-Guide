@@ -17,12 +17,6 @@ export default {
             activeId: 'colour',
         }
     },
-    methods: {
-        goTo(path) {
-            this.$router.push(path)
-            this.activeId = path
-        },
-    },
 }
 </script>
 
