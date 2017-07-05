@@ -26,6 +26,6 @@ export default {
 <style lang="scss">
     @import './resources/sass/variables/colours.scss';
     body {
-        background-color: $croud-colour-background;
+        background-color: $croud-colour-white;
     }
 </style>
