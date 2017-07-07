@@ -3,13 +3,17 @@ var utils = require('./utils')
 var config = require('../config')
 var vueLoaderConfig = require('./vue-loader.conf')
 var webpack = require('webpack')
+var ExtractTextPlugin = require("extract-text-webpack-plugin");
 
 function resolve (dir) {
   return path.join(__dirname, '..', dir)
 }
 
 module.exports = {
-  plugins: [ new webpack.ProvidePlugin({ $: "jquery", jQuery: "jquery", "windows.jQuery": "jquery" })],
+  plugins: [
+      new webpack.ProvidePlugin({ $: "jquery", jQuery: "jquery", "windows.jQuery": "jquery" }),
+      new ExtractTextPlugin("styles.css"),
+  ],
   entry: {
     app: './src/main.js'
   },
@@ -63,7 +67,7 @@ module.exports = {
           limit: 10000,
           name: utils.assetsPath('fonts/[name].[hash:7].[ext]')
         }
-      }
+      },
     ]
   }
 }
