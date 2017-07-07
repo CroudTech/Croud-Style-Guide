@@ -77,7 +77,7 @@ fs.readFile('./variables.json', 'utf-8', (error, data) => {
 
                     Object.getOwnPropertyNames(varCatagories).forEach((varCatagory) => {
                         const fileExtension = preprocessors[preprocessor].fileExtension
-                        const fileName = `_${varCatagory}.${fileExtension}`
+                        const fileName = preprocessor === 'sass' ? `_${varCatagory}.${fileExtension}` : `${varCatagory}.${fileExtension}`
                         const filePath = `${dir}/${fileName}`
 
                         let styleData = ''
