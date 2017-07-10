@@ -38,17 +38,22 @@ varFiles.forEach((file) => {
 */
 Object.keys(config.preprocessors).forEach((preprocessor) => {
     const preprocessorInfo = config.preprocessors[preprocessor]
+    const filePrefix = preprocessorInfo.file.prefix ? `${preprocessorInfo.file.prefix}` : ''
     const outputDir = `${config.output}${preprocessor}/variables/`
+    const allVarFileName = `${filePrefix}all.${preprocessorInfo.file.extension}`
+    const allVarFilePath = `${outputDir}/${allVarFileName}`
+    let allVarData = ''
 
     if (!fs.existsSync(outputDir)) mkdirp(outputDir)
 
     deleteFilesFrom(outputDir)
 
     Object.keys(variables).forEach((varCatagory) => {
-        const filePrefix = preprocessorInfo.file.prefix ? `${preprocessorInfo.file.prefix}` : ''
         const fileName = `${filePrefix}${varCatagory}.${preprocessorInfo.file.extension}`
         const filePath = `${outputDir}${fileName}`
         let fileData = ''
+
+        allVarData += `\n/*===${varCatagory.toUpperCase()}===*/\n`
 
         const vars = variables[varCatagory]
 
@@ -65,7 +70,9 @@ Object.keys(config.preprocessors).forEach((preprocessor) => {
                 : `${varValue};\n`
             })
         })
+        allVarData += fileData
 
+        fs.writeFileSync(allVarFilePath, allVarData)
         fs.writeFileSync(filePath, fileData)
     })
 })
