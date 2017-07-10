@@ -13,7 +13,7 @@
                 can also use Libre Baskerville as an accented font on headings. - If you are unsure then just use Pathway
                 Gothic One.
             </p>
-            <typewriter v-for="(value, font) in this.filteredFonts.headline"
+            <typewriter v-for="(value, font) in this.fonts.headline"
                         class="headline"
                         :class="{[font]:true}"
                         :default-text="generateShortText"
@@ -24,7 +24,7 @@
         <div class="ui divider"></div>
         <h2 class="ui croud header">Body Fonts</h2>
         <p>Crouds main body font is Lato, which is to be used in all elements that are not headings.</p>
-        <typewriter v-for="(value, font) in this.filteredFonts.body"
+        <typewriter v-for="(value, font) in this.fonts.body"
                     class="body"
                     :default-text="generateLongText"
                     :class="{[font]: true}">
@@ -54,30 +54,6 @@ export default {
         },
         generateLongText() {
             return this.$faker().lorem.paragraph()
-        },
-        filteredFonts() {
-            const fonts = {
-                headline: {},
-                body: {},
-            }
-
-            const sections = [
-                'headline',
-                'body',
-            ]
-
-            let current = -1
-
-            Object.keys(this.fonts).forEach((key) => {
-                if (key.startsWith('//')) {
-                    current += 1
-                    return
-                }
-
-                fonts[sections[current]][key] = this.fonts[key]
-            })
-
-            return fonts
         },
     },
 

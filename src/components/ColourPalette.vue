@@ -18,7 +18,7 @@
              </p>
           </div>
           <div class="column">
-                  <colour-swatch v-for="(value, colour) in this.filteredColours.brand"
+                  <colour-swatch v-for="(value, colour) in this.colours.brand"
                                      class="brand"
                                      :colour="colour"
                                      :class="{[colour]: true}">
@@ -35,7 +35,7 @@
              </p>
           </div>
           <div class="column">
-                  <colour-swatch v-for="(value, colour) in this.filteredColours.primary"
+                  <colour-swatch v-for="(value, colour) in this.colours.primary"
                                      class="primary"
                                     :class="{[colour]: true}"
                                     :colour="colour">
@@ -52,7 +52,7 @@
              </p>
           </div>
           <div class="column">
-                  <colour-swatch v-for="(value, colour) in this.filteredColours.secondary"
+                  <colour-swatch v-for="(value, colour) in this.colours.secondary"
                                      class="secondary"
                                     :class="{[colour]: true}"
                                     :colour="colour"
@@ -93,28 +93,6 @@ export default {
         ...mapGetters([
             'colours',
         ]),
-
-        filteredColours() {
-            const colours = {
-                primary: {},
-                secondary: {},
-                brand: {},
-            }
-            const sections = [
-                'primary',
-                'secondary',
-                'brand',
-            ]
-            let current = -1
-            Object.keys(this.colours).forEach((key) => {
-                if (key.startsWith('//')) {
-                    current += 1
-                    return
-                }
-                colours[sections[current]][key] = this.colours[key]
-            })
-            return colours
-        },
     },
 }
 </script>
