@@ -13,7 +13,7 @@
                 can also use Libre Baskerville as an accented font on headings. - If you are unsure then just use Pathway
                 Gothic One.
             </p>
-            <typewriter v-for="(value, font) in this.fonts.headline"
+            <typewriter v-for="(value, font) in this.typefaces.headline"
                         class="headline"
                         :class="{[font]:true}"
                         :default-text="generateShortText"
@@ -24,15 +24,25 @@
         <div class="ui divider"></div>
         <h2 class="ui croud header">Body Fonts</h2>
         <p>Crouds main body font is Lato, which is to be used in all elements that are not headings.</p>
-        <typewriter v-for="(value, font) in this.fonts.body"
+        <typewriter v-for="(value, font) in this.typefaces.body"
                     class="body"
                     :default-text="generateLongText"
                     :class="{[font]: true}">
         </typewriter>
+        <div class="ui divider"></div>
+        <h2 class="ui croud header">Font Sizes</h2>
+        <ul class="fontSizes">
+            <li v-for="(value, fontSize) in this.fontSizes"
+                class="fontSizes__text"
+                :class="{[fontSize]:true}">
+                {{fontSize}}
+            </li>
+        </ul>
     </div>
 </template>
 
 <script>
+import _ from 'lodash'
 import { mapGetters } from 'vuex'
 import Typewriter from './Typewriter'
 import FilePath from './FilePath'
@@ -55,6 +65,19 @@ export default {
         generateLongText() {
             return this.$faker().lorem.paragraph()
         },
+        typefaces() {
+            const template = {
+                headline: null,
+                body: null,
+            }
+
+            const typefaces = _.pick(this.fonts, _.keys(template))
+
+            return typefaces
+        },
+        fontSizes() {
+            return this.fonts.sizes
+        },
     },
 
     methods: {
@@ -69,4 +92,21 @@ export default {
 </script>
 
 <style lang="scss">
+@import "../resources/sass/variables/fonts.scss";
+@import "../resources/fontsMap.scss";
+
+$fontSizes: map-get($fontsMap, 'sizes');
+
+.fontSizes{
+    list-style-type: none;
+    padding-left: 0;
+}
+
+@each $key, $val in $fontSizes {
+    .fontSizes__text.#{$key}{
+        font-size: #{$val};
+        margin: 1em 0;
+    }
+}
+
 </style>
