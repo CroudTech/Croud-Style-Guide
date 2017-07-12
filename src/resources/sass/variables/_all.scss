@@ -39,6 +39,7 @@ $croud-colour-warning: $croud-colour-secondary-yellow;
 $croud-colour-warning-accent: $croud-colour-secondary-yellow-dark;
 
 /*===FONTS===*/
+@import "../../fontImports"; 
 
 //headline
 $croud-font-headline: 'Pathway Gothic One';

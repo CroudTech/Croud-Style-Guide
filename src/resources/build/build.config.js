@@ -26,4 +26,14 @@ module.exports = {
             },
         },
     },
+    additions: {
+        fonts: {
+            sass: [
+                '@import "../../fontImports";',
+            ],
+            less: [
+                '@import "../../fontImports.css";',
+            ],
+        },
+    },
 }

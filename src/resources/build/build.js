@@ -51,7 +51,19 @@ Object.keys(config.preprocessors).forEach((preprocessor) => {
     Object.keys(variables).forEach((varCatagory) => {
         const fileName = `${filePrefix}${varCatagory}.${preprocessorInfo.file.extension}`
         const filePath = `${outputDir}${fileName}`
+        const additions = varCatagory in config.additions
+            ? config.additions[varCatagory]
+            : undefined
+
         let fileData = ''
+
+        if (additions) {
+            if (preprocessor in additions) {
+                additions[preprocessor].forEach((addition) => {
+                    fileData += `${addition} \n`
+                })
+            }
+        }
 
         allVarData += `\n/*===${varCatagory.toUpperCase()}===*/\n`
 
