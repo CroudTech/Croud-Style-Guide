@@ -15,7 +15,6 @@ import './../semantic/dist/semantic'
 Vue.config.productionTip = false
 Vue.use(VueRouter)
 Vue.use(require('croud-vue-semantic'))
-Vue.use(require('vue-semantic-showcase'))
 Vue.use(require('vue-faker'))
 Vue.use(require('vue-quill'))
 

@@ -33,7 +33,6 @@
     "vue-quill": "^1.0.2",
     "vue-ripple-directive": "^1.0.8",
     "vue-router": "^2.7.0",
-    "vue-semantic-showcase": "git+ssh://git@bitbucket.org:croudtech/vue-semantic-showcase.git",
     "vue-webpack-loaders": "^1.0.4",
     "vuetable-2": "^1.6.5",
     "vuex": "^2.3.1"
