@@ -9,7 +9,7 @@
     "styleguide:watch": "gulp --cwd src/resources/",
     "tech": "vue-styleguidist server",
     "tech:build": "vue-styleguidist build",
-    "dev": "node build/dev-server.js | yarn run styleguide:watch",
+    "dev": "yarn run styleguide:watch | node build/dev-server.js",
     "build": "node build/build.js && node checkUpdates",
     "unit": "cross-env BABEL_ENV=test karma start test/unit/karma.conf.js --single-run",
     "test": "npm run unit",
