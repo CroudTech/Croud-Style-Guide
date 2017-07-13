@@ -15,9 +15,9 @@ import Fonts from './Fonts'
 export default {
     name: 'Guide',
     components: {
-        'colour-palette': ColourPalette,
-        'file-path': FilePath,
-        typewriter: Typewriter,
+        ColourPalette,
+        FilePath,
+        Typewriter,
         fonts: Fonts,
         navigation: Navigation,
     },

@@ -82,9 +82,9 @@ import CodeBlock from './CodeBlock'
 export default {
     name: 'colour-palette',
     components: {
-        'colour-swatch': ColourSwatch,
-        'file-path': FilePath,
-        'code-block': CodeBlock,
+        ColourSwatch,
+        FilePath,
+        CodeBlock,
     },
     data() {
         return {}

@@ -52,8 +52,8 @@ export default {
         return {}
     },
     components: {
-        typewriter: Typewriter,
-        'file-path': FilePath,
+        Typewriter,
+        FilePath,
     },
     computed: {
         ...mapGetters([
