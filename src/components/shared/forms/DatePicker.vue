@@ -1,7 +1,7 @@
 <template>
     <span>
         <div class="ui action input" :class="{fluid: fluid}">
-            <input ref="pickerfield" @click.prevent.enter="updateDate" :value="display_date" type="text" :placeholder="placeholder">
+            <input ref="pickerfield" @click.prevent.enter="updateDate" :value="displayDate" type="text" :placeholder="placeholder">
             <button @click.prevent ref="pickerbutton" class="ui icon button">
                 <i class="calendar outline icon"></i>
             </button>
@@ -15,6 +15,11 @@
     import croudDate from 'croud-date-parser'
     import moment from 'moment'
 
+   /**
+    * A date picker based around pikaday
+    *
+    * @example ./croud-date-picker.md
+    */
     export default {
         name: 'croud-date-picker',
 
@@ -23,34 +28,59 @@
         },
 
         props: {
+           /**
+            * Placeholder text
+            */
             placeholder: {
-                default: 'Date..',
+                type: String,
+                default: 'Date...',
             },
 
+           /**
+            * v-model alias, can be iso string or moment object
+            */
             date: {
+                type: Object || String,
                 default: null,
             },
 
-            min_date: {
+           /**
+            * Pikaday minDate setting, must be a Date Object (ie. moment().toDate())
+            */
+            minDate: {
+                type: Date,
                 default: null,
             },
 
-            max_date: {
+           /**
+            * Pikaday maxDate setting, must be a Date Object (ie. moment().toDate())
+            */
+            maxDate: {
+                type: Date,
                 default: null,
             },
 
-            reference: {
-                default: null,
-            },
-
+           /**
+            * Moment format string
+            * @see https://momentjs.com/docs/#/displaying/format/
+            */
             display: {
+                type: String,
                 default: 'D MMM YYYY',
             },
 
+           /**
+            * Allow date picker to take up available space
+            */
             fluid: {
+                type: Boolean,
                 default: false,
             },
 
+           /**
+            * Pikaday config
+            * @see https://github.com/dbushell/Pikaday#configuration
+            */
             settings: {
                 type: Object,
                 default() {
@@ -61,15 +91,15 @@
 
         data() {
             return {
-                internal_date: null,
-                display_date: null,
+                internalDate: null,
+                displayDate: null,
                 picker: null,
             }
         },
 
         watch: {
             date(value) {
-                if (value && this.picker && this.internal_date && moment(value).format() !== this.internal_date.format()) {
+                if (value && this.picker && this.internalDate && moment(value).format() !== this.internalDate.format()) {
                     this.picker.setMoment(moment(value))
                 }
             },
@@ -77,34 +107,35 @@
 
         methods: {
             updateDate() {
-                this.internal_date = moment(croudDate(this.display_date))
+                this.internalDate = moment(croudDate(this.displayDate))
             },
 
             create() {
-                const inst = this
                 if (this.picker) this.picker.destroy()
                 const settings = {
+                    minDate: this.minDate,
+                    maxDate: this.maxDate,
                     format: this.display,
                     field: this.$refs.pickerfield,
                     trigger: this.$refs.pickerbutton,
                     onSelect: (val) => {
-                        this.internal_date = moment(val)
-                        this.display_date = this.internal_date.format(this.display)
-                        this.$emit('date-selected', this.internal_date)
-                        this.$emit('input', this.internal_date.format('YYYY-MM-DD'))
-                        if (this.settings.afterSelect && typeof this.settings.afterSelect === 'function') { this.settings.afterSelect(this.internal_date) }
+                        this.internalDate = moment(val)
+                        this.displayDate = this.internalDate.format(this.display)
+                        this.$emit('date-selected', this.internalDate)
+                        this.$emit('input', this.internalDate.format('YYYY-MM-DD'))
+                        if (this.settings.afterSelect && typeof this.settings.afterSelect === 'function') { this.settings.afterSelect(this.internalDate) }
                     },
                 }
 
                 this.picker = new Pikaday(_.defaultsDeep(settings, this.settings))
-                if (this.internal_date) this.picker.setMoment(this.internal_date)
+                if (this.internalDate) this.picker.setMoment(this.internalDate)
             },
         },
 
         mounted() {
             if (this.date) {
-                this.internal_date = moment(this.date)
-                this.display_date = this.internal_date.format(this.display)
+                this.internalDate = moment(this.date)
+                this.displayDate = this.internalDate.format(this.display)
             }
 
             this.create()
@@ -116,3 +147,7 @@
     }
 
 </script>
+
+<style>
+    @import '~pikaday/css/pikaday.css';
+</style>

@@ -36,7 +36,7 @@
     import moment from 'moment'
 
     export default {
-        name: 'croud-date-range',
+        // name: 'croud-date-range',
 
         props: {
             start: {
@@ -79,7 +79,7 @@
                 const events = []
                 const days = this.localEnd.diff(this.localStart, 'days')
 
-                for (let i = 1; i <= days; i++) {
+                for (let i = 1; i <= days; i += 1) {
                     events.push(moment(this.localStart).add(i, 'day').toDate().toDateString())
                 }
 
