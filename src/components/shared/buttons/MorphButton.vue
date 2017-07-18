@@ -1,9 +1,11 @@
 <template>
-    <button class="ui button" @click="morph()">{{nextOption.name}}</button>
+    <button class="ui button" :class="{basic: !cta}" @click="morph()">{{nextOption.name}}</button>
 </template>
 
 <script>
 /**
+* Single Button Component that morphs from one action to another on click.
+*
 * @example ./croud-morph-button.md
 */
 
@@ -16,7 +18,14 @@ export default {
     },
     props: {
         /**
-        * The two options to toggle between
+        * States if button should be styled like Call to Action.
+        */
+        cta: {
+            type: Boolean,
+            default: false,
+        },
+        /**
+        * The two options to toggle between.
         */
         options: {
             type: Array,
@@ -26,7 +35,7 @@ export default {
             },
         },
         /**
-        * The active index when first rendered
+        * The index of the active action when first rendered.
         */
         active: {
             type: Number,
