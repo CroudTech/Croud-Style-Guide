@@ -1,6 +1,6 @@
 {
   "name": "croud-style-guide",
-  "version": "0.0.4",
+  "version": "0.0.7",
   "description": "A Vue.js project",
   "author": "antony.king@croud.co.uk",
   "private": false,
@@ -16,6 +16,8 @@
     "lint": "eslint --ext .js,.vue src test/unit/specs"
   },
   "dependencies": {
+    "croud-date-parser": "git+https://github.com/CroudSupport/croud-date-parser.git",
+    "pikaday": "^1.6.1",
     "vuetable-2": "^1.6.5"
   },
   "devDependencies": {

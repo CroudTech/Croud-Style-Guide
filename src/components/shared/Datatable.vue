@@ -99,6 +99,7 @@
 
         methods: {
             onPaginationData(paginationData) {
+                this.$emit('vuetable:pagination-data', paginationData)
                 this.$refs.pagination.setPaginationData(paginationData)
                 this.$refs.paginationInfo.setPaginationData(paginationData)
             },
