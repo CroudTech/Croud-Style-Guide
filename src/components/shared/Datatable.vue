@@ -136,9 +136,9 @@
                 // handler() {
                 //     this.$refs.vuetable.refresh()
                 // },
-                handler: _.debounce(function () {
-                    this.$refs.vuetable.refresh()
-                }, 500),
+                // handler: _.debounce(function () {
+                //    this.$refs.vuetable.refresh()
+                // }, 500),
             },
         },
     }
