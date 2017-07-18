@@ -16,7 +16,7 @@
     import moment from 'moment'
 
     export default {
-        name: 'croud-datepicker',
+        name: 'croud-date-picker',
 
         model: {
             prop: 'date',
