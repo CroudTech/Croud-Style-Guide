@@ -134,12 +134,12 @@
         watch: {
             vuetableConfig: {
                 deep: true,
-                handler() {
+                // handler() {
+                //     this.$refs.vuetable.refresh()
+                // },
+                handler: _.debounce(function () {
                     this.$refs.vuetable.refresh()
-                },
-                // handler: _.debounce(function () {
-                //    this.$refs.vuetable.refresh()
-                // }, 500),
+                }, 500),
             },
         },
     }
