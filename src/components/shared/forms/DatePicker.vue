@@ -13,6 +13,7 @@
     import _ from 'lodash'
     import Pikaday from 'pikaday'
     import croudDate from 'croud-date-parser'
+    import moment from 'moment'
 
     export default {
         name: 'croud-datepicker',
