@@ -5,6 +5,7 @@ export default {
         return {
             search: '',
             date: moment(),
+            toggleSidebar: false,
         }
     },
 
