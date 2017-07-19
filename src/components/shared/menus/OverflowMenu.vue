@@ -4,7 +4,7 @@
         <i class="ellipsis vertical icon"></i>
         <div class="ui menu">
             <slot name="options">
-                <template v-for="(option, index) in options" :key="index">
+                <template v-for="(option, index) in options">
                     <template v-if="!option.method">
                         <div v-if="index > 0" class="divider"></div>
                         <div v-if="option.name" class="header">
