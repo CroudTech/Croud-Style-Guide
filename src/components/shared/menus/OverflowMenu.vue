@@ -1,11 +1,10 @@
 <template>
-  <div class="ui left">
-      <button ref="options" class="ui dropdown icon pointing top circular button" 
-        :class="{left, right: !left, 'no-pointer': noPointer}">
+    <button ref="options" class="ui dropdown icon pointing top circular button"
+    :class="{left, right: !left, 'no-pointer': noPointer}">
         <i class="ellipsis vertical icon"></i>
         <div class="ui menu">
             <slot name="options">
-                <template v-for="(option, index) in options">
+                <template v-for="(option, index) in options" :key="index">
                     <template v-if="!option.method">
                         <div v-if="index > 0" class="divider"></div>
                         <div v-if="option.name" class="header">
@@ -26,7 +25,6 @@
             </slot>
         </div>
     </button>
-    </div>
 </template>
 
 <script>
@@ -93,7 +91,7 @@ export default {
                 .menu{
                    &::after{
                         display: none;
-                   } 
+                   }
                 }
             }
             .menu{
@@ -115,7 +113,7 @@ export default {
                     border-left: 1px solid rgba($croud-colour-black, .15);
                     border-top: 1px solid rgba($croud-colour-black,.15)
                 }
-                
+
 
                 @media screen and (min-width: 450px){
                     min-width: 128px;
@@ -143,6 +141,6 @@ export default {
                 }
             }
         }
-        }
+    }
 
 </style>
