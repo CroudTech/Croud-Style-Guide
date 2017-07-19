@@ -6,8 +6,8 @@
                 <router-link tag="a" :to="{ name: route.children[0].name, params: {} }" class="item" active-class="active" exact>
                     {{route.name}}
                 </router-link>
-                <div v-show="catagoryOpen(route)" v-for="(child, index) in route.children" class="submenu">
-                    <router-link v-if="index > 0" tag="a" :to="{ name: child.name, params: {} }" class="item" active-class="active">
+                <div v-show="catagoryOpen(route)" v-for="child in sortChildren(route.children)" class="submenu">
+                    <router-link tag="a" :to="{ name: child.name, params: {} }" class="item" active-class="active">
                         {{child.name}}
                     </router-link>  
                 </div>
@@ -17,6 +17,8 @@
 </template>
 
 <script>
+import _ from 'lodash'
+
 export default {
     data() {
         return {
@@ -33,6 +35,9 @@ export default {
         },
         goHome() {
             this.$router.push({ name: 'introduction' })
+        },
+        sortChildren(children) {
+            return _.sortBy(children.slice(1), 'name')
         },
     },
 }
