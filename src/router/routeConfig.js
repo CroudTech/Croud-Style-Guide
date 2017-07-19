@@ -1,9 +1,49 @@
 import ColourPalette from '../components/ColourPalette'
 import Fonts from '../components/Fonts'
 import Welcome from '../components/Welcome'
+import CatagoryHeading from '../components/CatagoryHeading'
 
 export default [
-        { path: '/colour', component: ColourPalette, name: 'colour' },
-        { path: '/typography', component: Fonts, name: 'typography' },
-        { path: '/', component: Welcome },
+    {
+        name: 'introduction',
+        path: '/',
+        component: CatagoryHeading,
+        props: {
+            catagory: 'Introduction',
+        },
+        children: [
+            {
+                name: 'introduction-default',
+                path: '',
+                component: Welcome,
+            },
+        ],
+    },
+    {
+        name: 'style',
+        path: '/style',
+        component: CatagoryHeading,
+        props: {
+            catagory: 'Style',
+        },
+        children: [
+            {
+                name: 'style-default',
+                path: '',
+                component: Welcome,
+            },
+            {
+                name: 'colour',
+                path: 'colour',
+                alias: '/colour',
+                component: ColourPalette,
+            },
+            {
+                name: 'typography',
+                path: 'typography',
+                alias: '/typography',
+                component: Fonts,
+            },
+        ],
+    },
 ]

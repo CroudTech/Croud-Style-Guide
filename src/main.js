@@ -21,6 +21,10 @@ Vue.use(require('vue-quill'))
 Vue.use(VueHighlightJS)
 Vue.directive('ripple', Ripple)
 
+router.afterEach(() => {
+    window.scrollTo(0, 0)
+})
+
 /* eslint-disable no-new */
 new Vue({
     el: '#app',

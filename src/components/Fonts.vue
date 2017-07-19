@@ -1,6 +1,5 @@
 <template lang="html">
     <div>
-        <div class="ui divider"></div>
         <h1 class="ui croud header">Typography</h1>
         <div class="ui three column stackable grid">
             <file-path class="column">resources/sass/variables/fonts.scss</file-path>

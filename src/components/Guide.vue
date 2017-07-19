@@ -1,7 +1,7 @@
 <template>
-    <div class="ui container">
+    <div>
         <navigation></navigation>
-        <router-view></router-view>
+        <router-view class="ui container"></router-view>
     </div>
 </template>
 
@@ -21,25 +21,13 @@ export default {
         fonts: Fonts,
         navigation: Navigation,
     },
-    data() {
-        return {
-        }
-    },
-    methods: {
-    },
-    computed: {
-    },
-    watch: {
-    },
 }
 </script>
 
-<style scoped>
-.logo {
-  width: 50%;
-  margin-left: 25%;
-  margin-right: 25%;
-  margin-top: 5%;
-  margin-bottom: 5%;
-}
+<style class="scss" scoped>
+    .ui.container{
+        margin-top: 8rem!important;
+        margin-left: 18rem!important;
+        width: calc(100% - 21rem);
+    }
 </style>
