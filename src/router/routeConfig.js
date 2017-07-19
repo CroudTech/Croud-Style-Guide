@@ -35,11 +35,13 @@ export default [
             {
                 name: 'colour',
                 path: 'colour',
+                alias: '/colour',
                 component: ColourPalette,
             },
             {
                 name: 'typography',
                 path: 'typography',
+                alias: '/typography',
                 component: Fonts,
             },
         ],
