@@ -80,7 +80,7 @@
 
             computedSettings() {
                 const $this = this
-                return _.defaultsDeep({
+                return _.defaultsDeep(this.settings, {
                     apiSettings: {
                         url: `${this.rootUrl}/${this.url}`,
                         beforeXHR(xhr) {
@@ -104,7 +104,7 @@
                         this.$emit('selected', ...args)
                         this.model = args[0]
                     },
-                }, this.settings)
+                })
             },
         },
     }
