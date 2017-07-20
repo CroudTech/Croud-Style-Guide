@@ -1,8 +1,8 @@
-# Croud Style Guide Docs
+# [Croud Style Guide Docs](Introduction.md)
 
 ## Getting Started
 
-Here you can find out how to get started using the style guide for 
+Here you can find out how to get started using the style guide for your project or for contribution.
 
 * [Installation](#installation)
     * [Installing for contribution](#installing-contribution)
