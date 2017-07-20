@@ -1,4 +1,7 @@
 import moment from 'moment'
+import Vue from 'vue'
+
+Vue.use(require('croud-vue-semantic'))
 
 export default {
     data() {
@@ -10,8 +13,8 @@ export default {
     },
 
     methods: {
-        alert(text) {
-            alert(text)
+        alert(...text) {
+            alert(...text)
         },
     },
 }
