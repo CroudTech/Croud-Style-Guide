@@ -44,4 +44,27 @@ export default [
             },
         ],
     },
+    {
+        name: 'Components',
+        path: '/components',
+        component: CatagoryHeading,
+        props: {
+            catagory: 'components',
+        },
+        children: [
+            {
+                name: 'components-default',
+                path: '',
+                component: Welcome,
+            },
+            {
+                name: 'menus',
+                path: 'menus',
+            },
+            {
+                name: 'buttons',
+                path: 'buttons',
+            },
+        ],
+    },
 ]
