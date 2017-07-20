@@ -1,7 +1,7 @@
 <template>
     <section class="catagory">
         <header class="catagory__heading">
-            <h1 class="catagory__title">{{catagory}}</h1>
+            <h1 class="catagory__title">{{catagory}} <span v-show="subCatLevel" class="catagory__page">> {{name}}</span></h1>
         </header>
         <main>
             <router-view></router-view>
@@ -15,6 +15,14 @@ export default {
         catagory: {
             type: String,
             required: true,
+        },
+    },
+    computed: {
+        subCatLevel() {
+            return this.$route.path.split('/')[2]
+        },
+        name() {
+            return this.$route.name
         },
     },
 }
@@ -36,7 +44,11 @@ export default {
             font-family: $croud-font-body;
             text-transform: uppercase;
             padding: 3rem 1em;
-            color: rgba($croud-colour-black, .3);
+            color: rgba($croud-colour-black, .4);
+        }
+
+        &__page{
+            color: rgba($croud-colour-black, .8);
         }
     }
 </style>
