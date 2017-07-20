@@ -6,7 +6,7 @@
     import _ from 'lodash'
 
     /**
-    * A date picker based around pikaday
+    * A search dropdown based on the vue-semantic form dropdown
     *
     * @example ./croud-search-dropdown.md
     */
@@ -14,26 +14,42 @@
         name: 'croud-search-dropdown',
 
         props: {
+           /**
+            * Placeholder text
+            */
             placeholder: {
                 type: String,
                 default: 'Search...',
             },
 
+           /**
+            * request part of the url
+            */
             url: {
                 type: String,
                 required: true,
             },
 
+           /**
+            * Optional v-model alias
+            */
             value: {
+                required: false,
                 type: String,
             },
 
+           /**
+            * Hostname part of url
+            */
             rootUrl: {
                 type: String,
-                // default: `//${gateway_url}`,
-                default: 'https://vuetable.ratiw.net',
+                default: `//${gateway_url}`,
+                // default: 'https://vuetable.ratiw.net',
             },
 
+           /**
+            * Method to manipulate results back from the API
+            */
             transform: {
                 type: Function,
                 default(result) {
@@ -41,6 +57,9 @@
                 },
             },
 
+            /**
+             * Semantic Dropdown settings
+             */
             settings: {
                 type: Object,
                 default() {
@@ -65,7 +84,7 @@
                     apiSettings: {
                         url: `${this.rootUrl}/${this.url}`,
                         beforeXHR(xhr) {
-                            // xhr.setRequestHeader('authorization', `Bearer ${localStorage.getItem('jwt')}`)
+                            xhr.setRequestHeader('authorization', `Bearer ${localStorage.getItem('jwt')}`)
                             return xhr
                         },
                         onResponse(response) {
