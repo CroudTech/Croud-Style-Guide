@@ -1,33 +1,18 @@
 # Croud Style Guide
 The Croud Style Guide is a mixture of **design patterns** and technical documentation for **reusable UI components**.
 
-## Getting Started
+[Live Style Guide](https://croudsupport.github.io/Croud-Style-Guide/#/)
+[Live Technical Docs](https://croudsupport.github.io/Croud-Style-Guide/technical/)
 
-### Build Setup
+## Using the Style Guide
 
-``` bash
-# install dependencies
-yarn install
-
-# serve with hot reload at localhost:8080
-yarn run dev
-
-# build for production with minification
-yarn run build
-
-# build for production and view the bundle analyzer report
-yarn run build --report
-
-# run unit tests
-yarn run unit
-
-# run all tests
-yarn test
-```
+Please take a look at the [Documentation](https://github.com/CroudSupport/Croud-Style-Guide/blob/master/docs/Introduction.md) for details on how to install and contribute to the style guide.
 
 ## Contributing
 
-Before contributing please take a minute to read our [CONTRIBUTING.md](CONTRIBUTING.md) file just so that any additions comply with the rules put in place to keep this project consistent and of good quality.
+Before contributing please take a minute to read our [CONTRIBUTING.md](https://github.com/CroudSupport/Croud-Style-Guide/blob/master/CONTRIBUTING.md) file just so that any additions comply with the rules put in place to keep this project consistent and of good quality.
+
+Also take a look at the [Documentation](https://github.com/CroudSupport/Croud-Style-Guide/blob/master/docs/UpdatingTechDocs.md) provided for guides on how to contribute.
 
 ## Built With
 
