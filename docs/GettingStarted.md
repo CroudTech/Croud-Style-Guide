@@ -51,6 +51,9 @@ Use the following npm scripts after [installing for contribution](#installing-co
 # Serve with hot-reload at localhost:8080:
 yarn run dev
 
+# Rebuild changes made to config files
+yarn run styleguide:build
+
 # Watch for changes being made to style guide config files:
 yarn run styleguide:watch
 
