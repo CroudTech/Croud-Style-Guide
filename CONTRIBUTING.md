@@ -6,6 +6,14 @@ At this very early stage, we need to gain some traction so don't be afraid to ad
 
 ***Boooooooo!***
 
+### Semantic UI Overrides
+
+Any changes made to Semanti UI theme and overrides **must** be stored in the following directory:
+
+    semantic/src/site/
+
+If you store it in the *themes* directory then all changes will be lost when Semantic UI is updated.
+
 ### Technical Documentation
 
 Please ensure any new components added to the technical documentation comply with the following rules:
