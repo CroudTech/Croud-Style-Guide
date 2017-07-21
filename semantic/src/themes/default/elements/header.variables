@@ -6,15 +6,11 @@
        Element
 --------------------*/
 
+@textTransform: none;
 @fontFamily: @headerFont;
 @fontWeight: @headerFontWeight;
 @lineHeight: @headerLineHeight;
 @lineHeightOffset: @headerLineHeightOffset;
-// -- Croud Heading:
-@textTransform: uppercase;
-// @borderBottom: 3px solid #f3c91d;
-// @paddingBottom: 5px;
-// @display: inline-block;
 
 @topMargin: @headerTopMargin;
 @bottomMargin: @headerBottomMargin;

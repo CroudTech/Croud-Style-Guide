@@ -82,7 +82,7 @@
     "quill": "^1.2.6",
     "rimraf": "^2.6.0",
     "sass-loader": "^6.0.6",
-    "semantic-ui": "^2.2.9",
+    "semantic-ui": "^2.2.11",
     "semver": "^5.3.0",
     "sinon": "^1.17.7",
     "sinon-chai": "^2.8.0",

@@ -2,9 +2,3 @@
          Theme Overrides
 *******************************/
 
-.ui.header.croud {
-  border-bottom: 3px solid #f3c91d;
-  padding-bottom: 5px;
-  margin-bottom: 5px;
-  display: table;
-}
