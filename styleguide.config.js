@@ -32,8 +32,8 @@ module.exports = {
     ],
     require: [
         'jquery',
-        'semantic-ui/dist/semantic.min',
-        'semantic-ui/dist/semantic.min.css',
+        './semantic/dist/semantic.min.js',
+        './semantic/dist/semantic.min.css',
     ],
     // webpackConfig: {
     //     module: {
