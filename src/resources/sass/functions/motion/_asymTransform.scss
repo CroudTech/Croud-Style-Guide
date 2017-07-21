@@ -1,0 +1,3 @@
+@function croud-asym-transform-offset($duration){
+    @return ($duration / 100) * 16;
+}
