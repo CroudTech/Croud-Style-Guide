@@ -9,7 +9,7 @@ The Croud Style Guide is a mixture of **design patterns** and technical document
 
 To update the style guide, simply run yarn upgrade on the npm package: 
 
-   yarn upgrade croud-style-guide
+    yarn upgrade croud-style-guide
 
 
 Read the [docs](https://github.com/CroudSupport/Croud-Style-Guide/blob/master/docs/Upgrading.md) for more information on upgrading.
