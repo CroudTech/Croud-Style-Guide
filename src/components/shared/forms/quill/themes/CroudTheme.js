@@ -1,6 +1,6 @@
 import Quill from 'quill'
 import _ from 'lodash'
-import Shortcode from 'vue-quill/src/formats/Shortcode'
+import Shortcode from '../formats/Shortcode'
 
 const Snow = Quill.import('themes/snow')
 Quill.register(Shortcode)
