@@ -9,8 +9,8 @@ Vue.component('journal-component', {})
 export default {
     data() {
         return {
-            search: '',
-            date: moment(),
+            searchText: '',
+            today: moment(),
             toggleSidebar: false,
         }
     },

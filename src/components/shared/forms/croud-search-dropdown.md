@@ -4,9 +4,9 @@
         <croud-search-dropdown
             url="api/users?filter={query}"
             placeholder="Search Users..."
-            v-model="search"
+            v-model="searchText"
             />
-        selected id: {{search}}
+        selected id: {{ searchText }}
     </div>
 
 ### Transform data

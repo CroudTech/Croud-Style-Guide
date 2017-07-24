@@ -39,15 +39,6 @@
             },
 
            /**
-            * Hostname part of url
-            */
-            rootUrl: {
-                type: String,
-                default: `//${gateway_url}`,
-                // default: 'https://vuetable.ratiw.net',
-            },
-
-           /**
             * Method to manipulate results back from the API
             */
             transform: {
@@ -78,11 +69,17 @@
                 },
             },
 
+            computedUrl() {
+                if (this.url.match(/:\/\//)) return this.url
+
+                return `//${gateway_url}/${this.url}`
+            },
+
             computedSettings() {
                 const $this = this
                 return _.defaultsDeep(this.settings, {
                     apiSettings: {
-                        url: `${this.rootUrl}/${this.url}`,
+                        url: this.computedUrl,
                         beforeXHR(xhr) {
                             xhr.setRequestHeader('authorization', `Bearer ${localStorage.getItem('jwt')}`)
                             return xhr

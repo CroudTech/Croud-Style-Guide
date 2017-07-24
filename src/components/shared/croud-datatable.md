@@ -35,7 +35,7 @@ You can hook up a simple search function by building the search query params in 
         <div class="ui secondary segment">
             <div class="ui icon input">
                 <i class="search icon"></i>
-                <input v-model="search" placeholder="Search users..."/>
+                <input v-model="searchText" placeholder="Search users..."/>
             </div>
         </div>
         <croud-datatable
@@ -44,7 +44,7 @@ You can hook up a simple search function by building the search query params in 
                 fields: ['name', 'email', 'birthdate'],
                 'api-url': 'https://vuetable.ratiw.net/api/users',
                 'append-params': {
-                    filter: search,
+                    filter: searchText,
                 },
             }"
             :transform="data => data" />
