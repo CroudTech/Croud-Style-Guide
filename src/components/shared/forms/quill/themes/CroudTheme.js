@@ -13,9 +13,9 @@ class CroudTheme extends Snow {
         const templates = options.templates
 
         templates.forEach((value) => {
-            document.styleSheets[0].insertRule(`.ql-template .ql-picker-item[data-value="${value}"]:before {content: "${value}";}`)
+            document.styleSheets[0].insertRule(`.ql-template .ql-picker-item[data-value="${value.code}"]:before {content: "${value.name}";}`)
         })
-        options.modules.toolbar.container.push([{ template: templates }])
+        options.modules.toolbar.container.push([{ template: templates.map(t => t.code) }])
 
         super(quill, options)
     }
