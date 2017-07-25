@@ -114,6 +114,6 @@ Object.keys(variables).forEach((catagory) => {
         mapData += '\n\t),\n'
     })
     mapData = mapData.slice(0, -2)
-    mapData += '\n);'
+    mapData += '\n);\n'
     fs.writeFileSync(fileDir, mapData)
 })
