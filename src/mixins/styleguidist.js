@@ -11,6 +11,7 @@ export default {
         return {
             searchText: '',
             today: moment(),
+            tomorrow: moment().add(1, 'days'),
             toggleSidebar: false,
         }
     },

@@ -35,23 +35,38 @@
     import Pikaday from 'pikaday'
     import moment from 'moment'
 
+    /**
+    * A date range workflow component based around pikaday
+    *
+    * This component emits two events **update:start** and **update:end** so can support the *prop.sync* notation
+    *
+    * @example ./croud-date-range.md
+    */
     export default {
-        // name: 'croud-date-range',
+        name: 'croud-date-range',
 
         props: {
+            /**
+             * Start date moment object or iso string
+             */
             start: {
+                type: Object || String,
                 required: true,
             },
 
+            /**
+             * End date moment object or iso string
+             */
             end: {
+                type: Object || String,
                 required: true,
             },
         },
 
         data() {
             return {
-                localStart: moment(),
-                localEnd: moment(),
+                localStart: moment(this.start),
+                localEnd: moment(this.end),
                 picker: null,
                 stage: 'start',
                 moment,
@@ -159,8 +174,8 @@
 
         watch: {
             localEnd() {
-                this.$emit('start-selected', this.localStart)
-                this.$emit('end-selected', this.localEnd)
+                this.$emit('update:start', this.localStart)
+                this.$emit('update:end', this.localEnd)
             },
         },
 
