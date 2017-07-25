@@ -94,26 +94,34 @@ Object.keys(config.preprocessors).forEach((preprocessor) => {
 */
 deleteFilesFrom(config.output, 'Map.scss')
 
+console.log(config.sassMaps.exclusions)
+
 Object.keys(variables).forEach((catagory) => {
-    const varPrefix = config.preprocessors.sass.variable.prefix
-    const fileName = `${catagory}Map.scss`
-    const fileDir = `${config.output}${fileName}`
-    let mapData = `$${catagory}Map: (\n`
+    if (config.sassMaps.exclusions.indexOf(catagory)) {
+        const varPrefix = config.preprocessors.sass.variable.prefix
+        const fileName = `${catagory}Map.scss`
+        const fileDir = `${config.output}${fileName}`
+        let mapData = `$${catagory}Map: (\n`
 
-    Object.keys(variables[catagory]).forEach((subCat) => {
-        mapData += `\t'${subCat}': (\n`
-        Object.keys(variables[catagory][subCat]).forEach((variable) => {
-            const value = variables[catagory][subCat][variable]
-            mapData += `\t\t'${variable}': `
+        Object.keys(variables[catagory]).forEach((subCat) => {
+            mapData += `\t'${subCat}': (\n`
 
-            mapData += value.startsWith('croud')
-            ? `${varPrefix}${value}, \n`
-            : `${varPrefix}${variable}, \n`
+            Object.keys(variables[catagory][subCat]).forEach((variable) => {
+                const value = variables[catagory][subCat][variable]
+                mapData += `\t\t'${variable}': `
+
+                mapData += value.startsWith('croud')
+                ? `${varPrefix}${value}, \n`
+                : `${varPrefix}${variable}, \n`
+            })
+
+            mapData = mapData.slice(0, -3)
+            mapData += '\n\t),\n'
         })
-        mapData = mapData.slice(0, -3)
-        mapData += '\n\t),\n'
-    })
-    mapData = mapData.slice(0, -2)
-    mapData += '\n);\n'
-    fs.writeFileSync(fileDir, mapData)
+
+        mapData = mapData.slice(0, -2)
+        mapData += '\n);\n'
+        fs.writeFileSync(fileDir, mapData)
+    }
 })
+
