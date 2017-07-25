@@ -43,7 +43,6 @@
                     this.$el.querySelector('input').focus()
                 }
                 $(this.$refs.wrapper).children('.menu').children('.item').tab()
-                $(this.$refs.topbar).children('.ui.dropdown').dropdown()
             })
         },
     }
