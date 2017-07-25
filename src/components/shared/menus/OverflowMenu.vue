@@ -132,6 +132,7 @@ export default {
                         margin-left: -1em;
                         font-size: $croud-font-size-small;
                         opacity: .8;
+                        line-height: 1.2rem;
                     }
 
                     @media screen and (min-width: 450px){
