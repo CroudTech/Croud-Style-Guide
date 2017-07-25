@@ -92,8 +92,8 @@
 
 <style lang="scss">
     .ui.segment.filterbox.text.menu {
-        // margin-left: -1em;
-        // margin-right: -1em;
+        /*margin-left: -1em
+        margin-right: -1em*/
         border-bottom: 1px solid hsla(0,0%,39%,.07);
 
         + .loader-container {
