@@ -1,5 +1,5 @@
 <template>
-    <transition name="slide-fade">
+    <transition name="slide">
         <div id="universal-editor" class="ui segments" @keydown.esc="close" @keydown.83.meta.prevent="save" @keydown.83.ctrl.prevent="save">
             <slot name="topbar">
                 <div ref="topbar" class="ui basic secondary right aligned segment">
@@ -49,12 +49,13 @@
     }
 </script>
 
-<style scoped>
+<style lang="scss" scoped>
+    @import '../../../resources/sass/variables/_motion.scss';
+
     #universal-editor {
         z-index: 50;
         margin: 0;
         background: #fff;
-        position: absolute;
         position: fixed;
         top: 58px;
         right: 0;
@@ -82,15 +83,14 @@
         flex: 1 auto;
     }
 
-    .slide-fade-enter-active {
-        transition: all .35s ease;
+    .slide-enter-active {
+        transition: all $croud-motion-duration-normal $croud-motion-ease-deceleration;
     }
-    .slide-fade-leave-active {
-        transition: all .25s ease;
+    .slide-leave-active {
+        transition: all $croud-motion-duration-normal $croud-motion-ease-sharp;
     }
-    .slide-fade-enter, .slide-fade-leave-to {
+    .slide-enter, .slide-leave-to {
         transform: translateX(700px);
-        opacity: .5;
     }
 
     .background {
