@@ -1,5 +1,7 @@
 <script>
-    import _ from 'lodash'
+    import debounce from 'lodash/debounce'
+    import defaultsDeep from 'lodash/defaultsDeep'
+
     import Vuetable from 'vuetable-2/src/components/Vuetable'
     import VuetablePagination from 'vuetable-2/src/components/VuetablePaginationDropdown'
     import VuetablePaginationInfo from 'vuetable-2/src/components/VuetablePaginationInfo'
@@ -121,7 +123,7 @@
 
         computed: {
             config() {
-                return _.defaultsDeep(this.vuetableConfig, {
+                return defaultsDeep(this.vuetableConfig, {
                     'pagination-path': 'meta.pagination',
                     css: {
                         tableClass: 'ui table',
@@ -134,10 +136,7 @@
         watch: {
             vuetableConfig: {
                 deep: true,
-                // handler() {
-                //     this.$refs.vuetable.refresh()
-                // },
-                handler: _.debounce(function () {
+                handler: debounce(function () {
                     this.$refs.vuetable.refresh()
                 }, 500),
             },
