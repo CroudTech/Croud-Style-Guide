@@ -5,7 +5,7 @@ You can toggle the sidebar using a **v-show** attribute. The sidebar emits **sav
             <i class="blue edit icon"></i>
         </button>
         <croud-sidebar v-show="toggleSidebar" @close="toggleSidebar = false" @save="alert('Saved')">
-            <croud-overflow-menu slot="options"  :options="[{name: 'Delete', method() {}, icon: 'red close'}]"></croud-overflow-menu>
+            <croud-overflow-menu slot="options"  :options="[{name: 'Delete', method() {}, icon: 'close'}]"></croud-overflow-menu>
             <div class="ui very padded basic segment">
                 <div class="ui form">
                     <div class="field">

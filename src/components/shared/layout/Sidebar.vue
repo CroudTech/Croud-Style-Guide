@@ -3,13 +3,13 @@
         <div id="universal-editor" class="ui segments" @keydown.esc="close" @keydown.83.meta.prevent="save" @keydown.83.ctrl.prevent="save">
             <slot name="topbar">
                 <div ref="topbar" class="ui basic secondary right aligned segment">
-                    <slot name="options"></slot>
                     <button @click="close" class="ui basic blue mini button">
                         Cancel
                     </button>
                     <button @click="save" class="ui blue mini button">
                         Save
                     </button>
+                    <slot name="options"></slot>
                 </div>
             </slot>
             <div ref="wrapper" class="wrapper">
