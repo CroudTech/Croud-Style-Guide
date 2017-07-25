@@ -34,7 +34,7 @@ module.exports = merge(baseWebpackConfig, {
     }),
     new FriendlyErrorsPlugin(),
     StylelintPlugin({
-      files: ['../src/components/shared/*.vue']
+      files: ['src/components/shared/**/*.vue']
     })
   ]
 })
