@@ -1,6 +1,6 @@
 module.exports = {
     extends: ['stylelint-config-recommended'],
-    processors: ['stylelint-processor-html'],
+    processors: ['@mapbox/stylelint-processor-arbitrary-tags'],
     rules: {
         'no-empty-source': null,
     }

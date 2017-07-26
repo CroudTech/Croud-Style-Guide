@@ -2,6 +2,13 @@
 # yarn lockfile v1
 
 
+"@mapbox/stylelint-processor-arbitrary-tags@^0.1.1":
+  version "0.1.1"
+  resolved "https://registry.yarnpkg.com/@mapbox/stylelint-processor-arbitrary-tags/-/stylelint-processor-arbitrary-tags-0.1.1.tgz#fbe489d9866386642fc98fb6a165a8fcdd49538a"
+  dependencies:
+    execall "^1.0.0"
+    split-lines "^1.1.0"
+
 abbrev@1, abbrev@1.0.x:
   version "1.0.9"
   resolved "https://registry.yarnpkg.com/abbrev/-/abbrev-1.0.9.tgz#91b4792588a7738c25f35dd6f63752a2f8776135"
@@ -8238,6 +8245,10 @@ spdx-license-ids@^1.0.2:
 specificity@^0.3.1:
   version "0.3.1"
   resolved "https://registry.yarnpkg.com/specificity/-/specificity-0.3.1.tgz#f1b068424ce317ae07478d95de3c21cf85e8d567"
+
+split-lines@^1.1.0:
+  version "1.1.0"
+  resolved "https://registry.yarnpkg.com/split-lines/-/split-lines-1.1.0.tgz#3abba8f598614142f9db8d27ab6ab875662a1e09"
 
 split@0.2:
   version "0.2.10"
