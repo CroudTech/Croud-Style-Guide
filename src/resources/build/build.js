@@ -114,8 +114,6 @@ Object.keys(config.preprocessors).forEach((preprocessor) => {
 */
 deleteFilesFrom(config.output, 'Map.scss')
 
-console.log(config.sassMaps.exclusions)
-
 Object.keys(variables).forEach((catagory) => {
     if (config.sassMaps.exclusions.indexOf(catagory)) {
         const varPrefix = config.preprocessors.sass.variable.prefix
