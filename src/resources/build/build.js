@@ -2,9 +2,9 @@ const fs = require('fs')
 const mkdirp = require('mkdirp')
 
 /**
-* Delete Files from a directory
-* @param {string} path - path to directory to remove files
-* @param {string} endWithRule (optional) - filter deleted files
+ * Delete Files from a directory
+ * @param {string} path - path to directory to remove files
+ * @param {string} endWithRule (optional) - filter deleted files
 */
 const deleteFilesFrom = (path, endWithRule = '') => {
     fs.readdirSync(path).forEach((file) => {
@@ -13,6 +13,15 @@ const deleteFilesFrom = (path, endWithRule = '') => {
             fs.unlinkSync(filePath)
         }
     })
+}
+
+/**
+ * Determine if there is an Object inside another Object
+ * @param {Object} object - Object to search through
+ */
+const objectInside = (object) => {
+     const objectPropChild = Object.keys(object[Object.keys(object)[0]])[0]
+     return objectPropChild != 0
 }
 
 const config = require('./build.config')
@@ -69,19 +78,30 @@ Object.keys(config.preprocessors).forEach((preprocessor) => {
 
         const vars = variables[varCatagory]
 
-        Object.keys(vars).forEach((varSubCatagory) => {
-            const subCats = variables[varCatagory][varSubCatagory]
-            fileData += `\n${preprocessorInfo.comment.syntax}${varSubCatagory}\n`
+        if (objectInside(vars)) {
+            Object.keys(vars).forEach((varSubCatagory) => {
+                const subCats = variables[varCatagory][varSubCatagory]
+                fileData += `\n${preprocessorInfo.comment.syntax}${varSubCatagory}\n`
 
-            Object.keys(subCats).forEach((variable) => {
-                const varValue = subCats[variable]
-                fileData += `${preprocessorInfo.variable.prefix}${variable}: `
+                Object.keys(subCats).forEach((variable) => {
+                    const varValue = subCats[variable]
+                    fileData += `${preprocessorInfo.variable.prefix}${variable}: `
+
+                    fileData += varValue.startsWith('croud')
+                    ? `${preprocessorInfo.variable.prefix}${varValue};\n`
+                    : `${varValue};\n`
+                })
+            })
+        } else {
+            Object.keys(vars).forEach((directVar) => {
+                const varValue = variables[varCatagory][directVar]
+                fileData += `${preprocessorInfo.variable.prefix}${directVar}: `
 
                 fileData += varValue.startsWith('croud')
                 ? `${preprocessorInfo.variable.prefix}${varValue};\n`
                 : `${varValue};\n`
             })
-        })
+        }
         allVarData += fileData
 
         fs.writeFileSync(allVarFilePath, allVarData)
