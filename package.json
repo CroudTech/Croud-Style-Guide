@@ -89,6 +89,7 @@
     "sinon-chai": "^2.8.0",
     "stylelint": "^8.0.0",
     "stylelint-config-recommended": "^1.0.0",
+    "stylelint-declaration-use-variable": "^1.6.0",
     "stylelint-processor-html": "^1.0.0",
     "stylelint-webpack-plugin": "^0.9.0",
     "url-loader": "^0.5.7",
