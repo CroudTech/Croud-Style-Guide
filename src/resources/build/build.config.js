@@ -37,6 +37,8 @@ module.exports = {
         },
     },
     sassMaps: {
-        exclusions: [],
+        exclusions: [
+            'layers',
+        ],
     },
 }
