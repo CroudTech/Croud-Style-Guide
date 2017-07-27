@@ -64,7 +64,7 @@ export default {
         font-size: $croud-font-size-medium;
         position: relative;
         display: inline-block;
-    
+
         &::after {
             content: '';
             display: block;

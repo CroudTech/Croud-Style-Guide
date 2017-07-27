@@ -29,11 +29,17 @@ module.exports = {
             name: 'Datatable',
             components: 'src/components/shared/Datatable.vue',
         },
+        {
+            name: 'Quill',
+            content: 'src/components/shared/forms/quill/quill.md',
+        },
     ],
     require: [
         'jquery',
         './semantic/dist/semantic.min.js',
         './semantic/dist/semantic.min.css',
+        'quill/dist/quill.snow.css',
+        './src/components/shared/forms/quill/shortcodes.css',
     ],
     // webpackConfig: {
     //     module: {
