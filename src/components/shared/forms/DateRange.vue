@@ -190,7 +190,7 @@
 
 <style>
     .has-event button.pika-button {
-        background-color: #3af;
-        color: white;
+        background-color: $croud-colour-info;
+        color: $croud-colour-font-light;
     }
 </style>

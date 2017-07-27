@@ -6,7 +6,11 @@ module.exports = {
         'no-empty-source': null,
         'rule-empty-line-before': 'always',
         "sh-waqar/declaration-use-variable": [
-            'font-family',
+            [
+                'font-family',
+                'color',
+                'background-color',
+            ]
         ],
     },
 }
