@@ -50,7 +50,7 @@
     @import '../../../resources/sass/variables/_all.scss'; 
 
     .ui.black.inverted.segment {
-        background-color: #353e40 !important;
+        background-color: $croud-colour-header !important;
     }
 
     .ui.basic {

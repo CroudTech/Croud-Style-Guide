@@ -49,7 +49,7 @@
 </script>
 
 <style lang="scss" scoped>
-    @import '../../../resources/sass/variables/_motion.scss';
+    @import '../../../resources/sass/variables/_all.scss';
 
     #universal-editor {
         z-index: 50;
@@ -102,7 +102,7 @@
         width: 100vw;
         height: 100vh;
         opacity: 0.3;
-        background-color: #000;
+        background-color: $croud-colour-header;
         content: '';
     }
 
