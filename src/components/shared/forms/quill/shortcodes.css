@@ -1,0 +1,14 @@
+.ql-template {
+  width: 120px;
+}
+
+.ql-template .ql-picker-label:before {
+  content: "Templates";
+}
+
+.ql-shortcode {
+  font-weight: bold;
+  background-color: #f0f0f0;
+}
+
+.ql-template .ql-picker-item[data-value="test"]:before {content: "test";}

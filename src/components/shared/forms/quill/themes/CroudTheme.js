@@ -11,10 +11,13 @@ class CroudTheme extends Snow {
     constructor(quill, options) {
         $quill = quill
         const templates = options.templates
-
-        templates.forEach((value) => {
-            document.styleSheets[0].insertRule(`.ql-template .ql-picker-item[data-value="${value.code}"]:before {content: "${value.name}";}`)
-        })
+        try {
+            templates.forEach((value) => {
+                document.styleSheets[0].insertRule(`.ql-template .ql-picker-item[data-value="${value.code}"]:before {content: "${value.name}";}`)
+            })
+        } catch (err) {
+            console.error(err)
+        }
         options.modules.toolbar.container.push([{ template: templates.map(t => t.code) }])
 
         super(quill, options)
