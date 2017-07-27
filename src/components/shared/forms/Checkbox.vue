@@ -53,7 +53,7 @@ export default {
         font-size: $croud-font-size-medium;
         position: relative;
         display: inline-block;
-    
+
         &::after {
             content: '';
             display: block;
@@ -89,6 +89,7 @@ export default {
 }
 
 .primary{
+
     &.checkbox input[type=checkbox]:checked + .checkbox__box{
         border-color: $croud-colour-primary;
         background-color: $croud-colour-primary;
@@ -96,6 +97,7 @@ export default {
 }
 
 .success{
+
     &.checkbox input[type=checkbox]:checked + .checkbox__box{
         border-color: $croud-colour-success;
         background-color: $croud-colour-success;
