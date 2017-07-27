@@ -42,10 +42,10 @@ $croud-colour-warning-accent: $croud-colour-secondary-yellow-dark;
 @import "../../fontImports"; 
 
 //headline
-$croud-font-headline: 'Pathway Gothic One';
+$croud-font-headline: 'Pathway Gothic One', Arial, Helvetica, sans-serif;
 
 //body
-$croud-font-body: 'Lato';
+$croud-font-body: 'Lato', Verdana, Geneva, sans-serif;
 
 //sizes
 $croud-font-size-heading: (28 / 14) + 0rem;
