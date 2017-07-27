@@ -76,18 +76,18 @@
             },
 
             computedSettings() {
-                const $this = this
+                // const $this = this
                 return _.defaultsDeep(this.settings, {
                     apiSettings: {
                         url: this.computedUrl,
-                        beforeXHR(xhr) {
+                        /*beforeXHR(xhr) {
                             xhr.setRequestHeader('authorization', `Bearer ${localStorage.getItem('jwt')}`)
                             return xhr
                         },
                         onResponse(response) {
                             response.results = response.data.map($this.transform)
                             return response
-                        },
+                        },*/
                     },
                     fields: {
                         results: 'data',

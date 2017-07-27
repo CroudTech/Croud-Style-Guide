@@ -71,9 +71,12 @@ export default {
     @import '../../../resources/sass/variables/_all.scss';
 
     .ui.dropdown{
+
         &.button{
             background: none;
+
             &.active.visible {
+
                 &:hover{
                     background: none;
                 }
@@ -88,12 +91,15 @@ export default {
             }
 
             &.no-pointer{
+
                 .menu{
+
                    &::after{
                         display: none;
                    }
                 }
             }
+
             .menu{
                 position: absolute;
                 right:0;
@@ -119,6 +125,7 @@ export default {
                     min-width: 128px;
                     max-width: 156px;
                 }
+                
                 .item{
                     display: flex;
                     align-items: center;

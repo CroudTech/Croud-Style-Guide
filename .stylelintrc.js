@@ -4,6 +4,7 @@ module.exports = {
     plugins: ['stylelint-declaration-use-variable'],
     rules: {
         'no-empty-source': null,
+        'rule-empty-line-before': 'always',
         "sh-waqar/declaration-use-variable": [
             'font-family',
         ],

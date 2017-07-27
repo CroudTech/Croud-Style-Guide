@@ -46,7 +46,9 @@
     }
 </script>
 
-<style scoped>
+<style lang="scss" scoped>
+    @import '../../../resources/sass/variables/_all.scss'; 
+
     .ui.black.inverted.segment {
         background-color: #353e40 !important;
     }
@@ -59,6 +61,7 @@
         max-height: 1000px;
         transition: all .3s ease;
     }
+
     .slide-down-enter, .slide-down-leave-to {
         max-height: 0 !important;
         overflow-y: hidden;
@@ -66,7 +69,7 @@
     }
 
     h2 {
-        font-family: Pathway Gothic One,sans-serif-condensed,Arial,Trebuchet MS,Lucida Grande,Tahoma,Verdana,sans-serif;
+        font-family: $croud-font-headline;
         border-bottom: 3px solid #f4c91b;
         text-transform: uppercase;
         font-weight: 400;
@@ -91,6 +94,7 @@
 </style>
 
 <style lang="scss">
+
     .ui.segment.filterbox.text.menu {
         /*margin-left: -1em
         margin-right: -1em*/
@@ -98,6 +102,7 @@
 
         + .loader-container {
             margin-top: 0;
+            
             .ui.table {
                 margin-bottom: 0;
             }

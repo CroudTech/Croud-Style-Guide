@@ -85,9 +85,11 @@
     .slide-enter-active {
         transition: all $croud-motion-duration-normal $croud-motion-ease-deceleration;
     }
+    
     .slide-leave-active {
         transition: all $croud-motion-duration-normal $croud-motion-ease-sharp;
     }
+
     .slide-enter, .slide-leave-to {
         transform: translateX(700px);
     }
