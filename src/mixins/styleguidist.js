@@ -13,6 +13,7 @@ export default {
             today: moment(),
             tomorrow: moment().add(1, 'days'),
             toggleSidebar: false,
+            checkbox: true,
         }
     },
 
