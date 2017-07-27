@@ -1,8 +1,8 @@
 <template>
     <div class="checkbox">
-        <input :id="id" :name="name" type="checkbox" :checked="checked"/>
-        <label :for="id" class="checkbox__box">
-        <i class="icon check"></i>
+        <input :name="name" type="checkbox" :checked="checker" />
+        <label class="checkbox__box" @click="function() { checker=!checker; _checked = !_checked }">
+            <i class="icon check"></i>
         </label>
   </div>
 </template>
@@ -14,20 +14,16 @@
 */
 export default {
     name: 'croud-checkbox',
+    model: {
+        prop: 'checked',
+    },
     props: {
         /**
-         * use to default to checked
+         * use to default to checked, alias for v-model
          */
         checked: {
             type: Boolean,
             default: false,
-        },
-        /**
-         * id for checkbox
-         */
-        id: {
-            type: String,
-            required: true,
         },
         /**
          * name for checkbox
@@ -35,6 +31,21 @@ export default {
         name: {
             type: String,
             default: '',
+        },
+    },
+    data() {
+        return {
+            checker: this.checked,
+        }
+    },
+    computed: {
+        _checked: {
+            get() {
+                return this.checked
+            },
+            set(val) {
+                this.$emit('input', val)
+            },
         },
     },
 }
@@ -79,7 +90,7 @@ export default {
             }
 
             .icon {
-                color: #fff;
+                color: $croud-colour-font-light;
                 font-size: $croud-font-size-mini;
                 line-height: 1.2;
                 margin-right: 0;
@@ -97,7 +108,7 @@ export default {
 }
 
 .success{
-
+    
     &.checkbox input[type=checkbox]:checked + .checkbox__box{
         border-color: $croud-colour-success;
         background-color: $croud-colour-success;
