@@ -21,11 +21,8 @@ export default {
             today: moment(),
             tomorrow: moment().add(1, 'days'),
             toggleSidebar: false,
-<<<<<<< HEAD
             checkbox: true,
-=======
             quillOutput: '',
->>>>>>> 4976abe
         }
     },
 
