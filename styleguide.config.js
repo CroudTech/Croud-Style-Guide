@@ -33,6 +33,10 @@ module.exports = {
             name: 'Quill',
             content: 'src/components/shared/forms/quill/quill.md',
         },
+        {
+            name: 'Headings',
+            content: 'src/components/shared/Headings.md',
+        },
     ],
     require: [
         'jquery',
