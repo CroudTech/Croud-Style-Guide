@@ -1,0 +1,31 @@
+@import '../../../resources/sass/variables/all.scss';
+
+#toasted-container.full-width{
+    width: 60%!important;
+    max-width: 550px;
+}
+
+.toasted{
+        font-size: $croud-font-size-large;
+        
+    &.croud {
+        padding: 1em 1em 1.5em 1em;
+        border-bottom: .5em solid;
+        font-family: $croud-font-body;
+        font-weight: 400;
+        color: $croud-colour-font-light;
+        background-color: $croud-colour-header;
+
+        &.default {
+            border-color: $croud-colour-primary;
+        }
+
+        &.error {
+            border-color: $croud-colour-danger;
+        }
+
+        &.success {
+            border-color: $croud-colour-success;
+        }
+    }
+}

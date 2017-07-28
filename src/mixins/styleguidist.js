@@ -1,10 +1,19 @@
 import moment from 'moment'
 import Vue from 'vue'
+import Toasted from 'vue-toasted'
 import Quill from 'quill'
 import VueQuill from 'vue-quill'
 import CroudTheme from '../components/shared/forms/quill/themes/CroudTheme'
 
 Vue.use(VueQuill)
+Vue.use(Toasted, {
+    fullWidth: true,
+    theme: 'croud',
+    duration: 5000,
+    position: 'top-center',
+})
+
+
 Vue.use(require('croud-vue-semantic'))
 
 Vue.component('planning-component', {})

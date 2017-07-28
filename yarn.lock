@@ -12809,6 +12809,10 @@ vue-template-es2015-compiler@^1.2.2:
   version "1.5.1"
   resolved "https://registry.yarnpkg.com/vue-template-es2015-compiler/-/vue-template-es2015-compiler-1.5.1.tgz#0c36cc57aa3a9ec13e846342cb14a72fcac8bd93"
 
+vue-toasted@^1.0.3:
+  version "1.0.3"
+  resolved "https://registry.yarnpkg.com/vue-toasted/-/vue-toasted-1.0.3.tgz#b3596f7fd717cd442706d697a3644480b1f438f7"
+
 vue-webpack-loaders@^1.0.4:
   version "1.0.4"
   resolved "https://registry.yarnpkg.com/vue-webpack-loaders/-/vue-webpack-loaders-1.0.4.tgz#bb05815f58fd1739fd23ddffe9c868a9e355c708"
