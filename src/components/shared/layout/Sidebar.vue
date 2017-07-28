@@ -1,6 +1,6 @@
 <template>
     <transition name="slide">
-        <div id="universal-editor" class="ui segments" @keydown.esc="close" @keydown.83.meta.prevent="save" @keydown.83.ctrl.prevent="save">
+        <div id="universal-editor" class="ui segments universal-editor" @keydown.esc="close" @keydown.83.meta.prevent="save" @keydown.83.ctrl.prevent="save">
             <slot name="topbar">
                 <div ref="topbar" class="ui basic secondary right aligned segment">
                     <button @click="close" class="ui basic blue mini button">
@@ -51,7 +51,7 @@
 <style lang="scss" scoped>
     @import '../../../resources/sass/variables/_all.scss';
 
-    #universal-editor {
+    .universal-editor {
         z-index: 50;
         margin: 0;
         background: #fff;
@@ -75,7 +75,7 @@
         border-radius: 0;
     }
 
-    #universal-editor .wrapper {
+    .universal-editor .wrapper {
         overflow-y: auto;
         display: flex;
         flex-direction: column;

@@ -11,7 +11,7 @@
                 <div class="Image-upload-wrapper Image-upload">
                     
                     <div ref="croppie" id="croppie"></div>
-                    <div id="upload-wrapper">
+                    <div id="upload-wrapper" class="upload-wrapper">
                         <div class="input-file">
                             <input ref="select" name="image-upload" type="file" accept="image/*" id="upload-image" v-on:change="setUpFileUploader" style="display: none">
                         </div>
@@ -243,7 +243,7 @@
 <style lang="scss">
 $transparent: transparent;
 
-  div#upload-wrapper {
+.upload-wrapper {
   text-align: center;
 }
 
