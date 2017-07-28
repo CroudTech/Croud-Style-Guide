@@ -23,6 +23,7 @@
     "*.vue": "stylelint:staged"
   },
   "dependencies": {
+    "croppie": "^2.5.0",
     "croud-date-parser": "git+https://github.com/CroudSupport/croud-date-parser.git",
     "pikaday": "^1.6.1",
     "tool": "^6.0.0",
