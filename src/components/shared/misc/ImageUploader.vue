@@ -1,16 +1,18 @@
 <template>
     <div>
-        <div class="ui very padded container">
-            <img class="ui centered small circular image" v-if="imgSrc" :src="src">
-            <semantic-divider />
-            <a class="ui fluid blue button" @click="showModal = !showModal">{{ buttonText }}</a>  
-        </div>
+        <slot>
+            <div class="ui very padded container">
+                <img class="ui centered small circular image" v-if="imgSrc" :src="src">
+                <semantic-divider />
+                <a class="ui fluid blue button" @click="showModal = !showModal">{{ buttonText }}</a>  
+            </div>
+        </slot>
 
         <semantic-modal size="small" :title="title" :active="showModal" :settings="modalSetting">
             <div class="ui basic segment">
                 <div class="Image-upload-wrapper Image-upload">
                     
-                    <div ref="croppie" id="croppie"></div>
+                    <div ref="croppie"></div>
                     <div id="upload-wrapper" class="upload-wrapper">
                         <div class="input-file">
                             <input ref="select" name="image-upload" type="file" accept="image/*" id="upload-image" v-on:change="setUpFileUploader" style="display: none">
@@ -73,6 +75,15 @@
             */
             imgUrl: {
                 type: String,
+                default: '/img/defaultAvatar.png',
+            },
+
+            /**
+            * Fallback default picture / placeholder
+            */
+            defaultSrc: {
+                type: String,
+                default: '/img/defaultAvatar.png',
             },
 
             /**
@@ -95,17 +106,33 @@
                     }
                 },
             },
+
+            /**
+            * Croppie Settings
+            */
+            croppieSettings: {
+                type: Object,
+                default() {
+                    return {
+                        viewport: { width: 220, height: 220, type: 'square' },
+                        boundary: { width: 260, height: 260 },
+                        showZoomer: true,
+                        enableOrientation: true,
+                        format: 'png',
+                        enforceBoundary: false,
+                    }
+                },
+            },
         },
 
         data() {
             return {
-                defaultSrc: '../../../.././static/img/defaultAvatar.png',
-                src: '../../../.././static/img/defaultAvatar.png',
-                //
+                src: this.defaultSrc,
                 loading: false,
                 showModal: false,
                 croppie: null,
                 image: null,
+                eventListenerAdded: false,
                 //
                 modalSetting: {
                     closable: true,
@@ -119,7 +146,6 @@
                         })
                     },
                 },
-                //
             }
         },
 
@@ -175,15 +201,8 @@
             },
 
             setUpCroppie() {
-                const el = document.getElementById('croppie')
-                this.croppie = new Croppie(el, {
-                    viewport: { width: 220, height: 220, type: 'square' },
-                    boundary: { width: 260, height: 260 },
-                    showZoomer: true,
-                    enableOrientation: true,
-                    format: 'png',
-                    enforceBoundary: false,
-                })
+                const el = this.$refs.croppie
+                this.croppie = new Croppie(el, this.croppieSettings)
             },
 
             setUpFileUploader(e) {
@@ -215,13 +234,17 @@
                 if (this.imgUrl) {
                     const tester = new Image()
 
-                    tester.addEventListener('load', (() => {
-                        this.src = this.imgUrl
-                    }))
+                    if (!this.eventListenersAdded) {
+                        tester.addEventListener('load', (() => {
+                            this.src = this.imgUrl
+                        }))
 
-                    tester.addEventListener('error', (() => {
-                        this.src = this.defaultSrc
-                    }))
+                        tester.addEventListener('error', (() => {
+                            this.src = this.defaultSrc
+                        }))
+                    }
+
+                    this.eventListenerAdded = true
 
                     tester.src = this.imgUrl
                 }
@@ -241,205 +264,11 @@
 </script>
 
 <style lang="scss">
-$transparent: transparent;
+
+@import '~croppie/croppie.css';
 
 .upload-wrapper {
-  text-align: center;
+    text-align: center;
 }
 
-  .croppie-container {
-  width: 100%;
-  height: 100%;
-}
-
-.croppie-container .cr-image {
-  z-index: -1;
-  position: absolute;
-  top: 0;
-  left: 0;
-  transform-origin: 0 0;
-  max-height: none;
-  max-width: none;
-}
-
-.croppie-container .cr-boundary {
-  position: relative;
-  overflow: hidden;
-  margin: 0 auto;
-  z-index: 1;
-  width: 100%;
-  height: 100%;
-}
-
-.croppie-container .cr-viewport {
-  position: absolute;
-  border: 2px solid #fff;
-  margin: auto;
-  top: 0;
-  bottom: 0;
-  right: 0;
-  left: 0;
-  box-shadow: 0 0 2000px 2000px rgba(0, 0, 0, 0.5);
-  z-index: 0;
-}
-
-.croppie-container .cr-original-image {
-  display: none;
-}
-
-.croppie-container .cr-vp-circle {
-  border-radius: 50%;
-}
-
-.croppie-container .cr-overlay {
-  z-index: 1;
-  position: absolute;
-  cursor: move;
-}
-
-.croppie-container .cr-slider-wrap {
-  width: 75%;
-  margin: 15px auto;
-  text-align: center;
-}
-
-.croppie-result {
-  position: relative;
-  overflow: hidden;
-}
-
-.croppie-result img {
-  position: absolute;
-}
-
-.croppie-container .cr-image,
-.croppie-container .cr-overlay,
-.croppie-container .cr-viewport {
-  -webkit-transform: translateZ(0);
-  -moz-transform: translateZ(0);
-  -ms-transform: translateZ(0);
-  transform: translateZ(0);
-}
-
-/*************************************/
-/***** STYLING RANGE INPUT ***********/
-/*************************************/
-
-.cr-slider {
-  -webkit-appearance: none;
-  width: 300px;
-  max-width: 100%;
-}
-
-.cr-slider::-webkit-slider-runnable-track {
-  width: 100%;
-  height: 3px;
-  background: rgba(0, 0, 0, 0.5);
-  border: 0;
-  border-radius: 3px;
-}
-
-.cr-slider::-webkit-slider-thumb {
-  -webkit-appearance: none;
-  border: none;
-  height: 16px;
-  width: 16px;
-  border-radius: 50%;
-  background: #ddd;
-  margin-top: -6px;
-}
-
-.cr-slider:focus {
-  outline: none;
-}
-
-.cr-slider::-moz-range-track {
-  width: 100%;
-  height: 3px;
-  background: rgba(0, 0, 0, 0.5);
-  border: 0;
-  border-radius: 3px;
-}
-
-.cr-slider::-moz-range-thumb {
-  border: none;
-  height: 16px;
-  width: 16px;
-  border-radius: 50%;
-  background: #ddd;
-  margin-top: -6px;
-}
-
-.cr-slider:-moz-focusring {
-  outline: 1px solid white;
-  outline-offset: -1px;
-}
-
-.cr-slider::-ms-track {
-  width: 300px;
-  height: 5px;
-  background: $transparent;
-  border-color: $transparent;
-  border-width: 6px 0;
-  color: $transparent;
-}
-
-.cr-slider::-ms-fill-lower {
-  background: rgba(0, 0, 0, 0.5);
-  border-radius: 10px;
-}
-
-.cr-slider::-ms-fill-upper {
-  background: rgba(0, 0, 0, 0.5);
-  border-radius: 10px;
-}
-
-.cr-slider::-ms-thumb {
-  border: none;
-  height: 16px;
-  width: 16px;
-  border-radius: 50%;
-  background: #ddd;
-  margin-top:1px;
-}
-
-.cr-slider:focus::-ms-fill-lower {
-  background: rgba(0, 0, 0, 0.5);
-}
-
-.cr-slider:focus::-ms-fill-upper {
-  background: rgba(0, 0, 0, 0.5);
-}
-/*******************************************/
-
-/***********************************/
-/* Rotation Tools */
-/***********************************/
-
-.cr-rotate-controls {
-  position: absolute;
-  bottom: 5px;
-  left: 5px;
-  z-index: 1;
-}
-
-.cr-rotate-controls button {
-  border: 0;
-  background: none;
-}
-
-.cr-rotate-controls i:before {
-  display: inline-block;
-  font-style: normal;
-  font-weight: 900;
-  font-size: 22px;
-}
-
-.cr-rotate-l i:before {
-  content: '↺';
-}
-
-.cr-rotate-r i:before {
-  content: '↻';
-}
 </style>

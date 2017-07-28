@@ -2942,6 +2942,15 @@ cross-spawn@^5.0.1, cross-spawn@^5.1.0:
   dependencies:
     chrono-node "^1.1.6"
 
+croud-style-guide@^0.1.10:
+  version "0.1.10"
+  resolved "https://registry.yarnpkg.com/croud-style-guide/-/croud-style-guide-0.1.10.tgz#925428e0be8a916571b77f3355c9c159cd075a7a"
+  dependencies:
+    croud-date-parser "git+https://github.com/CroudSupport/croud-date-parser.git"
+    pikaday "^1.6.1"
+    tool "^6.0.0"
+    vuetable-2 "^1.6.5"
+
 croud-vue-semantic@^1.0.2:
   version "1.0.2"
   resolved "https://registry.yarnpkg.com/croud-vue-semantic/-/croud-vue-semantic-1.0.2.tgz#1687952802cb0f140d4a3ae4d09f49d2bbe5aab1"
