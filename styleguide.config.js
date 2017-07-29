@@ -13,29 +13,40 @@ module.exports = {
             name: 'Menus',
             components: 'src/components/shared/menus/**/*.vue',
         },
-        {
-            name: 'Misc',
-            components: 'src/components/shared/misc/**/*.vue',
-        },
+
         {
             name: 'Layout',
             components: 'src/components/shared/layout/**/*.vue',
+            sections: [
+                {
+                    name: 'Datatable',
+                    components: 'src/components/shared/Datatable.vue',
+                },
+            ],
         },
         {
             name: 'Form Inputs',
             components: 'src/components/shared/forms/**/*.vue',
+            sections: [
+                {
+                    name: 'Quill',
+                    content: 'src/components/shared/forms/quill/quill.md',
+                },
+            ],
         },
         {
-            name: 'Datatable',
-            components: 'src/components/shared/Datatable.vue',
-        },
-        {
-            name: 'Quill',
-            content: 'src/components/shared/forms/quill/quill.md',
-        },
-        {
-            name: 'Headings',
-            content: 'src/components/shared/Headings.md',
+            name: 'Misc',
+            components: 'src/components/shared/misc/**/*.vue',
+            sections: [
+                {
+                    name: 'Headings',
+                    content: 'src/components/shared/Headings.md',
+                },
+                {
+                    name: 'Toast',
+                    content: 'src/components/shared/forms/toast/toast.md',
+                },
+            ],
         },
     ],
     require: [

@@ -5,6 +5,8 @@ import Quill from 'quill'
 import VueQuill from 'vue-quill'
 import CroudTheme from '../components/shared/forms/quill/themes/CroudTheme'
 
+import '../components/shared/forms/toast/themes/croudToastTheme.scss'
+
 Vue.use(VueQuill)
 Vue.use(Toasted, {
     fullWidth: true,
