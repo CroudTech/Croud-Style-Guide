@@ -1,9 +1,9 @@
 ### Basic usage
 
     <div>
-        <croud-avatar :user="{name: 'Homer J Simpson', avatar: '//lorempicsum.com/simpsons/450/450/1'}" />
-        <croud-avatar size="tiny" :user="{name: 'Marge Simpson', avatar: '//lorempicsum.com/simpsons/200/200/2'}" />
-        <croud-avatar size="mini" :user="{name: 'Bart Simpson', avatar: '//lorempicsum.com/simpsons/200/200/7'}" />
+        <croud-avatar :user="{name: 'Homer J Simpson', avatar: 'http://lorempicsum.com/simpsons/450/450/1'}" />
+        <croud-avatar size="tiny" :user="{name: 'Marge Simpson', avatar: 'http://lorempicsum.com/simpsons/200/200/2'}" />
+        <croud-avatar size="mini" :user="{name: 'Bart Simpson', avatar: 'http://lorempicsum.com/simpsons/200/200/7'}" />
     </div>
 
 
@@ -12,7 +12,7 @@ If there is no avatar url or the image fails to load, the component will fallbac
 
     <div>
         <croud-avatar :user="{name: 'Bart Simpson'}" />
-        <croud-avatar size="tiny" :user="{name: 'Marge Simpson', avatar: '//lorempicsum.com/simpsons/450/450/10'}" />
+        <croud-avatar size="tiny" :user="{name: 'Marge Simpson', avatar: 'http://lorempicsum.com/simpsons/450/450/10'}" />
         <croud-avatar size="mini" :user="{name: 'Homer J Simpson', avatar: ''}" />
     </div>
 
