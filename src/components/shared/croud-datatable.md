@@ -71,7 +71,7 @@ You can pass through scoped slots to generate more complex columns
         }"
         :transform="data => data" >
         <template slot="actions" scope="props">
-            <button @click="alert('this is row id ' + props.rowData.id)" class="ui blue icon circular mini button">
+            <button @click="() => {Vue.toasted.show('this is row id ' + props.rowData.id)}" class="ui blue icon circular mini button">
                 <i class="right chevron icon"></i>
             </button>
         </template>

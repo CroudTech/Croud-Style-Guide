@@ -73,16 +73,19 @@ export default {
     .ui.dropdown{
 
         &.button{
+            /* stylelint-disable-next-line */
             background: none;
 
             &.active.visible {
 
                 &:hover{
+                    /* stylelint-disable-next-line */
                     background: none;
                 }
             }
 
             &:focus{
+                /* stylelint-disable-next-line */
                 background: none!important;
             }
 
