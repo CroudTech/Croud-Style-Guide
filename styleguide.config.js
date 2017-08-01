@@ -3,6 +3,7 @@
 const webpack = require('./build/webpack.dev.conf.js')
 
 module.exports = {
+    title: 'Croud Tech Docs',
     // components: 'src/components/shared/**/*.vue',
     sections: [
         {
