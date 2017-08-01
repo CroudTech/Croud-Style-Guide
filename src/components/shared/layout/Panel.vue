@@ -73,7 +73,7 @@
         border-bottom: 3px solid #f4c91b;
         text-transform: uppercase;
         font-weight: 400;
-        font-size: 26px;
+        font-size: $croud-font-size-massive;
         padding-bottom: 0.1em;
         margin-bottom: 0.8em;
         margin-top: 0.4em;
@@ -85,7 +85,7 @@
     }
 
     .ui.segments {
-        background: #fff;
+        background: $croud-colour-card;
     }
 
     .ui.basic {

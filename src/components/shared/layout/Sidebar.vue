@@ -52,9 +52,9 @@
     @import '../../../resources/sass/variables/_all.scss';
 
     .universal-editor {
-        z-index: 50;
+        z-index: $croud-layer-8;
         margin: 0;
-        background: #fff;
+        background: $croud-colour-card;
         position: fixed;
         top: 58px;
         right: 0;
@@ -95,7 +95,7 @@
     }
 
     .background {
-        z-index: 40;
+        z-index: $croud-layer-3;
         position: fixed;
         top: 0;
         left: 0;
