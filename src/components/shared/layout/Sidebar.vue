@@ -52,7 +52,7 @@
     @import '../../../resources/sass/variables/_all.scss';
 
     .universal-editor {
-        z-index: 50;
+        z-index: 1000;
         margin: 0;
         background: #fff;
         position: fixed;
@@ -85,7 +85,7 @@
     .slide-enter-active {
         transition: all $croud-motion-duration-normal $croud-motion-ease-deceleration;
     }
-    
+
     .slide-leave-active {
         transition: all $croud-motion-duration-normal $croud-motion-ease-sharp;
     }
