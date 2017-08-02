@@ -34,6 +34,8 @@ export default {
             toggleSidebar: false,
             checkbox: true,
             quillOutput: '',
+            openModal: false,
+            dropdownVal: '',
         }
     },
 

@@ -33,6 +33,10 @@ module.exports = {
                     name: 'Quill',
                     content: 'src/components/shared/forms/quill/quill.md',
                 },
+                {
+                    name: 'Dropdown',
+                    content: 'src/components/shared/semantic/semantic-form-dropdown.md',
+                },
             ],
         },
         {
