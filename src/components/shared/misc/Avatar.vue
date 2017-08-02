@@ -4,12 +4,11 @@
         <!--<span class="ui large circular yellow label" v-else>{{ userInitials }}</span>-->
         <svg v-else xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" style="shape-rendering:geometricPrecision; text-rendering:geometricPrecision; image-rendering:optimizeQuality; fill-rule:evenodd; clip-rule:evenodd"
 viewBox="0 0 500 500">
-  <g>
-    <circle :style="{fill: randomBackgroundColour}" cx="250" cy="250" r="245">
-    </circle>
-    <text x="50%" y="50%" text-anchor="middle" dy="0em" font-size="250px" alignment-baseline="central" fill="white">{{ userInitials }}</text>
-  </g>
-</svg>
+            <g>
+                <circle :style="{fill: randomBackgroundColour}" cx="250" cy="250" r="245"></circle>
+                <text x="50%" y="50%" text-anchor="middle" dy="0em" font-size="250px" alignment-baseline="central" fill="white">{{ userInitials }}</text>
+            </g>
+        </svg>
     </div>
 </template>
 
