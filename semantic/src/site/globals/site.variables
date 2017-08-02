@@ -441,15 +441,15 @@
 
 @circularRadius                : 500rem;
 
-@borderColor               : rgba(34, 36, 38, 0.15);
-@strongBorderColor         : rgba(34, 36, 38, 0.22);
-@internalBorderColor       : rgba(34, 36, 38, 0.1);
-@selectedBorderColor       : rgba(34, 36, 38, 0.35);
-@strongSelectedBorderColor : rgba(34, 36, 38, 0.5);
-@disabledBorderColor       : rgba(34, 36, 38, 0.5);
+@borderColor               : fade(@croud-colour-border, 15%);
+@strongBorderColor         : fade(@croud-colour-border, 22%);
+@internalBorderColor       : fade(@croud-colour-border, 10%);
+@selectedBorderColor       : fade(@croud-colour-border, 35%);
+@strongSelectedBorderColor : fade(@croud-colour-border, 50%);
+@disabledBorderColor       : fade(@croud-colour-border, 50%);
 
-@solidInternalBorderColor  : #FAFAFA;
-@solidBorderColor          : #D4D4D5;
+@solidInternalBorderColor  : @croud-colour-border-internal;
+@solidBorderColor          : @croud-colour-border-light;
 @solidSelectedBorderColor  : #BCBDBD;
 
 @whiteBorderColor              : rgba(255, 255, 255, 0.1);
