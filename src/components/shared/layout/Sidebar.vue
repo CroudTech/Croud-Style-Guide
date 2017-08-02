@@ -3,6 +3,7 @@
         <div id="universal-editor" class="ui segments universal-editor" @keydown.esc="close" @keydown.83.meta.prevent="save" @keydown.83.ctrl.prevent="save">
             <slot name="topbar">
                 <div ref="topbar" class="ui basic secondary right aligned segment">
+                 <h2 v-if="getTitle.length" class="ui left aligned left floated header sidebar-title">{{ getTitle }}</h2>
                     <button @click="close" class="ui basic blue mini button">
                         Cancel
                     </button>
@@ -28,12 +29,31 @@
     export default {
         name: 'croud-sidebar',
 
+        props: {
+            /**
+             * Set the large title in the top left of the Sidebar
+             */
+            title: {
+                type: String,
+                default: '',
+            },
+        },
+
         methods: {
             close() {
                 this.$emit('close')
             },
             save() {
                 this.$emit('save')
+            },
+        },
+
+        computed: {
+            getTitle() {
+                const length = 55
+                const string = this.title || ''
+                const trimmedString = string.length > length ? `${string.substring(0, length - 3)}...` : string
+                return trimmedString
             },
         },
 
@@ -51,7 +71,7 @@
 <style lang="scss" scoped>
     @import '../../../resources/sass/variables/_all.scss';
 
-    .universal-editor {
+.universal-editor {
         z-index: $croud-layer-8;
         margin: 0;
         background: $croud-colour-card;
@@ -104,6 +124,10 @@
         opacity: 0.3;
         background-color: $croud-colour-header;
         content: '';
+    }
+
+    .ui.left.aligned.left.floated.header.sidebar-title {
+        margin-bottom: 0;
     }
 
 </style>
