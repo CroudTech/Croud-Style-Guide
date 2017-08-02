@@ -148,6 +148,6 @@
 
 </script>
 
-<style>
-    @import '~pikaday/css/pikaday.css';
+<style lang="scss">
+    @import './pikaday-theme/pikaday.scss';
 </style>
