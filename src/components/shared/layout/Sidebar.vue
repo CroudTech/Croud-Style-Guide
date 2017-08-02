@@ -3,8 +3,8 @@
         <div id="universal-editor" class="ui segments universal-editor" @keydown.esc="close" @keydown.83.meta.prevent="save" @keydown.83.ctrl.prevent="save">
             <slot name="topbar">
                 <div ref="topbar" class="ui basic secondary segment top-bar">
-                    <h2 v-if="getTitle.length" class="ui left aligned header sidebar-title">{{ getTitle }}</h2>
-                    <div class="right-elements">
+                    <h2 class="ui left aligned header sidebar-title">{{ title }}</h2>
+                    <div class="right">
                         <slot name="actions">
                             <button @click="close" class="ui basic blue mini button">
                                 Cancel
@@ -49,15 +49,6 @@
             },
             save() {
                 this.$emit('save')
-            },
-        },
-
-        computed: {
-            getTitle() {
-                const length = 55
-                const string = this.title || ''
-                const trimmedString = string.length > length ? string.substring(0, length) : string
-                return trimmedString
             },
         },
 
@@ -119,7 +110,7 @@
     }
 
     .background {
-      z-index: $croud-layer-3;
+        z-index: $croud-layer-3;
         position: fixed;
         top: 0;
         left: 0;
@@ -136,13 +127,14 @@
         align-items: center;
     }
 
+    .right {
+        white-space: nowrap;
+    }
+
     .ui.header.sidebar-title {
-        margin-bottom: 0;
-        margin-right: 0;
-        width: 200px;
+        margin: 0.2em 1em 0 0;
         white-space: nowrap;
         overflow: hidden;
         text-overflow: ellipsis;
     }
-
 </style>
