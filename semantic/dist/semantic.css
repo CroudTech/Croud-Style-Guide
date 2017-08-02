@@ -28684,6 +28684,11 @@ Floated Menu / Item
 /*******************************
          Theme Overrides
 *******************************/
+
+.ui.basic.segment > .ui.text.menu {
+  margin: inherit;
+  padding: 0;
+}
 /*!
  * # Semantic UI 2.2.11 - Message
  * http://github.com/semantic-org/semantic-ui/

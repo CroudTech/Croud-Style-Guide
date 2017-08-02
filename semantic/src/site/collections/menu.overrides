@@ -1,3 +1,9 @@
 /*******************************
          Theme Overrides
 *******************************/
+.ui.basic.segment {
+    > .ui.text.menu {
+        margin: inherit;
+        padding: 0;
+    }
+}
