@@ -37,6 +37,10 @@ module.exports = {
                     name: 'Dropdown',
                     content: 'src/components/shared/semantic/semantic-form-dropdown.md',
                 },
+                {
+                    name: 'Checkbox',
+                    content: 'src/components/shared/semantic/semantic-checkbox.md',
+                },
             ],
         },
         {
