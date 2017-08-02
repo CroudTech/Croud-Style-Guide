@@ -2,14 +2,19 @@
     <transition name="slide">
         <div id="universal-editor" class="ui segments universal-editor" @keydown.esc="close" @keydown.83.meta.prevent="save" @keydown.83.ctrl.prevent="save">
             <slot name="topbar">
-                <div ref="topbar" class="ui basic secondary right aligned segment">
-                    <button @click="close" class="ui basic blue mini button">
-                        Cancel
-                    </button>
-                    <button @click="save" class="ui blue mini button">
-                        Save
-                    </button>
-                    <slot name="options"></slot>
+                <div ref="topbar" class="ui basic secondary segment top-bar">
+                    <h2 class="ui left aligned header sidebar-title">{{ title }}</h2>
+                    <div class="right">
+                        <slot name="actions">
+                            <button @click="close" class="ui basic blue mini button">
+                                Cancel
+                            </button>
+                            <button @click="save" class="ui blue mini button">
+                                Save
+                            </button>
+                        </slot>                        
+                        <slot name="options"></slot>
+                    </div>
                 </div>
             </slot>
             <div ref="wrapper" class="wrapper">
@@ -27,6 +32,16 @@
      */
     export default {
         name: 'croud-sidebar',
+
+        props: {
+            /**
+             * Set the large title in the top left of the Sidebar
+             */
+            title: {
+                type: String,
+                default: '',
+            },
+        },
 
         methods: {
             close() {
@@ -85,7 +100,7 @@
     .slide-enter-active {
         transition: all $croud-motion-duration-normal $croud-motion-ease-deceleration;
     }
-
+    
     .slide-leave-active {
         transition: all $croud-motion-duration-normal $croud-motion-ease-sharp;
     }
@@ -106,4 +121,20 @@
         content: '';
     }
 
+    .top-bar {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .right {
+        white-space: nowrap;
+    }
+
+    .ui.header.sidebar-title {
+        margin: 0.2em 1em 0 0;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
 </style>
