@@ -2,15 +2,19 @@
     <transition name="slide">
         <div id="universal-editor" class="ui segments universal-editor" @keydown.esc="close" @keydown.83.meta.prevent="save" @keydown.83.ctrl.prevent="save">
             <slot name="topbar">
-                <div ref="topbar" class="ui basic secondary right aligned segment">
-                 <h2 v-if="getTitle.length" class="ui left aligned left floated header sidebar-title">{{ getTitle }}</h2>
-                    <button @click="close" class="ui basic blue mini button">
-                        Cancel
-                    </button>
-                    <button @click="save" class="ui blue mini button">
-                        Save
-                    </button>
-                    <slot name="options"></slot>
+                <div ref="topbar" class="ui basic secondary segment top-bar">
+                    <h2 v-if="getTitle.length" class="ui left aligned header sidebar-title">{{ getTitle }}</h2>
+                    <div class="right-elements">
+                        <slot name="actions">
+                            <button @click="close" class="ui basic blue mini button">
+                                Cancel
+                            </button>
+                            <button @click="save" class="ui blue mini button">
+                                Save
+                            </button>
+                        </slot>                        
+                        <slot name="options"></slot>
+                    </div>
                 </div>
             </slot>
             <div ref="wrapper" class="wrapper">
@@ -52,7 +56,7 @@
             getTitle() {
                 const length = 55
                 const string = this.title || ''
-                const trimmedString = string.length > length ? `${string.substring(0, length - 3)}...` : string
+                const trimmedString = string.length > length ? string.substring(0, length) : string
                 return trimmedString
             },
         },
@@ -71,7 +75,7 @@
 <style lang="scss" scoped>
     @import '../../../resources/sass/variables/_all.scss';
 
-.universal-editor {
+    .universal-editor {
         z-index: $croud-layer-8;
         margin: 0;
         background: $croud-colour-card;
@@ -105,7 +109,7 @@
     .slide-enter-active {
         transition: all $croud-motion-duration-normal $croud-motion-ease-deceleration;
     }
-
+    
     .slide-leave-active {
         transition: all $croud-motion-duration-normal $croud-motion-ease-sharp;
     }
@@ -115,7 +119,7 @@
     }
 
     .background {
-        z-index: $croud-layer-3;
+      z-index: $croud-layer-3;
         position: fixed;
         top: 0;
         left: 0;
@@ -126,8 +130,19 @@
         content: '';
     }
 
-    .ui.left.aligned.left.floated.header.sidebar-title {
+    .top-bar {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .ui.header.sidebar-title {
         margin-bottom: 0;
+        margin-right: 0;
+        width: 200px;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
     }
 
 </style>
