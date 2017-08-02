@@ -23,6 +23,10 @@ module.exports = {
                     name: 'Datatable',
                     components: 'src/components/shared/Datatable.vue',
                 },
+                {
+                    name: 'Modal',
+                    content: 'src/components/shared/semantic/semantic-modal.md',
+                },
             ],
         },
         {
