@@ -48,7 +48,7 @@ $pd-font-family: $croud-font-body !default;
 
     &.is-bound {
         position: absolute;
-        box-shadow: 0 5px 15px -5px $pd-picker-shadow;
+        box-shadow: $croud-box-shadow-subtle;
     }
 }
 
