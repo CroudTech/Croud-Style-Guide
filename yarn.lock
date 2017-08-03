@@ -2363,6 +2363,14 @@ clean-webpack-plugin@^0.1.16:
   dependencies:
     rimraf "~2.5.1"
 
+cleave.js@^0.7.15:
+  version "0.7.23"
+  resolved "https://registry.yarnpkg.com/cleave.js/-/cleave.js-0.7.23.tgz#55a6906fb60f611276aab9c0def726ee8530c49b"
+
+cleave.js@^0.9.2:
+  version "0.9.2"
+  resolved "https://registry.yarnpkg.com/cleave.js/-/cleave.js-0.9.2.tgz#588f82b2160fc5f29cc8c36053f5dc93eebaf3d2"
+
 cli-boxes@^1.0.0:
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/cli-boxes/-/cli-boxes-1.0.0.tgz#4fa917c3e59c94a004cd61f8ee509da651687143"
@@ -12650,6 +12658,12 @@ vm-browserify@0.0.4:
 void-elements@^2.0.0:
   version "2.0.1"
   resolved "https://registry.yarnpkg.com/void-elements/-/void-elements-2.0.1.tgz#c066afb582bb1cb4128d60ea92392e94d5e9dbec"
+
+vue-cleave@^1.2.2:
+  version "1.2.2"
+  resolved "https://registry.yarnpkg.com/vue-cleave/-/vue-cleave-1.2.2.tgz#857f428c6c92b64ee1c4a82bfba654dea20d71af"
+  dependencies:
+    cleave.js "^0.7.15"
 
 vue-docgen-api@^2.0.4:
   version "2.0.4"
