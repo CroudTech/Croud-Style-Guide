@@ -120,7 +120,7 @@ Object.keys(config.preprocessors).forEach((preprocessor) => {
 deleteFilesFrom(config.output, 'Map.scss')
 
 Object.keys(variables).forEach((catagory) => {
-    if (config.sassMaps.exclusions.indexOf(catagory)) {
+    if (config.sassMaps.exclusions.indexOf(catagory) === -1) {
         const varPrefix = config.preprocessors.sass.variable.prefix
         const fileName = `${catagory}Map.scss`
         const fileDir = `${config.output}${fileName}`
