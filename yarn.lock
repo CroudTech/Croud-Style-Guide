@@ -2950,9 +2950,9 @@ cross-spawn@^5.0.1, cross-spawn@^5.1.0:
   dependencies:
     chrono-node "^1.1.6"
 
-croud-vue-semantic@^1.0.2:
-  version "1.0.2"
-  resolved "https://registry.yarnpkg.com/croud-vue-semantic/-/croud-vue-semantic-1.0.2.tgz#1687952802cb0f140d4a3ae4d09f49d2bbe5aab1"
+croud-vue-semantic@^1.0.6:
+  version "1.0.6"
+  resolved "https://registry.yarnpkg.com/croud-vue-semantic/-/croud-vue-semantic-1.0.6.tgz#2b300251af082bccc49e7d49727b4d4558a38fe0"
   dependencies:
     underscore "^1.8.3"
 

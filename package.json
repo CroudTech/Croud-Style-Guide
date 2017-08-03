@@ -47,7 +47,7 @@
     "connect-history-api-fallback": "^1.3.0",
     "copy-webpack-plugin": "^4.0.1",
     "cross-env": "^3.1.4",
-    "croud-vue-semantic": "^1.0.2",
+    "croud-vue-semantic": "^1.0.6",
     "css-loader": "^0.26.1",
     "eslint": "^3.14.1",
     "eslint-config-airbnb-base": "^11.0.1",
