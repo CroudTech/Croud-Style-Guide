@@ -36,6 +36,7 @@ export default {
             quillOutput: '',
             showModal: false,
             dropdownVal: '',
+            radio: 1,
         }
     },
 

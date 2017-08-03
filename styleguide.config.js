@@ -45,6 +45,10 @@ module.exports = {
                     name: 'Checkbox',
                     content: 'src/components/shared/semantic/semantic-checkbox.md',
                 },
+                {
+                    name: 'Radio',
+                    content: 'src/components/shared/semantic/semantic-radiobutton.md',
+                },
             ],
         },
         {
