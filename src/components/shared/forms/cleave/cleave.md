@@ -1,5 +1,5 @@
 ### vue-cleave
-We use [vue-cleave](https://github.com/vue-bulma/cleave) for our masked inputs. Below are a few examples of cleave examples but see their [docs](http://nosir.github.io/cleave.js/) for more advaced exaples.
+We use [vue-cleave](https://github.com/vue-bulma/cleave) for our masked inputs. Below are a few examples of cleave.js but see their [docs](http://nosir.github.io/cleave.js/) for more advaced exaples.
 
 ### Basic usage
 
