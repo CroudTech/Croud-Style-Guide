@@ -1,5 +1,6 @@
 const fs = require('fs')
 const mkdirp = require('mkdirp')
+const config = require('./build.config')
 
 /**
  * Delete Files from a directory
@@ -16,15 +17,9 @@ const deleteFilesFrom = (path, endWithRule = '') => {
 }
 
 /**
- * Determine if there is an Object inside another Object
- * @param {Object} object - Object to search through
+ * Determine if string is a variable
  */
-const objectInside = (object) => {
-    const objectPropChild = Object.keys(object[Object.keys(object)[0]])[0]
-    return objectPropChild != 0
-}
-
-const config = require('./build.config')
+const varCheck = name => name.startsWith(config.prefix)
 
 const varFiles = fs.readdirSync(config.input)
 const variables = {}
@@ -78,7 +73,7 @@ Object.keys(config.preprocessors).forEach((preprocessor) => {
 
         const vars = variables[varCatagory]
 
-        if (objectInside(vars)) {
+        if (!varCheck(Object.keys(vars)[0])) {
             Object.keys(vars).forEach((varSubCatagory) => {
                 const subCats = variables[varCatagory][varSubCatagory]
                 fileData += `\n /* ${varSubCatagory} */ \n`
@@ -87,17 +82,21 @@ Object.keys(config.preprocessors).forEach((preprocessor) => {
                     const varValue = subCats[variable]
                     fileData += `${preprocessorInfo.variable.prefix}${variable}: `
 
-                    fileData += varValue.startsWith('croud')
+                    fileData += varCheck(varValue)
                     ? `${preprocessorInfo.variable.prefix}${varValue};\n`
                     : `${varValue};\n`
                 })
             })
         } else {
             Object.keys(vars).forEach((directVar) => {
-                const varValue = variables[varCatagory][directVar]
+                const propValue = variables[varCatagory][directVar]
                 fileData += `${preprocessorInfo.variable.prefix}${directVar}: `
 
-                fileData += varValue.startsWith('croud')
+                const varValue = typeof propValue !== 'string'
+                ? propValue[preprocessorInfo.name]
+                : propValue
+
+                fileData += varCheck(varValue)
                 ? `${preprocessorInfo.variable.prefix}${varValue};\n`
                 : `${varValue};\n`
             })

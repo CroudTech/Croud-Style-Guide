@@ -1,8 +1,10 @@
 module.exports = {
     input: '../config/variables/',
     output: '../',
+    prefix: 'croud-',
     preprocessors: {
         sass: {
+            name: 'sass',
             file: {
                 prefix: '_',
                 extension: 'scss',
@@ -12,6 +14,7 @@ module.exports = {
             },
         },
         less: {
+            name: 'less',
             file: {
                 extension: 'less',
             },
