@@ -137,4 +137,11 @@
         overflow: hidden;
         text-overflow: ellipsis;
     }
+
+    .ui.segments:not(.horizontal){
+
+        .segment:first-child {
+            border-radius: 0;
+        }
+    }
 </style>
