@@ -23,6 +23,9 @@ module.exports = {
             },
         },
     },
+    importOrder: [
+        'colours',
+    ],
     additions: {
         fonts: {
             sass: [

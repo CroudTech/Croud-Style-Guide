@@ -24,6 +24,12 @@ const varCheck = name => name.startsWith(config.prefix)
 const varFiles = fs.readdirSync(config.input)
 const variables = {}
 
+config.importOrder.reverse().forEach((filename) => {
+    const file = `${filename}.json`
+    const removedFile = varFiles.splice(varFiles.indexOf(file), 1)
+    varFiles.unshift(removedFile[0])
+})
+
 /**
 * Merge variables
 */
