@@ -9,6 +9,7 @@
     "styleguide:watch": "gulp --cwd src/resources/",
     "styleguide:build": "cd src/resources/build/ && node build",
     "tech": "vue-styleguidist server",
+    "tech:dev": "yarn run styleguide:watch | yarn run tech",
     "tech:build": "vue-styleguidist build",
     "dev:styleguide": "yarn run styleguide:watch | node build/dev-server.js",
     "dev": "node build/dev-server.js",
