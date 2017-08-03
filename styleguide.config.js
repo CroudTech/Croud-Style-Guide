@@ -38,6 +38,10 @@ module.exports = {
                     content: 'src/components/shared/forms/quill/quill.md',
                 },
                 {
+                    name: 'Masked Inputs',
+                    content: 'src/components/shared/forms/cleave/cleave.md',
+                },
+                {
                     name: 'Dropdown',
                     content: 'src/components/shared/semantic/semantic-form-dropdown.md',
                 },

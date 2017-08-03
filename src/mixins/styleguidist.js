@@ -3,8 +3,11 @@ import Vue from 'vue'
 import Toasted from 'vue-toasted'
 import Quill from 'quill'
 import VueQuill from 'vue-quill'
-import CroudTheme from '../components/shared/forms/quill/themes/CroudTheme'
+import Cleave from 'vue-cleave'
 
+import 'cleave.js/src/addons/phone-type-formatter.gb'
+
+import CroudTheme from '../components/shared/forms/quill/themes/CroudTheme'
 import '../components/shared/forms/toast/themes/croudToastTheme.scss'
 
 Vue.use(VueQuill)
@@ -20,6 +23,7 @@ Vue.use(require('croud-vue-semantic'))
 
 Vue.component('planning-component', {})
 Vue.component('journal-component', {})
+Vue.component('cleave', Cleave)
 
 Quill.register({
     'themes/croud': CroudTheme,
@@ -37,6 +41,8 @@ export default {
             showModal: false,
             dropdownVal: '',
             radio: 1,
+            cleave: '123456789012345',
+            telephone: '01743211176',
         }
     },
 
