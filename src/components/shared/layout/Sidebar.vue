@@ -77,7 +77,7 @@
         width: 700px;
         overflow-y: auto;
         border-left: 1px solid hsla(0,0%,39%,0);
-        box-shadow: 0 10px 30px rgba(0,0,0,.6);
+        box-shadow: $croud-box-shadow-float;
         display: -webkit-box;
         display: -ms-flexbox;
         display: flex;

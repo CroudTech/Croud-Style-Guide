@@ -108,7 +108,7 @@ export default {
                 right:0;
                 margin-top: -.3em !important;
                 border-radius: 2px;
-                box-shadow: 0 1px 2px .5px rgba($croud-colour-black, .4);
+                box-shadow: $croud-box-shadow-subtle;
                 border: none;
                 min-width: 112px;
                 padding: 8px 0;
@@ -118,6 +118,7 @@ export default {
                }
 
                 &::after{
+                    /* stylelint-disable-next-line */
                     box-shadow: none;
                     border-left: 1px solid rgba($croud-colour-black, .15);
                     border-top: 1px solid rgba($croud-colour-black,.15)
