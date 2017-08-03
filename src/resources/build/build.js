@@ -20,8 +20,8 @@ const deleteFilesFrom = (path, endWithRule = '') => {
  * @param {Object} object - Object to search through
  */
 const objectInside = (object) => {
-     const objectPropChild = Object.keys(object[Object.keys(object)[0]])[0]
-     return objectPropChild != 0
+    const objectPropChild = Object.keys(object[Object.keys(object)[0]])[0]
+    return objectPropChild != 0
 }
 
 const config = require('./build.config')
@@ -81,7 +81,7 @@ Object.keys(config.preprocessors).forEach((preprocessor) => {
         if (objectInside(vars)) {
             Object.keys(vars).forEach((varSubCatagory) => {
                 const subCats = variables[varCatagory][varSubCatagory]
-                fileData += `\n${preprocessorInfo.comment.syntax}${varSubCatagory}\n`
+                fileData += `\n /* ${varSubCatagory} */ \n`
 
                 Object.keys(subCats).forEach((variable) => {
                     const varValue = subCats[variable]

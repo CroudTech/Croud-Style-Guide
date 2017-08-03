@@ -10,9 +10,6 @@ module.exports = {
             variable: {
                 prefix: '$',
             },
-            comment: {
-                syntax: '//',
-            },
         },
         less: {
             file: {
@@ -20,9 +17,6 @@ module.exports = {
             },
             variable: {
                 prefix: '@',
-            },
-            comment: {
-                syntax: '//',
             },
         },
     },
