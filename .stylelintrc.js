@@ -17,6 +17,7 @@ module.exports = {
                 'background-color',
                 'background',
                 'z-index',
+                'box-shadow',
             ]
         ],
     },
