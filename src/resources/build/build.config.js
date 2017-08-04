@@ -37,9 +37,10 @@ module.exports = {
         },
     },
     sassMaps: {
-        exclusions: [
-            'box-shadow',
-            'layers',
+        inclusions: [
+            'colours',
+            'fonts',
+            'motion',
         ],
     },
 }
