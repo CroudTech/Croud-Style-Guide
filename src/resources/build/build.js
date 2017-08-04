@@ -99,7 +99,7 @@ Object.keys(config.preprocessors).forEach((preprocessor) => {
                 fileData += `${preprocessorInfo.variable.prefix}${directVar}: `
 
                 const varValue = typeof propValue !== 'string'
-                ? propValue[preprocessorInfo.name]
+                ? propValue[preprocessor]
                 : propValue
 
                 fileData += varCheck(varValue)
