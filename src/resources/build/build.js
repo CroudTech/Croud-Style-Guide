@@ -3,6 +3,8 @@ const mkdirp = require('mkdirp')
 const config = require('./build.config')
 const _ = require('lodash')
 
+if (config.input.endsWith('/')) config.input = config.input.slice(0, -1)
+
 /**
  * Delete Files from a directory
  * @param {string} path - path to directory to remove files
@@ -23,14 +25,14 @@ const deleteFilesFrom = (path, endWithRule = '') => {
  */
 const getVariableFilesFrom = directory => fs.readdirSync(directory)
     .filter((entry) => {
-        if (!fs.statSync(`${directory}${entry}`).isDirectory()) {
+        if (!fs.statSync(`${directory}/${entry}`).isDirectory()) {
             return entry.endsWith('.json')
         }
         return entry
     }).map((entry) => {
-        const entryPath = `${directory}${entry}`
+        const entryPath = `${directory}/${entry}`
         if (fs.statSync(entryPath).isDirectory()) {
-            return getVariableFilesFrom(`${entryPath}/`)
+            return getVariableFilesFrom(`${entryPath}`)
         }
         return entryPath.endsWith('.json') ? entryPath : undefined
     })
