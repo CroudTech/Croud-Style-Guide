@@ -1,0 +1,23 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Tab Menu should match the snapshot 1`] = `
+<div
+  class="ui menu"
+>
+  <div
+    class="yellow item"
+  >
+    Planning
+  </div>
+  <div
+    class="yellow item"
+  >
+    Journal
+  </div>
+  <div
+    class="yellow item"
+  >
+    Calander
+  </div>
+</div>
+`;

@@ -1,0 +1,29 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Filerbar should match the snapshot 1`] = `
+<div
+  class="ui secondary basic segment"
+>
+  <div
+    class="ui text menu"
+  >
+    <div
+      class="item"
+    >
+      <div
+        class="ui icon input"
+      >
+        <i
+          class="search icon"
+        />
+        <input
+          placeholder="Search..."
+        />
+      </div>
+    </div>
+    <div
+      class="right item"
+    />
+  </div>
+</div>
+`;

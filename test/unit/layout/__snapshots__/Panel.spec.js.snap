@@ -1,0 +1,33 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Panel should match the snapshot 1`] = `
+<div
+  class="ui segments"
+>
+  <div
+    class="ui basic segment text menu"
+  >
+    <div
+      class="item"
+    >
+      <h2
+        class="heading ui-sortable-handle"
+      >
+        Title
+      </h2>
+    </div>
+    <div
+      class="right item"
+    >
+      <i
+        class="circular angle icon down"
+      />
+    </div>
+  </div>
+  <div
+    class="ui basic"
+  >
+    <div />
+  </div>
+</div>
+`;

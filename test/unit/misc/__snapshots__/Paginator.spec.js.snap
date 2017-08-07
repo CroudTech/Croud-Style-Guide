@@ -1,0 +1,33 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Paginator should match the snapshot 1`] = `
+<div
+  class="ui small pagination borderless menu"
+>
+  <a
+    class="item"
+  >
+    First Page
+  </a>
+  <a
+    class="item"
+  >
+    Prev
+  </a>
+  <a
+    class="item"
+  >
+    Page 5 of 12
+  </a>
+  <a
+    class="item item"
+  >
+    Next
+  </a>
+  <a
+    class="item"
+  >
+    Last Page
+  </a>
+</div>
+`;

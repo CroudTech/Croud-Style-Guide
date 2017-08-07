@@ -1,0 +1,7 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Date should match the snapshot 1`] = `
+<span>
+  Aug 7, 2017 5:25 PM
+</span>
+`;

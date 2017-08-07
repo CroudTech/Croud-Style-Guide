@@ -1,0 +1,19 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Checkbox should match the snapshot 1`] = `
+<div
+  class="checkbox"
+>
+  <input
+    name=""
+    type="checkbox"
+  />
+  <label
+    class="checkbox__box"
+  >
+    <i
+      class="icon check"
+    />
+  </label>
+</div>
+`;
