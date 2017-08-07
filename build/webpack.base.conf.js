@@ -50,7 +50,7 @@ module.exports = {
       {
         test: /\.js$/,
         loader: 'babel-loader',
-        include: [resolve('src'), resolve('test'), resolve('node_modules/vue-quill/src/formats/')]
+        include: [resolve('src'), resolve('test'), resolve('node_modules/vue-quill/src/formats/'), resolve('node_modules/croud-forms/')]
       },
       {
         test: /\.(png|jpe?g|gif|svg)(\?.*)?$/,
