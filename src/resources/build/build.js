@@ -46,9 +46,8 @@ const varFiles = _.flattenDeep(getVariableFilesFrom(config.input))
 
 const variables = {}
 
-config.importOrder.reverse().forEach((filename) => {
-    const file = `${filename}.json`
-    const removedFile = varFiles.splice(varFiles.indexOf(file), 1)
+config.importOrder.reverse().forEach((filePath) => {
+    const removedFile = varFiles.splice(varFiles.indexOf(filePath), 1)
     varFiles.unshift(removedFile[0])
 })
 
