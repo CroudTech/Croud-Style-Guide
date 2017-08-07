@@ -21,13 +21,18 @@ const deleteFilesFrom = (path, endWithRule = '') => {
  * Returns array of variable file paths in specified directory
  * @param {string} directory - directory path to return variable file path
  */
-const getVariableFilesFrom = directory => fs.readdirSync(directory).map((entry) => {
-    const entryPath = `${directory}${entry}`
-    if (fs.statSync(entryPath).isDirectory()) {
-        return getVariableFilesFrom(`${entryPath}/`)
-    }
-    return entryPath
-})
+const getVariableFilesFrom = directory => fs.readdirSync(directory)
+    .filter((entry) => {
+        if (!fs.statSync(`${directory}${entry}`).isDirectory()) {
+            return entry.endsWith('.json')
+        }
+    }).map((entry) => {
+        const entryPath = `${directory}${entry}`
+        if (fs.statSync(entryPath).isDirectory()) {
+            return getVariableFilesFrom(`${entryPath}/`)
+        }
+        return entryPath.endsWith('.json') ? entryPath : undefined
+    })
 
 /**
  * Determine if string is a variable
