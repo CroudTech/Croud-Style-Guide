@@ -1,0 +1,25 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Loader not loading should match the snapshot 1`] = `
+<div
+  class="ui inverted dimmer"
+>
+  <div
+    class="ui text loader small"
+  >
+    Loading
+  </div>
+</div>
+`;
+
+exports[`Loader should match the snapshot 1`] = `
+<div
+  class="ui inverted dimmer active"
+>
+  <div
+    class="ui text loader small"
+  >
+    Loading
+  </div>
+</div>
+`;
