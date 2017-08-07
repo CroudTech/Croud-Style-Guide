@@ -3028,6 +3028,13 @@ cross-spawn@^5.0.1, cross-spawn@^5.1.0:
   dependencies:
     chrono-node "^1.1.6"
 
+"croud-forms@https://github.com/CroudSupport/croud-forms.git#vue2-2":
+  version "1.1.0"
+  resolved "https://github.com/CroudSupport/croud-forms.git#96b1f3e5e9c8ac994758a687bbd83abdf8519402"
+  dependencies:
+    moment "^2.18.1"
+    vue-cleave "^1.2.0"
+
 croud-vue-semantic@^1.0.6:
   version "1.0.6"
   resolved "https://registry.yarnpkg.com/croud-vue-semantic/-/croud-vue-semantic-1.0.6.tgz#2b300251af082bccc49e7d49727b4d4558a38fe0"
@@ -13201,7 +13208,7 @@ vue-class-component@^5.0.0:
   version "5.0.2"
   resolved "https://registry.yarnpkg.com/vue-class-component/-/vue-class-component-5.0.2.tgz#3dcdc005c58c4e88d8ec2d46e01c74f4d90135c8"
 
-vue-cleave@^1.2.2:
+vue-cleave@^1.2.0, vue-cleave@^1.2.2:
   version "1.2.2"
   resolved "https://registry.yarnpkg.com/vue-cleave/-/vue-cleave-1.2.2.tgz#857f428c6c92b64ee1c4a82bfba654dea20d71af"
   dependencies:

@@ -34,6 +34,10 @@ module.exports = {
             components: 'src/components/shared/forms/**/*.vue',
             sections: [
                 {
+                    name: 'croud-form-builder',
+                    content: 'src/components/shared/forms/croud-forms.md',
+                },
+                {
                     name: 'Quill',
                     content: 'src/components/shared/forms/quill/quill.md',
                 },
