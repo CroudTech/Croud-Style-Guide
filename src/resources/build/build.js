@@ -1,6 +1,7 @@
 const fs = require('fs')
 const mkdirp = require('mkdirp')
 const config = require('./build.config')
+const _ = require('lodash')
 
 /**
  * Delete Files from a directory
@@ -17,11 +18,24 @@ const deleteFilesFrom = (path, endWithRule = '') => {
 }
 
 /**
+ * Returns array of variable file paths in specified directory
+ * @param {string} directory - directory path to return variable file path
+ */
+const getVariableFilesFrom = directory => fs.readdirSync(directory).map((entry) => {
+    const entryPath = `${directory}${entry}`
+    if (fs.statSync(entryPath).isDirectory()) {
+        return getVariableFilesFrom(`${entryPath}/`)
+    }
+    return entryPath
+})
+
+/**
  * Determine if string is a variable
  */
 const varCheck = name => name.startsWith(config.prefix)
 
-const varFiles = fs.readdirSync(config.input)
+const varFiles = _.flattenDeep(getVariableFilesFrom(config.input))
+
 const variables = {}
 
 config.importOrder.reverse().forEach((filename) => {
@@ -33,9 +47,8 @@ config.importOrder.reverse().forEach((filename) => {
 /**
 * Merge variables
 */
-varFiles.forEach((file) => {
-    const filePath = `${config.input}${file}`
-    const varCatagory = file.split('.')[0]
+varFiles.forEach((filePath) => {
+    const varCatagory = _.last(filePath.split('/')).split('.')[0]
     variables[varCatagory] = {}
 
     const vars = JSON.parse(fs.readFileSync(filePath))
