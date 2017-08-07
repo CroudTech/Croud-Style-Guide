@@ -26,6 +26,7 @@ const getVariableFilesFrom = directory => fs.readdirSync(directory)
         if (!fs.statSync(`${directory}${entry}`).isDirectory()) {
             return entry.endsWith('.json')
         }
+        return entry
     }).map((entry) => {
         const entryPath = `${directory}${entry}`
         if (fs.statSync(entryPath).isDirectory()) {
