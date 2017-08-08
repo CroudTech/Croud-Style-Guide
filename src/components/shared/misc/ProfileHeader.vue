@@ -24,29 +24,30 @@
         </div>
 
         <div class="thirteen wide column">
-    
-            <div class="ui form user-details">
-                <div class="required field">
-                    <div class="ui big transparent input">
-                        <input v-if="readOnly" type="text" placeholder="First Name" v-model="getUser.first_name" readonly="">
-                        <input v-else name="first_name" type="text" placeholder="First Name" v-model="getUser.first_name" @blur="$emit('field-blurred')">
+            <slot name="custom-fields">
+                <div class="ui form user-details">
+                    <div class="required field">
+                        <div class="ui big transparent input">
+                            <input v-if="readOnly" type="text" placeholder="First Name" v-model="getUser.first_name" readonly="">
+                            <input v-else name="first_name" type="text" placeholder="First Name" v-model="getUser.first_name" @blur="$emit('field-blurred')">
+                        </div>
                     </div>
-                </div>
 
-                <div class="required field">
-                    <div class="ui big transparent input">
-                        <input v-if="readOnly" type="text" placeholder="Last Name" v-model="getUser.last_name" readonly="">
-                        <input v-else name="last_name" type="text" placeholder="Last Name" v-model="getUser.last_name" @blur="$emit('field-blurred')">
+                    <div class="required field">
+                        <div class="ui big transparent input">
+                            <input v-if="readOnly" type="text" placeholder="Last Name" v-model="getUser.last_name" readonly="">
+                            <input v-else name="last_name" type="text" placeholder="Last Name" v-model="getUser.last_name" @blur="$emit('field-blurred')">
+                        </div>
                     </div>
-                </div>
 
-                <div class="required field">
-                    <div class="ui big transparent input">
-                        <input v-if="readOnly" type="text" placeholder="Email" v-model="getUser.email" readonly="">
-                        <input v-else name="email" type="text" placeholder="Email" v-model="getUser.email" @blur="$emit('field-blurred')">
+                    <div class="required field">
+                        <div class="ui big transparent input">
+                            <input v-if="readOnly" type="text" placeholder="Email" v-model="getUser.email" readonly="">
+                            <input v-else name="email" type="text" placeholder="Email" v-model="getUser.email" @blur="$emit('field-blurred')">
+                        </div>
                     </div>
                 </div>
-            </div>
+            </slot>
 
         </div>
 
