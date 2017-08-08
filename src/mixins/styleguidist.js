@@ -112,6 +112,7 @@ export default {
                 },
             ],
             user: {
+                name: 'Croud',
                 first_name: null,
                 last_name: null,
                 number: 1,
@@ -119,6 +120,7 @@ export default {
                 age: 21,
                 sortCode: '55-05-55',
             },
+            profileHeaderModal: false,
         }
     },
 
