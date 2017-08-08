@@ -1,7 +1,7 @@
 import Vue from 'vue'
 import moment from 'moment'
 import DateRange from '../../../src/components/shared/forms/DateRange'
-
+import '../../../semantic/dist/semantic'
 
 const Constructor = Vue.extend(DateRange)
 

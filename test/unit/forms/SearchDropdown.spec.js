@@ -2,6 +2,8 @@ import Vue from 'vue'
 import SearchDropdown from '../../../src/components/shared/forms/SearchDropdown'
 import '../../../semantic/dist/semantic'
 
+Vue.use(require('croud-vue-semantic'))
+
 const Constructor = Vue.extend(SearchDropdown)
 
 const vm = new Constructor({
