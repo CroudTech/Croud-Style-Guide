@@ -47,7 +47,7 @@ const varFiles = _.flattenDeep(getVariableFilesFrom(config.input))
 const variables = {}
 
 config.importOrder.reverse().forEach((filePath) => {
-    const removedFile = varFiles.splice(varFiles.indexOf(filePath), 1)
+    const removedFile = varFiles.splice(varFiles.indexOf(importPath), 1)
     varFiles.unshift(removedFile[0])
 })
 
