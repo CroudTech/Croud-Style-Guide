@@ -7,8 +7,8 @@ const Constructor = Vue.extend(DateRange)
 
 const vm = new Constructor({
     propsData: {
-        start: moment(),
-        end: moment().add(1, 'days'),
+        start: moment('2017-08-08'),
+        end: moment('2017-08-08').add(1, 'days'),
     },
 }).$mount()
 
