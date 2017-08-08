@@ -56,18 +56,20 @@ viewBox="0 0 500 500">
 
         computed: {
             userInitials() {
-                const parts = this.user.name.split(/[ -]/)
-                let initials = ''
+                if (this.user.name) {
+                    const parts = this.user.name.split(/[ -]/)
+                    let initials = ''
 
-                for (let i = 0; i < parts.length; i += 1) {
-                    initials += parts[i].charAt(0)
-                }
+                    for (let i = 0; i < parts.length; i += 1) {
+                        initials += parts[i].charAt(0)
+                    }
 
-                if (initials.length > 3 && initials.search(/[A-Z]/) !== -1) {
-                    initials = initials.replace(/[a-z]+/g, '')
-                }
+                    if (initials.length > 3 && initials.search(/[A-Z]/) !== -1) {
+                        initials = initials.replace(/[a-z]+/g, '')
+                    }
 
-                return initials.substr(0, 3).toUpperCase()
+                    return initials.substr(0, 3).toUpperCase()
+                } return ''
             },
 
             palette() {
@@ -75,7 +77,19 @@ viewBox="0 0 500 500">
             },
 
             randomBackgroundColour() {
-                return this.palette[(this.user.name.length + 10) % (this.palette.length)]
+                if (this.user.name) {
+                    return this.palette[(this.user.name.length + 10) % (this.palette.length)]
+                } return colours.secondary['croud-colour-black']
+            },
+        },
+
+        watch: {
+            'user.avatar': {
+                handler() {
+                    this.$nextTick(() => {
+                        this.errors = false
+                    })
+                },
             },
         },
     }
