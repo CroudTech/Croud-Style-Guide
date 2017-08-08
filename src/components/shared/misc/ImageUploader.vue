@@ -1,10 +1,14 @@
 <template>
     <div>
         <slot>
-            <div class="ui very padded container">
-                <img class="ui centered small circular image" v-if="imgSrc" :src="src">
+            <div class="ui very padded center aligned container">
+                <slot name="profile-current">
+                    <img class="ui small circular image" v-if="imgSrc" :src="src">
+                </slot>
                 <semantic-divider />
-                <a class="ui fluid blue button" @click="showModal = !showModal">{{ buttonText }}</a>  
+                <slot name="action">
+                    <a class="ui fluid blue button" @click="$emit('action')">{{ buttonText }}</a>  
+                </slot>
             </div>
         </slot>
 
@@ -34,7 +38,7 @@
                 
                 <semantic-divider class="hidden" />
                 <button class="ui right floated blue button" :class="{'loading': loading}" id="uploadFileCall" @click="uploadFile" :disabled="canSet">Set</button>
-                <button class="ui right floated button" :disabled="loading" @click="showModal = !showModal">Cancel</button>
+                <button class="ui right floated button" :disabled="loading" @click="$emit('show-modal')">Cancel</button>
 
             </div>
         </semantic-modal>
@@ -54,6 +58,10 @@
         name: 'croud-image-uploader',
 
         props: {
+            /**
+            * Show Image Cropper / Uploader Modal
+            */
+            showModal: false,
             /**
             * A Title for the semantic modal which contains the image cropper / uploader
             */
@@ -129,7 +137,7 @@
             return {
                 src: this.defaultSrc,
                 loading: false,
-                showModal: false,
+                //
                 croppie: null,
                 image: null,
                 eventListenerAdded: false,
@@ -190,13 +198,13 @@
                                 headers: this.requestHeaders,
                             }).then((res) => {
                                 this.$emit('image-set', res.data.data)
-                                this.$emit('modal-closed')
                                 this.loading = false
                             })
+                        } else {
+                            this.profileSet(window.URL.createObjectURL(response))
+                            this.$emit('show-modal')
+                            this.loading = false
                         }
-                        this.profileSet(window.URL.createObjectURL(response))
-                        this.showModal = !this.showModal
-                        this.loading = false
                     })
             },
 
