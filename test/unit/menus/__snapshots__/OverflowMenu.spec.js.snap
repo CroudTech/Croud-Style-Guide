@@ -3,12 +3,14 @@
 exports[`OverflowMenu should match the snapshot 1`] = `
 <button
   class="ui dropdown icon pointing top circular button right"
+  tabindex="0"
 >
   <i
     class="ellipsis vertical icon"
   />
   <div
     class="ui menu"
+    tabindex="-1"
   >
     <div
       class="item"

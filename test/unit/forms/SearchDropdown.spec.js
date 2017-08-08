@@ -1,5 +1,6 @@
 import Vue from 'vue'
 import SearchDropdown from '../../../src/components/shared/forms/SearchDropdown'
+import '../../../semantic/dist/semantic'
 
 const Constructor = Vue.extend(SearchDropdown)
 
