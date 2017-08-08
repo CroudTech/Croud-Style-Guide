@@ -40,6 +40,15 @@ viewBox="0 0 500 500">
                 type: String,
                 default: 'small',
             },
+
+            /**
+             * Fallback if user has no intials
+             *
+             */
+            defaultInitials: {
+                type: String,
+                default: 'U',
+            },
         },
 
         data() {
@@ -69,7 +78,7 @@ viewBox="0 0 500 500">
                     }
 
                     return initials.substr(0, 3).toUpperCase()
-                } return ''
+                } return this.defaultInitials
             },
 
             palette() {
