@@ -139,7 +139,7 @@
     "vue-router": "^2.7.0",
     "vue-style-loader": "^2.0.0",
     "vue-styleguidist": "^1.2.4",
-    "vue-template-compiler": "^2.3.4",
+    "vue-template-compiler": "^2.4.2",
     "vue-toasted": "^1.0.3",
     "vue-webpack-loaders": "^1.0.4",
     "vuex": "^2.3.1",
