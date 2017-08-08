@@ -9,104 +9,14 @@ exports[`Image Uploader should match the snapshot 1`] = `
       src="/img/defaultAvatar.png"
       class="ui centered small circular image"
     />
-    <semantic-divider />
+    <div
+      class="ui divider"
+    />
     <a
       class="ui fluid blue button"
     >
       Set Image
     </a>
   </div>
-  <semantic-modal
-    size="small"
-    title="Set Image"
-    settings="[object Object]"
-  >
-    <div
-      class="ui basic segment"
-    >
-      <div
-        class="Image-upload-wrapper Image-upload"
-      >
-        <div
-          class="croppie-container"
-        >
-          <div
-            class="cr-boundary"
-            style="width: 260px; height: 260px;"
-          >
-            <canvas
-              class="cr-image"
-            />
-            <div
-              class="cr-viewport cr-vp-square"
-              style="width: 220px; height: 220px;"
-              tabindex="0"
-            />
-            <div
-              class="cr-overlay"
-            />
-          </div>
-          <div
-            class="cr-slider-wrap"
-          >
-            <input
-              class="cr-slider"
-              type="range"
-              step="0.0001"
-            />
-          </div>
-        </div>
-        <div
-          id="upload-wrapper"
-          class="upload-wrapper"
-        >
-          <div
-            class="input-file"
-          >
-            <input
-              name="image-upload"
-              type="file"
-              accept="image/*"
-              id="upload-image"
-              style="display: none;"
-            />
-          </div>
-          <button
-            class="ui blue button"
-          >
-            Select File
-          </button>
-          <button
-            class="circular ui primary icon button"
-          >
-            <i
-              class="black undo icon"
-            />
-          </button>
-          <button
-            class="circular ui primary icon button"
-          >
-            <i
-              class="black repeat icon"
-            />
-          </button>
-        </div>
-      </div>
-      <semantic-divider
-        class="hidden"
-      />
-      <button
-        id="uploadFileCall"
-        class="ui right floated blue button"
-      >
-        Set
-      </button>
-      <button
-        class="ui right floated button"
-      >
-        Cancel
-      </button>
-    </div>
-  </semantic-modal>
 </div>
 `;
