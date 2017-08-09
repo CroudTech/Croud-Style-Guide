@@ -10,7 +10,7 @@ We use [vue-cleave](https://github.com/vue-bulma/cleave) for our masked inputs. 
 ### Telephone
 You can use cleave to format and provide basic validation for phone numbers, you will need to import additional libraries based on the expected country format.
 
-```js
+```js static
 import 'cleave.js/src/addons/phone-type-formatter.gb'
 ```
 

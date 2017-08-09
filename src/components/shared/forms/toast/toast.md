@@ -1,7 +1,7 @@
 ### Setup
 We use [vue-toasted](https://github.com/shakee93/vue-toasted) to handle our toast messaging. You will need to add the vue-toasted plugin to your project.
 
-```js
+```js static
 /* Import vue-toasted plugin */
 import Toasted from 'vue-toasted'
 /* Import Croud Theme */
@@ -18,7 +18,7 @@ Vue.use(Toasted, {
 
 ### Basic Usage
 You can send toast messages from within components using this syntax
-```js
+```js static
 sendToast() {
     this.$toasted.show('message')
     this.$toasted.success('message')

@@ -22,7 +22,7 @@ module.exports = {
         },
     },
     importOrder: [
-        '../config/variables/colours.json',
+        'colours',
     ],
     additions: {
         fonts: {

@@ -25,7 +25,7 @@ exports[`Date Range should match the snapshot 1`] = `
         <strong
           class="ui header"
         >
-          Aug 7, 2017 - Aug 8, 2017
+          Aug 8, 2017 - Aug 9, 2017
         </strong>
       </div>
       <div
@@ -79,7 +79,7 @@ exports[`Date Range should match the snapshot 1`] = `
               class="pika-lendar"
             >
               <div
-                id="pika-title-qo"
+                id="pika-title-ur"
                 class="pika-title"
                 role="heading"
                 aria-live="assertive"
@@ -289,7 +289,7 @@ exports[`Date Range should match the snapshot 1`] = `
                 cellspacing="0"
                 class="pika-table"
                 role="grid"
-                aria-labelledby="pika-title-qo"
+                aria-labelledby="pika-title-ur"
               >
                 <thead>
                   <tr>
@@ -461,8 +461,8 @@ exports[`Date Range should match the snapshot 1`] = `
                   >
                     <td
                       data-day="7"
-                      class="is-today is-selected"
-                      aria-selected="true"
+                      class=""
+                      aria-selected="false"
                     >
                       <button
                         class="pika-button pika-day"
@@ -476,8 +476,8 @@ exports[`Date Range should match the snapshot 1`] = `
                     </td>
                     <td
                       data-day="8"
-                      class="has-event"
-                      aria-selected="false"
+                      class="is-today is-selected"
+                      aria-selected="true"
                     >
                       <button
                         class="pika-button pika-day"
@@ -491,7 +491,7 @@ exports[`Date Range should match the snapshot 1`] = `
                     </td>
                     <td
                       data-day="9"
-                      class=""
+                      class="has-event"
                       aria-selected="false"
                     >
                       <button

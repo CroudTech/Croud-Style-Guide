@@ -21,7 +21,12 @@ exports[`Date Picker should match the snapshot 1`] = `
     class="pika-container"
     style="display: none;"
   >
-    <div />
+    <div>
+      <div
+        class="pika-single is-hidden is-bound"
+        style="position: static;"
+      />
+    </div>
     <button
       class="ui basic button mini"
     >

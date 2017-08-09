@@ -1,5 +1,6 @@
 import Vue from 'vue'
 import Sidebar from '../../../src/components/shared/layout/Sidebar'
+import '../../../semantic/dist/semantic'
 
 const Constructor = Vue.extend(Sidebar)
 

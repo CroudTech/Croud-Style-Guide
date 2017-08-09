@@ -1,5 +1,6 @@
 import Vue from 'vue'
 import DatePicker from '../../../src/components/shared/forms/DatePicker'
+import '../../../semantic/dist/semantic'
 
 const Constructor = Vue.extend(DatePicker)
 
