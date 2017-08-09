@@ -2,7 +2,7 @@
     <div class="ui stackable grid">
 
         <div class="three wide column">
-        
+
             <croud-image-uploader ref="uploader"
                                   :title="imageUploaderTitle"
                                   :imgUrl="getUser.avatar"
@@ -10,7 +10,7 @@
                                   :requstHeaders="requestHeaders"
                                   :readOnly="readOnly"
                                   @image-set="profilePicSet">
-            
+
                 <div slot="profile-current">
 
                     <croud-avatar :user="getUser" size="small"/>
@@ -119,7 +119,7 @@ export default {
 
     methods: {
         profilePicSet(file) {
-            if (!file.ref) {
+            if (!file.reference) {
                 this.user.avatar = file
             } else {
                 const ref = file.reference
