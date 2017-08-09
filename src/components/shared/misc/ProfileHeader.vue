@@ -119,7 +119,12 @@ export default {
 
     methods: {
         profilePicSet(file) {
-            this.$emit('profile-pic-set', file)
+            if (!file.ref) {
+                this.user.avatar = file
+            } else {
+                const ref = file.reference
+                this.user.avatar = `https://d19bu42bl3uf0v.cloudfront.net/${ref}`
+            }
         },
     },
 
