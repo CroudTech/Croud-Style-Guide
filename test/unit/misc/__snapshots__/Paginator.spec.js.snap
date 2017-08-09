@@ -20,7 +20,7 @@ exports[`Paginator should match the snapshot 1`] = `
     Page 5 of 12
   </a>
   <a
-    class="item item"
+    class="item"
   >
     Next
   </a>
