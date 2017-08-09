@@ -3,7 +3,7 @@
         <slot>
             <div class="ui very padded center aligned container">
                 <slot name="profile-current">
-                    <img class="ui small circular image" v-if="imgSrc" :src="src">
+                    <img class="ui small centered circular image" v-if="imgSrc" :src="src">
                 </slot>
                 <div v-if="!readOnly">
                     <semantic-divider />
@@ -208,6 +208,7 @@
                             })
                         } else {
                             this.profileSet(window.URL.createObjectURL(response))
+                            this.$emit('image-set', window.URL.createObjectURL(response))
                             this.showModal = !this.showModal
                             this.loading = false
                         }

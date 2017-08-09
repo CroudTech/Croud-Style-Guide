@@ -119,14 +119,17 @@ export default {
                 country: 'uk',
                 age: 21,
                 sortCode: '55-05-55',
+                avatar: '',
             },
-            profileHeaderModal: false,
         }
     },
 
     methods: {
         alert(...text) {
             alert(...text)
+        },
+        profilePicSet(image) {
+            this.user.avatar = image
         },
     },
 }

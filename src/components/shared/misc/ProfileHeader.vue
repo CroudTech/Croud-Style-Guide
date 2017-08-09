@@ -8,10 +8,8 @@
                                   :imgUrl="getUser.avatar"
                                   :url="url"
                                   :requstHeaders="requestHeaders"
-                                  :showModal="showModal"
                                   :readOnly="readOnly"
-                                  @image-set="profileSet"
-                                  @show-modal="showModal = !showModal">
+                                  @image-set="profilePicSet">
             
                 <div slot="profile-current">
 
@@ -76,14 +74,6 @@ export default {
         },
 
         /**
-        * Show Image Cropper / Uploader Modal
-        */
-        showModal: {
-            type: Boolean,
-            default: false,
-        },
-
-        /**
         * A Title for the semantic modal which contains the image cropper / uploader
         */
         imageUploaderTitle: {
@@ -92,7 +82,7 @@ export default {
         },
 
         /**
-        * Make header read only
+        * Makes the profile header read only
         */
         readOnly: {
             type: Boolean,
@@ -100,7 +90,7 @@ export default {
         },
 
         /**
-        * Request part of the url if you wish to use the upload function, the response is emitted to the parent attached to a image-set event
+        * Request part of the url if you wish to use the upload function, the response is emitted to the parent attached to a profile-pic-set event
         */
         url: {
             type: String,
@@ -128,11 +118,7 @@ export default {
     },
 
     methods: {
-        setProfilePic() {
-            this.$emit('set-profile-pic')
-        },
-
-        profileSet(file) {
+        profilePicSet(file) {
             this.$emit('profile-pic-set', file)
         },
     },
