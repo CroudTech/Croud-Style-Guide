@@ -28,6 +28,10 @@ describe('Morph Button', () => {
     })
 
     describe('Click Event', () => {
+        beforeEach(() => {
+            vm.active = 1
+        })
+
         it('should call correct method', () => {
             vm.$el.click()
             expect(vm.options[1 - vm.active].method).toHaveBeenCalled()
