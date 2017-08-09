@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`OverflowMenu should match the snapshot 1`] = `
+exports[`Overflow Menu should match the snapshot 1`] = `
 <button
   class="ui dropdown icon pointing top circular button right"
   tabindex="0"

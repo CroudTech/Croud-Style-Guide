@@ -9,23 +9,39 @@ const vm = new Constructor({
         options: [
             {
                 name: 'Delete',
-                method: () => {},
+                method: jest.fn(),
             },
             {
                 name: 'Postpone',
-                method: () => {},
+                method: jest.fn(),
             },
             {
                 name: 'Copy',
-                method: () => {},
+                method: jest.fn(),
                 disabled: true,
             },
         ],
     },
 }).$mount()
 
-describe('OverflowMenu', () => {
+describe('Overflow Menu', () => {
     it('should match the snapshot', () => {
         expect(vm.$el).toMatchSnapshot()
     })
+
+    it('should be inactive on render', () => {
+        expect(vm.$el.querySelector('.ui.menu').classList.contains('visible')).toBe(false)
+    })
+
+    describe('Menu Items', () => {
+        it('should render all menu items', () => {
+            expect(vm.$el.querySelector('.ui.menu').childElementCount).toBe(vm.options.length)
+        })
+        it('should call method on click', () => {
+            vm.$el.querySelector('.item').click()
+            expect(vm.options[0].method).toHaveBeenCalled()
+        })
+    })
+
+    console.log(vm.$el.querySelector('.ui.menu'))
 })
