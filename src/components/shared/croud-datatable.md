@@ -2,7 +2,7 @@ Please ignore the **pagination-path** setting and the **transform** prop in the 
 ### Simple Datatable
 The datatable is built from an array of **fields**. The array can contain Strings and Objects. You can add a sorting option to the table using the **sortField** key and you can overide the column heading using the **title** key. See [the docs](https://ratiw.github.io/vuetable-2/#/Fields-Definition) for more field definition examples.
 
-```js
+```js static
 vuetableConfig: {
     'api-url': 'https://vuetable.ratiw.net/api/users',
     fields: [

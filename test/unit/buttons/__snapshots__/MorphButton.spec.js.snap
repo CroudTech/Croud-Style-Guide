@@ -4,6 +4,6 @@ exports[`Morph Button should match the snapshot 1`] = `
 <button
   class="ui button"
 >
-  
+  close all
 </button>
 `;

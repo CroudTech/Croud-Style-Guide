@@ -4,7 +4,7 @@ We use the [vue-quill](https://github.com/CroudSupport/vue-quill) package for wr
 ### Croud Theme
 We have created our own quill theme that can be imported with this bit of bootstrap.
 
-```js
+```js static
 import Vue from 'vue'
 import Quill from 'quill'
 import VueQuill from 'vue-quill'
@@ -25,7 +25,7 @@ Part of the theme adds **shortcode templates** for dynamically adding contextual
 
 You can pass through shortcode templates in the config object in the following format.
 
-```js
+```js static
 {
     theme: 'croud',
     templates: [

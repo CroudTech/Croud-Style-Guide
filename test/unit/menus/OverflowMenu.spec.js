@@ -1,5 +1,6 @@
 import Vue from 'vue'
 import OverflowMenu from '../../../src/components/shared/menus/OverflowMenu'
+import '../../../semantic/dist/semantic'
 
 const Constructor = Vue.extend(OverflowMenu)
 

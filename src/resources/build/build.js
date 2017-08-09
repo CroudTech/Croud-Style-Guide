@@ -1,5 +1,6 @@
 const fs = require('fs')
 const mkdirp = require('mkdirp')
+const { red } = require('chalk')
 const config = require('./build.config')
 const _ = require('lodash')
 
@@ -47,8 +48,17 @@ const varFiles = _.flattenDeep(getVariableFilesFrom(config.input))
 const variables = {}
 
 config.importOrder.reverse().forEach((filePath) => {
-    const removedFile = varFiles.splice(varFiles.indexOf(filePath), 1)
-    varFiles.unshift(removedFile[0])
+    if (!filePath.endsWith('.json')) filePath += '.json'
+    if (filePath.startsWith('/')) filePath = filePath.slice(1, filePath.length)
+
+    const importPath = `${config.input}/${filePath}`
+
+    if (!fs.existsSync(importPath)) {
+        console.log(red(`invalid file path provided to input order: \n \t ${importPath}`))
+    } else {
+        const removedFile = varFiles.splice(varFiles.indexOf(importPath), 1)
+        varFiles.unshift(removedFile[0])
+    }
 })
 
 /**

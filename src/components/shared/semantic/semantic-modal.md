@@ -1,4 +1,4 @@
-### semantic-checkbox
+### semantic-modal
 For our modals, we use the semantic-modal component from the [croud-vue-semantic](https://github.com/CroudSupport/vue-semantic) library. Below are a few examples of semantic-modal in action. Click [here](http://croudsupport.github.io/vue-semantic/#semantic-modal) for full component docs.
 
 ### Basic usage
