@@ -3,20 +3,22 @@
 exports[`Image Uploader should match the snapshot 1`] = `
 <div>
   <div
-    class="ui very padded container"
+    class="ui very padded center aligned container"
   >
     <img
       src="/img/defaultAvatar.png"
-      class="ui centered small circular image"
+      class="ui small centered circular image"
     />
-    <div
-      class="ui divider"
-    />
-    <a
-      class="ui fluid blue button"
-    >
-      Set Image
-    </a>
+    <div>
+      <div
+        class="ui divider"
+      />
+      <a
+        class="ui fluid blue button"
+      >
+        Set Image
+      </a>
+    </div>
   </div>
 </div>
 `;

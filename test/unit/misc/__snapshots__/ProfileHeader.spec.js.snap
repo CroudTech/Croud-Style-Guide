@@ -1,0 +1,207 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Profile header read only should match the snapshot 1`] = `
+<div
+  class="ui stackable grid"
+>
+  <div
+    class="three wide column"
+  >
+    <div
+      requstheaders="[object Object]"
+    >
+      <div
+        class="ui very padded center aligned container"
+      >
+        <div>
+          <div
+            class="ui circular image small"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              xmlns:xlink="http://www.w3.org/1999/xlink"
+              xml:space="preserve"
+              viewBox="0 0 500 500"
+              style="shape-rendering: geometricPrecision; text-rendering: geometricPrecision; image-rendering: optimizeQuality; fill-rule: evenodd;"
+            >
+              <g>
+                <circle
+                  cx="250"
+                  cy="250"
+                  r="245"
+                  style="fill: #e4e7e9;"
+                />
+                <text
+                  x="50%"
+                  y="50%"
+                  text-anchor="middle"
+                  dy="0em"
+                  font-size="250px"
+                  alignment-baseline="central"
+                  fill="white"
+                >
+                  T
+                </text>
+              </g>
+            </svg>
+          </div>
+        </div>
+        <!--  -->
+      </div>
+    </div>
+  </div>
+  <div
+    class="thirteen wide column"
+  >
+    <div
+      class="ui form user-details"
+    >
+      <div
+        class="required field"
+      >
+        <div
+          class="ui big transparent input"
+        >
+          <input
+            type="text"
+            placeholder="First Name"
+            readonly="true"
+          />
+        </div>
+      </div>
+      <div
+        class="required field"
+      >
+        <div
+          class="ui big transparent input"
+        >
+          <input
+            type="text"
+            placeholder="Last Name"
+            readonly="true"
+          />
+        </div>
+      </div>
+      <div
+        class="required field"
+      >
+        <div
+          class="ui big transparent input"
+        >
+          <input
+            type="text"
+            placeholder="Email"
+            readonly="true"
+          />
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Profile header should match the snapshot 1`] = `
+<div
+  class="ui stackable grid"
+>
+  <div
+    class="three wide column"
+  >
+    <div
+      requstheaders="[object Object]"
+    >
+      <div
+        class="ui very padded center aligned container"
+      >
+        <div>
+          <div
+            class="ui circular image small"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              xmlns:xlink="http://www.w3.org/1999/xlink"
+              xml:space="preserve"
+              viewBox="0 0 500 500"
+              style="shape-rendering: geometricPrecision; text-rendering: geometricPrecision; image-rendering: optimizeQuality; fill-rule: evenodd;"
+            >
+              <g>
+                <circle
+                  cx="250"
+                  cy="250"
+                  r="245"
+                  style="fill: #e4e7e9;"
+                />
+                <text
+                  x="50%"
+                  y="50%"
+                  text-anchor="middle"
+                  dy="0em"
+                  font-size="250px"
+                  alignment-baseline="central"
+                  fill="white"
+                >
+                  T
+                </text>
+              </g>
+            </svg>
+          </div>
+        </div>
+        <div>
+          <div
+            class="ui divider"
+          />
+          <button
+            class="ui blue fluid button"
+          >
+            Set Image
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div
+    class="thirteen wide column"
+  >
+    <div
+      class="ui form user-details"
+    >
+      <div
+        class="required field"
+      >
+        <div
+          class="ui big transparent input"
+        >
+          <input
+            type="text"
+            placeholder="First Name"
+          />
+        </div>
+      </div>
+      <div
+        class="required field"
+      >
+        <div
+          class="ui big transparent input"
+        >
+          <input
+            type="text"
+            placeholder="Last Name"
+          />
+        </div>
+      </div>
+      <div
+        class="required field"
+      >
+        <div
+          class="ui big transparent input"
+        >
+          <input
+            type="text"
+            placeholder="Email"
+          />
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
