@@ -128,8 +128,5 @@ export default {
         alert(...text) {
             alert(...text)
         },
-        profilePicSet(image) {
-            this.user.avatar = image
-        },
     },
 }
