@@ -1,10 +1,16 @@
 <template>
     <div>
         <slot>
-            <div class="ui very padded container">
-                <img class="ui centered small circular image" v-if="imgSrc" :src="src">
-                <semantic-divider />
-                <a class="ui fluid blue button" @click="showModal = !showModal">{{ buttonText }}</a>  
+            <div class="ui very padded center aligned container">
+                <slot name="profile-current">
+                    <img class="ui small centered circular image" v-if="imgSrc" :src="src">
+                </slot>
+                <div v-if="!readOnly">
+                    <semantic-divider />
+                    <slot name="action">
+                        <a class="ui fluid blue button" @click="showModal = !showModal">{{ buttonText }}</a>  
+                    </slot>
+                </div>
             </div>
         </slot>
 
@@ -33,8 +39,8 @@
                 </div>
                 
                 <semantic-divider class="hidden" />
-                <button class="ui right floated blue button" :class="{'loading': loading}" id="uploadFileCall" @click="uploadFile" :disabled="canSet">Set</button>
-                <button class="ui right floated button" :disabled="loading" @click="showModal = !showModal">Cancel</button>
+                <button class="ui right floated blue button" :class="{'loading': loading}" id="uploadFileCall" @click="uploadFile">Set</button>
+                <button class="ui right floated button" :disabled="loading" @click="showModal =! showModal">Cancel</button>
 
             </div>
         </semantic-modal>
@@ -95,6 +101,14 @@
             },
 
             /**
+            * Show or hide the Set Button
+            */
+            readOnly: {
+                type: Boolean,
+                default: false,
+            },
+
+            /**
             * Default Croud request headers are set for files endpoint, pass requestHeaders object to override them
             */
             requestHeaders: {
@@ -133,7 +147,6 @@
                 croppie: null,
                 image: null,
                 eventListenerAdded: false,
-                //
                 modalSetting: {
                     closable: true,
                     closable_button: true,
@@ -190,13 +203,15 @@
                                 headers: this.requestHeaders,
                             }).then((res) => {
                                 this.$emit('image-set', res.data.data)
-                                this.$emit('modal-closed')
                                 this.loading = false
+                                this.showModal = !this.showModal
                             })
+                        } else {
+                            this.profileSet(window.URL.createObjectURL(response))
+                            this.$emit('image-set', window.URL.createObjectURL(response))
+                            this.showModal = !this.showModal
+                            this.loading = false
                         }
-                        this.profileSet(window.URL.createObjectURL(response))
-                        this.showModal = !this.showModal
-                        this.loading = false
                     })
             },
 
@@ -254,10 +269,6 @@
             computedUrl() {
                 if (this.url.match(/:\/\//)) return this.url
                 return `//${gateway_url}/${this.url}`
-            },
-
-            canSet() {
-                return this.image === `${this.defaultSrc}?v=cors`
             },
         },
     }

@@ -40,6 +40,15 @@ viewBox="0 0 500 500">
                 type: String,
                 default: 'small',
             },
+
+            /**
+             * Fallback if user has no intials
+             *
+             */
+            defaultInitials: {
+                type: String,
+                default: 'U',
+            },
         },
 
         data() {
@@ -56,6 +65,7 @@ viewBox="0 0 500 500">
 
         computed: {
             userInitials() {
+                if (!this.user.name) return this.defaultInitials
                 const parts = this.user.name.split(/[ -]/)
                 let initials = ''
 
@@ -75,7 +85,18 @@ viewBox="0 0 500 500">
             },
 
             randomBackgroundColour() {
+                if (!this.user.name) return colours.secondary['croud-colour-black']
                 return this.palette[(this.user.name.length + 10) % (this.palette.length)]
+            },
+        },
+
+        watch: {
+            'user.avatar': {
+                handler() {
+                    this.$nextTick(() => {
+                        this.errors = false
+                    })
+                },
             },
         },
     }

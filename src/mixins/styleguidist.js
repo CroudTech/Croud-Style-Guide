@@ -112,12 +112,14 @@ export default {
                 },
             ],
             user: {
+                name: 'Croud',
                 first_name: null,
                 last_name: null,
                 number: 1,
                 country: 'uk',
                 age: 21,
                 sortCode: '55-05-55',
+                avatar: '',
             },
         }
     },
