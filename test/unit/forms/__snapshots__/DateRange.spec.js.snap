@@ -79,7 +79,7 @@ exports[`Date Range should match the snapshot 1`] = `
               class="pika-lendar"
             >
               <div
-                id="pika-title-ur"
+                id="pika-title-te"
                 class="pika-title"
                 role="heading"
                 aria-live="assertive"
@@ -289,7 +289,7 @@ exports[`Date Range should match the snapshot 1`] = `
                 cellspacing="0"
                 class="pika-table"
                 role="grid"
-                aria-labelledby="pika-title-ur"
+                aria-labelledby="pika-title-te"
               >
                 <thead>
                   <tr>
@@ -476,7 +476,7 @@ exports[`Date Range should match the snapshot 1`] = `
                     </td>
                     <td
                       data-day="8"
-                      class="is-today is-selected"
+                      class="is-selected"
                       aria-selected="true"
                     >
                       <button
@@ -491,7 +491,7 @@ exports[`Date Range should match the snapshot 1`] = `
                     </td>
                     <td
                       data-day="9"
-                      class="has-event"
+                      class="is-today has-event"
                       aria-selected="false"
                     >
                       <button
