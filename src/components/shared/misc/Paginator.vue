@@ -9,7 +9,7 @@
         <a :class="startClass" @click="current = 1">First Page</a>
         <a :class="startClass" @click="current -= 1">Prev</a>
         <a class="item">Page {{current}} of {{pagination.total_pages}}</a>
-        <a :class="endClass" class="item" @click="current += 1">Next</a>
+        <a :class="endClass" @click="current += 1">Next</a>
         <a :class="endClass" @click="current = pagination.total_pages">Last Page</a>
     </div>
 </template>
