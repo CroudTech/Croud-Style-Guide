@@ -3,13 +3,15 @@
 
         <div class="three wide column">
         
-            <croud-image-uploader :title="imageUploaderTitle"
+            <croud-image-uploader ref="uploader"
+                                  :title="imageUploaderTitle"
                                   :imgUrl="getUser.avatar"
                                   :url="url"
                                   :requstHeaders="requestHeaders"
                                   :showModal="showModal"
+                                  :readOnly="readOnly"
                                   @image-set="profileSet"
-                                  @show-modal="$emit('show-modal')">
+                                  @show-modal="showModal = !showModal">
             
                 <div slot="profile-current">
 
@@ -17,7 +19,7 @@
 
                 </div>
                 <slot name="action">
-                    <button v-if="!readOnly" class="ui blue fluid button" slot="action" @click="$emit('show-modal')">Set Image</button>
+                    <button class="ui blue fluid button" slot="action" @click="$refs.uploader.showModal = !$refs.uploader.showModal">Set Image</button>
                 </slot>
 
             </croud-image-uploader>
@@ -28,22 +30,19 @@
                 <div class="ui form user-details">
                     <div class="required field">
                         <div class="ui big transparent input">
-                            <input v-if="readOnly" type="text" placeholder="First Name" v-model="getUser.first_name" readonly="">
-                            <input v-else name="first_name" type="text" placeholder="First Name" v-model="getUser.first_name" @blur="$emit('field-blurred')">
+                            <input type="text" placeholder="First Name" v-model="getUser.first_name" :readOnly="readOnly" @blur="$emit('field-blurred')">
                         </div>
                     </div>
 
                     <div class="required field">
                         <div class="ui big transparent input">
-                            <input v-if="readOnly" type="text" placeholder="Last Name" v-model="getUser.last_name" readonly="">
-                            <input v-else name="last_name" type="text" placeholder="Last Name" v-model="getUser.last_name" @blur="$emit('field-blurred')">
+                            <input type="text" placeholder="Last Name" v-model="getUser.last_name" :readOnly="readOnly" @blur="$emit('field-blurred')">
                         </div>
                     </div>
 
                     <div class="required field">
                         <div class="ui big transparent input">
-                            <input v-if="readOnly" type="text" placeholder="Email" v-model="getUser.email" readonly="">
-                            <input v-else name="email" type="text" placeholder="Email" v-model="getUser.email" @blur="$emit('field-blurred')">
+                            <input type="text" placeholder="Email" v-model="getUser.email" :readOnly="readOnly" @blur="$emit('field-blurred')">
                         </div>
                     </div>
                 </div>
@@ -93,7 +92,7 @@ export default {
         },
 
         /**
-        * Show Image Cropper / Uploader Modal
+        * Make header read only
         */
         readOnly: {
             type: Boolean,
