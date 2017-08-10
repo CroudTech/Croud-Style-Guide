@@ -128,15 +128,17 @@ Object.keys(config.preprocessors).forEach((preprocessor) => {
         } else {
             Object.keys(vars).forEach((directVar) => {
                 const propValue = variables[varCatagory][directVar]
-                fileData += `${preprocessorInfo.variable.prefix}${directVar}: `
 
                 const varValue = typeof propValue !== 'string'
-                ? propValue[preprocessor] || ''
+                ? propValue[preprocessor]
                 : propValue
 
-                fileData += varCheck(varValue)
-                ? `${preprocessorInfo.variable.prefix}${varValue};\n`
-                : `${varValue};\n`
+                if (typeof varValue !== 'undefined') {
+                    fileData += `${preprocessorInfo.variable.prefix}${directVar}: `
+                    fileData += varCheck(varValue)
+                    ? `${preprocessorInfo.variable.prefix}${varValue};\n`
+                    : `${varValue};\n`
+                }
             })
         }
         allVarData += fileData
