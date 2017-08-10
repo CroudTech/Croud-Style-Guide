@@ -19,6 +19,13 @@
     "stylelint:staged": "node node_modules/stylelint/bin/stylelint",
     "precommit": "lint-staged"
   },
+  "files": [
+    "semantic/",
+    "src/components/shared/",
+    "src/resources/",
+    "README.md",
+    "CONTRIBUTING.md"
+  ],
   "lint-staged": {
     "*.vue": "stylelint:staged"
   },
