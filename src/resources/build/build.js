@@ -143,7 +143,10 @@ Object.keys(config.preprocessors).forEach((preprocessor) => {
         }
         allVarData += fileData
 
-        fs.writeFileSync(allVarFilePath, allVarData)
+        if (allVarData.includes(config.prefix)) {
+            fs.writeFileSync(allVarFilePath, allVarData)
+        }
+
         if (fileData.includes(config.prefix)) {
             fs.writeFileSync(filePath, fileData)
         }
