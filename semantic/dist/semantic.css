@@ -21194,8 +21194,8 @@ ol.ui.horizontal.list li:before,
 .ui.segment {
   position: relative;
   background: #FFFFFF;
-  -webkit-box-shadow: 0px 1px 2px 0 rgba(39, 39, 39, 0.15);
-  box-shadow: 0px 1px 2px 0 rgba(39, 39, 39, 0.15);
+  -webkit-box-shadow: 0px 1px 2px 0 rgba(39, 39, 39, 0.2);
+  box-shadow: 0px 1px 2px 0 rgba(39, 39, 39, 0.2);
   margin: 1rem 0em;
   padding: 1em 1em;
   border-radius: 0.28571429rem;
@@ -21279,8 +21279,8 @@ ol.ui.horizontal.list li:before,
 .ui.basic.table.segment {
   background: #FFFFFF;
   border: 1px solid rgba(39, 39, 39, 0.15);
-  -webkit-box-shadow: 0px 1px 2px 0 rgba(39, 39, 39, 0.15);
-  box-shadow: 0px 1px 2px 0 rgba(39, 39, 39, 0.15);
+  -webkit-box-shadow: 0px 1px 2px 0 rgba(39, 39, 39, 0.2);
+  box-shadow: 0px 1px 2px 0 rgba(39, 39, 39, 0.2);
 }
 
 .ui[class*="very basic"].table.segment {
@@ -21472,8 +21472,8 @@ ol.ui.horizontal.list li:before,
 
 .ui.raised.segments,
 .ui.raised.segment {
-  -webkit-box-shadow: 0px 2px 4px 0px rgba(39, 39, 39, 0.12), 0px 2px 10px 0px rgba(39, 39, 39, 0.15);
-  box-shadow: 0px 2px 4px 0px rgba(39, 39, 39, 0.12), 0px 2px 10px 0px rgba(39, 39, 39, 0.15);
+  -webkit-box-shadow: 0px 2px 2px 0px rgba(39, 39, 39, 0.12), 0px 2px 8px 1px rgba(39, 39, 39, 0.15);
+  box-shadow: 0px 2px 2px 0px rgba(39, 39, 39, 0.12), 0px 2px 8px 1px rgba(39, 39, 39, 0.15);
 }
 
 /*******************************
@@ -21490,8 +21490,8 @@ ol.ui.horizontal.list li:before,
   position: relative;
   margin: 1rem 0em;
   border: 1px solid rgba(39, 39, 39, 0.15);
-  -webkit-box-shadow: 0px 1px 2px 0 rgba(39, 39, 39, 0.15);
-  box-shadow: 0px 1px 2px 0 rgba(39, 39, 39, 0.15);
+  -webkit-box-shadow: 0px 1px 2px 0 rgba(39, 39, 39, 0.2);
+  box-shadow: 0px 1px 2px 0 rgba(39, 39, 39, 0.2);
   border-radius: 0.28571429rem;
 }
 
@@ -21533,8 +21533,8 @@ ol.ui.horizontal.list li:before,
   bottom: 0px;
   margin-top: 0em;
   margin-bottom: 0em;
-  -webkit-box-shadow: 0px 1px 2px 0 rgba(39, 39, 39, 0.15), none;
-  box-shadow: 0px 1px 2px 0 rgba(39, 39, 39, 0.15), none;
+  -webkit-box-shadow: 0px 1px 2px 0 rgba(39, 39, 39, 0.2), none;
+  box-shadow: 0px 1px 2px 0 rgba(39, 39, 39, 0.2), none;
   border-radius: 0em 0em 0.28571429rem 0.28571429rem;
 }
 
@@ -21573,8 +21573,8 @@ ol.ui.horizontal.list li:before,
   border-radius: 0px;
   padding: 0em;
   background-color: #FFFFFF;
-  -webkit-box-shadow: 0px 1px 2px 0 rgba(39, 39, 39, 0.15);
-  box-shadow: 0px 1px 2px 0 rgba(39, 39, 39, 0.15);
+  -webkit-box-shadow: 0px 1px 2px 0 rgba(39, 39, 39, 0.2);
+  box-shadow: 0px 1px 2px 0 rgba(39, 39, 39, 0.2);
   margin: 1rem 0em;
   border-radius: 0.28571429rem;
   border: 1px solid rgba(39, 39, 39, 0.15);
@@ -22017,8 +22017,8 @@ ol.ui.horizontal.list li:before,
   margin-top: 0em;
   top: 0px;
   margin-bottom: 1rem;
-  -webkit-box-shadow: 0px 1px 2px 0 rgba(39, 39, 39, 0.15), none;
-  box-shadow: 0px 1px 2px 0 rgba(39, 39, 39, 0.15), none;
+  -webkit-box-shadow: 0px 1px 2px 0 rgba(39, 39, 39, 0.2), none;
+  box-shadow: 0px 1px 2px 0 rgba(39, 39, 39, 0.2), none;
   border-radius: 0em 0em 0.28571429rem 0.28571429rem;
 }
 
@@ -26426,8 +26426,8 @@ ol.ui.horizontal.list li:before,
   background: #FFFFFF;
   font-weight: normal;
   border: 1px solid rgba(39, 39, 39, 0.15);
-  -webkit-box-shadow: 0px 1px 2px 0 rgba(39, 39, 39, 0.15);
-  box-shadow: 0px 1px 2px 0 rgba(39, 39, 39, 0.15);
+  -webkit-box-shadow: 0px 1px 2px 0 rgba(39, 39, 39, 0.2);
+  box-shadow: 0px 1px 2px 0 rgba(39, 39, 39, 0.2);
   border-radius: 0.28571429rem;
   min-height: 2.85714286em;
 }
@@ -26939,8 +26939,8 @@ Floated Menu / Item
   -ms-flex-direction: column;
   flex-direction: column;
   background: #FFFFFF;
-  -webkit-box-shadow: 0px 1px 2px 0 rgba(39, 39, 39, 0.15);
-  box-shadow: 0px 1px 2px 0 rgba(39, 39, 39, 0.15);
+  -webkit-box-shadow: 0px 1px 2px 0 rgba(39, 39, 39, 0.2);
+  box-shadow: 0px 1px 2px 0 rgba(39, 39, 39, 0.2);
 }
 
 /*--- Item ---*/
@@ -28558,8 +28558,8 @@ Floated Menu / Item
   margin-top: 0em;
   top: 0px;
   margin-bottom: 1rem;
-  -webkit-box-shadow: 0px 1px 2px 0 rgba(39, 39, 39, 0.15), none;
-  box-shadow: 0px 1px 2px 0 rgba(39, 39, 39, 0.15), none;
+  -webkit-box-shadow: 0px 1px 2px 0 rgba(39, 39, 39, 0.2), none;
+  box-shadow: 0px 1px 2px 0 rgba(39, 39, 39, 0.2), none;
   border-radius: 0em 0em 0.28571429rem 0.28571429rem;
 }
 
@@ -28909,8 +28909,8 @@ Floated Menu / Item
 .ui.bottom.attached.message {
   margin-top: -1px;
   border-radius: 0em 0em 0.28571429rem 0.28571429rem;
-  -webkit-box-shadow: 0em 0em 0em 1px rgba(39, 39, 39, 0.15) inset, 0px 1px 2px 0 rgba(39, 39, 39, 0.15);
-  box-shadow: 0em 0em 0em 1px rgba(39, 39, 39, 0.15) inset, 0px 1px 2px 0 rgba(39, 39, 39, 0.15);
+  -webkit-box-shadow: 0em 0em 0em 1px rgba(39, 39, 39, 0.15) inset, 0px 1px 2px 0 rgba(39, 39, 39, 0.2);
+  box-shadow: 0em 0em 0em 1px rgba(39, 39, 39, 0.15) inset, 0px 1px 2px 0 rgba(39, 39, 39, 0.2);
 }
 
 .ui.bottom.attached.message:not(:last-child) {
@@ -28968,8 +28968,8 @@ Floated Menu / Item
 ---------------*/
 
 .ui.floating.message {
-  -webkit-box-shadow: 0px 0px 0px 1px rgba(39, 39, 39, 0.22) inset, 0px 2px 4px 0px rgba(39, 39, 39, 0.12), 0px 2px 10px 0px rgba(39, 39, 39, 0.15);
-  box-shadow: 0px 0px 0px 1px rgba(39, 39, 39, 0.22) inset, 0px 2px 4px 0px rgba(39, 39, 39, 0.12), 0px 2px 10px 0px rgba(39, 39, 39, 0.15);
+  -webkit-box-shadow: 0px 0px 0px 1px rgba(39, 39, 39, 0.22) inset, 0px 2px 2px 0px rgba(39, 39, 39, 0.12), 0px 2px 8px 1px rgba(39, 39, 39, 0.15);
+  box-shadow: 0px 0px 0px 1px rgba(39, 39, 39, 0.22) inset, 0px 2px 2px 0px rgba(39, 39, 39, 0.12), 0px 2px 8px 1px rgba(39, 39, 39, 0.15);
 }
 
 /*--------------
@@ -31299,8 +31299,8 @@ Floated Menu / Item
 
 .ui.raised.cards > .card,
 .ui.raised.card {
-  -webkit-box-shadow: 0px 0px 0px 1px #c9cfd3, 0px 2px 4px 0px rgba(39, 39, 39, 0.12), 0px 2px 10px 0px rgba(39, 39, 39, 0.15);
-  box-shadow: 0px 0px 0px 1px #c9cfd3, 0px 2px 4px 0px rgba(39, 39, 39, 0.12), 0px 2px 10px 0px rgba(39, 39, 39, 0.15);
+  -webkit-box-shadow: 0px 0px 0px 1px #c9cfd3, 0px 2px 2px 0px rgba(39, 39, 39, 0.12), 0px 2px 8px 1px rgba(39, 39, 39, 0.15);
+  box-shadow: 0px 0px 0px 1px #c9cfd3, 0px 2px 2px 0px rgba(39, 39, 39, 0.12), 0px 2px 8px 1px rgba(39, 39, 39, 0.15);
 }
 
 .ui.raised.cards a.card:hover,
@@ -31313,8 +31313,8 @@ a.ui.raised.card:hover,
 
 .ui.raised.cards > .card,
 .ui.raised.card {
-  -webkit-box-shadow: 0px 0px 0px 1px #c9cfd3, 0px 2px 4px 0px rgba(39, 39, 39, 0.12), 0px 2px 10px 0px rgba(39, 39, 39, 0.15);
-  box-shadow: 0px 0px 0px 1px #c9cfd3, 0px 2px 4px 0px rgba(39, 39, 39, 0.12), 0px 2px 10px 0px rgba(39, 39, 39, 0.15);
+  -webkit-box-shadow: 0px 0px 0px 1px #c9cfd3, 0px 2px 2px 0px rgba(39, 39, 39, 0.12), 0px 2px 8px 1px rgba(39, 39, 39, 0.15);
+  box-shadow: 0px 0px 0px 1px #c9cfd3, 0px 2px 2px 0px rgba(39, 39, 39, 0.12), 0px 2px 8px 1px rgba(39, 39, 39, 0.15);
 }
 
 /*-------------------
@@ -33832,8 +33832,8 @@ a.ui.card:hover,
 .ui.styled.accordion .accordion {
   border-radius: 0.28571429rem;
   background: #FFFFFF;
-  -webkit-box-shadow: 0px 1px 2px 0 rgba(39, 39, 39, 0.15), 0px 0px 0px 1px rgba(39, 39, 39, 0.15);
-  box-shadow: 0px 1px 2px 0 rgba(39, 39, 39, 0.15), 0px 0px 0px 1px rgba(39, 39, 39, 0.15);
+  -webkit-box-shadow: 0px 1px 2px 0 rgba(39, 39, 39, 0.2), 0px 0px 0px 1px rgba(39, 39, 39, 0.15);
+  box-shadow: 0px 1px 2px 0 rgba(39, 39, 39, 0.2), 0px 0px 0px 1px rgba(39, 39, 39, 0.15);
 }
 
 .ui.styled.accordion .title,
@@ -34409,8 +34409,8 @@ a.ui.card:hover,
   opacity: 1;
   z-index: 2;
   border: none;
-  -webkit-box-shadow: 0px 1px 2px 0 rgba(39, 39, 39, 0.15), 0px 0px 0px 1px rgba(39, 39, 39, 0.15) inset;
-  box-shadow: 0px 1px 2px 0 rgba(39, 39, 39, 0.15), 0px 0px 0px 1px rgba(39, 39, 39, 0.15) inset;
+  -webkit-box-shadow: 0px 1px 2px 0 rgba(39, 39, 39, 0.2), 0px 0px 0px 1px rgba(39, 39, 39, 0.15) inset;
+  box-shadow: 0px 1px 2px 0 rgba(39, 39, 39, 0.2), 0px 0px 0px 1px rgba(39, 39, 39, 0.15) inset;
   width: 1.5rem;
   height: 1.5rem;
   top: -0.25rem;
@@ -34531,8 +34531,8 @@ a.ui.card:hover,
   opacity: 1;
   z-index: 2;
   border: none;
-  -webkit-box-shadow: 0px 1px 2px 0 rgba(39, 39, 39, 0.15), 0px 0px 0px 1px rgba(39, 39, 39, 0.15) inset;
-  box-shadow: 0px 1px 2px 0 rgba(39, 39, 39, 0.15), 0px 0px 0px 1px rgba(39, 39, 39, 0.15) inset;
+  -webkit-box-shadow: 0px 1px 2px 0 rgba(39, 39, 39, 0.2), 0px 0px 0px 1px rgba(39, 39, 39, 0.15) inset;
+  box-shadow: 0px 1px 2px 0 rgba(39, 39, 39, 0.2), 0px 0px 0px 1px rgba(39, 39, 39, 0.15) inset;
   width: 1.5rem;
   height: 1.5rem;
   top: 0rem;
@@ -36257,8 +36257,8 @@ select.ui.dropdown {
 .ui.floating.dropdown .menu {
   left: 0;
   right: auto;
-  -webkit-box-shadow: 0px 2px 4px 0px rgba(39, 39, 39, 0.12), 0px 2px 10px 0px rgba(39, 39, 39, 0.15) !important;
-  box-shadow: 0px 2px 4px 0px rgba(39, 39, 39, 0.12), 0px 2px 10px 0px rgba(39, 39, 39, 0.15) !important;
+  -webkit-box-shadow: 0px 2px 2px 0px rgba(39, 39, 39, 0.12), 0px 2px 8px 1px rgba(39, 39, 39, 0.15) !important;
+  box-shadow: 0px 2px 2px 0px rgba(39, 39, 39, 0.12), 0px 2px 8px 1px rgba(39, 39, 39, 0.15) !important;
   border-radius: 0.28571429rem !important;
 }
 
@@ -37614,8 +37614,8 @@ a.ui.nag {
   font-style: normal;
   color: rgba(0, 0, 0, 0.87);
   border-radius: 0.28571429rem;
-  -webkit-box-shadow: 0px 2px 4px 0px rgba(39, 39, 39, 0.12), 0px 2px 10px 0px rgba(39, 39, 39, 0.15);
-  box-shadow: 0px 2px 4px 0px rgba(39, 39, 39, 0.12), 0px 2px 10px 0px rgba(39, 39, 39, 0.15);
+  -webkit-box-shadow: 0px 2px 2px 0px rgba(39, 39, 39, 0.12), 0px 2px 8px 1px rgba(39, 39, 39, 0.15);
+  box-shadow: 0px 2px 2px 0px rgba(39, 39, 39, 0.12), 0px 2px 8px 1px rgba(39, 39, 39, 0.15);
 }
 
 .ui.popup > .header {
@@ -37693,8 +37693,8 @@ a.ui.nag {
   font-style: normal;
   color: rgba(0, 0, 0, 0.87);
   border-radius: 0.28571429rem;
-  -webkit-box-shadow: 0px 2px 4px 0px rgba(39, 39, 39, 0.12), 0px 2px 10px 0px rgba(39, 39, 39, 0.15);
-  box-shadow: 0px 2px 4px 0px rgba(39, 39, 39, 0.12), 0px 2px 10px 0px rgba(39, 39, 39, 0.15);
+  -webkit-box-shadow: 0px 2px 2px 0px rgba(39, 39, 39, 0.12), 0px 2px 8px 1px rgba(39, 39, 39, 0.15);
+  box-shadow: 0px 2px 2px 0px rgba(39, 39, 39, 0.12), 0px 2px 8px 1px rgba(39, 39, 39, 0.15);
   z-index: 1;
 }
 
@@ -39413,8 +39413,8 @@ a.ui.nag {
   margin-top: 0.5em;
   width: 18em;
   border-radius: 0.28571429rem;
-  -webkit-box-shadow: 0px 2px 4px 0px rgba(39, 39, 39, 0.12), 0px 2px 10px 0px rgba(39, 39, 39, 0.15);
-  box-shadow: 0px 2px 4px 0px rgba(39, 39, 39, 0.12), 0px 2px 10px 0px rgba(39, 39, 39, 0.15);
+  -webkit-box-shadow: 0px 2px 2px 0px rgba(39, 39, 39, 0.12), 0px 2px 8px 1px rgba(39, 39, 39, 0.15);
+  box-shadow: 0px 2px 2px 0px rgba(39, 39, 39, 0.12), 0px 2px 8px 1px rgba(39, 39, 39, 0.15);
   border: 1px solid #c9cfd3;
   z-index: 998;
 }
