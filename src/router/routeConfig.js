@@ -17,6 +17,11 @@ export default [
                 name: 'introduction-default',
                 path: '',
                 component: Introduction,
+                props: {
+                    introText: `Hello! Welcome to the Croud style guide
+                     - a living document of design rules and reusable UI components, 
+                     to be used and referenced across front-end projects.`,
+                },
             },
             {
                 name: 'motivation',
