@@ -13,6 +13,9 @@
                 </div>
             </template>
         </nav>
+        <div class="bottom-menu">
+            <a href="https://croudsupport.github.io/Croud-Style-Guide/technical/"><button class="ui button mini basic yellow">Open Tech Docs</button></a>
+        </div>
     </header>
 </template>
 
@@ -65,6 +68,15 @@ export default {
             .item {
                 padding-left: 2.5em;
                 font-weight: 300;
+            }
+        }
+
+        .bottom-menu {
+            position: absolute;
+            bottom: 0;
+
+            .ui.button {
+                margin: .8rem;
             }
         }
     }
