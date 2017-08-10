@@ -1,6 +1,7 @@
 import ColourPalette from '../components/ColourPalette'
 import Fonts from '../components/Fonts'
-import Welcome from '../components/Welcome'
+import Introduction from '../components/Introduction'
+import Principles from '../components/Principles'
 import CatagoryHeading from '../components/CatagoryHeading'
 
 export default [
@@ -15,7 +16,17 @@ export default [
             {
                 name: 'introduction-default',
                 path: '',
-                component: Welcome,
+                component: Introduction,
+            },
+            {
+                name: 'motivation',
+                path: 'motivation',
+                component: Principles,
+            },
+            {
+                name: 'principles',
+                path: 'principles',
+                component: Principles,
             },
         ],
     },
@@ -30,7 +41,7 @@ export default [
             {
                 name: 'style-default',
                 path: '',
-                component: Welcome,
+                component: Introduction,
             },
             {
                 name: 'colour',
@@ -55,7 +66,7 @@ export default [
             {
                 name: 'components-default',
                 path: '',
-                component: Welcome,
+                component: Introduction,
             },
             {
                 name: 'menus',
