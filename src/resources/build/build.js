@@ -130,7 +130,7 @@ Object.keys(config.preprocessors).forEach((preprocessor) => {
                 const propValue = variables[varCatagory][directVar]
 
                 const varValue = typeof propValue !== 'string'
-                ? propValue[preprocessor]
+                ? propValue[preprocessor] || propValue.default
                 : propValue
 
                 if (typeof varValue !== 'undefined') {
