@@ -5276,6 +5276,13 @@ fstream@^1.0.0, fstream@^1.0.2, fstream@~1.0.10:
     mkdirp ">=0.5 0"
     rimraf "2"
 
+fullcalendar@^3.3.0:
+  version "3.4.0"
+  resolved "https://registry.yarnpkg.com/fullcalendar/-/fullcalendar-3.4.0.tgz#34dabff2abe5e85f70025c789a5b9dc3ea4c4762"
+  dependencies:
+    jquery "2 - 3"
+    moment "^2.9.0"
+
 function-bind@^1.0.2, function-bind@^1.1.0, function-bind@~1.1.0:
   version "1.1.0"
   resolved "https://registry.yarnpkg.com/function-bind/-/function-bind-1.1.0.tgz#16176714c801798e4e8f2cf7f7529467bb4a5771"
@@ -7322,11 +7329,7 @@ jpegtran-bin@^3.0.0:
     bin-wrapper "^3.0.0"
     logalot "^2.0.0"
 
-jquery@^3.1.1:
-  version "3.1.1"
-  resolved "https://registry.yarnpkg.com/jquery/-/jquery-3.1.1.tgz#347c1c21c7e004115e0a4da32cece041fad3c8a3"
-
-jquery@^3.2.1:
+"jquery@2 - 3", jquery@^3.2.1:
   version "3.2.1"
   resolved "https://registry.yarnpkg.com/jquery/-/jquery-3.2.1.tgz#5c4d9de652af6cd0a770154a631bba12b015c787"
 
@@ -8742,7 +8745,7 @@ mkdirp@0.5.1, mkdirp@0.5.x, "mkdirp@>=0.5 0", mkdirp@^0.5.0, mkdirp@^0.5.1, mkdi
   dependencies:
     minimist "0.0.8"
 
-moment@2.x, moment@^2.10.3, moment@^2.18.1:
+moment@2.x, moment@^2.10.3, moment@^2.18.1, moment@^2.9.0:
   version "2.18.1"
   resolved "https://registry.yarnpkg.com/moment/-/moment-2.18.1.tgz#c36193dd3ce1c2eed2adb7c802dbbc77a81b1c0f"
 
@@ -13609,6 +13612,13 @@ vue-faker@^1.0.1:
   dependencies:
     faker "^3.0.1"
     underscore "^1.8.3"
+
+vue-full-calendar@^2.0.6:
+  version "2.0.6"
+  resolved "https://registry.yarnpkg.com/vue-full-calendar/-/vue-full-calendar-2.0.6.tgz#6f7f882f0f306e1e075e686185c66ef363eb6cb2"
+  dependencies:
+    fullcalendar "^3.3.0"
+    lodash.defaultsdeep "^4.6.0"
 
 vue-highlightjs@^1.3.3:
   version "1.3.3"
