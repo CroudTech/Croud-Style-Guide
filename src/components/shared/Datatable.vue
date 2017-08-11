@@ -91,7 +91,7 @@
                         next_page_url: data.meta.pagination.links.next,
                         prev_page_url: data.meta.pagination.links.previous,
                         from: (data.meta.pagination.per_page * data.meta.pagination.current_page) - (data.meta.pagination.per_page - 1),
-                        to: data.meta.pagination.per_page * data.meta.pagination.current_page,
+                        to: Math.min((data.meta.pagination.per_page * data.meta.pagination.current_page), data.meta.pagination.total),
                         ...data.meta.pagination,
                     }
                     return data
@@ -125,6 +125,7 @@
             config() {
                 return defaultsDeep(this.vuetableConfig, {
                     'pagination-path': 'meta.pagination',
+                    'per-page': 15,
                     css: {
                         tableClass: 'ui table',
                         dropdownClass: 'ui dropdown',
