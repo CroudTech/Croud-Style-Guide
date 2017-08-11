@@ -6,7 +6,7 @@ For our checkboxes, we use the semantic-checkbox component from the [croud-vue-s
     <semantic-checkbox v-model="checkbox" label="🍕 Pizza" />
 
 ### Styling
-Pass through the **type** prop to change the style of checkbo
+Pass through the **type** prop to change the style of checkbox
 
     <div class="ui form">
         <div class="ui field">
