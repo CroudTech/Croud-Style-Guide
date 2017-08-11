@@ -15,8 +15,7 @@
                         class="item"
                         :class="{ disabled: option.disabled}"
                         :key="option.name"
-                        @click="option.method"
-                    >
+                        @click="option.method">
                         {{ option.name }}
                     </div>
                 </template>
@@ -136,13 +135,6 @@ export default {
                     color: $croud-colour-grey-dark;
                     padding-left: 16px!important;
                     height: 48px;
-
-                    .icon{
-                        margin-left: -1em;
-                        font-size: $croud-font-size-small;
-                        opacity: .8;
-                        line-height: 1.2rem;
-                    }
 
                     @media screen and (min-width: 450px){
                         height: 40px;
