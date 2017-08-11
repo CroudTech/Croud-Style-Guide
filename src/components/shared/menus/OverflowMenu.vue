@@ -8,7 +8,6 @@
                     <template v-if="!option.method">
                         <div v-if="index > 0" class="divider"></div>
                         <div v-if="option.name" class="header">
-                            <i v-if="option.icon" class="icon" :class="option.icon"></i>
                             {{ option.name }}
                         </div>
                     </template>
@@ -18,7 +17,6 @@
                         :key="option.name"
                         @click="option.method"
                     >
-                        <i v-if="option.icon" class="icon" :class="option.icon"></i>
                         {{ option.name }}
                     </div>
                 </template>
