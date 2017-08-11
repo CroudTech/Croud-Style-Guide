@@ -1,5 +1,5 @@
 <template>
-    <button class="ui button" :class="{basic: !cta}" @click="morph()">{{nextOption.name}}</button>
+    <button class="ui button" @click="morph()">{{nextOption.name}}</button>
 </template>
 
 <script>
@@ -17,13 +17,6 @@ export default {
         }
     },
     props: {
-        /**
-        * States if button should be styled like Call to Action.
-        */
-        cta: {
-            type: Boolean,
-            default: false,
-        },
         /**
         * The two options to toggle between.
         */

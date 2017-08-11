@@ -8,7 +8,6 @@
                     <template v-if="!option.method">
                         <div v-if="index > 0" class="divider"></div>
                         <div v-if="option.name" class="header">
-                            <i v-if="option.icon" class="icon" :class="option.icon"></i>
                             {{ option.name }}
                         </div>
                     </template>
@@ -16,9 +15,7 @@
                         class="item"
                         :class="{ disabled: option.disabled}"
                         :key="option.name"
-                        @click="option.method"
-                    >
-                        <i v-if="option.icon" class="icon" :class="option.icon"></i>
+                        @click="option.method">
                         {{ option.name }}
                     </div>
                 </template>
@@ -138,13 +135,6 @@ export default {
                     color: $croud-colour-grey-dark;
                     padding-left: 16px!important;
                     height: 48px;
-
-                    .icon{
-                        margin-left: -1em;
-                        font-size: $croud-font-size-small;
-                        opacity: .8;
-                        line-height: 1.2rem;
-                    }
 
                     @media screen and (min-width: 450px){
                         height: 40px;
