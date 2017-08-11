@@ -40,7 +40,6 @@ The **default** slot allows you to add custom options to the top of the dropdown
 
     <semantic-form-dropdown v-model="dropdownVal" :options="[{id: 1, name: 'Foo'},{id: 2, name: 'Bar'}]">
         <div class="item" v-data="3">
-            <i class="green check icon"></i>
             Baz
         </div>
     </semantic-form-dropdown>
