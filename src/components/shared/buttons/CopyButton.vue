@@ -1,6 +1,6 @@
 <template>
     <button v-if="isSupported" ref="button" :data-clipboard-text="text" :class="buttonClasses" :data-tooltip="tooltipText" data-inverted>
-        <i class="copy icon"></i>
+        Copy
     </button>
 </template>
 
@@ -30,7 +30,7 @@
              */
             buttonClasses: {
                 type: String,
-                default: 'ui circular icon basic button copy-button',
+                default: 'ui basic button copy-button',
             },
 
             /**
