@@ -27,6 +27,10 @@ module.exports = {
                     name: 'Modal',
                     content: 'src/components/shared/semantic/semantic-modal.md',
                 },
+                {
+                    name: 'full-calendar',
+                    content: 'src/components/shared/layout/fullcalendar.md',
+                },
             ],
         },
         {
@@ -80,6 +84,8 @@ module.exports = {
         './semantic/dist/semantic.min.css',
         'quill/dist/quill.snow.css',
         './src/components/shared/forms/quill/shortcodes.css',
+        'fullcalendar/dist/fullcalendar.js',
+        'fullcalendar/dist/fullcalendar.css',
     ],
     // webpackConfig: {
     //     module: {

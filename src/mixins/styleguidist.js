@@ -22,6 +22,7 @@ Vue.use(Toasted, {
 
 
 Vue.use(require('croud-vue-semantic'))
+Vue.use(require('vue-full-calendar'))
 
 Vue.component('planning-component', {})
 Vue.component('journal-component', {})
@@ -121,6 +122,23 @@ export default {
                 sortCode: '55-05-55',
                 avatar: '',
             },
+
+            events: [
+                {
+                    title: 'event1',
+                    start: moment(),
+                },
+                {
+                    title: 'event2',
+                    start: moment().subtract(1, 'day').hour(10),
+                    end: moment().subtract(1, 'day').hour(14),
+                },
+                {
+                    title: 'event3',
+                    start: moment().add(1, 'day'),
+                    allDay: true,
+                },
+            ],
         }
     },
 
