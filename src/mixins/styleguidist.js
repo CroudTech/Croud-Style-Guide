@@ -147,4 +147,10 @@ export default {
             alert(...text)
         },
     },
+
+    mounted() {
+        if (this.$refs.confirmation) {
+            Vue.prototype.$confirm = this.$refs.confirmation.confirm
+        }
+    },
 }
