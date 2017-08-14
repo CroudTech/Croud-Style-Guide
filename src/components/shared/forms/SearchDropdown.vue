@@ -81,7 +81,7 @@
                     apiSettings: {
                         url: this.computedUrl,
                         beforeXHR(xhr) {
-                            xhr.setRequestHeader('authorization', `Bearer ${localStorage.getItem('jwt')}`)
+                            // xhr.setRequestHeader('authorization', `Bearer ${localStorage.getItem('jwt')}`)
                             return xhr
                         },
                         onResponse(response) {
