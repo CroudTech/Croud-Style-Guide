@@ -3,8 +3,10 @@
     import defaultsDeep from 'lodash/defaultsDeep'
 
     import Vuetable from 'vuetable-2/src/components/Vuetable'
-    import VuetablePagination from 'vuetable-2/src/components/VuetablePaginationDropdown'
+    import VuetablePagination from 'vuetable-2/src/components/VuetablePagination'
+    import VuetableDropdownPagination from 'vuetable-2/src/components/VuetablePaginationDropdown'
     import VuetablePaginationInfo from 'vuetable-2/src/components/VuetablePaginationInfo'
+    import CroudPagination from './layout/datatable/Pagination'
 
     /**
      * A flexible datatable that handles API calls and pagination
@@ -16,7 +18,9 @@
         components: {
             Vuetable,
             VuetablePagination,
+            VuetableDropdownPagination,
             VuetablePaginationInfo,
+            CroudPagination,
         },
 
           /* eslint-disable object-shorthand */
@@ -40,7 +44,7 @@
                     createElement('vuetable-pagination-info', {
                         ref: 'paginationInfo',
                     }),
-                    createElement('vuetable-pagination', {
+                    createElement(this.paginatorComponent, {
                         ref: 'pagination',
                         on: {
                             'vuetable-pagination:change-page': this.onChangePage,
@@ -76,6 +80,14 @@
              */
             detailRowComponent: {
                 type: String,
+            },
+
+            /**
+             * Paginator component, choose between croud-pagination, vuetable-pagination or vuetable-dropdown-pagination
+             */
+            paginatorComponent: {
+                type: String,
+                default: 'croud-pagination',
             },
 
             /**
