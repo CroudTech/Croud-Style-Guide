@@ -4,8 +4,8 @@
             <div v-html="content"></div>
         </div>
         <div v-if="active" class="ui center aligned basic segment">
-            <button class="ui small button" @click="resolution(false)">Cancel</button>
-            <button class="ui small yellow button" @click="resolution">Confirm</button>
+            <button class="ui small button" @click="resolution(false)">{{config.cancelText}}</button>
+            <button class="ui small yellow button" @click="resolution">{{config.confirmText}}</button>
         </div>
   </semantic-modal>
 </template>
@@ -22,6 +22,10 @@
             return {
                 content: '',
                 active: false,
+                config: {
+                    confirmText: 'Confirm',
+                    cancelText: 'Cancel',
+                },
                 resolve() {},
                 reject() {},
             }
@@ -35,10 +39,11 @@
              * @param content confirmation text
              * @return Promise
              */
-            confirm(content) {
+            confirm(content, configObj) {
                 this.active = true
                 this.content = content
-
+                this.config = Object.assign(this.config, configObj)
+    
                 return new Promise((resolve, reject) => {
                     this.resolve = resolve
                     this.reject = reject
