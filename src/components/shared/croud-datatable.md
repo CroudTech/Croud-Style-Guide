@@ -28,6 +28,18 @@ vuetableConfig: {
         :transform="data => data" />
 
 
+### Change paginator
+By default, this component will show the [croud-paginator](#croud-paginator) at the bottom of the datatable, you can use the **paginator-component** prop to change this. See the [vuetable docs](https://ratiw.github.io/vuetable-2/#/Pagination?id=vuetablepagination) for more info on their built in paginators.
+
+    <croud-datatable
+        :vuetable-config="{
+            'pagination-path': '',
+            fields: [{ name: 'name', sortField: 'name' }, 'email', { name:'birthdate', title: 'DOB' }],
+            'api-url': 'https://vuetable.ratiw.net/api/users',
+        }"
+        :transform="data => data"
+        paginator-component="vuetable-pagination" />
+
 ### Simple Search
 You can hook up a simple search function by building the search query params in data in append-params, the component watched for these changes and makes a new ajax call.
 
