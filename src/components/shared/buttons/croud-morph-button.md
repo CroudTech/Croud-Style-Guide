@@ -16,3 +16,8 @@ You can also turn the button into a secondary button just by passing the *basic*
 
     <croud-morph-button class="basic blue" :options="[{name: 'Follow', method: ()=>{ this.$toasted.show('Following')}}, {name: 'Unfollow', method: ()=> { this.$toasted.show('Unfollowed') }}]" />
 
+As with semantic, you can also resize the button by passing through a size class (eg. **mini**)
+
+    <div>
+        <croud-morph-button class="basic blue mini" :options="[{name: 'Follow', method: ()=>{ this.$toasted.show('Following')}}, {name: 'Unfollow', method: ()=> { this.$toasted.show('Unfollowed') }}]" />
+    </div>
