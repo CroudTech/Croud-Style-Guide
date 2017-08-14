@@ -192,11 +192,11 @@
 --------------------*/
 
 /*---  Colors  ---*/
-@red              : #EA6B65; // --
-@yellow           : #f3c91d; // --
-@green            : #6DD1BE; // --
-@blue             : #376688; // --
-@purple           : #79508a; // --
+@red              : @croud-colour-red; // --
+@yellow           : @croud-colour-yellow; // --
+@green            : @croud-colour-green; // --
+@blue             : @croud-colour-blue; // --
+@purple           : @croud-colour-purple; // --
 @grey             : #8e979b; // --
 @black            : #272727; // --
 //
@@ -258,9 +258,9 @@
 /*--- Colored Text ---*/
 @redTextColor    : @red;
 @orangeTextColor : @orange;
-@yellowTextColor : #B58105; // Yellow text is difficult to read
+@yellowTextColor : @croud-colour-secondary-yellow-dark; // Yellow text is difficult to read
 @oliveTextColor  : #8ABC1E; // Olive is difficult to read
-@greenTextColor  : #1EBC30; // Green is difficult to read
+@greenTextColor  : @croud-colour-green-dark; // Green is difficult to read
 @tealTextColor   : #10A3A3; // Teal text is difficult to read
 @blueTextColor   : @blue;
 @violetTextColor : @violet;
