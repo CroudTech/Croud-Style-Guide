@@ -16,7 +16,7 @@ Vue.use(VueQuill)
 Vue.use(Toasted, {
     fullWidth: true,
     theme: 'croud',
-    duration: 5000,
+    duration: 2500,
     position: 'top-center',
 })
 

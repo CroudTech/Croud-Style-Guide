@@ -11,7 +11,7 @@ import 'croud-style-guide/src/components/shared/forms/toast/themes/croudToastThe
 Vue.use(Toasted, {
     fullWidth: true,
     theme: 'croud',
-    duration: 5000,
+    duration: 2500,
     position: 'top-center',
 })
 ```
