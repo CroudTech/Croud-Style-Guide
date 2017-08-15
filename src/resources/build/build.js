@@ -55,14 +55,16 @@ const varCheck = (name) => {
  */
 const format = (variables, preprocessor) => _.flattenDeep((Object.keys(variables).map((varName) => {
     if (varCheck(varName)) {
-        const varPrefix = config.preprocessors[preprocessor].variable.prefix
+        const preprocessorInfo = config.preprocessors[preprocessor]
+        const varPrefix = preprocessorInfo.variable.prefix
+        const seperator = preprocessorInfo.variable.seperator || ':'
         const varKey = `${varPrefix}${varName}`
         const valPrefix = varCheck(variables[varName]) ? varPrefix : ''
         const varVal = typeof variables[varName] === 'string'
             ? `${valPrefix}${variables[varName]}`
             : `${valPrefix}${variables[varName][preprocessor]}`
 
-        return `${varKey}: ${varVal};`
+        return `${varKey}${seperator} ${varVal};`
     }
     return [`\n /* ${varName} */ `, format(variables[varName], preprocessor)]
 }))).join('\n')
