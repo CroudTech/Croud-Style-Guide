@@ -24,7 +24,7 @@ const deleteFilesFrom = (path, endWithRule = '') => {
  * Returns array of variable file paths in specified directory
  * @param {string} directory - directory path to return variable file path
  */
-const getVariableFilesFrom = directory => fs.readdirSync(directory)
+const getVariableFilesFrom = directory => _.flattenDeep(fs.readdirSync(directory)
     .filter((entry) => {
         if (!fs.statSync(`${directory}/${entry}`).isDirectory()) {
             return entry.endsWith('.json')
@@ -36,7 +36,7 @@ const getVariableFilesFrom = directory => fs.readdirSync(directory)
             return getVariableFilesFrom(`${entryPath}`)
         }
         return entryPath.endsWith('.json') ? entryPath : undefined
-    })
+    }))
 
 /**
  * Determine if string is a variable
@@ -67,7 +67,7 @@ const format = (variables, preprocessor) => _.flattenDeep((Object.keys(variables
     return [`\n /* ${varName} */ `, format(variables[varName], preprocessor)]
 }))).join('\n')
 
-const varFiles = _.flattenDeep(getVariableFilesFrom(config.input))
+const varFiles = getVariableFilesFrom(config.input)
 
 const variables = {}
 
