@@ -48,14 +48,6 @@ const varCheck = (name) => {
 }
 
 /**
- *
- */
-const mkdir = (dirPath) => {
-    const pathFolders = dirPath.split('/')
-    console.log(pathFolders)
-}
-
-/**
  * Returns string of formatted variables
  * @param { Object } variables - variables to format
  * @param { String } preprocessor - name of preprocessor
