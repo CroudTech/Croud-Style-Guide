@@ -41,7 +41,31 @@ const getVariableFilesFrom = directory => fs.readdirSync(directory)
 /**
  * Determine if string is a variable
  */
-const varCheck = name => name.startsWith(config.prefix)
+const varCheck = (name) => {
+    if (typeof name === 'string') {
+        return name.startsWith(config.prefix)
+    }
+    return false
+}
+
+/**
+ * Returns string of formatted variables
+ * @param { Object } variables - variables to format
+ * @param { String } preprocessor - name of preprocessor
+ */
+const format = (variables, preprocessor) => _.flattenDeep((Object.keys(variables).map((varName) => {
+    if (varCheck(varName)) {
+        const varPrefix = config.preprocessors[preprocessor].variable.prefix
+        const varKey = `${varPrefix}${varName}`
+        const valPrefix = varCheck(variables[varName]) ? varPrefix : ''
+        const varVal = typeof variables[varName] === 'string'
+            ? `${valPrefix}${variables[varName]}`
+            : `${valPrefix}${variables[varName][preprocessor]}`
+
+        return `${varKey}: ${varVal};`
+    }
+    return [`\n/* ${varName} */`, format(variables[varName], preprocessor)]
+}))).join('\n')
 
 const varFiles = _.flattenDeep(getVariableFilesFrom(config.input))
 
@@ -96,7 +120,6 @@ Object.keys(config.preprocessors).forEach((preprocessor) => {
         const additions = varCatagory in config.additions
             ? config.additions[varCatagory]
             : undefined
-
         let fileData = ''
 
         if (additions) {
@@ -107,41 +130,9 @@ Object.keys(config.preprocessors).forEach((preprocessor) => {
             }
         }
 
-        allVarData += `\n/*===${varCatagory.toUpperCase()}===*/\n`
+        fileData += format(variables[varCatagory], preprocessor)
 
-        const vars = variables[varCatagory]
-
-        if (!varCheck(Object.keys(vars)[0])) {
-            Object.keys(vars).forEach((varSubCatagory) => {
-                const subCats = variables[varCatagory][varSubCatagory]
-                fileData += `\n /* ${varSubCatagory} */ \n`
-
-                Object.keys(subCats).forEach((variable) => {
-                    const varValue = subCats[variable]
-                    fileData += `${preprocessorInfo.variable.prefix}${variable}: `
-
-                    fileData += varCheck(varValue)
-                    ? `${preprocessorInfo.variable.prefix}${varValue};\n`
-                    : `${varValue};\n`
-                })
-            })
-        } else {
-            Object.keys(vars).forEach((directVar) => {
-                const propValue = variables[varCatagory][directVar]
-
-                const varValue = typeof propValue !== 'string'
-                ? propValue[preprocessor] || propValue.default
-                : propValue
-
-                if (typeof varValue !== 'undefined') {
-                    fileData += `${preprocessorInfo.variable.prefix}${directVar}: `
-                    fileData += varCheck(varValue)
-                    ? `${preprocessorInfo.variable.prefix}${varValue};\n`
-                    : `${varValue};\n`
-                }
-            })
-        }
-        allVarData += fileData
+        allVarData += `\n/*===${varCatagory.toUpperCase()}===*/\n ${fileData}`
 
         if (allVarData.includes(config.prefix)) {
             fs.writeFileSync(allVarFilePath, allVarData)
@@ -158,6 +149,7 @@ Object.keys(config.preprocessors).forEach((preprocessor) => {
 */
 deleteFilesFrom(config.output, 'Map.scss')
 
+/*
 Object.keys(variables).forEach((catagory) => {
     if (config.sassMaps.inclusions.indexOf(catagory) >= 0) {
         const varPrefix = config.preprocessors.sass.variable.prefix
@@ -186,4 +178,4 @@ Object.keys(variables).forEach((catagory) => {
         fs.writeFileSync(fileDir, mapData)
     }
 })
-
+*/
