@@ -64,7 +64,7 @@ const format = (variables, preprocessor) => _.flattenDeep((Object.keys(variables
 
         return `${varKey}: ${varVal};`
     }
-    return [`\n/* ${varName} */`, format(variables[varName], preprocessor)]
+    return [`\n /* ${varName} */ `, format(variables[varName], preprocessor)]
 }))).join('\n')
 
 const varFiles = _.flattenDeep(getVariableFilesFrom(config.input))
@@ -130,7 +130,7 @@ Object.keys(config.preprocessors).forEach((preprocessor) => {
             }
         }
 
-        fileData += format(variables[varCatagory], preprocessor)
+        fileData += `${format(variables[varCatagory], preprocessor)}\n`
 
         allVarData += `\n/*===${varCatagory.toUpperCase()}===*/\n ${fileData}`
 
