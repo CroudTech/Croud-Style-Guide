@@ -1,6 +1,6 @@
 
 /*===COLOURS===*/
- 
+
  /* primary */ 
 $croud-colour-black: #292929;
 $croud-colour-grey: #484848;
@@ -45,11 +45,11 @@ $croud-colour-warning: $croud-colour-secondary-yellow;
 $croud-colour-warning-accent: $croud-colour-secondary-yellow-dark;
 
 /*===BOX-SHADOW===*/
- $croud-box-shadow-subtle: 0px 1px 2px 0 rgba($croud-colour-border, .15);
+$croud-box-shadow-subtle: 0px 1px 2px 0 rgba($croud-colour-border, .15);
 $croud-box-shadow-float: 0px 2px 4px 0px rgba($croud-colour-border, .12), 0px 2px 10px 0px rgba($croud-colour-border, .15);
 
 /*===FONTS===*/
- @import "../../fontImports"; 
+@import "../../fontImports"; 
 
  /* headline */ 
 $croud-font-headline: 'Pathway Gothic One', Arial, Helvetica, sans-serif;
@@ -69,7 +69,7 @@ $croud-font-size-tiny: (12 / 14) + 0rem;
 $croud-font-size-mini: (11 / 14) + 0rem;
 
 /*===LAYERS===*/
- $croud-layer-8: 1001;
+$croud-layer-8: 1001;
 $croud-layer-7: 103;
 $croud-layer-6: 100;
 $croud-layer-5: 80;
@@ -79,7 +79,7 @@ $croud-layer-2: 20;
 $croud-layer-1: 1;
 
 /*===MOTION===*/
- 
+
  /* easing curves */ 
 $croud-motion-ease-standard: cubic-bezier(0.4, 0.0, 0.2, 1);
 $croud-motion-ease-deceleration: cubic-bezier(0.0, 0.0, 0.2, 1);

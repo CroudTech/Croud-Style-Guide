@@ -132,7 +132,7 @@ Object.keys(config.preprocessors).forEach((preprocessor) => {
 
         fileData += `${format(variables[varCatagory], preprocessor)}\n`
 
-        allVarData += `\n/*===${varCatagory.toUpperCase()}===*/\n ${fileData}`
+        allVarData += `\n/*===${varCatagory.toUpperCase()}===*/\n${fileData}`
 
         if (allVarData.includes(config.prefix)) {
             fs.writeFileSync(allVarFilePath, allVarData)
