@@ -18,7 +18,7 @@
              * Moment date object or iso compliant string
              */
             date: {
-                type: Object || String,
+                type: [Object, String],
                 required: true,
             },
 

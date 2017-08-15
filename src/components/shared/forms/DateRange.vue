@@ -50,7 +50,7 @@
              * Start date moment object or iso string
              */
             start: {
-                type: Object || String,
+                type: [Object, String],
                 required: true,
             },
 
@@ -58,7 +58,7 @@
              * End date moment object or iso string
              */
             end: {
-                type: Object || String,
+                type: [Object, String],
                 required: true,
             },
         },

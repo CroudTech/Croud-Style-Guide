@@ -40,7 +40,7 @@
             * v-model alias, can be iso string or moment object
             */
             date: {
-                type: Object || String,
+                type: [Object, String],
                 default: null,
             },
 
