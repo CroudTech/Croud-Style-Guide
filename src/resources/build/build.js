@@ -1,5 +1,4 @@
-const fs = require('fs')
-const mkdirp = require('mkdirp')
+const fs = require('fs-extra')
 const { red } = require('chalk')
 const config = require('./build.config')
 const _ = require('lodash')
@@ -46,6 +45,14 @@ const varCheck = (name) => {
         return name.startsWith(config.prefix)
     }
     return false
+}
+
+/**
+ *
+ */
+const mkdir = (dirPath) => {
+    const pathFolders = dirPath.split('/')
+    console.log(pathFolders)
 }
 
 /**
@@ -111,7 +118,7 @@ Object.keys(config.preprocessors).forEach((preprocessor) => {
     let allVarData = ''
 
     if (!fs.existsSync(outputDir)) {
-        mkdirp(outputDir)
+        fs.ensureDirSync(outputDir)
     } else {
         deleteFilesFrom(outputDir)
     }
