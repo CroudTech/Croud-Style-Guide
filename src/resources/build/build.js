@@ -61,9 +61,16 @@ const format = (variables, preprocessor) => _.flattenDeep((Object.keys(variables
         const valPrefix = varCheck(variables[varName]) ? varPrefix : ''
         const varVal = typeof variables[varName] === 'string'
             ? `${valPrefix}${variables[varName]}`
-            : `${valPrefix}${variables[varName][preprocessor]}`
+            : variables[varName][preprocessor] || variables[varName].default
+                ? `${valPrefix}${variables[varName][preprocessor] || variables[varName].default}`
+                : undefined
 
-        return `${varKey}${separator} ${varVal};`
+
+        if (typeof varVal !== 'undefined') {
+            return `${varKey}${separator} ${varVal};`
+        }
+
+        return null
     }
     return [`\n /* ${varName} */ `, format(variables[varName], preprocessor)]
 }))).join('\n')
