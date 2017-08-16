@@ -1,9 +1,19 @@
 const fs = require('fs-extra')
 const { red } = require('chalk')
 const config = require('./build.config')
+const configSnap = require('./build.config.snap')
 const _ = require('lodash')
 
 if (config.input.endsWith('/')) config.input = config.input.slice(0, -1)
+
+/**
+ * Clean up preprocessor files
+ */
+Object.keys(configSnap.preprocessors).forEach((preprocessor) => {
+    if (!(preprocessor in config.preprocessors)) {
+        fs.removeSync(`${config.output}${preprocessor}`)
+    }
+})
 
 fs.writeFileSync('./build.config.snap.js', `module.exports = ${JSON.stringify(config)}`)
 /**
@@ -130,8 +140,11 @@ Object.keys(config.preprocessors).forEach((preprocessor) => {
         let fileData = ''
 
         if (additions) {
-            const adds = additions[preprocessor] || additions.default
-            adds.forEach((addition) => { fileData += `${addition} \n` })
+            const adds = additions[preprocessor] || additions.default || undefined
+
+            if (adds) {
+                adds.forEach((addition) => { fileData += `${addition} \n` })
+            }
         }
 
         fileData += `${format(variables[varCatagory], preprocessor)}\n`
