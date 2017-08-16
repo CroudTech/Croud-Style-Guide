@@ -16,6 +16,7 @@ Object.keys(configSnap.preprocessors).forEach((preprocessor) => {
 })
 
 fs.writeFileSync('./build.config.snap.js', `module.exports = ${JSON.stringify(config)}`)
+
 /**
  * Delete Files from a directory
  * @param {string} path - path to directory to remove files
@@ -115,6 +116,8 @@ varFiles.forEach((filePath) => {
 
     Object.assign(variables[varCatagory], vars)
 })
+
+fs.writeFileSync(`${config.input}/all.json`, JSON.stringify(variables))
 
 /**
 * Generate preprocessor Variables
