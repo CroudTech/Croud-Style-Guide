@@ -157,7 +157,6 @@ Object.keys(config.preprocessors).forEach((preprocessor) => {
 */
 deleteFilesFrom(config.output, 'Map.scss')
 
-/*
 Object.keys(variables).forEach((catagory) => {
     if (config.sassMaps.inclusions.indexOf(catagory) >= 0) {
         const varPrefix = config.preprocessors.sass.variable.prefix
@@ -166,19 +165,29 @@ Object.keys(variables).forEach((catagory) => {
         let mapData = `$${catagory}Map: (\n`
 
         Object.keys(variables[catagory]).forEach((subCat) => {
-            mapData += `\t'${subCat}': (\n`
+            if (varCheck(subCat)) {
+                const varKey = subCat
+                const value = variables[catagory][varKey]
+                const varVal = varCheck(value)
+                    ? `${varPrefix}${value}, `
+                    : `${varPrefix}${varKey}, `
 
-            Object.keys(variables[catagory][subCat]).forEach((variable) => {
-                const value = variables[catagory][subCat][variable]
-                mapData += `\t\t'${variable}': `
+                mapData += `\t${varKey}: ${varVal}\n`
+            } else {
+                mapData += `\t'${subCat}': (\n`
 
-                mapData += value.startsWith('croud')
-                ? `${varPrefix}${value}, \n`
-                : `${varPrefix}${variable}, \n`
-            })
+                Object.keys(variables[catagory][subCat]).forEach((variable) => {
+                    const value = variables[catagory][subCat][variable]
+                    mapData += `\t\t'${variable}': `
 
-            mapData = mapData.slice(0, -3)
-            mapData += '\n\t),\n'
+                    mapData += varCheck(value)
+                        ? `${varPrefix}${value}, \n`
+                        : `${varPrefix}${variable}, \n`
+                })
+
+                mapData = mapData.slice(0, -3)
+                mapData += '\n\t),\n'
+            }
         })
 
         mapData = mapData.slice(0, -2)
@@ -186,4 +195,3 @@ Object.keys(variables).forEach((catagory) => {
         fs.writeFileSync(fileDir, mapData)
     }
 })
-*/
