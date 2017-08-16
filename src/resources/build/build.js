@@ -5,6 +5,7 @@ const _ = require('lodash')
 
 if (config.input.endsWith('/')) config.input = config.input.slice(0, -1)
 
+fs.writeFileSync('./build.config.snap.js', `module.exports = ${JSON.stringify(config)}`)
 /**
  * Delete Files from a directory
  * @param {string} path - path to directory to remove files
