@@ -125,17 +125,12 @@ Object.keys(config.preprocessors).forEach((preprocessor) => {
     Object.keys(variables).forEach((varCatagory) => {
         const fileName = `${filePrefix}${varCatagory}.${preprocessorInfo.file.extension}`
         const filePath = `${outputDir}${fileName}`
-        const additions = varCatagory in config.additions
-            ? config.additions[varCatagory]
-            : undefined
+        const additions = config.additions[varCatagory]
         let fileData = ''
 
         if (additions) {
-            if (preprocessor in additions) {
-                additions[preprocessor].forEach((addition) => {
-                    fileData += `${addition} \n`
-                })
-            }
+            const adds = additions[preprocessor] || additions.default
+            adds.forEach((addition) => { fileData += `${addition} \n` })
         }
 
         fileData += `${format(variables[varCatagory], preprocessor)}\n`
