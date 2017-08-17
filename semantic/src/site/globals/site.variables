@@ -191,6 +191,12 @@
       Site Colors
 --------------------*/
 
+/*--- Croud Brand Colours ---*/
+@infoColour: @croud-colour-info;
+@successColour: @croud-colour-success;
+@dangerColour: @croud-colour-danger;
+@warningColour: @croud-colour-warning;
+
 /*---  Colors  ---*/
 @red              : @croud-colour-red; // --
 @yellow           : @croud-colour-yellow; // --
@@ -331,7 +337,7 @@
 
 /* Info */
 @infoColor              : #31CCEC;
-@infoBackgroundColor    : #F8FFFF;
+@infoBackgroundColor    : @croud-colour-info;
 @infoBorderColor        : #A9D5DE;
 @infoHeaderColor        : #0E566C;
 @infoTextColor          : #276F86;
