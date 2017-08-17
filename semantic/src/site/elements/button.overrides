@@ -2,18 +2,44 @@
          Theme Overrides
 *******************************/
 
-.success {
+@boxShadow: 0 0 0 1px inset;
+
+.ui.button.success {
     background-color: @successColour!important;
 }
 
-.info {
+.ui.button.info {
     background-color: @infoColour!important;
 }
 
-.danger {
+.ui.button.danger {
     background-color: @dangerColour!important;
 }
 
-.warning {
+.ui.button.warning {
     background-color: @warningColour!important;
+}
+
+.ui.basic.button {
+    box-shadow: @boxShadow!important;
+    opacity: 0.8;
+    &.success {
+        color: @successColour!important;
+    }
+
+    &.info {
+        color: @infoColour!important;
+    }
+
+    &.danger {
+        color: @dangerColour!important;
+    }
+
+    &.warning {
+        color: @warningColour!important;
+    }
+
+    &:hover{
+        opacity: 1;
+    }
 }
