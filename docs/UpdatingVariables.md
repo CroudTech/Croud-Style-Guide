@@ -259,7 +259,7 @@ additions: {
         ],
         less: [
             '@import "fontImports.css";',
-            '@import '"fontSizes.css"',
+            '@import "fontSizes.css";',
             
             /* less output:
             @import "fontImports.css";
