@@ -33,6 +33,6 @@ Or you can call it inline in your Vue template...
             <input v-model="searchText" placeholder="Toast message" />
         </div>
         <button class="ui button" @click="$toasted.show(searchText)">Show</button>
-        <button class="ui green button" @click="$toasted.success(searchText)">Success</button>
-        <button class="ui red button" @click="$toasted.error(searchText)">Error</button>
+        <button class="ui success button" @click="$toasted.success(searchText)">Success</button>
+        <button class="ui danger button" @click="$toasted.error(searchText)">Error</button>
     </div>

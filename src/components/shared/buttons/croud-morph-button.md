@@ -14,10 +14,10 @@ You can style the button just like you would any other semantic button. Just app
 
 You can also turn the button into a secondary button just by passing the *basic* class.
 
-    <croud-morph-button class="basic blue" :options="[{name: 'Follow', method: ()=>{ this.$toasted.show('Following')}}, {name: 'Unfollow', method: ()=> { this.$toasted.show('Unfollowed') }}]" />
+    <croud-morph-button class="basic info" :options="[{name: 'Follow', method: ()=>{ this.$toasted.show('Following')}}, {name: 'Unfollow', method: ()=> { this.$toasted.show('Unfollowed') }}]" />
 
 As with semantic, you can also resize the button by passing through a size class (eg. **mini**)
 
     <div>
-        <croud-morph-button class="basic blue mini" :options="[{name: 'Follow', method: ()=>{ this.$toasted.show('Following')}}, {name: 'Unfollow', method: ()=> { this.$toasted.show('Unfollowed') }}]" />
+        <croud-morph-button class="basic info mini" :options="[{name: 'Follow', method: ()=>{ this.$toasted.show('Following')}}, {name: 'Unfollow', method: ()=> { this.$toasted.show('Unfollowed') }}]" />
     </div>
