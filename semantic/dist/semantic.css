@@ -5172,20 +5172,46 @@ th {
          Theme Overrides
 *******************************/
 
-.success {
+.ui.button.success {
   background-color: #6dd1be !important;
 }
 
-.info {
+.ui.button.info {
   background-color: #3e86a3 !important;
 }
 
-.danger {
+.ui.button.danger {
   background-color: #ea6b65 !important;
 }
 
-.warning {
+.ui.button.warning {
   background-color: #f3c91d !important;
+}
+
+.ui.basic.button {
+  -webkit-box-shadow: 0 0 0 1px inset !important;
+  box-shadow: 0 0 0 1px inset !important;
+  opacity: 0.8;
+}
+
+.ui.basic.button.success {
+  color: #6dd1be !important;
+}
+
+.ui.basic.button.info {
+  color: #3e86a3 !important;
+}
+
+.ui.basic.button.danger {
+  color: #ea6b65 !important;
+}
+
+.ui.basic.button.warning {
+  color: #f3c91d !important;
+}
+
+.ui.basic.button:hover {
+  opacity: 1;
 }
 /*!
  * # Semantic UI 2.2.11 - Container
