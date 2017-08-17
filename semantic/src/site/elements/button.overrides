@@ -1,3 +1,19 @@
 /*******************************
          Theme Overrides
 *******************************/
+
+.success {
+    background-color: @successColour!important;
+}
+
+.info {
+    background-color: @infoColour!important;
+}
+
+.danger {
+    background-color: @dangerColour!important;
+}
+
+.warning {
+    background-color: @warningColour!important;
+}
