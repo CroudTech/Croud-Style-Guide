@@ -24,6 +24,10 @@ module.exports = {
                     components: 'src/components/shared/Datatable.vue',
                 },
                 {
+                    name: 'Schedule',
+                    components: 'src/components/shared/schedule/**/*.vue',
+                },
+                {
                     name: 'Modal',
                     content: 'src/components/shared/semantic/semantic-modal.md',
                 },
