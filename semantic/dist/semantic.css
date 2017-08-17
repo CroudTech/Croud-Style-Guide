@@ -5171,6 +5171,22 @@ th {
 /*******************************
          Theme Overrides
 *******************************/
+
+.success {
+  background-color: #6dd1be !important;
+}
+
+.info {
+  background-color: #3e86a3 !important;
+}
+
+.danger {
+  background-color: #ea6b65 !important;
+}
+
+.warning {
+  background-color: #f3c91d !important;
+}
 /*!
  * # Semantic UI 2.2.11 - Container
  * http://github.com/semantic-org/semantic-ui/
@@ -29022,7 +29038,7 @@ Floated Menu / Item
 /* Info */
 
 .ui.info.message {
-  background-color: #F8FFFF;
+  background-color: #3e86a3;
   color: #276F86;
 }
 
