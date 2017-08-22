@@ -11,7 +11,7 @@ const varRoots = Object.keys(variables).map(varCat => ({
 
 export default [
     {
-        name: 'introduction',
+        title: 'introduction',
         path: '/introduction',
         component: CatagoryHeading,
         props: {
@@ -19,7 +19,7 @@ export default [
         },
         children: [
             {
-                name: 'introduction-default',
+                name: 'introduction',
                 path: '',
                 component: Introduction,
                 props: {
@@ -41,7 +41,7 @@ export default [
         ],
     },
     {
-        name: 'style',
+        title: 'style',
         path: '/style',
         component: CatagoryHeading,
         props: {
@@ -57,7 +57,7 @@ export default [
         ],
     },
     {
-        name: 'Components',
+        title: 'components',
         path: '/components',
         component: CatagoryHeading,
         props: {

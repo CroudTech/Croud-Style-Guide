@@ -4,7 +4,7 @@
         <nav>
             <template v-for="route in routes">
                 <router-link tag="a" :to="{ name: route.children[0].name, params: {} }" class="item" active-class="active" exact>
-                    {{route.name}}
+                    {{route.title || route.name}}
                 </router-link>
                 <div v-show="catagoryOpen(route)" v-for="child in order(route.children)" class="submenu">
                     <router-link tag="a" :to="{ name: child.name, params: {} }" class="item" active-class="active">
@@ -36,7 +36,7 @@ export default {
             return currentCatagory === routeCatagory
         },
         goHome() {
-            this.$router.push({ name: 'introduction' })
+            this.$router.push({ name: 'introduction-default' })
         },
         order(children) {
             return _.sortBy(children.slice(1), 'name')
