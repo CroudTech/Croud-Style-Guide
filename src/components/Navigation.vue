@@ -25,7 +25,6 @@ import _ from 'lodash'
 export default {
     data() {
         return {
-            activeId: 'colour',
             routes: this.$router.options.routes,
         }
     },
@@ -58,13 +57,15 @@ export default {
             text-transform: capitalize;
 
             &.active {
+                
                 &:hover {
                     color: $croud-colour-grey;
                 }
             }
         }
 
-        .submenu{
+        .submenu {
+
             .item {
                 padding-left: 2.5em;
                 font-weight: 300;
