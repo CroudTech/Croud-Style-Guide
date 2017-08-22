@@ -11,6 +11,10 @@ const varRoots = Object.keys(variables).map(varCat => ({
 
 export default [
     {
+        path: '',
+        redirect: '/introduction',
+    },
+    {
         title: 'introduction',
         path: '/introduction',
         component: CatagoryHeading,
