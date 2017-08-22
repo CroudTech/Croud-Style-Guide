@@ -1,8 +1,11 @@
 import variables from '../resources/config/variables/all'
+import config from '../resources/build/build.config'
 import Introduction from '../components/Introduction'
 import CatagoryHeading from '../components/CatagoryHeading'
 
-const varRoots = Object.keys(variables).map(varCat => ({
+const varRoots = Object.keys(variables)
+.filter(varCat => config.sassMaps.inclusions.indexOf(varCat) >= 0)
+.map(varCat => ({
     name: varCat.toLowerCase(),
     path: `${varCat}`,
     // eslint-disable-next-line
