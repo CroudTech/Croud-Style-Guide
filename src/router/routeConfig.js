@@ -1,13 +1,18 @@
-import ColourPalette from '../components/ColourPalette'
-import Fonts from '../components/Fonts'
+import variables from '../resources/config/variables/all'
 import Introduction from '../components/Introduction'
-import Principles from '../components/Principles'
 import CatagoryHeading from '../components/CatagoryHeading'
+
+const varRoots = Object.keys(variables).map(varCat => ({
+    name: varCat.toLowerCase(),
+    path: `${varCat}`,
+    // eslint-disable-next-line
+    component: require(`../components/vars/${varCat.toLowerCase().replace('-', '')}`),
+}))
 
 export default [
     {
         name: 'introduction',
-        path: '/',
+        path: '/introduction',
         component: CatagoryHeading,
         props: {
             catagory: 'Introduction',
@@ -26,12 +31,12 @@ export default [
             {
                 name: 'motivation',
                 path: 'motivation',
-                component: Principles,
+                component: Introduction,
             },
             {
                 name: 'principles',
                 path: 'principles',
-                component: Principles,
+                component: Introduction,
             },
         ],
     },
@@ -48,16 +53,7 @@ export default [
                 path: '',
                 component: Introduction,
             },
-            {
-                name: 'colour',
-                path: 'colour',
-                component: ColourPalette,
-            },
-            {
-                name: 'typography',
-                path: 'typography',
-                component: Fonts,
-            },
+            ...varRoots,
         ],
     },
     {
