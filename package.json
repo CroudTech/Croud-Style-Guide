@@ -14,7 +14,7 @@
     "dev:styleguide": "yarn run styleguide:watch | node build/dev-server.js",
     "dev": "node build/dev-server.js",
     "build": "node build/build.js && node checkUpdates",
-    "test": "./node_modules/.bin/jest",
+    "test": "./node_modules/.bin/jest -i",
     "lint": "eslint --ext .js,.vue src test/unit/specs",
     "stylelint:staged": "node node_modules/stylelint/bin/stylelint",
     "precommit": "lint-staged"
