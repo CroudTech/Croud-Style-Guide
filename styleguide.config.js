@@ -1,10 +1,16 @@
 // const loaders = require('vue-webpack-loaders')
 // const webpack = require('webpack')
 const webpack = require('./build/webpack.dev.conf.js')
+const path = require('path')
 
 module.exports = {
     title: 'Croud Tech Docs',
     showUsage: true,
+    getComponentPathLine(componentPath) {
+        const component = path.basename(componentPath, '.vue').split('.')[0]
+        const dir = path.dirname(componentPath)
+        return `import ${component} from 'croud-style-guide/${dir}/${component}'`
+    },
     // components: 'src/components/shared/**/*.vue',
     sections: [
         {
