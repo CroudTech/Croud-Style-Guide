@@ -3132,9 +3132,9 @@ cross-spawn@^5.0.1, cross-spawn@^5.1.0:
   dependencies:
     chrono-node "^1.1.6"
 
-"croud-forms@https://github.com/CroudSupport/croud-forms.git#vue2-2":
-  version "1.1.0"
-  resolved "https://github.com/CroudSupport/croud-forms.git#96b1f3e5e9c8ac994758a687bbd83abdf8519402"
+croud-forms@^1.1.2:
+  version "1.1.2"
+  resolved "https://registry.yarnpkg.com/croud-forms/-/croud-forms-1.1.2.tgz#9767aa8195d84c4b1144133407805f43c8d84099"
   dependencies:
     moment "^2.18.1"
     vue-cleave "^1.2.0"
