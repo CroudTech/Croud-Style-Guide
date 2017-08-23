@@ -42,6 +42,4 @@ describe('Overflow Menu', () => {
             expect(vm.options[0].method).toHaveBeenCalled()
         })
     })
-
-    console.log(vm.$el.querySelector('.ui.menu'))
 })
