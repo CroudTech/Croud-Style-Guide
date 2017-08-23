@@ -86,6 +86,9 @@ module.exports = {
             ],
         },
     ],
+    styleguideComponents: {
+        Logo: path.join(__dirname, 'src/styleguidist/components/logo.js'),
+    },
     require: [
         'jquery',
         './semantic/dist/semantic.min.js',
