@@ -1,4 +1,6 @@
 # Croud Style Guide
+[![Build Status](https://travis-ci.org/CroudSupport/Croud-Style-Guide.svg?branch=master)](https://travis-ci.org/CroudSupport/Croud-Style-Guide)
+
 The Croud Style Guide is a mixture of **design patterns** and technical documentation for **reusable UI components**.
 
 [Live Style Guide](https://croudsupport.github.io/Croud-Style-Guide/#/)
