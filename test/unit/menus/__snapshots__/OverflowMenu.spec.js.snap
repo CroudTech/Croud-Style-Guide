@@ -15,19 +15,16 @@ exports[`Overflow Menu should match the snapshot 1`] = `
     <div
       class="item"
     >
-      <!--  -->
       Delete
     </div>
     <div
       class="item"
     >
-      <!--  -->
       Postpone
     </div>
     <div
       class="item disabled"
     >
-      <!--  -->
       Copy
     </div>
   </div>
