@@ -6,6 +6,7 @@ const path = require('path')
 module.exports = {
     title: 'Croud Tech Docs',
     showUsage: true,
+    highlightTheme: 'material',
     getComponentPathLine(componentPath) {
         const component = path.basename(componentPath, '.vue').split('.')[0]
         const dir = path.dirname(componentPath)
