@@ -1,3 +1,31 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Search Dropdown should match the snapshot 1`] = `<!--  -->`;
+exports[`Search Dropdown should match the snapshot 1`] = `
+<div
+  class="ui selection dropdown search"
+>
+  <input
+    type="hidden"
+    name=""
+  />
+  <input
+    class="search"
+    autocomplete="off"
+    tabindex="0"
+  />
+  <div
+    class="default text"
+  >
+    Search...
+  </div>
+  <i
+    class="dropdown icon"
+  />
+  <div
+    class="menu dropdown_menu"
+    tabindex="-1"
+  >
+    
+  </div>
+</div>
+`;

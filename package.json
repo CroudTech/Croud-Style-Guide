@@ -14,7 +14,7 @@
     "dev:styleguide": "yarn run styleguide:watch | node build/dev-server.js",
     "dev": "node build/dev-server.js",
     "build": "node build/build.js && node checkUpdates",
-    "test": "./node_modules/.bin/jest",
+    "test": "./node_modules/.bin/jest -i",
     "lint": "eslint --ext .js,.vue src test/unit/specs",
     "stylelint:staged": "node node_modules/stylelint/bin/stylelint",
     "precommit": "lint-staged"
@@ -76,7 +76,7 @@
     "connect-history-api-fallback": "^1.3.0",
     "copy-webpack-plugin": "^4.0.1",
     "cross-env": "^3.1.4",
-    "croud-forms": "https://github.com/CroudSupport/croud-forms.git#vue2-2",
+    "croud-forms": "^1.1.2",
     "croud-vue-semantic": "^1.0.6",
     "css-loader": "^0.26.1",
     "eslint": "^3.14.1",
