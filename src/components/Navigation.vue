@@ -3,14 +3,23 @@
         <img class="logo" src="../../static/croud-logo.svg" @click="goHome()" />
         <nav>
             <template v-for="route in routes">
-                <router-link tag="a" :to="{ name: route.children[0].name, params: {} }" class="item" active-class="active" exact>
-                    {{route.name}}
-                </router-link>
-                <div v-show="catagoryOpen(route)" v-for="child in order(route.children)" class="submenu">
-                    <router-link tag="a" :to="{ name: child.name, params: {} }" class="item" active-class="active">
-                        {{child.name}}
-                    </router-link>
-                </div>
+                <template v-if="route.name || route.title">
+                    <template v-if="route.children">
+                        <router-link tag="a" :to="{ name: route.children[0].name, params: {} }" class="item" active-class="active" exact>
+                            {{route.title || route.name}}
+                        </router-link>
+                        <div v-show="catagoryOpen(route)" v-for="child in order(route.children)" class="submenu">
+                            <router-link tag="a" :to="{ name: child.name, params: {} }" class="item" active-class="active">
+                                {{child.name}}
+                            </router-link>
+                        </div>
+                    </template>
+                    <template v-else>
+                        <router-link tag="a" :to="{ name: route.name || undefined, params: {} }" class="item" active-class="active" exact>
+                            {{route.title || route.name}}
+                        </router-link>
+                    </template>
+                </template>
             </template>
         </nav>
         <div class="bottom-menu">
@@ -25,7 +34,6 @@ import _ from 'lodash'
 export default {
     data() {
         return {
-            activeId: 'colour',
             routes: this.$router.options.routes,
         }
     },
@@ -37,7 +45,7 @@ export default {
             return currentCatagory === routeCatagory
         },
         goHome() {
-            this.$router.push({ name: 'introduction' })
+            this.$router.push({ name: 'introduction-default' })
         },
         order(children) {
             return _.sortBy(children.slice(1), 'name')
@@ -58,13 +66,15 @@ export default {
             text-transform: capitalize;
 
             &.active {
+                
                 &:hover {
                     color: $croud-colour-grey;
                 }
             }
         }
 
-        .submenu{
+        .submenu {
+
             .item {
                 padding-left: 2.5em;
                 font-weight: 300;

@@ -117,7 +117,7 @@ varFiles.forEach((filePath) => {
     Object.assign(variables[varCatagory], vars)
 })
 
-fs.writeFileSync(`${config.input}/all.js`, `module.exports = ${JSON.stringify(variables)}`)
+fs.writeFileSync(`${config.input}/all.js`, `/* eslint-disable */ \n module.exports = ${JSON.stringify(variables)}`)
 
 /**
 * Generate preprocessor Variables

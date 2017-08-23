@@ -1,20 +1,32 @@
-import ColourPalette from '../components/ColourPalette'
-import Fonts from '../components/Fonts'
+import variables from '../resources/config/variables/all'
+import config from '../resources/build/build.config'
 import Introduction from '../components/Introduction'
-import Principles from '../components/Principles'
 import CatagoryHeading from '../components/CatagoryHeading'
+
+const varRoots = Object.keys(variables)
+.filter(varCat => config.sassMaps.inclusions.indexOf(varCat) >= 0)
+.map(varCat => ({
+    name: varCat.toLowerCase(),
+    path: `${varCat}`,
+    // eslint-disable-next-line
+    component: require(`../components/vars/${varCat.toLowerCase().replace('-', '')}`),
+}))
 
 export default [
     {
-        name: 'introduction',
-        path: '/',
+        path: '',
+        redirect: '/introduction',
+    },
+    {
+        title: 'introduction',
+        path: '/introduction',
         component: CatagoryHeading,
         props: {
             catagory: 'Introduction',
         },
         children: [
             {
-                name: 'introduction-default',
+                name: 'introduction',
                 path: '',
                 component: Introduction,
                 props: {
@@ -26,17 +38,17 @@ export default [
             {
                 name: 'motivation',
                 path: 'motivation',
-                component: Principles,
+                component: Introduction,
             },
             {
                 name: 'principles',
                 path: 'principles',
-                component: Principles,
+                component: Introduction,
             },
         ],
     },
     {
-        name: 'style',
+        title: 'style',
         path: '/style',
         component: CatagoryHeading,
         props: {
@@ -48,20 +60,11 @@ export default [
                 path: '',
                 component: Introduction,
             },
-            {
-                name: 'colour',
-                path: 'colour',
-                component: ColourPalette,
-            },
-            {
-                name: 'typography',
-                path: 'typography',
-                component: Fonts,
-            },
+            ...varRoots,
         ],
     },
     {
-        name: 'Components',
+        title: 'components',
         path: '/components',
         component: CatagoryHeading,
         props: {
