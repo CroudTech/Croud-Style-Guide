@@ -17,4 +17,22 @@ module.exports.styles = {
             border: 'none',
         },
     },
+    TableOfContents: {
+        search: {
+            width: '100%',
+            padding: 0,
+            marginBottom: '.5em',
+        },
+        input: {
+            backgroundColor: '#212121',
+            border: 'none',
+            borderRadius: 0,
+            padding: '1em .5em',
+            opacity: 0.5,
+            color: colours.primary['croud-colour-white'],
+            '&:focus': {
+                opacity: 0.8,
+            },
+        },
+    },
 }
