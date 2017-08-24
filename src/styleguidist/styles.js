@@ -11,7 +11,7 @@ module.exports.theme = {
     sidebarWidth: '15rem',
 }
 
-module.exports.style = {
+module.exports.styles = {
     StyleGuide: {
         logo: {
             border: 'none',
