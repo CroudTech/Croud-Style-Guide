@@ -2,7 +2,7 @@
 // const webpack = require('webpack')
 const webpack = require('./build/webpack.dev.conf.js')
 const path = require('path')
-const { theme } = require('./src/styleguidist/styles')
+const { theme, styles } = require('./src/styleguidist/styles')
 
 module.exports = {
     title: 'Croud Tech Docs',
@@ -117,4 +117,5 @@ module.exports = {
         'src/mixins/styleguidist.js',
     ],
     theme,
+    styles,
 }
