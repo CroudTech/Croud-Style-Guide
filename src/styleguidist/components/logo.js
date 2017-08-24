@@ -1,9 +1,10 @@
 // eslint-disable
 import React from 'react'
+import logo from '../../../static/croud-logo.svg'
 
 export default function LogoRenderer() {
     return React.createElement('img', {
-        src: '../../../static/croud-logo.svg',
+        src: logo,
         style: {
             width: '70%',
             display: 'block',
