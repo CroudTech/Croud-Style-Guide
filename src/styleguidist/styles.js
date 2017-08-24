@@ -35,4 +35,22 @@ module.exports.styles = {
             },
         },
     },
+    ComponentsList: {
+        list: {
+            fontSize: '.8em',
+        },
+        item: {
+            '& a': {
+                color: '#bbb!important',
+                '&:hover': {
+                    fontSize: 'inherit',
+                    color: `${colours.primary['croud-colour-white']}!important`,
+                },
+            },
+        },
+        heading: {
+            color: '#fff!important',
+            textTransform: 'uppercase !important',
+        },
+    },
 }
