@@ -8,6 +8,9 @@ module.exports.theme = {
         type: colours.secondary['croud-colour-purple-dark'],
         sidebarBackground: colours.primary['croud-colour-black'],
     },
+    mq: {
+        small: '@media (max-width: 720px)',
+    },
     sidebarWidth: '15rem',
 }
 
@@ -15,13 +18,17 @@ module.exports.styles = {
     StyleGuide: {
         logo: {
             border: 'none',
+            padding: 0,
+        },
+        sidebar: {
+            border: 'none',
         },
     },
     TableOfContents: {
         search: {
             width: '100%',
             padding: 0,
-            marginBottom: '.5em',
+            marginBottom: '1.5em',
         },
         input: {
             backgroundColor: '#212121',
