@@ -30,20 +30,10 @@ export default [
                 path: '',
                 component: Introduction,
                 props: {
-                    introText: `Hello! Welcome to the Croud style guide
-                     - a living document of design rules and reusable UI components, 
-                     to be used and referenced across front-end projects.`,
+                    introText: `Hello! Welcome to the Croud style guide - a living document of design rules and reusable UI components, 
+                    to be used and referenced across front-end projects. Preprocessor variables are displayed in the style section of 
+                    the style guide. For documentation on reusable components, please visit the technical documentation.`,
                 },
-            },
-            {
-                name: 'motivation',
-                path: 'motivation',
-                component: Introduction,
-            },
-            {
-                name: 'principles',
-                path: 'principles',
-                component: Introduction,
             },
         ],
     },
@@ -59,31 +49,14 @@ export default [
                 name: 'style-default',
                 path: '',
                 component: Introduction,
+                props: {
+                    fileName: 'all',
+                    introText: `The style section contains information on the preprocessor variables stored in the style guide.
+                     To make them simple to use in your project you can copy the full sass import path. You can also copy the 
+                     name of the variables by simply clicking on the specific variable example.`,
+                },
             },
             ...varRoots,
-        ],
-    },
-    {
-        title: 'components',
-        path: '/components',
-        component: CatagoryHeading,
-        props: {
-            catagory: 'components',
-        },
-        children: [
-            {
-                name: 'components-default',
-                path: '',
-                component: Introduction,
-            },
-            {
-                name: 'menus',
-                path: 'menus',
-            },
-            {
-                name: 'buttons',
-                path: 'buttons',
-            },
         ],
     },
 ]
