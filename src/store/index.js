@@ -1,18 +1,18 @@
 import Vuex from 'vuex'
 import Vue from 'vue'
 
-import colourVariables from '../resources/config/variables/colours.json'
-import fontVariables from '../resources/config/variables/fonts.json'
+import all from '../resources/config/variables/all'
 
 Vue.use(Vuex)
 
 export default new Vuex.Store({
     state: {
-        colourVariables,
-        fontVariables,
+        all,
     },
     getters: {
-        colours: state => state.colourVariables,
-        fonts: state => state.fontVariables,
+        boxShadows: state => state.all['box-shadow'],
+        colours: state => state.all.colours,
+        fonts: state => state.all.fonts,
+        layers: state => state.all.layers,
     },
 })
