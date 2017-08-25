@@ -38,7 +38,8 @@ module.exports = {
         inclusions: [
             'colours',
             'fonts',
-            'motion',
+            'box-shadow',
+            'layers',
         ],
     },
 }
