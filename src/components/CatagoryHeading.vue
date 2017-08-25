@@ -1,7 +1,8 @@
 <template>
     <section class="catagory">
         <header class="catagory__heading">
-            <h1 class="catagory__title">{{catagory}} <span v-show="subCatLevel" class="catagory__page">> {{name}}</span></h1>
+            <h1 class="catagory__title">{{catagory}}</h1>
+            <h2 v-show="subCatLevel" class="catagory__page">{{name}}</h2>
         </header>
         <main>
             <router-view></router-view>
@@ -31,24 +32,18 @@ export default {
 <style lang="scss">
     @import '../resources/sass/variables/_all.scss';
     .catagory{
-        &__heading{
-            position: fixed;
-            background-color: $croud-colour-white;
-            width: 100%;
-            z-index: 100;
-            top:0;
-            left: 15rem;
-        }
         &__title{
-            font-size: $croud-font-size-huge;
-            font-family: $croud-font-body;
-            text-transform: uppercase;
-            padding: 3rem 1em;
-            color: rgba($croud-colour-black, .4);
+            font-size: 48px;
+            font-weight: normal;
+            margin: 0 0 8px 0;
+            color: #333;
         }
 
         &__page{
-            color: rgba($croud-colour-black, .8);
+            font-size: 36px;
+            font-weight: normal;
+            margin: 0;
+            color: #333;
         }
     }
 </style>
