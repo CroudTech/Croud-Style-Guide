@@ -1,24 +1,18 @@
 <template>
     <div>
         <navigation></navigation>
-        <router-view class="ui container"></router-view>
+        <main class="ui container">
+            <router-view class="main"></router-view>
+        </main>
     </div>
 </template>
 
 <script>
 import Navigation from './Navigation'
-import ColourPalette from './ColourPalette'
-import FilePath from './FilePath'
-import Typewriter from './Typewriter'
-import Fonts from './Fonts'
 
 export default {
     name: 'Guide',
     components: {
-        ColourPalette,
-        FilePath,
-        Typewriter,
-        fonts: Fonts,
         navigation: Navigation,
     },
 }
@@ -26,8 +20,11 @@ export default {
 
 <style class="scss" scoped>
     .ui.container{
-        margin-top: 8rem!important;
-        margin-left: 18rem!important;
-        width: calc(100% - 21rem);
+        margin-left: 15rem!important;
+        width: calc(100% - 15rem);
+    }
+
+    .main {
+        margin: 28px 32px;
     }
 </style>
