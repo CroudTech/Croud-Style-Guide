@@ -84,7 +84,6 @@ export default {
         .bottom-menu {
             position: absolute;
             bottom: 0;
-
             .ui.button {
                 margin: .8rem;
             }
@@ -92,9 +91,10 @@ export default {
     }
 
     .logo {
-        width: 55%;
+        width: 50%;
         display: block;
-        margin: 0 auto;
+        margin: 2em auto;
+        height: auto;
         cursor: pointer;
     }
 </style>

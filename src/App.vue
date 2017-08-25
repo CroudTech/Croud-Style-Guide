@@ -22,5 +22,6 @@ export default {
     @import './resources/sass/variables/colours.scss';
     body {
         background-color: $croud-colour-white;
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
     }
 </style>
