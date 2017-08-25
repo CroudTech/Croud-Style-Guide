@@ -22,10 +22,7 @@
             return {
                 content: '',
                 active: false,
-                config: {
-                    confirmText: 'Confirm',
-                    cancelText: 'Cancel',
-                },
+                config: undefined,
                 resolve() {},
                 reject() {},
             }
@@ -42,7 +39,13 @@
             confirm(content, configObj) {
                 this.active = true
                 this.content = content
-                this.config = Object.assign(this.config, configObj)
+    
+                const defaultConfig = {
+                    confirmText: 'Confirm',
+                    cancelText: 'Cancel',
+                }
+    
+                this.config = Object.assign(defaultConfig, configObj)
     
                 return new Promise((resolve, reject) => {
                     this.resolve = resolve
