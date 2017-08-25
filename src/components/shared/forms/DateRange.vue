@@ -186,6 +186,10 @@
     .ui.flowing.popup {
         min-width: 465px;
     }
+
+    .ui.input {
+        width: 14.5em;
+    }
 </style>
 
 <style>
