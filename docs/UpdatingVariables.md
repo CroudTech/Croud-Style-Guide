@@ -133,6 +133,7 @@ You can use the configuration object to easily make changes to the way variables
 * [preprocessors (object)](#preprocessors)
 * [importOrder (array) *(optional)*](#importOrder)
 * [additions (object) *(optional)*](#additions)
+* [sassMaps (object)](#sassMaps)
 
 <a name="input"></a>
 ##### input (string)
@@ -268,4 +269,21 @@ additions: {
         ],
     }
 }
+```
+
+<a name="sassMaps"></a>
+##### sassMaps (object)
+
+**inclusions (array)**
+Collection of variable file names to be converted to sass maps. Sass maps are created in the specified output directory. 
+
+```javascript
+    sassMaps: {
+        inclusions: [
+            'colours',
+            'fonts',
+            'box-shadow',
+            'layers',
+        ],
+    },
 ```
