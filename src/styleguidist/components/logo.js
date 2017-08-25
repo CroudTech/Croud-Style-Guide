@@ -6,9 +6,9 @@ export default function LogoRenderer() {
     return React.createElement('img', {
         src: logo,
         style: {
-            width: '70%',
+            width: '50%',
             display: 'block',
-            margin: '.5em auto',
+            margin: '2em auto',
         },
     }, null)
 }
