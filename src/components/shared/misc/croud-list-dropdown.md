@@ -1,7 +1,7 @@
 ### Usage
-This is our Universal List Dropdown component, for basic usage simply pass a getter to the listgetter prop, and listen for the item-selected event which passes the selected list item, if you wish to display this in the header of the dropdown menu, simply pass the selected item object to the headerItem prop. 
+This is our Universal List Dropdown component, for basic usage simply pass a getter or object array to the listgetter prop, and listen for the item-selected event which passes the selected list item, if you wish to display this in the header of the dropdown menu, simply pass the selected item object to the headerItem prop. 
 
-It also shows that you can add an action button, by setting the prop and adding a button as below..
+It also shows that you can add an action button, by setting by using the 'header-action' slot as below..
     
     <croud-list-dropdown :listGetter="listExamples.basic" 
                          :headerItem="listExamples.selected" 
@@ -13,20 +13,21 @@ It also shows that you can add an action button, by setting the prop and adding 
     </croud-list-dropdown>
 
 ### Expanding component with scoped slots and props
-This example shows that you can use scoped slots with templates to customize each item listed, the templates have access to the data passed through as an attibute in the list component, it also adds a custom header item.
+This example shows that you can use scoped slots with templates to customize each item listed, the templates have access to the data passed through as an attibute in the list component, it also adds a custom header item and default header item.
 
-It also shows how to add a button icon and custom button text, as well as customized dropdown classes..
+It also shows how to add custom button text, as well as customized dropdown classes..
 
     <croud-list-dropdown :listGetter="listExamples.scoped" 
                          :headerItem="listExamples.selected" @item-selected="listExamples.selected = $event"
-                         dropdownClasses="ui floating right labeled icon top right pointing dropdown tiny basic black button right floated"
-                         :buttonText="'Select Client'"
-                         :showIcon="true"
-                         :buttonIcon="'exchange'"
-                         :showHeaderAction="false">
+                         dropdownClasses="ui left top floating pointing dropdown tiny basic black button"
+                         :buttonText="'Select Client'">
+
+    <div slot="default-header-item">
+        Select a Client
+    </div>
 
     <div slot="header-item">
-        <croud-avatar v-if="listExamples.selected.name" size="avatar" :user="listExamples.selected" />
+        <croud-avatar v-if="listExamples.selected.name" size="avatar" :user="listExamples.selected" style="float: left"/>
         <div class="label">
             <span v-html="listExamples.selected.name"></span>
         </div>
@@ -34,7 +35,7 @@ It also shows how to add a button icon and custom button text, as well as custom
         
     <template slot="items" scope="items">
         <div>
-            <croud-avatar size="avatar" :user="items.item" />
+            <croud-avatar size="avatar" :user="items.item" style="float: left"/>
             <div class="label">
                 <span v-html="items.item.name"></span>
             </div>
