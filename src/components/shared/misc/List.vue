@@ -190,7 +190,7 @@
         },
 
         watch: {
-            showSwitcher(val) {
+            showList(val) {
                 if (!val) return
 
                 this.$nextTick(() => {
