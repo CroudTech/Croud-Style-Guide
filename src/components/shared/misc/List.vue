@@ -65,7 +65,7 @@
 
         props: {
             /**
-            * Show universalListDropdown
+            * Show Croud list dropdown
             */
             showList: {
                 type: Boolean,
