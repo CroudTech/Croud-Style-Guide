@@ -20,3 +20,8 @@ Please ensure any new components added to the technical documentation comply wit
 
 * At least one example of the new component must be visible
 * All component props must have a basic description
+
+
+### Testing
+
+We use jest to test our components. Be sure to add a [snapshot](https://facebook.github.io/jest/docs/en/snapshot-testing.html) test at the very least.
