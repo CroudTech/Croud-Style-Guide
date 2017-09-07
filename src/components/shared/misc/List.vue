@@ -9,7 +9,7 @@
                 </div>
 
                 <div v-if="showHeader" class="header">
-                    
+
                     <slot name="header-item">
                         <div class="item">
                             {{ getHeaderItem.name }}
@@ -23,9 +23,9 @@
                     </div>
                 </div>
             </slot>
-            
+
             <div v-if="showHeader" class="divider"></div>
-        
+
             <slot name="extra-items">
             </slot>
 
@@ -35,7 +35,7 @@
                         {{ item.name }}
                     </slot>
                 </div>
-                    
+
                 <div v-if="!list.length" class="item">
                     <slot name="list-empty">
                         No items to display
@@ -101,7 +101,7 @@
             * Pass the getter as a string, or data array for your list in this prop
             */
             listGetter: {
-                type: [Object, String],
+                type: [Array, String],
                 default() {
                     return []
                 },
@@ -170,7 +170,7 @@
 <style lang="scss" scoped>
 
  @import '../../../resources/sass/variables/_all.scss';
-    
+
     .universal-list {
 
         * {
