@@ -1,0 +1,241 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`List hide header should match the snapshot 1`] = `
+<div
+  class="universal-list ui left top floating pointing dropdown tiny positive button"
+  tabindex="0"
+>
+  <span
+    class="text"
+  >
+    Switch
+  </span>
+  <!--  -->
+  <div
+    class="menu"
+    tabindex="-1"
+  >
+    <!--  -->
+    <!--  -->
+    <!--  -->
+    <div
+      class="scrolling menu"
+    >
+      <div
+        class="item"
+      >
+        foo
+      </div>
+      <div
+        class="item"
+      >
+        bar
+      </div>
+      <div
+        class="item"
+      >
+        baz
+      </div>
+      <!--  -->
+    </div>
+    <div
+      class="ui inverted dimmer active"
+    >
+      <div
+        class="ui text loader large"
+      >
+        Loading
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`List loading should match the snapshot 1`] = `
+<div
+  class="universal-list ui left top floating pointing dropdown tiny positive button"
+  tabindex="0"
+>
+  <span
+    class="text"
+  >
+    Switch
+  </span>
+  <!--  -->
+  <div
+    class="menu"
+    tabindex="-1"
+  >
+    <!--  -->
+    <div
+      class="header"
+    >
+      <div
+        class="item"
+      >
+        foo
+      </div>
+      <!--  -->
+    </div>
+    <div
+      class="divider"
+    />
+    <div
+      class="scrolling menu"
+    >
+      <div
+        class="item"
+      >
+        foo
+      </div>
+      <div
+        class="item"
+      >
+        bar
+      </div>
+      <div
+        class="item"
+      >
+        baz
+      </div>
+      <!--  -->
+    </div>
+    <div
+      class="ui inverted dimmer active"
+    >
+      <div
+        class="ui text loader large"
+      >
+        Loading
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`List should match the snapshot 1`] = `
+<div
+  class="universal-list ui left top floating pointing dropdown tiny positive button"
+  tabindex="0"
+>
+  <span
+    class="text"
+  >
+    Switch
+  </span>
+  <!--  -->
+  <div
+    class="menu"
+    tabindex="-1"
+  >
+    <!--  -->
+    <div
+      class="header"
+    >
+      <div
+        class="item"
+      >
+        foo
+      </div>
+      <!--  -->
+    </div>
+    <div
+      class="divider"
+    />
+    <div
+      class="scrolling menu"
+    >
+      <div
+        class="item"
+      >
+        foo
+      </div>
+      <div
+        class="item"
+      >
+        bar
+      </div>
+      <div
+        class="item"
+      >
+        baz
+      </div>
+      <!--  -->
+    </div>
+    <div
+      class="ui inverted dimmer"
+    >
+      <div
+        class="ui text loader large"
+      >
+        Loading
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`List slots header-action should match the snapshot 1`] = `
+<div
+  class="universal-list ui left top floating pointing dropdown tiny positive button"
+  tabindex="0"
+>
+  <span
+    class="text"
+  >
+    Switch
+  </span>
+  <!--  -->
+  <div
+    class="menu"
+    tabindex="-1"
+  >
+    <div
+      class="header-action"
+    >
+      <div>
+        <button
+          class="ui button tiny blue"
+        >
+          test
+        </button>
+      </div>
+    </div>
+    <div
+      class="header"
+    >
+      <div
+        class="item active selected"
+      >
+        
+      </div>
+      <div
+        class="item"
+      >
+        Select an item
+      </div>
+    </div>
+    <div
+      class="divider"
+    />
+    <div
+      class="scrolling menu"
+    >
+      <div
+        class="item"
+      >
+        No items to display
+      </div>
+    </div>
+    <div
+      class="ui inverted dimmer"
+    >
+      <div
+        class="ui text loader large"
+      >
+        Loading
+      </div>
+    </div>
+  </div>
+</div>
+`;
