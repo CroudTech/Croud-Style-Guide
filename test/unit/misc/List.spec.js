@@ -27,6 +27,9 @@ describe('List', () => {
         beforeEach(() => {
             vm.loading = true
         })
+        afterEach(() => {
+            vm.loading = false
+        })
 
         it('should match the snapshot', () => {
             expect(vm.$el).toMatchSnapshot()
@@ -36,6 +39,9 @@ describe('List', () => {
     describe('hide header', () => {
         beforeEach(() => {
             vm.showHeader = false
+        })
+        afterEach(() => {
+            vm.showHeader = true
         })
 
         it('should match the snapshot', () => {
@@ -68,13 +74,61 @@ describe('List', () => {
             })
         })
 
+        describe('header-item', () => {
+            it('should match the snapshot', () => {
+                const comp = new Vue({
+                    components: { List },
+                    render(h) {
+                        return h('list', { props: { showHeader: true } }, [
+                            h('div', {
+                                slot: 'header-item',
+                            }, [
+                                h('div', {
+                                    class: 'item',
+                                    domProps: {
+                                        innerHTML: 'selected-item',
+                                    },
+                                }),
+                            ]),
+                        ])
+                    },
+                }).$mount()
+
+                expect(comp.$el).toMatchSnapshot()
+            })
+        })
+
+        describe('default-header-item', () => {
+            it('should match the snapshot', () => {
+                const comp = new Vue({
+                    components: { List },
+                    render(h) {
+                        return h('list', { props: { showHeader: true } }, [
+                            h('div', {
+                                slot: 'default-header-item',
+                            }, [
+                                h('div', {
+                                    class: 'item',
+                                    domProps: {
+                                        innerHTML: 'Custom Select an item',
+                                    },
+                                }),
+                            ]),
+                        ])
+                    },
+                }).$mount()
+
+                expect(comp.$el).toMatchSnapshot()
+            })
+        })
+
         describe('items', () => {
             it('should match the snapshot', () => {
                 const comp = new Vue({
                     components: { List },
                     render(h) {
                         return h('list', {
-                            props: { listGetter: [{ name: 'test' }] },
+                            props: { listGetter: [{ name: 'test-scoped-item' }] },
                             scopedSlots: {
                                 items: scope => h('span', scope.item.name),
                             },
