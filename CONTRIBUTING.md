@@ -24,4 +24,4 @@ Please ensure any new components added to the technical documentation comply wit
 
 ### Testing
 
-We use jest to test our components. Be sure to add a [snapshot](https://facebook.github.io/jest/docs/en/snapshot-testing.html) test at the very least.
+We use [Jest](https://facebook.github.io/jest/) to test our components. Be sure to add a [snapshot](https://facebook.github.io/jest/docs/en/snapshot-testing.html) test at the very least.
