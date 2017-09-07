@@ -154,10 +154,6 @@
             getHeaderItem() {
                 return this.headerItem || {}
             },
-
-            iconSpecifed() {
-                return this.buttonIcon.length
-            },
         },
 
         mounted() {
