@@ -67,5 +67,23 @@ describe('List', () => {
                 expect(comp.$el).toMatchSnapshot()
             })
         })
+
+        describe('items', () => {
+            it('should match the snapshot', () => {
+                const comp = new Vue({
+                    components: { List },
+                    render(h) {
+                        return h('list', {
+                            props: { listGetter: [{ name: 'test' }] },
+                            scopedSlots: {
+                                items: scope => h('span', scope.item.name),
+                            },
+                        })
+                    },
+                }).$mount()
+
+                expect(comp.$el).toMatchSnapshot()
+            })
+        })
     })
 })

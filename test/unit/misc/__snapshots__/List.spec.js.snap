@@ -239,3 +239,60 @@ exports[`List slots header-action should match the snapshot 1`] = `
   </div>
 </div>
 `;
+
+exports[`List slots items should match the snapshot 1`] = `
+<div
+  class="universal-list ui left top floating pointing dropdown tiny positive button"
+  tabindex="0"
+>
+  <span
+    class="text"
+  >
+    Switch
+  </span>
+  <div
+    class="menu"
+    tabindex="-1"
+  >
+    <!--  -->
+    <div
+      class="header"
+    >
+      <div
+        class="item active selected"
+      >
+        
+      </div>
+      <div
+        class="item"
+      >
+        Select an item
+      </div>
+    </div>
+    <div
+      class="divider"
+    />
+    <div
+      class="scrolling menu"
+    >
+      <div
+        class="item"
+      >
+        <span>
+          test
+        </span>
+      </div>
+      <!--  -->
+    </div>
+    <div
+      class="ui inverted dimmer"
+    >
+      <div
+        class="ui text loader large"
+      >
+        Loading
+      </div>
+    </div>
+  </div>
+</div>
+`;
