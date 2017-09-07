@@ -139,6 +139,20 @@ export default {
                     allDay: true,
                 },
             ],
+
+            listExamples: {
+                selected: {},
+                basic: [
+                    { name: 'one' },
+                    { name: 'two' },
+                    { name: 'three' },
+                ],
+                scoped: [
+                    { name: 'Handpicked Hotels' },
+                    { name: 'Victoria Secret' },
+                    { name: 'Amazon Prime' },
+                ],
+            },
         }
     },
 
