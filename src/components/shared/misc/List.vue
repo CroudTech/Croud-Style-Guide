@@ -92,6 +92,7 @@
             * Header item can show the currently selected item, just pass it to this prop
             */
             headerItem: {
+                type: Object,
                 default() {
                     return {}
                 },
@@ -101,6 +102,7 @@
             * Pass the getter as a string, or data array for your list in this prop
             */
             listGetter: {
+                type: [Object, String],
                 default() {
                     return []
                 },
@@ -110,6 +112,7 @@
             * Dropdown classes
             */
             dropdownClasses: {
+                type: String,
                 default: 'ui left top floating pointing dropdown tiny positive button',
             },
 
@@ -117,6 +120,7 @@
             * Text shown in the dropdown button
             */
             buttonText: {
+                type: String,
                 default() {
                     return 'Switch'
                 },
@@ -126,6 +130,7 @@
             * Icon displayed in the dropdown button
             */
             buttonIcon: {
+                type: String,
                 default() {
                     return ''
                 },
@@ -135,6 +140,7 @@
             * Semantic-ui dropdown overides
             */
             dropdownSettings: {
+                type: Object,
                 default() {
                     return {
                         forceSelection: false,

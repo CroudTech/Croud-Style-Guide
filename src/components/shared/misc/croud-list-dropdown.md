@@ -1,7 +1,7 @@
 ### Usage
 This is our Universal List Dropdown component, for basic usage simply pass a getter or object array to the listgetter prop, and listen for the item-selected event which passes the selected list item, if you wish to display this in the header of the dropdown menu, simply pass the selected item object to the headerItem prop. 
 
-It also shows that you can add an action button, by setting by using the 'header-action' slot as below..
+It also shows that you can add an action button by using the 'header-action' slot as below..
     
     <croud-list-dropdown :listGetter="listExamples.basic" 
                          :headerItem="listExamples.selected" 
