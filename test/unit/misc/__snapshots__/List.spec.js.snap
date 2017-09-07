@@ -10,7 +10,6 @@ exports[`List hide header should match the snapshot 1`] = `
   >
     Switch
   </span>
-  <!--  -->
   <div
     class="menu"
     tabindex="-1"
@@ -61,7 +60,6 @@ exports[`List loading should match the snapshot 1`] = `
   >
     Switch
   </span>
-  <!--  -->
   <div
     class="menu"
     tabindex="-1"
@@ -123,7 +121,6 @@ exports[`List should match the snapshot 1`] = `
   >
     Switch
   </span>
-  <!--  -->
   <div
     class="menu"
     tabindex="-1"
@@ -185,7 +182,6 @@ exports[`List slots header-action should match the snapshot 1`] = `
   >
     Switch
   </span>
-  <!--  -->
   <div
     class="menu"
     tabindex="-1"
