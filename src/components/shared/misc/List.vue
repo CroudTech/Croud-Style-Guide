@@ -1,7 +1,6 @@
 <template>
-    <div class="universal-list" ref="universalList" :class="[dropdownClasses, {'icon': iconSpecifed} ]">
+    <div class="universal-list" ref="universalList" :class="dropdownClasses">
         <span class="text">{{ buttonText }}</span>
-        <i v-if="iconSpecifed" class="icon" :class="buttonIcon"></i>
 
         <div class="menu">
             <slot name="custom-header">
@@ -123,16 +122,6 @@
                 type: String,
                 default() {
                     return 'Switch'
-                },
-            },
-
-            /**
-            * Icon displayed in the dropdown button
-            */
-            buttonIcon: {
-                type: String,
-                default() {
-                    return ''
                 },
             },
 
