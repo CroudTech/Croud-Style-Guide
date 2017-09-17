@@ -5,6 +5,9 @@ import Vue from 'vue'
 import VueRouter from 'vue-router'
 import Ripple from 'vue-ripple-directive'
 import VueHighlightJS from 'vue-highlightjs'
+import VueSemantic from 'croud-vue-semantic'
+import VueFaker from 'vue-faker'
+import VueQuill from 'vue-quill'
 import 'quill/dist/quill.snow.css'
 import router from './router'
 import store from './store'
@@ -14,9 +17,9 @@ import './../semantic/dist/semantic'
 
 Vue.config.productionTip = false
 Vue.use(VueRouter)
-Vue.use(require('croud-vue-semantic'))
-Vue.use(require('vue-faker'))
-Vue.use(require('vue-quill'))
+Vue.use(VueSemantic)
+Vue.use(VueFaker)
+Vue.use(VueQuill)
 
 Vue.use(VueHighlightJS)
 Vue.directive('ripple', Ripple)
