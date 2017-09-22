@@ -75,6 +75,15 @@
             },
 
             /**
+             * Simulate checkbox functionality on row click
+             * @see https://github.com/ratiw/vuetable-2/wiki/Special-Fields#-__checkbox
+             */
+            selectOnClick: {
+                type: Boolean,
+                default: false,
+            },
+
+            /**
              * Name of the globally registered component that will be used as the detail row
              * @see https://github.com/ratiw/vuetable-2-tutorial/wiki/lesson-12
              */
@@ -123,7 +132,20 @@
             },
 
             onCellClicked(data) {
+                this.$emit('vuetable:cell-clicked', data)
                 this.$refs.vuetable.toggleDetailRow(data.id)
+
+                if (this.selectOnClick) {
+                    this.toggleSelected(data.id)
+                }
+            },
+
+            toggleSelected(key) {
+                if (!this.$refs.vuetable.isSelectedRow(key)) {
+                    this.$refs.vuetable.selectId(key)
+                } else {
+                    this.$refs.vuetable.unselectId(key)
+                }
             },
         },
 
@@ -142,6 +164,7 @@
                         tableClass: 'ui table',
                         dropdownClass: 'ui dropdown',
                     },
+                    'row-class': data => (this.$refs.vuetable.isSelectedRow(data.id) ? 'active' : ''),
                 })
             },
         },
