@@ -25,7 +25,9 @@ vuetableConfig: {
             fields: [{ name: 'name', sortField: 'name' }, 'email', { name:'birthdate', title: 'DOB' }],
             'api-url': 'https://vuetable.ratiw.net/api/users',
         }"
-        :transform="data => data" />
+        :transform="data => data"
+        :select-on-click="true"
+        />
 
 
 ### Change paginator
