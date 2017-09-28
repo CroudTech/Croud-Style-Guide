@@ -150,11 +150,13 @@ exports[`Profile header should match the snapshot 1`] = `
           <div
             class="ui divider"
           />
-          <button
-            class="ui blue fluid button"
-          >
-            Set Image
-          </button>
+          <div>
+            <button
+              class="ui blue fluid button"
+            >
+              Change
+            </button>
+          </div>
         </div>
       </div>
     </div>
