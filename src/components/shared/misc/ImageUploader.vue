@@ -282,7 +282,7 @@
 
                         tester.addEventListener('error', (() => {
                             if (!this.defaultSrc) {
-                                this.src = null
+                                this.src = ''
                             } else this.src = this.defaultSrc
                         }))
                     }
@@ -300,9 +300,8 @@
             },
 
             containsDefaultSrc() {
-                if (this.src.length) {
-                    if (this.src.indexOf(this.defaultSrc) > -1) return true
-                } return false
+                if (this.src.indexOf(this.defaultSrc) > -1) return true
+                return false
             },
         },
     }
