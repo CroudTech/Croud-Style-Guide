@@ -1,6 +1,5 @@
 <template>
     <div class="ui stackable grid">
-
         <div class="three wide column">
 
             <croud-image-uploader ref="uploader"
@@ -9,17 +8,21 @@
                                   :url="url"
                                   :requstHeaders="requestHeaders"
                                   :readOnly="readOnly"
-                                  @image-set="profilePicSet">
+                                  :defaultSrc="false"
+                                  @image-set="profilePicSet"
+                                  @image-reset="user.avatar = ''">
 
                 <div slot="profile-current">
 
                     <croud-avatar :user="getUser" size="small"/>
 
                 </div>
-                <slot name="action">
-                    <button class="ui blue fluid button" slot="action" @click="$refs.uploader.showModal = !$refs.uploader.showModal">Set Image</button>
-                </slot>
 
+                <div slot="action">
+                    <slot name="custom-action">
+                        <button class="ui blue fluid button" slot="action" @click="$refs.uploader.showModal = !$refs.uploader.showModal">Change</button>
+                    </slot>
+                </div>
             </croud-image-uploader>
         </div>
 
