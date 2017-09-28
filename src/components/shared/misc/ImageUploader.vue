@@ -8,7 +8,7 @@
                 <div v-if="!readOnly">
                     <semantic-divider />
                     <slot name="action">
-                        <a class="ui fluid blue button" @click="showModal = !showModal">{{ buttonText }}</a>  
+                        <a class="ui fluid blue button" @click="showModal = !showModal">{{ buttonText }}</a>
                     </slot>
                 </div>
             </div>
@@ -17,12 +17,16 @@
         <semantic-modal size="small" :title="title" :active="showModal" :settings="modalSetting">
             <div class="ui basic segment">
                 <div class="Image-upload-wrapper Image-upload">
-                    
+
                     <div ref="croppie"></div>
                     <div id="upload-wrapper" class="upload-wrapper">
                         <div class="input-file">
                             <input ref="select" name="image-upload" type="file" accept="image/*" id="upload-image" v-on:change="setUpFileUploader" style="display: none">
                         </div>
+
+                        <button v-if="image !== null && !containsDefaultSrc" class="ui button" @click="resetCroppie">
+                            Remove Current
+                        </button>
 
                         <button class="ui blue button" @click="triggerSelect">
                             Select File
@@ -37,9 +41,9 @@
                         </button>
                     </div>
                 </div>
-                
+
                 <semantic-divider class="hidden" />
-                <button class="ui right floated blue button" :class="{'loading': loading}" id="uploadFileCall" @click="uploadFile">Set</button>
+                <button class="ui right floated blue button" :class="{'loading': loading}" id="uploadFileCall" @click="uploadFile">Save</button>
                 <button class="ui right floated button" :disabled="loading" @click="showModal =! showModal">Cancel</button>
 
             </div>
@@ -81,14 +85,14 @@
             */
             imgUrl: {
                 type: String,
-                default: '/img/defaultAvatar.png',
+                default: '',
             },
 
             /**
             * Fallback default picture / placeholder
             */
             defaultSrc: {
-                type: String,
+                type: [Boolean, String],
                 default: '/img/defaultAvatar.png',
             },
 
@@ -151,12 +155,16 @@
                     closable: true,
                     closable_button: true,
                     onVisible: () => {
-                        this.image = this.cors
-                        this.$nextTick(() => {
-                            this.croppie.bind({
-                                url: this.image,
+                        if (this.imgUrl === '') {
+                            this.image = null
+                        } else {
+                            this.image = this.cors
+                            this.$nextTick(() => {
+                                this.croppie.bind({
+                                    url: this.image,
+                                })
                             })
-                        })
+                        }
                     },
                 },
             }
@@ -187,32 +195,37 @@
             },
 
             uploadFile() {
-                this.loading = true
+                if (this.image === null || this.image.indexOf(this.defaultSrc) > -1) {
+                    this.$emit('image-reset')
+                    this.showModal = !this.showModal
+                } else {
+                    this.loading = true
 
-                this.croppie.result(
-                    { type: 'blob',
-                        size: 'viewport',
-                        name: 'profile',
-                    }).then((response) => {
-                        this.image = response
-                        // Axios request
-                        if (this.url) {
-                            const formData = new FormData()
-                            formData.append('file', this.image)
-                            this.$http.post(this.url, formData, {
-                                headers: this.requestHeaders,
-                            }).then((res) => {
-                                this.$emit('image-set', res.data.data)
-                                this.loading = false
+                    this.croppie.result(
+                        { type: 'blob',
+                            size: 'viewport',
+                            name: 'profile',
+                        }).then((response) => {
+                            this.image = response
+                            // Axios request
+                            if (this.url) {
+                                const formData = new FormData()
+                                formData.append('file', this.image)
+                                this.$http.post(this.url, formData, {
+                                    headers: this.requestHeaders,
+                                }).then((res) => {
+                                    this.$emit('image-set', res.data.data)
+                                    this.loading = false
+                                    this.showModal = !this.showModal
+                                })
+                            } else {
+                                this.profileSet(window.URL.createObjectURL(response))
+                                this.$emit('image-set', window.URL.createObjectURL(response))
                                 this.showModal = !this.showModal
-                            })
-                        } else {
-                            this.profileSet(window.URL.createObjectURL(response))
-                            this.$emit('image-set', window.URL.createObjectURL(response))
-                            this.showModal = !this.showModal
-                            this.loading = false
-                        }
-                    })
+                                this.loading = false
+                            }
+                        })
+                }
             },
 
             setUpCroppie() {
@@ -238,11 +251,24 @@
                 }
                 reader.readAsDataURL(file)
             },
+
+            resetCroppie() {
+                this.croppie.destroy()
+                this.setUpCroppie()
+                this.image = null
+                this.$nextTick(() => {
+                    this.croppie.bind({
+                        url: '',
+                    })
+                })
+                $('#upload-image').val('')
+            },
         },
 
         computed: {
             cors() {
-                return `${this.src}?v=cors` || ''
+                if (!this.src.length) return ''
+                return `${this.src}?v=cors`
             },
 
             imgSrc() {
@@ -255,7 +281,9 @@
                         }))
 
                         tester.addEventListener('error', (() => {
-                            this.src = this.defaultSrc
+                            if (!this.defaultSrc) {
+                                this.src = null
+                            } else this.src = this.defaultSrc
                         }))
                     }
 
@@ -269,6 +297,12 @@
             computedUrl() {
                 if (this.url.match(/:\/\//)) return this.url
                 return `//${gateway_url}/${this.url}`
+            },
+
+            containsDefaultSrc() {
+                if (this.src.length) {
+                    if (this.src.indexOf(this.defaultSrc) > -1) return true
+                } return false
             },
         },
     }
