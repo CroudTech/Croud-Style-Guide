@@ -269,8 +269,7 @@
 
         computed: {
             cors() {
-                if (!this.src.length) return ''
-                return `${this.src}?v=cors`
+                return this.src.length ? `${this.src}?v=cors` : ''
             },
 
             imgSrc() {
