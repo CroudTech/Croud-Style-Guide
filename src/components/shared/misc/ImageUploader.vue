@@ -195,37 +195,37 @@
             },
 
             uploadFile() {
-                if (this.image === null || (this.getDefaultSrc.length && this.image.indexOf(this.getDefaultSrc) > -1)) {
+                if (this.image === null || this.image.indexOf(this.defaultSrc) > -1) {
                     this.$emit('image-reset')
                     this.showModal = !this.showModal
-                } else {
-                    this.loading = true
-
-                    this.croppie.result(
-                        { type: 'blob',
-                            size: 'viewport',
-                            name: 'profile',
-                        }).then((response) => {
-                            this.image = response
-                            // Axios request
-                            if (this.url) {
-                                const formData = new FormData()
-                                formData.append('file', this.image)
-                                this.$http.post(this.url, formData, {
-                                    headers: this.requestHeaders,
-                                }).then((res) => {
-                                    this.$emit('image-set', res.data.data)
-                                    this.loading = false
-                                    this.showModal = !this.showModal
-                                })
-                            } else {
-                                this.profileSet(window.URL.createObjectURL(response))
-                                this.$emit('image-set', window.URL.createObjectURL(response))
-                                this.showModal = !this.showModal
-                                this.loading = false
-                            }
-                        })
+                    return
                 }
+                this.loading = true
+
+                this.croppie.result(
+                    { type: 'blob',
+                        size: 'viewport',
+                        name: 'profile',
+                    }).then((response) => {
+                        this.image = response
+                        // Axios request
+                        if (this.url) {
+                            const formData = new FormData()
+                            formData.append('file', this.image)
+                            this.$http.post(this.url, formData, {
+                                headers: this.requestHeaders,
+                            }).then((res) => {
+                                this.$emit('image-set', res.data.data)
+                                this.loading = false
+                                this.showModal = !this.showModal
+                            })
+                        } else {
+                            this.profileSet(window.URL.createObjectURL(response))
+                            this.$emit('image-set', window.URL.createObjectURL(response))
+                            this.showModal = !this.showModal
+                            this.loading = false
+                        }
+                    })
             },
 
             setUpCroppie() {
@@ -302,12 +302,7 @@
             },
 
             containsDefaultSrc() {
-                if (this.getDefaultSrc.length) return this.src.indexOf(this.getDefaultSrc) > -1
-                return false
-            },
-
-            getDefaultSrc() {
-                return this.defaultSrc || ''
+                return this.src.indexOf(this.defaultSrc) > -1
             },
         },
     }
