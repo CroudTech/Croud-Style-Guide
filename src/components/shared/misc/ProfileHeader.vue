@@ -8,7 +8,7 @@
                                   :url="url"
                                   :requstHeaders="requestHeaders"
                                   :readOnly="readOnly"
-                                  :defaultSrc="false"
+                                  :defaultSrc="null"
                                   @image-set="profilePicSet"
                                   @image-reset="user.avatar = ''">
 
