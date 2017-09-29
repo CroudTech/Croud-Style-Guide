@@ -157,14 +157,14 @@
                     onVisible: () => {
                         if (this.imgUrl === '') {
                             this.image = null
-                        } else {
-                            this.image = this.cors
-                            this.$nextTick(() => {
-                                this.croppie.bind({
-                                    url: this.image,
-                                })
-                            })
+                            return
                         }
+                        this.image = this.cors
+                        this.$nextTick(() => {
+                            this.croppie.bind({
+                                url: this.image,
+                            })
+                        })
                     },
                 },
             }
