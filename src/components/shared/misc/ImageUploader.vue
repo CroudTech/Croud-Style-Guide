@@ -92,7 +92,7 @@
             * Fallback default picture / placeholder
             */
             defaultSrc: {
-                type: [Boolean, String],
+                type: String,
                 default: '/img/defaultAvatar.png',
             },
 
@@ -195,7 +195,7 @@
             },
 
             uploadFile() {
-                if (this.image === null || this.image.indexOf(this.defaultSrc) > -1) {
+                if (this.image === null || this.image.indexOf(this.getDefaultSrc) > -1) {
                     this.$emit('image-reset')
                     this.showModal = !this.showModal
                 } else {
@@ -254,14 +254,16 @@
 
             resetCroppie() {
                 this.croppie.destroy()
-                this.setUpCroppie()
-                this.image = null
                 this.$nextTick(() => {
-                    this.croppie.bind({
-                        url: '',
+                    this.setUpCroppie()
+                    this.$nextTick(() => {
+                        this.image = null
+                        this.croppie.bind({
+                            url: '',
+                        })
                     })
+                    $(this.$refs.select).val('')
                 })
-                $('#upload-image').val('')
             },
         },
 
@@ -281,7 +283,7 @@
                         }))
 
                         tester.addEventListener('error', (() => {
-                            if (!this.defaultSrc) {
+                            if (this.defaultSrc === null) {
                                 this.src = ''
                             } else this.src = this.defaultSrc
                         }))
@@ -300,8 +302,12 @@
             },
 
             containsDefaultSrc() {
-                if (this.src.indexOf(this.defaultSrc) > -1) return true
+                if (this.getDefaultSrc.length) return this.src.indexOf(this.getDefaultSrc) > -1
                 return false
+            },
+
+            getDefaultSrc() {
+                return this.defaultSrc || ''
             },
         },
     }
