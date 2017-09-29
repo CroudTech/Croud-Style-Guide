@@ -195,7 +195,7 @@
             },
 
             uploadFile() {
-                if (this.image === null || this.image.indexOf(this.getDefaultSrc) > -1) {
+                if (this.image === null || (this.getDefaultSrc.length && this.image.indexOf(this.getDefaultSrc) > -1)) {
                     this.$emit('image-reset')
                     this.showModal = !this.showModal
                 } else {
