@@ -283,9 +283,7 @@
                         }))
 
                         tester.addEventListener('error', (() => {
-                            if (this.defaultSrc === null) {
-                                this.src = ''
-                            } else this.src = this.defaultSrc
+                            this.src = this.defaultSrc || ''
                         }))
                     }
 
