@@ -6,7 +6,6 @@ exports[`Image Uploader should match the snapshot 1`] = `
     class="ui very padded center aligned container"
   >
     <img
-      src="/img/defaultAvatar.png"
       class="ui small centered circular image"
     />
     <div>
