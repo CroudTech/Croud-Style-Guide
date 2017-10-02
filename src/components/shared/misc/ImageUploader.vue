@@ -3,7 +3,7 @@
         <slot>
             <div class="ui very padded center aligned container">
                 <slot name="profile-current">
-                    <img class="ui small centered circular image" v-if="imgSrc" :src="getSrc">
+                    <img class="ui small centered circular image" v-if="imgSrc" :src="src">
                 </slot>
                 <div v-if="!readOnly">
                     <semantic-divider />
@@ -24,7 +24,7 @@
                             <input ref="select" name="image-upload" type="file" accept="image/*" id="upload-image" v-on:change="setUpFileUploader" style="display: none">
                         </div>
 
-                        <button v-if="(image !== null && !containsDefaultSrc && getSrc !== '') || imageAdded" class="ui button" @click="resetCroppie">
+                        <button v-if="(image !== null && !containsDefaultSrc && src !== '') || imageAdded" class="ui button" @click="resetCroppie">
                             Remove Current
                         </button>
 
@@ -193,7 +193,7 @@
             },
 
             profileSet(image) {
-                this.getSrc = image
+                this.src = image
             },
 
             uploadFile() {
@@ -273,16 +273,7 @@
 
         computed: {
             cors() {
-                return this.getSrc.length ? `${this.getSrc}?v=cors` : ''
-            },
-
-            getSrc: {
-                get() {
-                    return this.src
-                },
-                set(val) {
-                    this.src = val
-                },
+                return this.src.length ? `${this.src}?v=cors` : ''
             },
 
             imgSrc() {
@@ -291,11 +282,11 @@
 
                     if (!this.eventListenersAdded) {
                         tester.addEventListener('load', (() => {
-                            this.getSrc = this.imgUrl
+                            this.src = this.imgUrl
                         }))
 
                         tester.addEventListener('error', (() => {
-                            this.getSrc = this.defaultSrc || ''
+                            this.src = this.defaultSrc || ''
                         }))
                     }
 
@@ -312,8 +303,8 @@
             },
 
             containsDefaultSrc() {
-                if (this.getSrc === null) return false
-                return this.getSrc.indexOf(this.defaultSrc) > -1
+                if (this.src === null) return false
+                return this.src.indexOf(this.defaultSrc) > -1
             },
         },
     }
