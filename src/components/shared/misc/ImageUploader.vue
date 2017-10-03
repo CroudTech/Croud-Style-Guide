@@ -8,7 +8,7 @@
                 <div v-if="!readOnly">
                     <semantic-divider />
                     <slot name="action">
-                        <a class="ui fluid blue button" @click="showModal = !showModal">{{ buttonText }}</a>  
+                        <a class="ui fluid blue button" @click="showModal = !showModal">{{ buttonText }}</a>
                     </slot>
                 </div>
             </div>
@@ -17,12 +17,16 @@
         <semantic-modal size="small" :title="title" :active="showModal" :settings="modalSetting">
             <div class="ui basic segment">
                 <div class="Image-upload-wrapper Image-upload">
-                    
+
                     <div ref="croppie"></div>
                     <div id="upload-wrapper" class="upload-wrapper">
                         <div class="input-file">
                             <input ref="select" name="image-upload" type="file" accept="image/*" id="upload-image" v-on:change="setUpFileUploader" style="display: none">
                         </div>
+
+                        <button v-if="(image !== null && !containsDefaultSrc && src !== '') || imageAdded" class="ui button" @click="resetCroppie">
+                            Remove Current
+                        </button>
 
                         <button class="ui blue button" @click="triggerSelect">
                             Select File
@@ -37,9 +41,9 @@
                         </button>
                     </div>
                 </div>
-                
+
                 <semantic-divider class="hidden" />
-                <button class="ui right floated blue button" :class="{'loading': loading}" id="uploadFileCall" @click="uploadFile">Set</button>
+                <button class="ui right floated blue button" :class="{'loading': loading}" id="uploadFileCall" @click="uploadFile">Save</button>
                 <button class="ui right floated button" :disabled="loading" @click="showModal =! showModal">Cancel</button>
 
             </div>
@@ -81,7 +85,7 @@
             */
             imgUrl: {
                 type: String,
-                default: '/img/defaultAvatar.png',
+                default: '',
             },
 
             /**
@@ -141,16 +145,21 @@
 
         data() {
             return {
-                src: this.defaultSrc,
+                src: null,
                 loading: false,
                 showModal: false,
                 croppie: null,
                 image: null,
                 eventListenerAdded: false,
+                imageAdded: false,
                 modalSetting: {
                     closable: true,
                     closable_button: true,
                     onVisible: () => {
+                        if (this.imgUrl === '') {
+                            this.image = null
+                            return
+                        }
                         this.image = this.cors
                         this.$nextTick(() => {
                             this.croppie.bind({
@@ -173,6 +182,7 @@
                     this.croppie.bind({
                         url: this.image,
                     })
+                    this.imageAdded = true
                 })
             }))
         },
@@ -187,6 +197,11 @@
             },
 
             uploadFile() {
+                if (this.image === null || this.image.indexOf(this.defaultSrc) > -1) {
+                    this.$emit('image-reset')
+                    this.showModal = !this.showModal
+                    return
+                }
                 this.loading = true
 
                 this.croppie.result(
@@ -204,6 +219,7 @@
                             }).then((res) => {
                                 this.$emit('image-set', res.data.data)
                                 this.loading = false
+                                this.imageAdded = false
                                 this.showModal = !this.showModal
                             })
                         } else {
@@ -238,11 +254,26 @@
                 }
                 reader.readAsDataURL(file)
             },
+
+            resetCroppie() {
+                this.croppie.destroy()
+                this.$nextTick(() => {
+                    this.setUpCroppie()
+                    this.$nextTick(() => {
+                        this.image = null
+                        this.croppie.bind({
+                            url: '',
+                        })
+                    })
+                    $(this.$refs.select).val('')
+                    this.imageAdded = false
+                })
+            },
         },
 
         computed: {
             cors() {
-                return `${this.src}?v=cors` || ''
+                return this.src.length ? `${this.src}?v=cors` : ''
             },
 
             imgSrc() {
@@ -255,7 +286,7 @@
                         }))
 
                         tester.addEventListener('error', (() => {
-                            this.src = this.defaultSrc
+                            this.src = this.defaultSrc || ''
                         }))
                     }
 
@@ -269,6 +300,11 @@
             computedUrl() {
                 if (this.url.match(/:\/\//)) return this.url
                 return `//${gateway_url}/${this.url}`
+            },
+
+            containsDefaultSrc() {
+                if (this.src === null) return false
+                return this.src.indexOf(this.defaultSrc) > -1
             },
         },
     }
