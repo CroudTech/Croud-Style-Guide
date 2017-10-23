@@ -142,6 +142,11 @@
                     css: {
                         tableClass: 'ui table',
                         dropdownClass: 'ui dropdown',
+                        ascendingIcon: 'arrow circle down icon',
+                        descendingIcon: 'arrow circle up icon',
+                        renderIcon(classes) {
+                            return `<i class="${classes.join(' ')}"></i>`
+                        },
                     },
                 })
             },
