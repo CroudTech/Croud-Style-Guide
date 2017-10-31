@@ -110,6 +110,18 @@
                     return data
                 },
             },
+
+            /**
+             * getSortParam function for altering vuetables default sort query string
+             *
+             * The default for this prop works with core
+             */
+            getSortParam: {
+                type: Function,
+                default(sortOrder) {
+                    return sortOrder.map(sort => (`${sort.sortField}, ${sort.direction}`))
+                },
+            },
         },
 
         methods: {
