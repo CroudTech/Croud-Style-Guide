@@ -12,7 +12,7 @@
                             <button @click="save" class="ui blue mini button">
                                 Save
                             </button>
-                        </slot>                        
+                        </slot>
                         <slot name="options"></slot>
                     </div>
                 </div>
@@ -66,7 +66,7 @@
 <style lang="scss" scoped>
     @import '../../../resources/sass/variables/_all.scss';
 
-    .universal-editor {
+    .ui.segments.universal-editor {
         z-index: $croud-layer-8;
         margin: 0;
         background: $croud-colour-card;
@@ -100,7 +100,7 @@
     .slide-enter-active {
         transition: all $croud-motion-duration-normal $croud-motion-ease-deceleration;
     }
-    
+
     .slide-leave-active {
         transition: all $croud-motion-duration-normal $croud-motion-ease-sharp;
     }
