@@ -119,8 +119,16 @@
             getSortParam: {
                 type: Function,
                 default(sortOrder) {
-                    return sortOrder.map(sort => (`${sort.sortField}, ${sort.direction}`))
+                    return sortOrder.map(sort => (`${sort.sortField},${sort.direction}`)).join('|')
                 },
+            },
+
+            /**
+             * Array for setting the initial sort order on the datagrid
+             *
+             */
+            'sort-order': {
+                type: Array,
             },
         },
 
