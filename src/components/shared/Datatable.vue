@@ -110,6 +110,18 @@
                     return data
                 },
             },
+
+            /**
+             * getSortParam function for altering vuetables default sort query string
+             *
+             * The default for this prop works with core
+             */
+            getSortParam: {
+                type: Function,
+                default(sortOrder) {
+                    return sortOrder.map(sort => (`${sort.sortField},${sort.direction}`)).join('|')
+                },
+            },
         },
 
         methods: {
@@ -139,6 +151,11 @@
                 return defaultsDeep(this.vuetableConfig, {
                     'pagination-path': 'meta.pagination',
                     'per-page': 15,
+                    'query-params': {
+                        sort: 'order_by',
+                        page: 'page',
+                        perPage: 'per_page',
+                    },
                     css: {
                         tableClass: 'ui table',
                         dropdownClass: 'ui dropdown',

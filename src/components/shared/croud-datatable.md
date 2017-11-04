@@ -1,4 +1,4 @@
-Please ignore the **pagination-path** setting and the **transform** prop in the following examples. This component sets the default to work with data from **Core**
+Please ignore the **pagination-path** setting, **transform** prop and the **getSortParam** prop in the following examples. This component sets the default to work with data from **Core**
 ### Simple Datatable
 The datatable is built from an array of **fields**. The array can contain Strings and Objects. You can add a sorting option to the table using the **sortField** key and you can overide the column heading using the **title** key. See [the docs](https://ratiw.github.io/vuetable-2/#/Fields-Definition) for more field definition examples.
 
@@ -23,10 +23,12 @@ vuetableConfig: {
         :vuetable-config="{
             'pagination-path': '',
             fields: [{ name: 'name', sortField: 'name' }, 'email', { name:'birthdate', title: 'DOB' }],
-            'api-url': 'https://vuetable.ratiw.net/api/users',
+            'api-url': 'http://vuetable.ratiw.net/api/users',
+            'query-params': { sort: 'sort' }
         }"
-        :transform="data => data" />
-
+        :transform="data => data"
+        :getSortParam="(sortOrder) => sortOrder.map(sort => (`${sort.sortField}|${sort.direction}`)).join(',')"
+    />
 
 ### Change paginator
 By default, this component will show the [croud-paginator](#croud-paginator) at the bottom of the datatable, you can use the **paginator-component** prop to change this. See the [vuetable docs](https://ratiw.github.io/vuetable-2/#/Pagination?id=vuetablepagination) for more info on their built in paginators.
@@ -36,9 +38,11 @@ By default, this component will show the [croud-paginator](#croud-paginator) at 
             'pagination-path': '',
             fields: [{ name: 'name', sortField: 'name' }, 'email', { name:'birthdate', title: 'DOB' }],
             'api-url': 'https://vuetable.ratiw.net/api/users',
+            'query-params': { sort: 'sort' }
         }"
         :transform="data => data"
-        paginator-component="vuetable-pagination" />
+        paginator-component="vuetable-pagination"
+        :getSortParam="(sortOrder) => sortOrder.map(sort => (`${sort.sortField}|${sort.direction}`)).join(',')" />
 
 ### Simple Search
 You can hook up a simple search function by building the search query params in data in append-params, the component watched for these changes and makes a new ajax call.
@@ -59,7 +63,8 @@ You can hook up a simple search function by building the search query params in 
                     filter: searchText,
                 },
             }"
-            :transform="data => data" />
+            :transform="data => data"
+            :getSortParam="(sortOrder) => sortOrder.map(sort => (`${sort.sortField}|${sort.direction}`)).join(',')" />
     </div>
 
 ### Scoped Slots
@@ -81,7 +86,9 @@ You can pass through scoped slots to generate more complex columns
             ],
             'api-url': 'https://vuetable.ratiw.net/api/users',
         }"
-        :transform="data => data" >
+        :transform="data => data"
+        >
+
         <template slot="actions" scope="props">
             <button @click="() => {Vue.toasted.show('this is row id ' + props.rowData.id)}" class="ui info mini button">
                 View
