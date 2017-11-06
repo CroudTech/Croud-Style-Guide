@@ -153,7 +153,6 @@ export default {
                     { name: 'Amazon Prime' },
                 ],
             },
-            customDatagridMarkup: '<div class="ui center aligned basic segment"><strong>No Data to show you!</strong>',
         }
     },
 
