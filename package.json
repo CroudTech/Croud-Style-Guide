@@ -55,7 +55,7 @@
     "croud-date-parser": "git+https://github.com/CroudSupport/croud-date-parser.git",
     "pikaday": "^1.6.1",
     "tool": "^6.0.0",
-    "vuetable-2": "^1.6.5"
+    "vuetable-2": "^1.7.0"
   },
   "devDependencies": {
     "@mapbox/stylelint-processor-arbitrary-tags": "^0.1.1",
