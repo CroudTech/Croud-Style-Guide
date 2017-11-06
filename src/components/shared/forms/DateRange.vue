@@ -131,7 +131,7 @@
                     onSelect: (val) => {
                         this.localEnd = moment(val)
                         this.picker.destroy()
-                        this.$nextTick(this.buildStart)
+                        $(this.$refs.input).popup('hide')
                     },
                 })
             },
@@ -169,16 +169,12 @@
                       }
                       this.$nextTick(this.buildStart)
                   },
+                  onHidden: () => {
+                      this.$emit('update:start', this.localStart)
+                      this.$emit('update:end', this.localEnd)
+                  },
               })
         },
-
-        watch: {
-            localEnd() {
-                this.$emit('update:start', this.localStart)
-                this.$emit('update:end', this.localEnd)
-            },
-        },
-
     }
 </script>
 
