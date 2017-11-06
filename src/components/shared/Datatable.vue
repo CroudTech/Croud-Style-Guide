@@ -125,17 +125,6 @@
                     return sortOrder.map(sort => (`${sort.sortField},${sort.direction}`)).join('|')
                 },
             },
-
-            /**
-             * noDataTemplate - You can use this to define what is displayed when there is no data to populate in the table.
-             * You can pass html or text
-             */
-            noDataTemplate: {
-                type: String,
-                default() {
-                    return '<div class="ui center aligned basic segment"><i class="big circular yellow list icon"></i></br>No Results</div>'
-                },
-            },
         },
 
         methods: {
@@ -170,6 +159,7 @@
                         page: 'page',
                         perPage: 'per_page',
                     },
+                    noDataTemplate: '<div class="ui center aligned basic segment"><i class="big circular yellow list icon"></i></br>No Results</div>',
                     css: {
                         tableClass: 'ui table',
                         dropdownClass: 'ui dropdown',
