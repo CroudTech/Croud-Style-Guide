@@ -95,3 +95,32 @@ You can pass through scoped slots to generate more complex columns
             </button>
         </template>
     </croud-datatable>
+
+    Please ignore the **pagination-path** setting, **transform** prop and the **getSortParam** prop in the following examples. This component sets the default to work with data from **Core**
+
+### No Results - Customising the default no data message
+If there is no data or results to display, the no results message will display as below
+
+    <croud-datatable
+        :vuetable-config="{
+            'pagination-path': '',
+            fields: [{ name: 'name', sortField: 'name' }, 'email', { name:'birthdate', title: 'DOB' }],
+        }"
+    />
+
+
+If you wish to customize this message, you can set a **noDataTemplate** in the vuetable-config containing a string or html to parse, as below
+
+```js static
+
+    noDataTemplate: '<div class="ui center aligned basic segment"><strong>No Data to show you!</strong>',
+
+```
+
+    <croud-datatable
+        :vuetable-config="{
+            'pagination-path': '',
+            fields: [{ name: 'name', sortField: 'name' }, 'email', { name:'birthdate', title: 'DOB' }],
+            noDataTemplate: this.customDatagridMarkup,
+        }"
+    />
