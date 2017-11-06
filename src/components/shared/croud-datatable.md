@@ -96,8 +96,6 @@ You can pass through scoped slots to generate more complex columns
         </template>
     </croud-datatable>
 
-    Please ignore the **pagination-path** setting, **transform** prop and the **getSortParam** prop in the following examples. This component sets the default to work with data from **Core**
-
 ### No Results - Customising the default no data message
 If there is no data or results to display, the no results message will display as below
 
