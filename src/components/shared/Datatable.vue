@@ -44,6 +44,9 @@
                 createElement('div', { class: ['ui', 'segment', 'grid', 'basic'] }, [
                     createElement('vuetable-pagination-info', {
                         ref: 'paginationInfo',
+                        props: {
+                            noDataTemplate: '',
+                        },
                     }),
                     createElement(this.paginatorComponent, {
                         ref: 'pagination',
@@ -156,6 +159,7 @@
                         page: 'page',
                         perPage: 'per_page',
                     },
+                    noDataTemplate: '<div class="ui center aligned basic segment"><i class="big circular yellow list icon"></i></br>No Results</div>',
                     css: {
                         tableClass: 'ui table',
                         dropdownClass: 'ui dropdown',

@@ -14199,9 +14199,9 @@ vue@^2.4.2:
   version "2.4.2"
   resolved "https://registry.yarnpkg.com/vue/-/vue-2.4.2.tgz#a9855261f191c978cc0dc1150531b8d08149b58c"
 
-vuetable-2@^1.6.5:
-  version "1.6.5"
-  resolved "https://registry.yarnpkg.com/vuetable-2/-/vuetable-2-1.6.5.tgz#919d2d0f7a672733c384b0036c4c24c2f92bd68c"
+vuetable-2@^1.7.0:
+  version "1.7.0"
+  resolved "https://registry.yarnpkg.com/vuetable-2/-/vuetable-2-1.7.0.tgz#7bd4268aa937b98884ab3250d7cbf20c4b3d539c"
   dependencies:
     axios "^0.15.3"
 

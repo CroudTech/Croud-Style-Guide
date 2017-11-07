@@ -95,3 +95,24 @@ You can pass through scoped slots to generate more complex columns
             </button>
         </template>
     </croud-datatable>
+
+### No Results - Customising the default no data message
+If there is no data or results to display, the no results message will display as below
+
+    <croud-datatable
+        :vuetable-config="{
+            'pagination-path': '',
+            fields: [{ name: 'name', sortField: 'name' }, 'email', { name:'birthdate', title: 'DOB' }],
+        }"
+    />
+
+
+If you wish to customize this message, you can set a **noDataTemplate** in the vuetable-config containing a string or html to parse, as below
+
+    <croud-datatable
+        :vuetable-config="{
+            'pagination-path': '',
+            fields: [{ name: 'name', sortField: 'name' }, 'email', { name:'birthdate', title: 'DOB' }],
+            noDataTemplate: '<div class=`ui center aligned basic segment`><strong>No Data to show you!</strong></div>',
+        }"
+    />
