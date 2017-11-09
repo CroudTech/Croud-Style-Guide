@@ -177,6 +177,10 @@
                 this.users = _.unionWith(this.users, this.options, _.isEqual)
             },
         },
+
+        mounted() {
+            this.users = _.unionWith(this.users, this.options, _.isEqual)
+        },
     }
 </script>
 
