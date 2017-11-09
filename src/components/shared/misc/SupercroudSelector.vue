@@ -180,12 +180,10 @@
     }
 </script>
 
-<style lang="scss">
- @import '../../../resources/sass/variables/_all.scss';
+<style scoped lang="scss">
+    @import '../../../resources/sass/variables/_all.scss';
 
-.dropdown-wrapper {
-
-    .team-aware.ui.selection.dropdown.multiple {
+    .dropdown-wrapper /deep/ .team-aware.ui.selection.dropdown.multiple {
         z-index: $croud-layer-8;
 
         .menu {
@@ -194,6 +192,5 @@
             max-height: initial;
         }
     }
-}
 
 </style>
