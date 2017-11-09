@@ -140,14 +140,14 @@
                 this.localStart = moment().add(-1, period)
                 this.localEnd = moment()
                 this.picker.destroy()
-                this.$nextTick(this.buildStart)
+                $(this.$refs.input).popup('hide')
             },
 
             quickSetStart(period) {
                 this.localStart = moment().startOf(period)
                 this.localEnd = moment().endOf(period)
                 this.picker.destroy()
-                this.$nextTick(this.buildStart)
+                $(this.$refs.input).popup('hide')
             },
         },
 
