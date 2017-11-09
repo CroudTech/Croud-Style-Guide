@@ -153,6 +153,22 @@ export default {
                     { name: 'Amazon Prime' },
                 ],
             },
+
+            supercroudSelector: {
+                value: '',
+                teams: [
+                    { name: 'Supercroud',
+                        users: [
+                            { id: 1, name: 'Joe Blogs' },
+                            { id: 2, name: 'John Doe' },
+                            { id: 3, name: 'Jason Bourne' },
+                        ],
+                    },
+                ],
+                additionalUser: [
+                    { id: 4, name: 'Jack Overdue' },
+                ],
+            },
         }
     },
 
