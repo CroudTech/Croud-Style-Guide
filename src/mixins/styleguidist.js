@@ -5,12 +5,16 @@ import Quill from 'quill'
 import VueQuill from 'vue-quill'
 import Cleave from 'vue-cleave'
 import CroudForms from 'croud-forms'
+import VueSemantic from 'croud-vue-semantic'
+import VueFullCalendar from 'vue-full-calendar'
 
 import 'cleave.js/src/addons/phone-type-formatter.gb'
 
 import CroudTheme from '../components/shared/forms/quill/themes/CroudTheme'
 import '../components/shared/forms/toast/themes/croudToastTheme.scss'
 
+Vue.use(VueSemantic)
+Vue.use(VueFullCalendar)
 Vue.use(CroudForms)
 Vue.use(VueQuill)
 Vue.use(Toasted, {
@@ -19,10 +23,6 @@ Vue.use(Toasted, {
     duration: 2500,
     position: 'top-center',
 })
-
-
-Vue.use(require('croud-vue-semantic'))
-Vue.use(require('vue-full-calendar'))
 
 Vue.component('planning-component', {})
 Vue.component('journal-component', {})
@@ -151,6 +151,22 @@ export default {
                     { name: 'Handpicked Hotels' },
                     { name: 'Victoria Secret' },
                     { name: 'Amazon Prime' },
+                ],
+            },
+
+            supercroudSelector: {
+                value: '',
+                teams: [
+                    { name: 'Supercroud',
+                        users: [
+                            { id: 1, name: 'Joe Blogs' },
+                            { id: 2, name: 'John Doe' },
+                            { id: 3, name: 'Jason Bourne' },
+                        ],
+                    },
+                ],
+                additionalUser: [
+                    { id: 4, name: 'Jack Overdue' },
                 ],
             },
         }

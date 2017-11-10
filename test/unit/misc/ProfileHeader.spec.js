@@ -1,10 +1,13 @@
 import Vue from 'vue'
+import VueSemantic from 'croud-vue-semantic'
 import Loader from '../../../src/components/shared/misc/ProfileHeader'
+import CroudImageUploader from '../../../src/components/shared/misc/ImageUploader'
+import CroudAvatar from '../../../src/components/shared/misc/Avatar'
 import '../../../semantic/dist/semantic'
 
-Vue.use(require('croud-vue-semantic'))
-Vue.component('CroudImageUploader', require('../../../src/components/shared/misc/ImageUploader'))
-Vue.component('CroudAvatar', require('../../../src/components/shared/misc/Avatar'))
+Vue.use(VueSemantic)
+Vue.component('CroudImageUploader', CroudImageUploader)
+Vue.component('CroudAvatar', CroudAvatar)
 
 const Constructor = Vue.extend(Loader)
 
