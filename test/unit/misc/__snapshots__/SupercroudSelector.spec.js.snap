@@ -1,0 +1,72 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Supercroud selector should match the snapshot 1`] = `
+<div
+  class="dropdown-wrapper"
+>
+  <div
+    class="team-aware ui selection dropdown multiple"
+    data-tooltip=""
+    data-inverted="true"
+    tabindex="0"
+  >
+    <input
+      type="hidden"
+      name=""
+    />
+    <div
+      class="default text"
+    >
+      Select User
+    </div>
+    <i
+      class="dropdown icon"
+    />
+    <div
+      class="menu dropdown_menu"
+      tabindex="-1"
+    >
+      <div
+        data-value="Supercroud"
+        class="header item"
+      >
+        <i
+          class="dropdown icon"
+        />
+        <strong>
+          Supercroud Team
+        </strong>
+        <div
+          class="menu"
+        >
+          <div
+            data-value="2"
+            class="item"
+          >
+            John Doe
+          </div>
+          <div
+            data-value="3"
+            class="item"
+          >
+            Jason Bourne
+          </div>
+        </div>
+      </div>
+      <div
+        data-value="1"
+        class="item"
+      >
+        Me
+      </div>
+      <div
+        data-value="4"
+        data-text="Jack Overdue"
+        class="item"
+      >
+        Jack Overdue
+      </div>
+    </div>
+  </div>
+</div>
+`;
