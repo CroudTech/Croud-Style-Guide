@@ -12,11 +12,11 @@
             multiple
             class="team-aware">
 
-            <div v-for="(users, team) in teams" class="header item" :data-value="team">
+            <div v-for="(users, team) in teams" class="header item" :data-value="team" :key="team">
                 <i class="dropdown icon"></i>
                 <strong>{{ team }} Team</strong>
                 <div class="menu">
-                    <div class="item" v-for="user in users" :data-value="user.id">{{ user.name }}</div>
+                    <div class="item" v-for="user in users" :data-value="user.id" :key="user.id">{{ user.name }}</div>
                 </div>
             </div>
 
