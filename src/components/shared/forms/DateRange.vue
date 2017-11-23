@@ -153,7 +153,9 @@
 
         mounted() {
             this.buildStart()
+        },
 
+        activated() {
             $(this.$refs.input)
               .popup({
                   inline: true,
