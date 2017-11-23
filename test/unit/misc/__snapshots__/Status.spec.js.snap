@@ -1,0 +1,9 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Status should match the snapshot 1`] = `
+<div
+  class="ui label circular basic status-label fluid tiny yellow"
+>
+  IN PROGRESS
+</div>
+`;
