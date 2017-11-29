@@ -11,7 +11,7 @@ module.exports = {
     getComponentPathLine(componentPath) {
         const component = path.basename(componentPath, '.vue').split('.')[0]
         const dir = path.dirname(componentPath)
-        return `import ${component} from 'croud-style-guide/${dir}/${component}'`
+        return `import Croud${component} from 'croud-style-guide/${dir}/${component}'`
     },
     // components: 'src/components/shared/**/*.vue',
     sections: [
