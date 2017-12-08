@@ -22,6 +22,7 @@ module.exports = merge(baseWebpackConfig, {
     new webpack.DefinePlugin({
       'process.env': config.dev.env,
       'gateway_url': JSON.stringify('vuetable.ratiw.net'),
+      'files_url': 'files.croudcontrol.dev',
     }),
     // https://github.com/glenjamin/webpack-hot-middleware#installation--usage
     new webpack.HotModuleReplacementPlugin(),

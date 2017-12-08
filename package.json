@@ -54,6 +54,7 @@
     "croppie": "^2.5.0",
     "croud-date-parser": "git+https://github.com/CroudSupport/croud-date-parser.git",
     "pikaday": "^1.6.1",
+    "streamsaver": "^1.0.1",
     "tool": "^6.0.0",
     "vuetable-2": "^1.7.0"
   },

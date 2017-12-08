@@ -12532,6 +12532,10 @@ stream-via@^1.0.4:
   version "1.0.4"
   resolved "https://registry.yarnpkg.com/stream-via/-/stream-via-1.0.4.tgz#8dccbb0ac909328eb8bc8e2a4bd3934afdaf606c"
 
+streamsaver@^1.0.1:
+  version "1.0.1"
+  resolved "https://registry.yarnpkg.com/streamsaver/-/streamsaver-1.0.1.tgz#475d404973b5e6926a557f0e4cd8558a3520e07c"
+
 strict-uri-encode@^1.0.0:
   version "1.1.0"
   resolved "https://registry.yarnpkg.com/strict-uri-encode/-/strict-uri-encode-1.1.0.tgz#279b225df1d582b1f54e65addd4352e18faa0713"
