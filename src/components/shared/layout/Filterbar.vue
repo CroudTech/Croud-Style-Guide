@@ -46,6 +46,23 @@
     }
 </script>
 
-<style>
+<style lang="scss" scoped>
+    .ui.secondary.basic.segment {
+        padding: 0.5em 0 0 0;
+        margin: 0;
 
+        .right.item {
+            padding: 0;
+            margin: 0;
+
+            >.item {
+                padding: 0 1em 1em 1em;
+
+                .segment {
+                    padding: 0;
+                    margin: 0;
+                }
+            }
+        }
+    }
 </style>
