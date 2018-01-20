@@ -90,8 +90,8 @@ You can pass through scoped slots to generate more complex columns
         >
 
         <template slot="actions" scope="props">
-            <button @click="() => {Vue.toasted.show('this is row id ' + props.rowData.id)}" class="ui info mini button">
-                View
+            <button @click="() => {$toasted.show('This is row id ' + props.rowData.id)}" class="ui info mini button">
+                Get Row
             </button>
         </template>
     </croud-datatable>
