@@ -8,7 +8,7 @@ exports[`Filerbar should match the snapshot 1`] = `
     class="ui text menu"
   >
     <div
-      class="item"
+      class="left item"
     >
       <div
         class="ui icon input"
