@@ -6,7 +6,7 @@
             </div>
             <div class="right item">
                 <slot name="extra"></slot>
-                <i class="circular angle icon" :class="{down: !collapse, left: collapse }" @click="collapse = !collapse"></i>
+                <i v-if="showCollapseToggle" class="circular angle icon" :class="{down: !collapse, left: collapse }" @click="collapse = !collapse"></i>
             </div>
         </div>
         <div class="ui basic">
@@ -36,6 +36,14 @@
                 type: String,
                 default: 'Title',
             },
+
+            /**
+             * Show collapse/open toggle
+             */
+            showCollapseToggle: {
+                type: Boolean,
+                default: true,
+            },
         },
 
         data() {
@@ -47,7 +55,7 @@
 </script>
 
 <style lang="scss" scoped>
-    @import '../../../resources/sass/variables/_all.scss'; 
+    @import '../../../resources/sass/variables/_all.scss';
 
     .ui.black.inverted.segment {
         background-color: $croud-colour-header !important;
@@ -102,7 +110,7 @@
 
         + .loader-container {
             margin-top: 0;
-            
+
             .ui.table {
                 margin-bottom: 0;
             }
