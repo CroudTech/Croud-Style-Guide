@@ -2,7 +2,7 @@
 This Higher Order Component can be used to wrap content that should only be loaded when in the viewport. The example below will only load this large image when in view. (Check your network tab)
 
     <lazy-load>
-        <img src="https://lorempicsum.com/simpsons/1000/1000/9" />
+        <img src="http://lorempicsum.com/simpsons/1000/1000/9" />
     </lazy-load>
 
 ### Lazy Load Components
