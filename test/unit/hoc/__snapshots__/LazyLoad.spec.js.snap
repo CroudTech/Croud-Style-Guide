@@ -1,0 +1,17 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Lazy Load should lazy load when in view 1`] = `
+<div>
+  <div>
+    Test
+  </div>
+</div>
+`;
+
+exports[`Lazy Load should match the snapshot 1`] = `
+<div
+  class="placeholder"
+>
+  
+</div>
+`;
