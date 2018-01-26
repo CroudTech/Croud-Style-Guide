@@ -23,7 +23,7 @@ vuetableConfig: {
         :vuetable-config="{
             'pagination-path': '',
             fields: [{ name: 'name', sortField: 'name' }, 'email', { name:'birthdate', title: 'DOB' }],
-            'api-url': 'http://vuetable.ratiw.net/api/users',
+            'api-url': 'https://vuetable.ratiw.net/api/users',
             'query-params': { sort: 'sort' }
         }"
         :transform="data => data"
