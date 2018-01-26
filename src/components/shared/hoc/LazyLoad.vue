@@ -7,7 +7,7 @@
 
 <script>
     /**
-     * Lazy load any child content when this hoc comes into view
+     * Lazy load any child content when this higher order component comes into view
      *
      * @example ./lazy-load.md
      */
@@ -15,6 +15,10 @@
         name: 'lazy-load',
 
         props: {
+            /**
+             * Intersection Observer options
+             * @see https://developer.mozilla.org/en-US/docs/Web/API/Intersection_Observer_API
+             */
             options: {
                 type: Object,
                 default() {
