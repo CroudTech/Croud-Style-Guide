@@ -33,12 +33,17 @@ export default {
             default: '',
         },
     },
-    data() {
-        return {
-            checker: this.checked,
-        }
-    },
+
     computed: {
+        checker: {
+            get() {
+                return this.checked
+            },
+            set(val) {
+                this.$emit('toggled', val)
+            },
+        },
+
         _checked: {
             get() {
                 return this.checked
@@ -108,7 +113,7 @@ export default {
 }
 
 .success{
-    
+
     &.checkbox input[type=checkbox]:checked + .checkbox__box{
         border-color: $croud-colour-success;
         background-color: $croud-colour-success;
