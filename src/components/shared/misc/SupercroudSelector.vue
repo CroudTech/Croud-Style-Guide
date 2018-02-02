@@ -9,6 +9,7 @@
             :placeholder="dropdownPlaceholder"
             :data-inverted="true"
             :auto-update="false"
+            :auto-update-options="false"
             multiple
             class="team-aware">
 
