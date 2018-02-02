@@ -12,7 +12,7 @@ If there is no avatar url or the image fails to load, the component will fallbac
 
     <div>
         <croud-avatar :user="{name: 'Bart Simpson'}" />
-        <croud-avatar size="tiny" :user="{name: 'Marge Simpson', avatar: 'http://lorempicsum.com/simpsons/450/450/10'}" />
+        <croud-avatar size="tiny" :user="{name: 'Marge Simpson', avatar: 'http://lorempicsum.com/simpsons/450/450/1'}" />
         <croud-avatar size="mini" :user="{name: 'Homer J Simpson', avatar: ''}" />
     </div>
 
