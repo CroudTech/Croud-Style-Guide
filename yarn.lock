@@ -3268,8 +3268,8 @@ croud-forms@^1.1.2:
     vue-cleave "^1.2.0"
 
 croud-vue-semantic@^1.2.1:
-  version "1.2.1"
-  resolved "https://registry.yarnpkg.com/croud-vue-semantic/-/croud-vue-semantic-1.2.1.tgz#37d285dec162cb6f7e6bc5cc9855734c13adaa4e"
+  version "1.2.2"
+  resolved "https://registry.yarnpkg.com/croud-vue-semantic/-/croud-vue-semantic-1.2.2.tgz#c07ac9986b8f9233d96a4736f324fd4e65b5ebda"
   dependencies:
     underscore "^1.8.3"
 
