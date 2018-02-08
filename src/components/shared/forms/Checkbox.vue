@@ -40,7 +40,7 @@ export default {
                 return this.checked
             },
             set(val) {
-                this.$emit('toggled', val)
+                this.$emit('input', val)
             },
         },
 
