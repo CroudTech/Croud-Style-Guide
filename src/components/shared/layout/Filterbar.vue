@@ -2,12 +2,19 @@
     <div class="ui secondary basic segment">
         <div class="ui text menu">
             <slot name="left-item">
-            <div v-if="showSearch" class="left item">
-                <div class="ui icon input">
-                    <i class="search icon"></i>
-                    <input placeholder="Search..." v-model="_search"/>
+                <div v-if="showSearch" class="left item">
+                    <div class="ui compact basic segment">
+                        <strong>Search</strong>
+                        <div class="ui text menu">
+                            <div class="item">
+                                <div class="ui icon input">
+                                    <i class="search icon"></i>
+                                    <input :placeholder="placeholder" v-model="_search"/>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-            </div>
             </slot>
             <div class="right item">
                 <slot></slot>
@@ -41,6 +48,14 @@
                 type: Boolean,
                 default: true,
             },
+
+           /**
+            * Placeholder text
+            */
+            placeholder: {
+                type: String,
+                default: '',
+            },
         },
 
         computed: {
@@ -56,6 +71,38 @@
     }
 </script>
 
-<style>
+<style lang="scss" scoped>
+    .ui.secondary.basic.segment {
+        padding: 0.5em 0 0;
+        margin: 0;
 
+        .item.left {
+            padding: 0 1em 1em;
+            margin: 0;
+
+            .segment {
+                padding: 0;
+                margin: 0;
+            }
+
+            .ui.text.menu .item {
+                margin: 0;
+                padding: 0;
+            }
+        }
+
+        .right.item {
+            padding: 0;
+            margin: 0;
+
+            >.item {
+                padding: 0 1em 1em;
+
+                .segment {
+                    padding: 0;
+                    margin: 0;
+                }
+            }
+        }
+    }
 </style>
