@@ -22,7 +22,7 @@ To use a custom search bar or add another element other than search on the left 
     </croud-filterbar>
 
 ### Hide searchbar
-No every Filter bar requires a searchbox, toggle it on and off with the showSearch pref
+Not every Filter bar requires a search box, toggle it on and off with the showSearch pref
 
     <croud-filterbar :showSearch="false">
         <semantic-checkbox v-model="checkbox" label="🍕 Pizza" />
