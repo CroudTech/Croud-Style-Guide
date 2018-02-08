@@ -86,6 +86,10 @@ module.exports = {
                 },
             ],
         },
+        {
+            name: 'HOC',
+            components: 'src/components/shared/hoc/**/*.vue',
+        },
     ],
     styleguideComponents: {
         Logo: path.join(__dirname, 'src/styleguidist/components/logo.js'),

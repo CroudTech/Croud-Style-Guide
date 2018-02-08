@@ -25,55 +25,11 @@
 
         computed: {
             classes() {
-                const classNames = ['ui', 'label', 'circular', 'basic', 'status-label', 'fluid', 'tiny']
-
-                if (this.context.status === 'deleted' || this.context.deleted_at) {
-                    classNames.push('red')
-                } else {
-                    switch (this.context.status) {
-                    case 'new':
-                        classNames.push('grey')
-                        break
-                    case 'open':
-                        classNames.push('grey')
-                        break
-                    case 'in_progress':
-                        classNames.push(this.context.qa ? 'blue' : 'yellow')
-                        break
-                    case 'approval':
-                        classNames.push('blue')
-                        break
-                    case 'complete':
-                        classNames.push('green')
-                        break
-                    default:
-                        classNames.push('grey')
-                        break
-                    }
-                }
-
-                return classNames
+                return ['ui', 'label', 'circular', 'basic', 'status-label', 'fluid', 'tiny', this.context.contextual_status.colour]
             },
 
             status() {
-                let status = this.context.status
-
-                if (this.context.deleted_at) {
-                    status = 'Cancelled'
-                }
-
-                switch (status) {
-                case 'in_progress':
-                    status = this.context.qa ? 'qa_task' : status
-                    break
-                case 'deleted':
-                    status = 'Cancelled'
-                    break
-                default:
-                    break
-                }
-
-                return status.replace('_', ' ').toUpperCase()
+                return this.context.contextual_status.status.toUpperCase()
             },
         },
     }

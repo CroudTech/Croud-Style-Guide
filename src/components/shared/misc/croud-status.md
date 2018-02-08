@@ -4,23 +4,21 @@ Simply add the **croud-status** in the markup and pass through the context in a 
     <table class="ui very basic fixed table">
         <tr>
             <td>
-                <croud-status :context="{status: 'new'}" />
+                <croud-status :context="{contextual_status: { status: 'Scheduled', colour: 'blue' }}" />
             </td>
             <td>
-                <croud-status :context="{status: 'open'}" />
+                <croud-status :context="{contextual_status: { status: 'Open', colour: 'green' }}" />
             </td>
             <td>
-                <croud-status :context="{status: 'in_progress'}" />
+                <croud-status :context="{contextual_status: { status: 'In Progress', colour: 'yellow' }}" />
             </td>
             <td>
-                <croud-status :context="{status: 'approval'}" />
+                <croud-status :context="{contextual_status: { status: 'Submitted', colour: 'blue' }}" />
             </td>
             <td>
-                <croud-status :context="{status: 'complete'}" />
+                <croud-status :context="{contextual_status: { status: 'Request Revisions', colour: 'orange' }}" />
             </td>
-            <td>
-                <croud-status :context="{status: 'deleted'}" />
-            </td>
+
         </tr>
     </table>
 
