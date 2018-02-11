@@ -12,6 +12,7 @@
                     <strong>Quick Selection</strong>
                     <div v-if="!dateRangeOnly" class="ui fluid vertical menu">
                         <a class="item" @click="quickSet('today')">Today</a>
+                        <a class="item" @click="quickSet('yesturday')">Yesturday</a>
                     </div>
 
                     <div class="ui fluid vertical menu">
@@ -21,7 +22,7 @@
 
                     <div class="ui fluid vertical menu">
                         <a class="item" @click="quickSetStart('month')">This Month</a>
-                        <a class="item" @click="quickSetStart('week')">This Week</a>
+                        <a class="item" @click="quickSetStart('isoWeek')">This Week</a>
                     </div>
                 </div>
                 <div class="ten wide column">
@@ -139,7 +140,6 @@
                     field: this.$refs.field,
                     firstDay: 1,
                     bound: false,
-                    maxDate: moment().toDate(),
                     defaultDate: moment(this.localStart).toDate(),
                     setDefaultDate: !this.isRange,
                     format: 'ddd Do MMMM YYYY',
@@ -195,10 +195,27 @@
             },
 
             quickSet(period) {
-                if (period === 'today') this.isRange = false
-                else this.isRange = true
-                this.localStart = moment().add(-1, period)
-                this.localEnd = moment()
+                if (period === 'today') {
+                    this.isRange = false
+                    this.localStart = moment().add(-1, period)
+                    this.localEnd = moment()
+                } else if (period === 'yesturday') {
+                    this.isRange = false
+                    this.localStart = moment().add(-1, 'days')
+                    this.localEnd = moment().add(-1, 'days').endOf('day')
+                } else if (period === 'month') {
+                    this.isRange = true
+                    this.localStart = moment().add(-1, period).startOf('month')
+                    this.localEnd = moment().add(-1, period).endOf('month')
+                } else if (period === 'week') {
+                    this.isRange = true
+                    this.localStart = moment().startOf('isoweek').add(-1, period)
+                    this.localEnd = moment().endOf('isoweek').add(-1, period)
+                } else {
+                    this.isRange = true
+                    this.localStart = moment().add(-1, period)
+                    this.localEnd = moment()
+                }
                 this.closePopup()
             },
 
