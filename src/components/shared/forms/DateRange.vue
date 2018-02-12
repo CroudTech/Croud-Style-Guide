@@ -102,7 +102,8 @@
                 stage: 'start',
                 isRange: false,
                 showClear: false,
-                moment,
+                prevStart: {},
+                prevEnd: {},
             }
         },
 
@@ -252,11 +253,15 @@
                   },
                   onShow: () => {
                       this.buildCal()
+                      this.prevStart = JSON.parse(JSON.stringify(this.localStart))
+                      this.prevEnd = JSON.parse(JSON.stringify(this.localEnd))
                   },
                   onHidden: () => {
-                      this.$emit('update:start', this.localStart)
-                      this.$emit('update:end', this.localEnd)
-                      this.$emit('update:title', this.title)
+                      this.$nextTick(() => {
+                          if (!moment(this.prevStart).isSame(this.localStart)) this.$emit('update:start', this.localStart)
+                          if (!moment(this.prevEnd).isSame(this.localEnd)) this.$emit('update:end', this.localEnd)
+                          this.$emit('update:title', this.title)
+                      })
                   },
               })
         },
@@ -277,10 +282,8 @@
             end() {
                 this.localEnd = this.end
                 this.$nextTick(() => {
-                    if (!this.dateRangeOnly && moment(this.localEnd).isSame(this.localStart)) {
-                        this.isRange = false
-                        this.$emit('update:title', this.title)
-                    } else this.$emit('update:title', this.title)
+                    if (!this.dateRangeOnly && moment(this.localEnd).isSame(this.localStart)) this.isRange = false
+                    this.$emit('update:title', this.title)
                 })
             },
         },
