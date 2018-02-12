@@ -12,7 +12,7 @@
                     <strong>Quick Selection</strong>
                     <div v-if="!dateRangeOnly" class="ui fluid vertical menu">
                         <a class="item" @click="quickSet('today')">Today</a>
-                        <a class="item" @click="quickSet('yesterday')">Yesturday</a>
+                        <a class="item" @click="quickSet('yesterday')">Yesterday</a>
                     </div>
 
                     <div class="ui fluid vertical menu">
@@ -199,7 +199,7 @@
             quickSet(period) {
                 if (period === 'today') {
                     this.isRange = false
-                    this.localStart = moment().startOf('day').add(-1, period)
+                    this.localStart = moment().startOf('day')
                     this.localEnd = moment().endOf('day')
                 } else if (period === 'yesterday') {
                     this.isRange = false
