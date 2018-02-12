@@ -12,7 +12,7 @@
                     <strong>Quick Selection</strong>
                     <div v-if="!dateRangeOnly" class="ui fluid vertical menu">
                         <a class="item" @click="quickSet('today')">Today</a>
-                        <a class="item" @click="quickSet('yesturday')">Yesturday</a>
+                        <a class="item" @click="quickSet('yesterday')">Yesturday</a>
                     </div>
 
                     <div class="ui fluid vertical menu">
@@ -42,6 +42,7 @@
 <script>
     import Pikaday from 'pikaday'
     import moment from 'moment'
+    import { cloneDeep } from 'lodash'
     import CroudCheckbox from './Checkbox'
 
     /**
@@ -198,12 +199,12 @@
             quickSet(period) {
                 if (period === 'today') {
                     this.isRange = false
-                    this.localStart = moment().add(-1, period)
-                    this.localEnd = moment()
-                } else if (period === 'yesturday') {
+                    this.localStart = moment().startOf('day').add(-1, period)
+                    this.localEnd = moment().endOf('day')
+                } else if (period === 'yesterday') {
                     this.isRange = false
-                    this.localStart = moment().add(-1, 'days')
-                    this.localEnd = moment().add(-1, 'days').endOf('day')
+                    this.localStart = moment().startOf('day').add(-1, 'days')
+                    this.localEnd = moment().endOf('day').add(-1, 'days')
                 } else if (period === 'month') {
                     this.isRange = true
                     this.localStart = moment().add(-1, period).startOf('month')
@@ -214,8 +215,8 @@
                     this.localEnd = moment().endOf('isoweek').add(-1, period)
                 } else {
                     this.isRange = true
-                    this.localStart = moment().add(-1, period)
-                    this.localEnd = moment()
+                    this.localStart = moment().startOf('day').add(-1, period)
+                    this.localEnd = moment().endOf('day')
                 }
                 this.closePopup()
             },
@@ -253,8 +254,8 @@
                   },
                   onShow: () => {
                       this.buildCal()
-                      this.prevStart = JSON.parse(JSON.stringify(this.localStart))
-                      this.prevEnd = JSON.parse(JSON.stringify(this.localEnd))
+                      this.prevStart = cloneDeep(this.localStart)
+                      this.prevEnd = cloneDeep(this.localEnd)
                   },
                   onHidden: () => {
                       this.$nextTick(() => {
