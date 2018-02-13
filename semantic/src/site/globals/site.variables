@@ -11,7 +11,7 @@
 @fontName          : @croud-font-body;
 @fontSmoothing     : antialiased;
 
-@headerFont        : @croud-font-headline, sans-serif;
+@headerFont        : @croud-font-body, sans-serif;
 @pageFont          : @fontName, sans-serif;
 
 @googleFontName    : @fontName;
