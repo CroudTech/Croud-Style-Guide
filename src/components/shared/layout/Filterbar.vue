@@ -1,21 +1,19 @@
 <template>
     <div class="ui secondary basic segment">
         <div class="ui text menu">
-            <slot name="left-item">
-                <div v-if="showSearch" class="left item">
-                    <div class="ui compact basic segment">
-                        <strong>Search</strong>
-                        <div class="ui text menu">
-                            <div class="item">
-                                <div class="ui icon input">
-                                    <i class="search icon"></i>
-                                    <input :placeholder="placeholder" v-model="_search"/>
-                                </div>
+            <div class="left item">
+                <div class="ui compact basic segment">
+                    <strong>Search</strong>
+                    <div class="ui text menu">
+                        <div class="item">
+                            <div class="ui icon input">
+                                <i class="search icon"></i>
+                                <input :placeholder="placeholder" v-model="_search"/>
                             </div>
                         </div>
                     </div>
                 </div>
-            </slot>
+            </div>
             <div class="right item">
                 <slot></slot>
             </div>
@@ -39,14 +37,6 @@
             search: {
                 type: String,
                 default: '',
-            },
-
-            /**
-            * Show search
-            */
-            showSearch: {
-                type: Boolean,
-                default: true,
             },
 
            /**
