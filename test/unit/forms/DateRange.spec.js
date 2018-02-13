@@ -13,9 +13,6 @@ const vm = new Constructor({
     },
 }).$mount()
 
-vm.$el.querySelector('.pika-title').id = id
-vm.$el.querySelector('table').setAttribute('aria-labelledby', id)
-
 describe('Date Range', () => {
     it('should match the snapshot', () => {
         expect(true).toEqual(true)
