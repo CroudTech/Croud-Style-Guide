@@ -6,7 +6,7 @@
        Element
 --------------------*/
 
-@fontFamily: @headerFont;
+@fontFamily: @croud-font-headline, sans-serif;
 @fontWeight: @headerFontWeight;
 @lineHeight: @headerLineHeight;
 @lineHeightOffset: @headerLineHeightOffset;

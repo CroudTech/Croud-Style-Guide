@@ -1027,7 +1027,7 @@ h2,
 h3,
 h4,
 h5 {
-  font-family: 'Pathway Gothic One', Arial, Helvetica, sans-serif, sans-serif;
+  font-family: 'Lato', Verdana, Geneva, sans-serif, sans-serif;
   line-height: 1.28571429em;
   margin: calc(2rem -  0.14285714em ) 0em 1rem;
   font-weight: 500;
@@ -1200,6 +1200,14 @@ body .ui.inverted::-webkit-scrollbar-thumb:hover {
 /*******************************
          Site Overrides
 *******************************/
+
+h1,
+h2,
+h3,
+h4,
+h5 {
+  font-family: 'Pathway Gothic One', Arial, Helvetica, sans-serif;
+}
 /*!
  * # Semantic UI 2.2.11 - Button
  * http://github.com/semantic-org/semantic-ui/
@@ -19692,7 +19700,7 @@ ol.ui.list ol li,
 .ui.list > .item .header {
   display: block;
   margin: 0em;
-  font-family: 'Pathway Gothic One', Arial, Helvetica, sans-serif, sans-serif;
+  font-family: 'Lato', Verdana, Geneva, sans-serif, sans-serif;
   font-weight: bold;
   color: rgba(0, 0, 0, 0.87);
 }
@@ -22479,7 +22487,7 @@ ol.ui.horizontal.list li:before,
 /* Title */
 
 .ui.steps .step .title {
-  font-family: 'Pathway Gothic One', Arial, Helvetica, sans-serif, sans-serif;
+  font-family: 'Lato', Verdana, Geneva, sans-serif, sans-serif;
   font-size: 1.14285714em;
   font-weight: bold;
 }
@@ -28997,7 +29005,7 @@ Floated Menu / Item
 
 .ui.message .header {
   display: block;
-  font-family: 'Pathway Gothic One', Arial, Helvetica, sans-serif, sans-serif;
+  font-family: 'Lato', Verdana, Geneva, sans-serif, sans-serif;
   font-weight: bold;
   margin: -0.14285714em 0em 0rem 0em;
 }
@@ -31276,7 +31284,7 @@ Floated Menu / Item
 .ui.card > .content > .header {
   display: block;
   margin: '';
-  font-family: 'Pathway Gothic One', Arial, Helvetica, sans-serif, sans-serif;
+  font-family: 'Lato', Verdana, Geneva, sans-serif, sans-serif;
   color: rgba(0, 0, 0, 0.85);
 }
 
@@ -32950,7 +32958,7 @@ a.ui.card:hover,
 .ui.items > .item > .content > .header {
   display: inline-block;
   margin: -0.21425em 0em 0em;
-  font-family: 'Pathway Gothic One', Arial, Helvetica, sans-serif, sans-serif;
+  font-family: 'Lato', Verdana, Geneva, sans-serif, sans-serif;
   font-weight: bold;
   color: rgba(0, 0, 0, 0.85);
 }
@@ -33444,7 +33452,7 @@ a.ui.card:hover,
 
 .ui.statistics .statistic > .label,
 .ui.statistic > .label {
-  font-family: 'Pathway Gothic One', Arial, Helvetica, sans-serif, sans-serif;
+  font-family: 'Lato', Verdana, Geneva, sans-serif, sans-serif;
   font-size: 1em;
   font-weight: bold;
   color: rgba(0, 0, 0, 0.87);
@@ -33992,7 +34000,7 @@ a.ui.card:hover,
 
 .ui.accordion .title:not(.ui) {
   padding: 0.5em 0em;
-  font-family: 'Pathway Gothic One', Arial, Helvetica, sans-serif, sans-serif;
+  font-family: 'Lato', Verdana, Geneva, sans-serif, sans-serif;
   font-size: 1em;
   color: rgba(0, 0, 0, 0.87);
 }
@@ -37130,7 +37138,7 @@ select.ui.dropdown {
 
 .ui.modal > .header {
   display: block;
-  font-family: 'Pathway Gothic One', Arial, Helvetica, sans-serif, sans-serif;
+  font-family: 'Lato', Verdana, Geneva, sans-serif, sans-serif;
   background: #FFFFFF;
   margin: 0em;
   padding: 1.25rem 1.5rem;
@@ -37881,7 +37889,7 @@ a.ui.nag {
 
 .ui.popup > .header {
   padding: 0em;
-  font-family: 'Pathway Gothic One', Arial, Helvetica, sans-serif, sans-serif;
+  font-family: 'Lato', Verdana, Geneva, sans-serif, sans-serif;
   font-size: 1.14285714em;
   line-height: 1.2;
   font-weight: bold;
@@ -39734,7 +39742,7 @@ a.ui.nag {
 
 .ui.search > .results .result .title {
   margin: -0.14285714em 0em 0em;
-  font-family: 'Pathway Gothic One', Arial, Helvetica, sans-serif, sans-serif;
+  font-family: 'Lato', Verdana, Geneva, sans-serif, sans-serif;
   font-weight: bold;
   font-size: 1em;
   color: rgba(0, 0, 0, 0.85);
@@ -39760,7 +39768,7 @@ a.ui.nag {
 }
 
 .ui.search > .results > .message .header {
-  font-family: 'Pathway Gothic One', Arial, Helvetica, sans-serif, sans-serif;
+  font-family: 'Lato', Verdana, Geneva, sans-serif, sans-serif;
   font-size: 1rem;
   font-weight: bold;
   color: rgba(0, 0, 0, 0.87);
