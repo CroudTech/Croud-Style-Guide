@@ -25,7 +25,7 @@
 
         computed: {
             classes() {
-                const classNames = ['ui', 'label', 'circular', 'basic', 'status-label', 'fluid', 'tiny']
+                const classNames = ['ui', 'label', 'circular', 'status-label', 'fluid', 'tiny']
 
                 if (this.context.status === 'deleted' || this.context.deleted_at) {
                     classNames.push('red')
