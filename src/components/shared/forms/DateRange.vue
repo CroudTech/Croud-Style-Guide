@@ -155,7 +155,6 @@
                                 if (init) {
                                     this.picker.setStartRange()
                                     this.picker.setEndRange()
-                                    this.picker.draw()
                                     this.$nextTick(() => {
                                         start = date
                                         this.picker.setStartRange(date)
