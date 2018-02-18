@@ -248,10 +248,6 @@
                   on: 'click',
                   hoverable: true,
                   position: 'bottom left',
-                  delay: {
-                      show: 300,
-                      hide: 500,
-                  },
                   onShow: () => {
                       this.buildCal()
                       this.prevStart = cloneDeep(this.localStart)
