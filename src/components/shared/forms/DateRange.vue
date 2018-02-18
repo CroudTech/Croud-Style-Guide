@@ -247,7 +247,8 @@
                   inline: true,
                   on: 'click',
                   hoverable: true,
-                  position: 'bottom left',
+                  position: 'left center',
+                  lastResort: 'left center',
                   onShow: () => {
                       this.buildCal()
                       this.prevStart = cloneDeep(this.localStart)
