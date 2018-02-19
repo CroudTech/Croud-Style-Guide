@@ -38,6 +38,7 @@ export default {
             searchText: '',
             today: moment(),
             tomorrow: moment().add(1, 'days'),
+            yesterday: [moment().add(-1, 'day').toDate().toDateString()],
             toggleSidebar: false,
             checkbox: true,
             quillOutput: '',
