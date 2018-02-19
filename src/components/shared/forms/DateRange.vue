@@ -1,7 +1,7 @@
 <template>
     <span>
         <div ref="input" class="ui input">
-            <input ref="field" v-model="display" readonly>
+            <input class="test" ref="field" v-model="display" readonly @keydown.up.stop @keydown.down.stop>
         </div>
         <div class="ui flowing popup" title="">
             <div class="ui two column divided center aligned grid">
@@ -229,7 +229,6 @@
             },
 
             closePopup() {
-                this.picker.destroy()
                 $(this.$refs.input).popup('hide')
             },
         },
@@ -255,6 +254,7 @@
                       this.prevEnd = cloneDeep(this.localEnd)
                   },
                   onHidden: () => {
+                      this.picker.destroy()
                       this.$nextTick(() => {
                           if (!moment(this.prevStart).isSame(this.localStart)) this.$emit('update:start', this.localStart)
                           if (!moment(this.prevEnd).isSame(this.localEnd)) this.$emit('update:end', this.localEnd)
