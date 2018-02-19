@@ -3,7 +3,7 @@
         <div ref="input" class="ui input">
             <input ref="field" v-model="display" readonly>
         </div>
-        <div class="ui flowing popup">
+        <div class="ui flowing popup" title="">
             <div class="ui two column divided center aligned grid">
                 <div class="sixteen wide column">
                     <h2 class="ui croud header">{{ display }}</h2>
@@ -24,13 +24,14 @@
                         <a class="item" @click="quickSetStart('month')">This Month</a>
                         <a class="item" @click="quickSetStart('isoWeek')">This Week</a>
                     </div>
+                    <slot name="events-info"/>
                 </div>
                 <div class="ten wide column">
                     <h2 class="ui header">{{ message }}</h2>
                     <div class="calendar" ref="calendar"></div>
                     <div class="date-range-toggle">
                         <croud-checkbox v-if="!dateRangeOnly" name="showThat" v-model="isRange" class="primary"/>
-                        <strong v-if="!dateRangeOnly" class="toggle-label" @click="isRange = !isRange">Use date Range</strong>
+                        <strong v-if="!dateRangeOnly" class="toggle-label" @click="isRange = !isRange">Use Date Range</strong>
                         <button v-if="showClear" class="ui mini primary right floated button" @click="clearPickerSelection">Clear</button>
                     </div>
                 </div>
