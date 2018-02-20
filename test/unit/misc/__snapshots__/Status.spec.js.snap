@@ -2,7 +2,7 @@
 
 exports[`Status should match the snapshot 1`] = `
 <div
-  class="ui label circular basic status-label fluid tiny yellow"
+  class="ui label circular status-label fluid tiny yellow"
 >
   IN PROGRESS
 </div>

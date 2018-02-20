@@ -16,7 +16,7 @@ const vm = new Constructor({
     },
 }).$mount()
 
-xdescribe('Status', () => {
+describe('Status', () => {
     it('should match the snapshot', () => {
         expect(vm.$el).toMatchSnapshot()
     })
