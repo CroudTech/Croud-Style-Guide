@@ -233,7 +233,7 @@
 
             setUpCroppie() {
                 const el = this.$refs.croppie
-                this.croppie = new Croppie(el, this.croppieSettings)
+                this.croppie = new Croppie.Croppie(el, this.croppieSettings)
             },
 
             setUpFileUploader(e) {
