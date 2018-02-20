@@ -236,7 +236,11 @@
         mounted() {
             this.$nextTick(() => {
                 this.$emit('update:title', this.title)
-                if (this.dateRangeOnly) this.isRange = true
+                if (this.dateRangeOnly) {
+                    this.isRange = true
+                    return
+                }
+                if (!moment(this.localStart).endOf('day').isSame(this.localEnd)) this.isRange = true
             })
         },
 
@@ -280,7 +284,10 @@
             end() {
                 this.localEnd = this.end
                 this.$nextTick(() => {
-                    if (!this.dateRangeOnly && moment(this.localEnd).isSame(this.localStart)) this.isRange = false
+                    if (this.dateRangeOnly || !moment(this.localEnd).isSame(this.localStart)) {
+                        this.isRange = true
+                    } else this.isRange = false
+
                     this.$emit('update:title', this.title)
                 })
             },
