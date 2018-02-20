@@ -16,18 +16,18 @@
                     </div>
 
                     <div class="ui fluid vertical menu">
-                        <a class="item" @click="quickSet('month')">Last Month</a>
+                        <a class="item" @click="quickSetStart('isoWeek')">This Week</a>
                         <a class="item" @click="quickSet('week')">Last Week</a>
                     </div>
 
                     <div class="ui fluid vertical menu">
                         <a class="item" @click="quickSetStart('month')">This Month</a>
-                        <a class="item" @click="quickSetStart('isoWeek')">This Week</a>
+                        <a class="item" @click="quickSet('month')">Last Month</a>
                     </div>
                     <slot name="events-info"/>
                 </div>
                 <div class="ten wide column">
-                    <h2 class="ui header">{{ message }}</h2>
+                    <h2 class="message">{{ message }}</h2>
                     <div class="calendar" ref="calendar"></div>
                     <div class="date-range-toggle">
                         <croud-checkbox v-if="!dateRangeOnly" name="showThat" v-model="isRange" class="primary"/>
@@ -306,14 +306,24 @@
             margin: 0 auto;
         }
 
+        .message {
+            font-family: $croud-font-body;
+            font-size: $croud-font-size-big;
+            font-weight: 800;
+        }
+
         .date-range-toggle {
-            margin: 10px 5px;
+            margin: 10px 5px 5px 10px;
 
             .toggle-label {
                 top: -4px;
                 position: relative;
                 margin-left: 3px;
             }
+        }
+
+        .ten.wide.column {
+            padding: 14px 14px 0;
         }
     }
 </style>
