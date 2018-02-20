@@ -1,7 +1,7 @@
 <template>
     <span>
         <div ref="input" class="ui input">
-            <input class="test" ref="field" v-model="display" readonly @keydown.up.stop @keydown.down.stop>
+            <input ref="field" v-model="display" readonly @keydown.up.stop @keydown.down.stop>
         </div>
         <div class="ui flowing popup" title="">
             <div class="ui two column divided center aligned grid">
