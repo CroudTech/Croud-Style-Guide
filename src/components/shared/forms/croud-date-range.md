@@ -16,6 +16,6 @@ e.g. const yesterday = [moment().add(-1, 'day').toDate().toDateString()],
     <croud-date-range :events="yesterday">
         <div slot="events-info">
             <semantic-divider class="hidden"/>
-            <p>Yesturday will always be highlighted</p>
+            <p>Yesterday will always be highlighted</p>
         </div>
     </croud-date-range>
