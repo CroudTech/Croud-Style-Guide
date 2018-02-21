@@ -111,18 +111,15 @@
 
         computed: {
             display() {
-                if (this.isRange) return `${moment(this.localStart).format('ll')} - ${moment(this.localEnd).format('ll')}`
-                return `${moment(this.localStart).format('ddd Do MMMM YYYY')}`
+                return this.isRange ? `${moment(this.localStart).format('ll')} - ${moment(this.localEnd).format('ll')}` : `${moment(this.localStart).format('ddd Do MMMM YYYY')}`
             },
 
             title() {
-                if (this.isRange) return `${moment(this.localStart).format('dddd Do MMMM YYYY')} - ${moment(this.localEnd).format('dddd Do MMMM YYYY')}`
-                return `${moment(this.localStart).format('dddd Do MMMM YYYY')}`
+                return this.isRange ? `${moment(this.localStart).format('dddd Do MMMM YYYY')} - ${moment(this.localEnd).format('dddd Do MMMM YYYY')}` : `${moment(this.localStart).format('dddd Do MMMM YYYY')}`
             },
 
             message() {
-                if (this.isRange) return `Select your ${this.stage} date`
-                return 'Select a date'
+                return this.isRange ? `Select your ${this.stage} date` : 'Select a date'
             },
         },
 
@@ -152,26 +149,27 @@
                         let start = ''
                         let end = ''
                         return (date) => {
-                            if (this.isRange) {
-                                if (init) {
-                                    this.picker.setStartRange()
-                                    this.picker.setEndRange()
-                                    this.$nextTick(() => {
-                                        start = date
-                                        this.picker.setStartRange(date)
-                                        this.picker.setMinDate(date)
-                                        this.showClear = true
-                                        this.stage = 'end'
-                                    })
-                                } else {
-                                    end = date
-                                    this.picker.setMinDate()
-                                    this.$nextTick(() => this.setRange(start, end))
-                                }
-                                init = !init
-                            } else {
+                            if (!this.isRange) {
                                 this.setSingleDate(date)
+                                return
                             }
+
+                            if (init) {
+                                this.picker.setStartRange()
+                                this.picker.setEndRange()
+                                this.$nextTick(() => {
+                                    start = date
+                                    this.picker.setStartRange(date)
+                                    this.picker.setMinDate(date)
+                                    this.showClear = true
+                                    this.stage = 'end'
+                                })
+                            } else {
+                                end = date
+                                this.picker.setMinDate()
+                                this.$nextTick(() => this.setRange(start, end))
+                            }
+                            init = !init
                         }
                     })(),
                 })
@@ -197,27 +195,38 @@
             },
 
             quickSet(period) {
-                if (period === 'today') {
+                switch (period) {
+                case 'today':
                     this.isRange = false
                     this.localStart = moment().startOf('day')
                     this.localEnd = moment().endOf('day')
-                } else if (period === 'yesterday') {
+                    break
+
+                case 'yesterday':
                     this.isRange = false
                     this.localStart = moment().startOf('day').add(-1, 'days')
                     this.localEnd = moment().endOf('day').add(-1, 'days')
-                } else if (period === 'month') {
+                    break
+
+                case 'month':
                     this.isRange = true
                     this.localStart = moment().add(-1, period).startOf('month')
                     this.localEnd = moment().add(-1, period).endOf('month')
-                } else if (period === 'week') {
+                    break
+
+                case 'week':
                     this.isRange = true
                     this.localStart = moment().startOf('isoweek').add(-1, period)
                     this.localEnd = moment().endOf('isoweek').add(-1, period)
-                } else {
+                    break
+
+                default:
                     this.isRange = true
                     this.localStart = moment().startOf('day').add(-1, period)
                     this.localEnd = moment().endOf('day')
+                    break
                 }
+
                 this.closePopup()
             },
 
@@ -236,11 +245,9 @@
         mounted() {
             this.$nextTick(() => {
                 this.$emit('update:title', this.title)
-                if (this.dateRangeOnly) {
+                if (this.dateRangeOnly || !moment(this.localStart).endOf('day').isSame(this.localEnd)) {
                     this.isRange = true
-                    return
                 }
-                if (!moment(this.localStart).endOf('day').isSame(this.localEnd)) this.isRange = true
             })
         },
 
@@ -284,10 +291,7 @@
             end() {
                 this.localEnd = this.end
                 this.$nextTick(() => {
-                    if (this.dateRangeOnly || !moment(this.localEnd).isSame(this.localStart)) {
-                        this.isRange = true
-                    } else this.isRange = false
-
+                    this.isRange = this.dateRangeOnly || !moment(this.localEnd).isSame(this.localStart)
                     this.$emit('update:title', this.title)
                 })
             },
