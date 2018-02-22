@@ -1,9 +1,9 @@
 <template>
     <span>
         <div ref="input" class="ui input">
-            <input ref="field" v-model="display" readonly>
+            <input ref="field" v-model="display" readonly @keydown.up.stop @keydown.down.stop>
         </div>
-        <div class="ui flowing popup">
+        <div class="ui flowing popup" title="">
             <div class="ui two column divided center aligned grid">
                 <div class="sixteen wide column">
                     <h2 class="ui croud header">{{ display }}</h2>
@@ -16,21 +16,22 @@
                     </div>
 
                     <div class="ui fluid vertical menu">
-                        <a class="item" @click="quickSet('month')">Last Month</a>
+                        <a class="item" @click="quickSetStart('isoWeek')">This Week</a>
                         <a class="item" @click="quickSet('week')">Last Week</a>
                     </div>
 
                     <div class="ui fluid vertical menu">
                         <a class="item" @click="quickSetStart('month')">This Month</a>
-                        <a class="item" @click="quickSetStart('isoWeek')">This Week</a>
+                        <a class="item" @click="quickSet('month')">Last Month</a>
                     </div>
+                    <slot name="events-info"/>
                 </div>
                 <div class="ten wide column">
-                    <h2 class="ui header">{{ message }}</h2>
+                    <h2 class="message">{{ message }}</h2>
                     <div class="calendar" ref="calendar"></div>
                     <div class="date-range-toggle">
                         <croud-checkbox v-if="!dateRangeOnly" name="showThat" v-model="isRange" class="primary"/>
-                        <strong v-if="!dateRangeOnly" class="toggle-label" @click="isRange = !isRange">Use date Range</strong>
+                        <strong v-if="!dateRangeOnly" class="toggle-label" @click="isRange = !isRange">Use Date Range</strong>
                         <button v-if="showClear" class="ui mini primary right floated button" @click="clearPickerSelection">Clear</button>
                     </div>
                 </div>
@@ -110,18 +111,15 @@
 
         computed: {
             display() {
-                if (this.isRange) return `${moment(this.localStart).format('ll')} - ${moment(this.localEnd).format('ll')}`
-                return `${moment(this.localStart).format('ddd Do MMMM YYYY')}`
+                return this.isRange ? `${moment(this.localStart).format('ll')} - ${moment(this.localEnd).format('ll')}` : `${moment(this.localStart).format('ddd Do MMMM YYYY')}`
             },
 
             title() {
-                if (this.isRange) return `${moment(this.localStart).format('dddd Do MMMM YYYY')} - ${moment(this.localEnd).format('dddd Do MMMM YYYY')}`
-                return `${moment(this.localStart).format('dddd Do MMMM YYYY')}`
+                return this.isRange ? `${moment(this.localStart).format('dddd Do MMMM YYYY')} - ${moment(this.localEnd).format('dddd Do MMMM YYYY')}` : `${moment(this.localStart).format('dddd Do MMMM YYYY')}`
             },
 
             message() {
-                if (this.isRange) return `Select your ${this.stage} date`
-                return 'Select a date'
+                return this.isRange ? `Select your ${this.stage} date` : 'Select a date'
             },
         },
 
@@ -151,27 +149,27 @@
                         let start = ''
                         let end = ''
                         return (date) => {
-                            if (this.isRange) {
-                                if (init) {
-                                    this.picker.setStartRange()
-                                    this.picker.setEndRange()
-                                    this.picker.draw()
-                                    this.$nextTick(() => {
-                                        start = date
-                                        this.picker.setStartRange(date)
-                                        this.picker.setMinDate(date)
-                                        this.showClear = true
-                                        this.stage = 'end'
-                                    })
-                                } else {
-                                    end = date
-                                    this.picker.setMinDate()
-                                    this.$nextTick(() => this.setRange(start, end))
-                                }
-                                init = !init
-                            } else {
+                            if (!this.isRange) {
                                 this.setSingleDate(date)
+                                return
                             }
+
+                            if (init) {
+                                this.picker.setStartRange()
+                                this.picker.setEndRange()
+                                this.$nextTick(() => {
+                                    start = date
+                                    this.picker.setStartRange(date)
+                                    this.picker.setMinDate(date)
+                                    this.showClear = true
+                                    this.stage = 'end'
+                                })
+                            } else {
+                                end = date
+                                this.picker.setMinDate()
+                                this.$nextTick(() => this.setRange(start, end))
+                            }
+                            init = !init
                         }
                     })(),
                 })
@@ -197,27 +195,38 @@
             },
 
             quickSet(period) {
-                if (period === 'today') {
+                switch (period) {
+                case 'today':
                     this.isRange = false
                     this.localStart = moment().startOf('day')
                     this.localEnd = moment().endOf('day')
-                } else if (period === 'yesterday') {
+                    break
+
+                case 'yesterday':
                     this.isRange = false
                     this.localStart = moment().startOf('day').add(-1, 'days')
                     this.localEnd = moment().endOf('day').add(-1, 'days')
-                } else if (period === 'month') {
+                    break
+
+                case 'month':
                     this.isRange = true
                     this.localStart = moment().add(-1, period).startOf('month')
                     this.localEnd = moment().add(-1, period).endOf('month')
-                } else if (period === 'week') {
+                    break
+
+                case 'week':
                     this.isRange = true
                     this.localStart = moment().startOf('isoweek').add(-1, period)
                     this.localEnd = moment().endOf('isoweek').add(-1, period)
-                } else {
+                    break
+
+                default:
                     this.isRange = true
                     this.localStart = moment().startOf('day').add(-1, period)
                     this.localEnd = moment().endOf('day')
+                    break
                 }
+
                 this.closePopup()
             },
 
@@ -229,7 +238,6 @@
             },
 
             closePopup() {
-                this.picker.destroy()
                 $(this.$refs.input).popup('hide')
             },
         },
@@ -237,7 +245,9 @@
         mounted() {
             this.$nextTick(() => {
                 this.$emit('update:title', this.title)
-                if (this.dateRangeOnly) this.isRange = true
+                if (this.dateRangeOnly || !moment(this.localStart).endOf('day').isSame(this.localEnd)) {
+                    this.isRange = true
+                }
             })
         },
 
@@ -247,17 +257,15 @@
                   inline: true,
                   on: 'click',
                   hoverable: true,
-                  position: 'bottom left',
-                  delay: {
-                      show: 300,
-                      hide: 500,
-                  },
+                  position: 'left center',
+                  lastResort: 'left center',
                   onShow: () => {
                       this.buildCal()
                       this.prevStart = cloneDeep(this.localStart)
                       this.prevEnd = cloneDeep(this.localEnd)
                   },
                   onHidden: () => {
+                      this.picker.destroy()
                       this.$nextTick(() => {
                           if (!moment(this.prevStart).isSame(this.localStart)) this.$emit('update:start', this.localStart)
                           if (!moment(this.prevEnd).isSame(this.localEnd)) this.$emit('update:end', this.localEnd)
@@ -283,7 +291,7 @@
             end() {
                 this.localEnd = this.end
                 this.$nextTick(() => {
-                    if (!this.dateRangeOnly && moment(this.localEnd).isSame(this.localStart)) this.isRange = false
+                    this.isRange = this.dateRangeOnly || !moment(this.localEnd).startOf('day').isSame(this.localStart)
                     this.$emit('update:title', this.title)
                 })
             },
@@ -309,14 +317,24 @@
             margin: 0 auto;
         }
 
+        .message {
+            font-family: $croud-font-body;
+            font-size: $croud-font-size-big;
+            font-weight: 800;
+        }
+
         .date-range-toggle {
-            margin: 10px 5px;
+            margin: 10px 5px 5px 10px;
 
             .toggle-label {
                 top: -4px;
                 position: relative;
                 margin-left: 3px;
             }
+        }
+
+        .ten.wide.column {
+            padding: 14px 14px 8px;
         }
     }
 </style>
