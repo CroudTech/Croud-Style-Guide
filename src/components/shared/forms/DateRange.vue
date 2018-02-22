@@ -291,7 +291,7 @@
             end() {
                 this.localEnd = this.end
                 this.$nextTick(() => {
-                    this.isRange = this.dateRangeOnly || !moment(this.localEnd).isSame(this.localStart)
+                    this.isRange = this.dateRangeOnly || !moment(this.localEnd).startOf('day').isSame(this.localStart)
                     this.$emit('update:title', this.title)
                 })
             },
