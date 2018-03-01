@@ -1,6 +1,6 @@
 <template>
     <div class="ui segments">
-        <div class="ui basic segment text menu">
+        <div v-if="title || showCollapseToggle" class="ui basic segment text menu">
             <div class="item">
                 <h2 class="heading ui-sortable-handle">{{ title }}</h2>
             </div>
