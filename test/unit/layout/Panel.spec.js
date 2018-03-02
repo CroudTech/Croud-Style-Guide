@@ -36,6 +36,6 @@ describe('No title length and showCollapseToggle is false', () => {
     })
 
     it('shouldnt show the text segment', () => {
-        expect(vm.$el.querySelectorAll('.text').length).toBe(0)
+        expect(vm.$el.querySelectorAll('.text.menu').length).toBe(0)
     })
 })
