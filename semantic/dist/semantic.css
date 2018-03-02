@@ -38782,7 +38782,7 @@ a.ui.nag {
 }
 
 .ui.indicating.progress[data-percent^="3"] .bar {
-  background-color: #f4c91b;
+  background-color: #ea6b65;
 }
 
 .ui.indicating.progress[data-percent^="4"] .bar,
