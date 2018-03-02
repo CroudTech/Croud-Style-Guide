@@ -17,6 +17,14 @@ describe('Panel', () => {
     it('should match the snapshot', () => {
         expect(vm.$el).toMatchSnapshot()
     })
+
+    it('should show the show / collapse button', () => {
+        expect(vm.$el.querySelectorAll('.circular.angle.icon').length).toBe(1)
+    })
+
+    it('should show the text segment', () => {
+        expect(vm.$el.querySelectorAll('.text.menu').length).toBe(1)
+    })
 })
 
 describe('showCollapseToggle is false', () => {
@@ -25,7 +33,7 @@ describe('showCollapseToggle is false', () => {
     })
 
     it('shouldnt show the show / collapse button', () => {
-        expect(vm.$el.querySelectorAll('.circular .angle .icon').length).toBe(0)
+        expect(vm.$el.querySelectorAll('.circular.angle.icon').length).toBe(0)
     })
 })
 
