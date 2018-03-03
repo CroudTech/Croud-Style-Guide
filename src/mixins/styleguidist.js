@@ -170,6 +170,11 @@ export default {
                     { id: 4, name: 'Jack Overdue' },
                 ],
             },
+
+            summarisedDropdownOne: [],
+            summarisedDropdownTwo: 'one, two',
+            summarisedDropdownThree: [],
+            summarisedChannels: [{ id: 1, name: 'PPC' }, { id: 2, name: 'Paid Social' }, { id: 3, name: 'SEO' }],
         }
     },
 
