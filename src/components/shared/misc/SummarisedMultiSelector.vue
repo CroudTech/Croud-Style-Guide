@@ -32,7 +32,7 @@
 
 <script>
     /**
-     * Status label for tasks and jobs
+     * A custom multi-select dropdown useful for multi selection scenarios
      *
      * @example ./croud-summarised-mutli-selector.md
      */
