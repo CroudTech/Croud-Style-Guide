@@ -152,13 +152,11 @@
             },
 
             summary() {
-                if (this.model.length) return this.model.split(',').join(', ')
-                return this.defaultSummary
+                return this.model.length ? this.model.split(',').join(', ') : this.defaultSummary
             },
 
             selectedLength() {
-                if (this.model.length) return this.model.split(',').length
-                return 0
+                return this.model.length ? this.model.split(',').length : 0
             },
         },
 
@@ -169,8 +167,12 @@
 
             setLabel() {
                 if (!(this.selectedLength && this.$refs.summarisedSelector)) return
-                if (this.selectedLength === 1) $(this.$refs.summarisedSelector.$el).dropdown('set text', this.model)
-                else $(this.$refs.summarisedSelector.$el).dropdown('set text', `${this.selectedLength} Selected`)
+
+                if (this.selectedLength === 1) {
+                    $(this.$refs.summarisedSelector.$el).dropdown('set text', this.model)
+                } else {
+                    $(this.$refs.summarisedSelector.$el).dropdown('set text', `${this.selectedLength} Selected`)
+                }
             },
 
             reset() {
