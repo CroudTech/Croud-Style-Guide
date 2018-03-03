@@ -18,3 +18,14 @@ If readOnly is set to true, you will see a summary of the selected values
 In this example we have provided a fields map so the value used on selction is name rather than the id which is provided in the options array (default behaviour), as we have a list of channels here a custom summary placeholder is set to show 'Select a channel'
 
     <croud-summarised-multi-selector  v-model="summarisedDropdownThree" :options="summarisedChannels" :fields="{ title: 'name', value: 'name' }" defaultSummary="Select a channel" placeholder="Select a channel" />
+
+### Reset Method
+You can manipulate this component by setting a ref to call the reset method, which will clear the dropdown and reset it to its original state if you require
+
+    <span>
+        <croud-summarised-multi-selector ref="channels" v-model="summarisedDropdownFour" :options="summarisedChannels" :fields="{ title: 'name', value: 'name' }" defaultSummary="Select a channel" placeholder="Select a channel" />
+
+        <semantic-divider/>
+
+        <button class="ui button" @click="$refs.channels.reset()">Reset Dropdown</button>
+    </span>

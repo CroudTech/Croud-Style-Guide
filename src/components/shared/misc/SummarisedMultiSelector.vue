@@ -173,7 +173,7 @@
                 else $(this.$refs.summarisedSelector.$el).dropdown('set text', `${this.selectedLength} Selected`)
             },
 
-            refresh() {
+            reset() {
                 $(this.$refs.summarisedSelector.$el).dropdown('clear')
                 this.$nextTick(() => {
                     $(this.$refs.summarisedSelector.$el).dropdown('refresh')

@@ -174,6 +174,7 @@ export default {
             summarisedDropdownOne: [],
             summarisedDropdownTwo: 'one, two',
             summarisedDropdownThree: [],
+            summarisedDropdownFour: 'ppc',
             summarisedChannels: [{ id: 1, name: 'PPC' }, { id: 2, name: 'Paid Social' }, { id: 3, name: 'SEO' }],
         }
     },
