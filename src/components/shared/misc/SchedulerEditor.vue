@@ -1,0 +1,405 @@
+<template>
+    <div class="ui segment basic">
+        <div class="ui equal width internally celled grid">
+            <div class="column">
+                <div class="ui form">
+                    <div class="grouped fields">
+                        <div class="field ui mini buttons">
+                            <button class="ui button mini" @click="setAllWorking()">Work Days</button>
+                            <button class="ui button mini" @click="setAll()">Every Day</button>
+                            <button class="ui button mini" @click="clearAll()">Clear</button>
+                        </div>
+                    </div>
+                    <div class="grouped fields">
+                        <div class="field">
+                            <div class="ui toggle checkbox">
+                                <input type="checkbox" value="1" v-model="schedule.days.sunday">
+                                <label>Sunday</label>
+                            </div>
+                        </div>
+
+                        <div class="field">
+                            <div class="ui toggle checkbox">
+                                <input type="checkbox" value="1" v-model="schedule.days.monday">
+                                <label>Monday</label>
+                            </div>
+                        </div>
+
+                        <div class="field">
+                            <div class="ui toggle checkbox">
+                                <input type="checkbox" value="1" v-model="schedule.days.tuesday">
+                                <label>Tuesday</label>
+                            </div>
+                        </div>
+
+                        <div class="field">
+                            <div class="ui toggle checkbox">
+                                <input type="checkbox" value="1" v-model="schedule.days.wednesday">
+                                <label>Wednesday</label>
+                            </div>
+                        </div>
+
+                        <div class="field">
+                            <div class="ui toggle checkbox">
+                                <input type="checkbox" value="1" v-model="schedule.days.thursday">
+                                <label>Thursday</label>
+                            </div>
+                        </div>
+
+                        <div class="field">
+                            <div class="ui toggle checkbox">
+                                <input type="checkbox" value="1" v-model="schedule.days.friday">
+                                <label>Friday</label>
+                            </div>
+                        </div>
+
+                        <div class="field">
+                            <div class="ui toggle checkbox">
+                                <input type="checkbox" value="1" v-model="schedule.days.saturday">
+                                <label>Saturday</label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="ui divider"/>
+                <div class="ui form">
+                    <div class="grouped fields">
+                        <div class="field">
+                            <semantic-form-dropdown v-model="schedule.recur" :options="periodOptions"></semantic-form-dropdown>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="column">
+                <div class="ui form">
+                    <div class="grouped fields">
+                        <div class="field ui mini buttons">
+                            <button class="ui button mini" @click="setAllMonths(true)">Every</button>
+                            <button class="ui button mini" @click="setAlternateMonths()">Alternative</button>
+                            <button class="ui button mini" @click="setAllMonths(false)">Clear</button>
+                        </div>
+
+                        <div class="field">
+                            <div class="ui toggle checkbox">
+                                <input type="checkbox" value="1" v-model="schedule.months.january">
+                                <label>January</label>
+                            </div>
+                        </div>
+
+                        <div class="field">
+                            <div class="ui toggle checkbox">
+                                <input type="checkbox" value="1" v-model="schedule.months.february">
+                                <label>February</label>
+                            </div>
+                        </div>
+
+                        <div class="field">
+                            <div class="ui toggle checkbox">
+                                <input type="checkbox" value="1" v-model="schedule.months.march">
+                                <label>March</label>
+                            </div>
+                        </div>
+
+                        <div class="field">
+                            <div class="ui toggle checkbox">
+                                <input type="checkbox" value="1" v-model="schedule.months.april">
+                                <label>April</label>
+                            </div>
+                        </div>
+
+                        <div class="field">
+                            <div class="ui toggle checkbox">
+                                <input type="checkbox" value="1" v-model="schedule.months.may">
+                                <label>May</label>
+                            </div>
+                        </div>
+
+                        <div class="field">
+                            <div class="ui toggle checkbox">
+                                <input type="checkbox" value="1" v-model="schedule.months.june">
+                                <label>June</label>
+                            </div>
+                        </div>
+
+                        <div class="field">
+                            <div class="ui toggle checkbox">
+                                <input type="checkbox" value="1" v-model="schedule.months.july">
+                                <label>July</label>
+                            </div>
+                        </div>
+
+                        <div class="field">
+                            <div class="ui toggle checkbox">
+                                <input type="checkbox" value="1" v-model="schedule.months.august">
+                                <label>August</label>
+                            </div>
+                        </div>
+
+                        <div class="field">
+                            <div class="ui toggle checkbox">
+                                <input type="checkbox" value="1" v-model="schedule.months.september">
+                                <label>September</label>
+                            </div>
+                        </div>
+
+                        <div class="field">
+                            <div class="ui toggle checkbox">
+                                <input type="checkbox" value="1" v-model="schedule.months.october">
+                                <label>October</label>
+                            </div>
+                        </div>
+
+                        <div class="field">
+                            <div class="ui toggle checkbox">
+                                <input type="checkbox" value="1" v-model="schedule.months.november">
+                                <label>November</label>
+                            </div>
+                        </div>
+
+                        <div class="field">
+                            <div class="ui toggle checkbox">
+                                <input type="checkbox" value="1" v-model="schedule.months.december">
+                                <label>December</label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="column">
+                <div class="ui form">
+                    <div class="grouped fields">
+                        <div class="field">
+                            <label>Starts at</label>
+                            <croud-datepicker ref="startDate" placeholder="Select start date.." :date="schedule.limit.from" v-on:date-selected="setStartDate"></croud-datepicker>
+                        </div>
+
+                        <div class="field">
+                            <label>Ends at</label>
+                            <croud-datepicker ref="endDate" placeholder="Select end date.." :date="schedule.limit.to" :minDate="getStartDate" v-on:date-selected="setEndDate"></croud-datepicker>
+                        </div>
+                        <button class="ui mini button" @click="clearEndDate">Clear End Date</button>
+                    </div>
+
+                    <div class="field">
+                        <label>Time this schedule runs at</label>
+                        <semantic-form-dropdown v-model="schedule.at" :options="timeOptions"></semantic-form-dropdown>
+                        <div class="ui light" style="margin-top:5px">
+                            (Timezone: <strong>{{ schedule.timezone }}</strong>)
+                        </div>
+                    </div>
+
+                    <div class="field">
+                        <label>Maximum number of times to run</label>
+                        <input type="number" v-model="schedule.limit.count">
+                    </div>
+
+                    <div class="ui divider"></div>
+
+                    <div class="field">
+                        <button @click="done" class="ui blue fluid button">
+                            Done
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</template>
+
+<script>
+    import { defaultsDeep } from 'lodash'
+    import moment from 'moment'
+
+    import CroudDatepicker from '../forms/DatePicker'
+
+    /**
+    * Our scheduler editor
+    *
+    * @example ./croud-scheduler-editor.md
+    */
+
+    export default {
+        name: 'croud-scheduler-editor',
+
+        model: {
+            prop: 'schedule',
+        },
+
+        props: {
+            /**
+             * Scheduler Schema
+             *
+             * @ignore
+            */
+            schedule: {
+                type: Object,
+                required: true,
+            },
+        },
+
+        components: {
+            CroudDatepicker,
+        },
+
+        data() {
+            return {
+                alternating_start: 0,
+                periods: {
+                    daily: 'Daily on above days',
+                    everyFortnight: 'Every alternating week',
+                    firstWeekOfMonth: 'The first week only',
+                    secondWeekOfMonth: 'The second week only',
+                    thirdWeekOfMonth: 'The third week only',
+                    fourthWeekOfMonth: 'The fourth week only',
+                },
+            }
+        },
+
+        computed: {
+            periodOptions() {
+                const arr = []
+                for (const key in this.periods) {
+                    arr.push({
+                        id: key,
+                        name: this.periods[key],
+                    })
+                }
+                return arr
+            },
+
+            timeOptions() {
+                const pad = function (value) {
+                    return value < 10 ? `0${value}` : value
+                }
+                let value
+                const arr = []
+                for (let i = 0; i < 24; i += 1) {
+                    for (let t = 0; t < 60; t += 5) {
+                        value = `${pad(i)}:${pad(t)}`
+                        arr.push({
+                            id: value,
+                            name: value,
+                        })
+                    }
+                }
+                arr.push({
+                    id: '23:59',
+                    name: '23:59',
+                })
+                return arr
+            },
+
+            getStartDate() {
+                return moment(this.schedule.limit.from).toDate()
+            },
+        },
+
+        methods: {
+            setStartDate(option) {
+                this.schedule.limit.from = option.format('YYYY-MM-DD hh:mm:ss')
+            },
+
+            setEndDate(option) {
+                this.schedule.limit.to = option.format('YYYY-MM-DD hh:mm:ss')
+            },
+
+            setAllMonths(option = true) {
+                let month
+                const months = {}
+                for (let i = 0; i < 12; i += 1) {
+                    month = moment().month(i)
+                    months[month.format('MMMM').toLowerCase()] = option
+                }
+
+                this.$emit('input', defaultsDeep({ months }, this.schedule))
+            },
+
+            setAlternateMonths() {
+                let month
+                const months = {}
+                this.alternating_start = this.alternating_start === 1 ? 0 : 1
+
+                const index = this.alternating_start % 2 ? 1 : 0
+                const altIndex = this.alternating_start % 2 ? 0 : 1
+
+                for (let i = index; i < 12; i += 2) {
+                    month = moment().month(i)
+                    months[month.format('MMMM').toLowerCase()] = true
+                }
+
+                for (let i = altIndex; i < 12; i += 2) {
+                    month = moment().month(i)
+                    months[month.format('MMMM').toLowerCase()] = false
+                }
+
+                this.$emit('input', defaultsDeep({ months }, this.schedule))
+            },
+
+            setAllWorking() {
+                this.$emit('input', defaultsDeep({
+                    days: {
+                        monday: true,
+                        tuesday: true,
+                        wednesday: true,
+                        thursday: true,
+                        friday: true,
+                        saturday: false,
+                        sunday: false,
+                    },
+                }, this.schedule))
+            },
+
+            setAll() {
+                this.setAllWorking()
+                this.$nextTick(() => {
+                    this.$emit('input', defaultsDeep({
+                        days: {
+                            monday: true,
+                            tuesday: true,
+                            wednesday: true,
+                            thursday: true,
+                            friday: true,
+                            saturday: true,
+                            sunday: true,
+                        },
+                    }, this.schedule))
+                })
+            },
+
+            clearAll() {
+                this.setAllWorking()
+                this.$nextTick(() => {
+                    this.$emit('input', defaultsDeep({
+                        days: {
+                            monday: false,
+                            tuesday: false,
+                            wednesday: false,
+                            thursday: false,
+                            friday: false,
+                            saturday: false,
+                            sunday: false,
+                        },
+                    }, this.schedule))
+                })
+            },
+
+            clearEndDate() {
+                this.$refs.endDate.picker.setDate(null)
+                this.schedule.limit.to = ''
+            },
+
+            done() {
+                this.$emit('done')
+            },
+        },
+
+        mounted() {
+            this.$nextTick(() => $(this.$el).children('.ui.checkbox').checkbox())
+            this.$watch('getStartDate', this.$refs.endDate.create)
+            this.$refs.startDate.$refs.pickerfield.setAttribute('readonly', 'true')
+            this.$refs.endDate.$refs.pickerfield.setAttribute('readonly', 'true')
+        },
+    }
+</script>
