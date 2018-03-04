@@ -170,6 +170,40 @@ export default {
                     { id: 4, name: 'Jack Overdue' },
                 ],
             },
+
+            schedulerSchema: {
+                months: {
+                    january: false,
+                    february: false,
+                    march: false,
+                    april: false,
+                    may: false,
+                    june: false,
+                    july: false,
+                    august: false,
+                    september: false,
+                    october: false,
+                    november: false,
+                    december: false,
+                },
+                days: {
+                    monday: false,
+                    tuesday: false,
+                    wednesday: false,
+                    thursday: false,
+                    friday: false,
+                    saturday: false,
+                    sunday: false,
+                },
+                recur: 'daily',
+                at: '00:00',
+                timezone: ' Europe/London',
+                limit: {
+                    from: moment().format('YYYY-MM-DD hh:mm:ss'),
+                    to: '',
+                    count: null,
+                },
+            },
         }
     },
 
