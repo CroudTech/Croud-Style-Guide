@@ -1,0 +1,12 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Scheduler Modal should match the snapshot 1`] = `
+<span>
+  <button
+    title="Edit schedule"
+    class="ui mini basic blue button"
+  >
+    Edit
+  </button>
+</span>
+`;
