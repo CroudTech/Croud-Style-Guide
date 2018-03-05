@@ -13,7 +13,7 @@ exports[`Panel should match the snapshot 1`] = `
       <h2
         class="heading ui-sortable-handle"
       >
-        Title
+        Test Panel
       </h2>
     </div>
     <div
