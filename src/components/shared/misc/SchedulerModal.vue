@@ -1,45 +1,33 @@
 <template>
     <span>
-        <slot name="action">
-           <button class="ui mini basic blue button" title="Edit schedule" @click="showModal = true">
-                Edit
-            </button>
-        </slot>
-        <semantic-modal ref="schedulerModal" title="Recurring Journal Schedule" :active="showModal" :settings="{content_classes: {content: true}, closeable: true, closeable_button: true}" @close-modal="closed()">
-            <croud-schedule-editor v-if="showModal" v-model="model" @done="closeModal()"/>
+        <button class="ui mini basic blue button" title="Edit schedule" @click="showModal = true">
+            Edit
+        </button>
+        <semantic-modal title="Recurring Journal Schedule" :active="showModal" :settings="{content_classes: {content: true}, closeable: true, closeable_button: true}" @close-modal="closeModal">
+            <croud-schedule-editor v-if="showModal" v-model="model" @scheduleSet="scheduleSet"/>
         </semantic-modal>
     </span>
 </template>
 
 <script>
-    import CroudScheduleEditor from './SchedulerEditor'
-
-    /**
-    * Our scheduler editor modal
-    *
-    * @example ./croud-scheduler-modal.md
-    */
+    import CroudScheduleEditor from './ScheduleEditor'
 
     export default {
-        name: 'croud-scheduler-modal',
-
         components: {
             CroudScheduleEditor,
         },
 
         model: {
-            prop: 'schedule',
+            prop: 'rootObject',
         },
 
         props: {
             /**
-             * Scheduler Schema
+             * Root object for scheduler schema
              *
-             * @ignore
             */
-            schedule: {
-                type: Object,
-                required: true,
+            rootObject: {
+                required: false,
             },
         },
 
@@ -52,7 +40,7 @@
         computed: {
             model: {
                 get() {
-                    return this.schedule
+                    return this.rootObject
                 },
 
                 set(val) {
@@ -62,11 +50,12 @@
         },
 
         methods: {
-            closeModal() {
-                $(this.$refs.schedulerModal.$el).modal('hide')
+            scheduleSet(schedule) {
+                this.$emit('scheduleSet', schedule)
+                this.closeModal()
             },
 
-            closed() {
+            closeModal() {
                 this.$emit('closed')
                 this.showModal = false
             },
