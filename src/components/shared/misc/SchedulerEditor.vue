@@ -371,7 +371,7 @@
                 const freq = {
                     days,
                     months,
-                    at: frequency.at[0] || '00:00',
+                    at: frequency.at ? frequency.at[0] : '00:00',
                     recur: frequency.recur || 'daily',
                     timezone: frequency.timezone || 'Europe/London',
                 }
