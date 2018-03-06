@@ -27,7 +27,8 @@
              *
             */
             rootObject: {
-                required: false,
+                type: Object,
+                required: true,
             },
         },
 
