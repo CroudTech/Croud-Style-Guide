@@ -13,49 +13,49 @@
                     <div class="grouped fields">
                         <div class="field">
                             <div class="ui toggle checkbox">
-                                <input type="checkbox" value="1" v-model="schedule.days.sunday">
+                                <input type="checkbox" value="1" v-model="schedule.frequency.days.sunday">
                                 <label>Sunday</label>
                             </div>
                         </div>
 
                         <div class="field">
                             <div class="ui toggle checkbox">
-                                <input type="checkbox" value="1" v-model="schedule.days.monday">
+                                <input type="checkbox" value="1" v-model="schedule.frequency.days.monday">
                                 <label>Monday</label>
                             </div>
                         </div>
 
                         <div class="field">
                             <div class="ui toggle checkbox">
-                                <input type="checkbox" value="1" v-model="schedule.days.tuesday">
+                                <input type="checkbox" value="1" v-model="schedule.frequency.days.tuesday">
                                 <label>Tuesday</label>
                             </div>
                         </div>
 
                         <div class="field">
                             <div class="ui toggle checkbox">
-                                <input type="checkbox" value="1" v-model="schedule.days.wednesday">
+                                <input type="checkbox" value="1" v-model="schedule.frequency.days.wednesday">
                                 <label>Wednesday</label>
                             </div>
                         </div>
 
                         <div class="field">
                             <div class="ui toggle checkbox">
-                                <input type="checkbox" value="1" v-model="schedule.days.thursday">
+                                <input type="checkbox" value="1" v-model="schedule.frequency.days.thursday">
                                 <label>Thursday</label>
                             </div>
                         </div>
 
                         <div class="field">
                             <div class="ui toggle checkbox">
-                                <input type="checkbox" value="1" v-model="schedule.days.friday">
+                                <input type="checkbox" value="1" v-model="schedule.frequency.days.friday">
                                 <label>Friday</label>
                             </div>
                         </div>
 
                         <div class="field">
                             <div class="ui toggle checkbox">
-                                <input type="checkbox" value="1" v-model="schedule.days.saturday">
+                                <input type="checkbox" value="1" v-model="schedule.frequency.days.saturday">
                                 <label>Saturday</label>
                             </div>
                         </div>
@@ -65,7 +65,7 @@
                 <div class="ui form">
                     <div class="grouped fields">
                         <div class="field">
-                            <semantic-form-dropdown v-model="schedule.recur" :options="periodOptions"></semantic-form-dropdown>
+                            <semantic-form-dropdown v-model="schedule.frequency.recur" :options="periodOptions"></semantic-form-dropdown>
                         </div>
                     </div>
                 </div>
@@ -82,84 +82,84 @@
 
                         <div class="field">
                             <div class="ui toggle checkbox">
-                                <input type="checkbox" value="1" v-model="schedule.months.january">
+                                <input type="checkbox" value="1" v-model="schedule.frequency.months.january">
                                 <label>January</label>
                             </div>
                         </div>
 
                         <div class="field">
                             <div class="ui toggle checkbox">
-                                <input type="checkbox" value="1" v-model="schedule.months.february">
+                                <input type="checkbox" value="1" v-model="schedule.frequency.months.february">
                                 <label>February</label>
                             </div>
                         </div>
 
                         <div class="field">
                             <div class="ui toggle checkbox">
-                                <input type="checkbox" value="1" v-model="schedule.months.march">
+                                <input type="checkbox" value="1" v-model="schedule.frequency.months.march">
                                 <label>March</label>
                             </div>
                         </div>
 
                         <div class="field">
                             <div class="ui toggle checkbox">
-                                <input type="checkbox" value="1" v-model="schedule.months.april">
+                                <input type="checkbox" value="1" v-model="schedule.frequency.months.april">
                                 <label>April</label>
                             </div>
                         </div>
 
                         <div class="field">
                             <div class="ui toggle checkbox">
-                                <input type="checkbox" value="1" v-model="schedule.months.may">
+                                <input type="checkbox" value="1" v-model="schedule.frequency.months.may">
                                 <label>May</label>
                             </div>
                         </div>
 
                         <div class="field">
                             <div class="ui toggle checkbox">
-                                <input type="checkbox" value="1" v-model="schedule.months.june">
+                                <input type="checkbox" value="1" v-model="schedule.frequency.months.june">
                                 <label>June</label>
                             </div>
                         </div>
 
                         <div class="field">
                             <div class="ui toggle checkbox">
-                                <input type="checkbox" value="1" v-model="schedule.months.july">
+                                <input type="checkbox" value="1" v-model="schedule.frequency.months.july">
                                 <label>July</label>
                             </div>
                         </div>
 
                         <div class="field">
                             <div class="ui toggle checkbox">
-                                <input type="checkbox" value="1" v-model="schedule.months.august">
+                                <input type="checkbox" value="1" v-model="schedule.frequency.months.august">
                                 <label>August</label>
                             </div>
                         </div>
 
                         <div class="field">
                             <div class="ui toggle checkbox">
-                                <input type="checkbox" value="1" v-model="schedule.months.september">
+                                <input type="checkbox" value="1" v-model="schedule.frequency.months.september">
                                 <label>September</label>
                             </div>
                         </div>
 
                         <div class="field">
                             <div class="ui toggle checkbox">
-                                <input type="checkbox" value="1" v-model="schedule.months.october">
+                                <input type="checkbox" value="1" v-model="schedule.frequency.months.october">
                                 <label>October</label>
                             </div>
                         </div>
 
                         <div class="field">
                             <div class="ui toggle checkbox">
-                                <input type="checkbox" value="1" v-model="schedule.months.november">
+                                <input type="checkbox" value="1" v-model="schedule.frequency.months.november">
                                 <label>November</label>
                             </div>
                         </div>
 
                         <div class="field">
                             <div class="ui toggle checkbox">
-                                <input type="checkbox" value="1" v-model="schedule.months.december">
+                                <input type="checkbox" value="1" v-model="schedule.frequency.months.december">
                                 <label>December</label>
                             </div>
                         </div>
@@ -172,19 +172,19 @@
                     <div class="grouped fields">
                         <div class="field">
                             <label>Starts at</label>
-                            <croud-datepicker ref="startDate" placeholder="Select start date.." :date="schedule.limit.from" v-on:date-selected="setStartDate"></croud-datepicker>
+                            <croud-datepicker ref="startDate" placeholder="Select start date.." :date="schedule.limit.startsAt" v-on:date-selected="setStartDate"></croud-datepicker>
                         </div>
 
                         <div class="field">
                             <label>Ends at</label>
-                            <croud-datepicker ref="endDate" placeholder="Select end date.." :date="schedule.limit.to" :minDate="getStartDate" v-on:date-selected="setEndDate"></croud-datepicker>
+                            <croud-datepicker ref="endDate" placeholder="Select end date.." :date="schedule.limit.endsAt" :minDate="getStartDate" v-on:date-selected="setEndDate"></croud-datepicker>
                         </div>
                         <button class="ui mini button" @click="clearEndDate">Clear End Date</button>
                     </div>
 
                     <div class="field">
                         <label>Time this schedule runs at</label>
-                        <semantic-form-dropdown v-model="schedule.at" :options="timeOptions"></semantic-form-dropdown>
+                        <semantic-form-dropdown v-model="schedule.frequency.at" :options="timeOptions"></semantic-form-dropdown>
                         <div class="ui light" style="margin-top:5px">
                             (Timezone: <strong>{{ schedule.timezone }}</strong>)
                         </div>
@@ -192,7 +192,7 @@
 
                     <div class="field">
                         <label>Maximum number of times to run</label>
-                        <input type="number" v-model="schedule.limit.count">
+                        <input type="number" v-model="schedule.limit.maxExecutions">
                     </div>
 
                     <div class="ui divider"></div>
@@ -209,7 +209,7 @@
 </template>
 
 <script>
-    import { defaultsDeep } from 'lodash'
+    import { defaultsDeep, cloneDeep } from 'lodash'
     import moment from 'moment'
 
     import CroudDatepicker from '../forms/DatePicker'
@@ -224,16 +224,15 @@
         name: 'croud-scheduler-editor',
 
         model: {
-            prop: 'schedule',
+            prop: 'rootObject',
         },
 
         props: {
             /**
-             * Scheduler Schema
+             * Root object for scheduler schema
              *
-             * @ignore
             */
-            schedule: {
+            rootObject: {
                 type: Object,
                 required: true,
             },
@@ -352,7 +351,7 @@
             },
 
             getStartDate() {
-                return moment(this.schedule.limit.from).toDate()
+                return moment(this.schedule.limit.startsAt).toDate()
             },
         },
 
@@ -395,11 +394,11 @@
             },
 
             setStartDate(option) {
-                this.schedule.limit.from = option.format('YYYY-MM-DD hh:mm:ss')
+                this.schedule.limit.startsAt = option.format('YYYY-MM-DD hh:mm:ss')
             },
 
             setEndDate(option) {
-                this.schedule.limit.to = option.format('YYYY-MM-DD hh:mm:ss')
+                this.schedule.limit.endsAt = option.format('YYYY-MM-DD hh:mm:ss')
             },
 
             setAllMonths(option = true) {
@@ -410,7 +409,7 @@
                     months[month.format('MMMM').toLowerCase()] = option
                 }
 
-                this.$emit('input', defaultsDeep({ months }, this.schedule))
+                this.schedule.frequency = defaultsDeep({ months }, this.schedule.frequency)
             },
 
             setAlternateMonths() {
@@ -431,11 +430,11 @@
                     months[month.format('MMMM').toLowerCase()] = false
                 }
 
-                this.$emit('input', defaultsDeep({ months }, this.schedule))
+                this.schedule.frequency = defaultsDeep({ months }, this.schedule.frequency)
             },
 
             setAllWorking() {
-                this.$emit('input', defaultsDeep({
+                this.schedule.frequency = defaultsDeep({
                     days: {
                         monday: true,
                         tuesday: true,
@@ -445,13 +444,13 @@
                         saturday: false,
                         sunday: false,
                     },
-                }, this.schedule))
+                }, this.schedule.frequency)
             },
 
             setAll() {
                 this.setAllWorking()
                 this.$nextTick(() => {
-                    this.$emit('input', defaultsDeep({
+                    this.schedule.frequency = defaultsDeep({
                         days: {
                             monday: true,
                             tuesday: true,
@@ -461,14 +460,14 @@
                             saturday: true,
                             sunday: true,
                         },
-                    }, this.schedule))
+                    }, this.schedule.frequency)
                 })
             },
 
             clearAll() {
                 this.setAllWorking()
                 this.$nextTick(() => {
-                    this.$emit('input', defaultsDeep({
+                    this.schedule.frequency = defaultsDeep({
                         days: {
                             monday: false,
                             tuesday: false,
@@ -478,21 +477,22 @@
                             saturday: false,
                             sunday: false,
                         },
-                    }, this.schedule))
+                    }, this.schedule.frequency)
                 })
             },
 
             clearEndDate() {
                 this.$refs.endDate.picker.setDate(null)
-                this.schedule.limit.to = ''
+                this.schedule.limit.endsAt = ''
             },
 
             done() {
-                this.$emit('done')
+                this.$emit('scheduleSet', this.getSchedulerObject)
             },
         },
 
         mounted() {
+            this.getSchedule()
             this.$nextTick(() => $(this.$el).children('.ui.checkbox').checkbox())
             this.$watch('getStartDate', this.$refs.endDate.create)
             this.$refs.startDate.$refs.pickerfield.setAttribute('readonly', 'true')
