@@ -229,7 +229,7 @@
 
         props: {
             /**
-             * Root object for scheduler schema
+             * Root object to contain scheulder schema
              *
             */
             rootObject: {
