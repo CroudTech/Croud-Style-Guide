@@ -258,6 +258,31 @@
         },
 
         computed: {
+            getSchedulerObject() {
+                const schedule = cloneDeep(this.schedule)
+                const days = Object.keys(schedule.frequency.days).filter(day => schedule.frequency.days[day])
+                const months = Object.keys(schedule.frequency.months).filter(month => schedule.frequency.months[month])
+
+                const frequency = {
+                    recur: schedule.frequency.recur,
+                    at: schedule.frequency.at = [schedule.frequency.at],
+                    timezone: schedule.frequency.timezone,
+                }
+
+                frequency.months = months.length ? months : null
+                frequency.days = days.length ? days : null
+
+                const schedulerObject = {
+                    'service=scheduler;table=timetables;field=frequency;': frequency,
+                }
+
+                schedulerObject['service=scheduler;table=timetables;field=starts_at;'] = schedule.limit.startsAt ? moment(schedule.limit.startsAt).format('YYYY-MM-DD hh:mm:ss') : null
+                schedulerObject['service=scheduler;table=timetables;field=ends_at;'] = schedule.limit.endsAt ? moment(schedule.limit.endsAt).format('YYYY-MM-DD hh:mm:ss') : null
+                schedulerObject['service=scheduler;table=timetables;field=max_executions;'] = schedule.limit.maxExecutions > 0 ? parseInt(schedule.limit.maxExecutions) : null
+
+                return schedulerObject
+            },
+
             periodOptions() {
                 const arr = []
                 for (const key in this.periods) {
