@@ -210,7 +210,7 @@
 
 <script>
     import { defaultsDeep, cloneDeep } from 'lodash'
-    import moment from 'moment'
+    import moment from 'moment-timezone'
 
     import CroudDatepicker from '../forms/DatePicker'
 
@@ -280,7 +280,7 @@
                         },
                         recur: 'daily',
                         at: '00:00',
-                        timezone: 'Europe/London',
+                        timezone: moment.tz.guess(),
                     },
                     limit: {
                         startsAt: moment().format('YYYY-MM-DD hh:mm:ss'),
