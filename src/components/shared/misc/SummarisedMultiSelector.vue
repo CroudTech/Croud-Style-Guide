@@ -21,7 +21,7 @@
         />
 
         <div v-else-if="selectedLength < 2" :data-tooltip="summary" :data-inverted="true">
-             {{ model }}
+            {{ model }}
         </div>
 
         <div v-else :data-tooltip="summary" :data-inverted="true">
@@ -72,7 +72,7 @@
                 required: true,
                 type: [String, Array],
                 default() {
-                    return []
+                    return ''
                 },
             },
 
