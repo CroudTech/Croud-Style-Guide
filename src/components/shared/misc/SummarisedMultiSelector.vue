@@ -153,15 +153,15 @@
             },
 
             summary() {
-                if (this.model) {
-                    return Array.isArray(this.model) ? this.model.join(', ') : this.model.split(',').join(', ')
-                } return this.defaultSummary
+                const summary = this.model && Array.isArray(this.model) ? this.model.join(', ') : this.model.split(',').join(', ')
+                if (summary.length) {
+                    return summary
+                }
+                return this.defaultSummary
             },
 
             selectedLength() {
-                if (this.model) {
-                    return Array.isArray(this.model) ? this.model.length : this.model.split(',').length
-                } return 0
+                return Array.isArray(this.model) ? this.model.length : this.model.split(',').length
             },
         },
 
