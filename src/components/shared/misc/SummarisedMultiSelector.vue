@@ -69,6 +69,7 @@
             * The current value of the dropdown, v-model alias
             */
             value: {
+                required: true,
                 type: [String, Array],
                 default() {
                     return []
