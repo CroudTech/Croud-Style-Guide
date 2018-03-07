@@ -4,17 +4,17 @@
             Edit
         </button>
         <semantic-modal title="Recurring Journal Schedule" :active="showModal" :settings="{content_classes: {content: true}, closeable: true, closeable_button: true}" @close-modal="closeModal">
-            <croud-schedule-editor v-if="showModal" v-model="model" @scheduleSet="scheduleSet"/>
+            <croud-scheduler-editor v-if="showModal" v-model="model" @schedule-set="scheduleSet"/>
         </semantic-modal>
     </span>
 </template>
 
 <script>
-    import CroudScheduleEditor from './ScheduleEditor'
+    import CroudSchedulerEditor from './SchedulerEditor'
 
     export default {
         components: {
-            CroudScheduleEditor,
+            CroudSchedulerEditor,
         },
 
         model: {
@@ -52,7 +52,7 @@
 
         methods: {
             scheduleSet(schedule) {
-                this.$emit('scheduleSet', schedule)
+                this.$emit('schedule-set', schedule)
                 this.closeModal()
             },
 
