@@ -3,7 +3,7 @@ This is a custom iteration of our dropdown component, which shows a selected ite
 We use the semantic-form-dropdown component from the [croud-vue-semantic](https://github.com/CroudSupport/vue-semantic) library. Click [here](http://croudsupport.github.io/vue-semantic/#semantic-form-dropdown) for full component docs.
 
 ### Basic Usage
-Simply provide a v-model and options array to the selector for a basic setup
+Simply provide the value prop, v-model and options array to the selector for a basic setup
 
     <croud-summarised-multi-selector v-model="summarisedDropdownOne" :options="listExamples.basic" placeholder="Select an item"/>
 
