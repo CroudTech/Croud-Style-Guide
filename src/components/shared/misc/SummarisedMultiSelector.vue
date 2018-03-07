@@ -153,11 +153,15 @@
             },
 
             summary() {
-                return this.model.length ? this.model.split(',').join(', ') : this.defaultSummary
+                if (this.model) {
+                    return Array.isArray(this.model) ? this.model.join(', ') : this.model.split(',').join(', ')
+                } return this.defaultSummary
             },
 
             selectedLength() {
-                return this.model.length ? this.model.split(',').length : 0
+                if (this.model) {
+                    return Array.isArray(this.model) ? this.model.length : this.model.split(',').length
+                } return 0
             },
         },
 
