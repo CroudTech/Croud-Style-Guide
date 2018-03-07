@@ -487,7 +487,16 @@
             },
 
             done() {
-                this.$emit('scheduleSet', this.getSchedulerObject)
+                this.$emit('schedule-set', this.getSchedulerObject)
+            },
+        },
+
+        watch: {
+            schedule: {
+                deep: true,
+                handler() {
+                    this.$emit('input', defaultsDeep(this.getSchedulerObject, this.rootObject))
+                },
             },
         },
 
