@@ -23,7 +23,7 @@
 .ui.basic.button {
     box-shadow: @boxShadow!important;
     background-color: transparent!important;
-    opacity: 0.8;
+    opacity: 1;
     &.success {
         color: @successColour!important;
     }
@@ -38,9 +38,5 @@
 
     &.warning {
         color: @warningColour!important;
-    }
-
-    &:hover{
-        opacity: 1;
     }
 }
