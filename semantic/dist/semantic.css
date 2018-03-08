@@ -5418,7 +5418,7 @@ h5 {
   -webkit-box-shadow: 0 0 0 1px inset !important;
   box-shadow: 0 0 0 1px inset !important;
   background-color: transparent!important;
-  opacity: 0.8;
+  opacity: 1;
 }
 
 .ui.basic.button.success {
@@ -5435,10 +5435,6 @@ h5 {
 
 .ui.basic.button.warning {
   color: #f3c91d !important;
-}
-
-.ui.basic.button:hover {
-  opacity: 1;
 }
 /*!
  * # Semantic UI 2.2.11 - Container

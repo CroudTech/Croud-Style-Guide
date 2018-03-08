@@ -1,7 +1,7 @@
 This is our current scheduler editor, which you can use directly or through our [croud scheduler modal](#croud-scheduler-modal) component
 
 ### Basic usage
-Simply provide the v-modal attribute with a scheduler schema mapped as below..
+Simply provide the v-model attribute with a scheduler schema mapped as below..
 
 ```js static
 schedulerSchema: {

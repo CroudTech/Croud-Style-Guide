@@ -1,43 +1,28 @@
 <template>
     <span>
-        <slot name="action">
-           <button class="ui mini basic blue button" title="Edit schedule" @click="showModal = true">
-                Edit
-            </button>
-        </slot>
-        <semantic-modal ref="schedulerModal" title="Recurring Journal Schedule" :active="showModal" :settings="{content_classes: {content: true}, closeable: true, closeable_button: true}" @close-modal="closed()">
-            <croud-schedule-editor v-if="showModal" v-model="model" @done="closeModal()"/>
+        <button class="ui mini basic blue button" title="Edit schedule" @click="showModal = true">
+            Edit
+        </button>
+        <semantic-modal title="Recurring Journal Schedule" :active="showModal" :settings="{content_classes: {content: true}, closeable: true, closeable_button: true}" @close-modal="closeModal">
+            <croud-scheduler-editor v-if="showModal" :root-object="rootObject" @schedule-set="scheduleSet"/>
         </semantic-modal>
     </span>
 </template>
 
 <script>
-    import CroudScheduleEditor from './SchedulerEditor'
-
-    /**
-    * Our scheduler editor modal
-    *
-    * @example ./croud-scheduler-modal.md
-    */
+    import CroudSchedulerEditor from './SchedulerEditor'
 
     export default {
-        name: 'croud-scheduler-modal',
-
         components: {
-            CroudScheduleEditor,
-        },
-
-        model: {
-            prop: 'schedule',
+            CroudSchedulerEditor,
         },
 
         props: {
             /**
-             * Scheduler Schema
+             * Root object to contain scheulder schema
              *
-             * @ignore
             */
-            schedule: {
+            rootObject: {
                 type: Object,
                 required: true,
             },
@@ -49,33 +34,16 @@
             }
         },
 
-        computed: {
-            model: {
-                get() {
-                    return this.schedule
-                },
-
-                set(val) {
-                    this.$emit('input', val)
-                },
-            },
-        },
-
         methods: {
-            closeModal() {
-                $(this.$refs.schedulerModal.$el).modal('hide')
+            scheduleSet(schedule) {
+                this.$emit('schedule-set', schedule)
+                this.closeModal()
             },
 
-            closed() {
+            closeModal() {
                 this.$emit('closed')
                 this.showModal = false
             },
         },
     }
 </script>
-
-<style lang="scss" scoped>
-    button.ui.mini.basic.blue.button {
-        opacity: 1;
-    }
-</style>
