@@ -47,9 +47,3 @@
         },
     }
 </script>
-
-<style lang="scss" scoped>
-    button.ui.mini.basic.blue.button {
-        opacity: 1;
-    }
-</style>
