@@ -38,4 +38,4 @@ schedulerSchema: {
     },
 }
 ```
-    <croud-scheduler-editor v-model="schedulerSchema" />
+    <croud-scheduler-editor :root-object="schedulerSchema" />
