@@ -177,7 +177,7 @@
 
                         <div class="field">
                             <label>Ends at</label>
-                            <croud-datepicker ref="endDate" placeholder="Select end date.." :date="schedule.limit.endsAt" :minDate="getStartDate" v-on:date-selected="setEndDate"></croud-datepicker>
+                            <croud-datepicker ref="endDate" placeholder="Select end date.." :date="getEndDate" v-on:date-selected="setEndDate" :minDate="getStartDate"></croud-datepicker>
                         </div>
                         <button class="ui mini button" @click="clearEndDate">Clear End Date</button>
                     </div>
@@ -222,10 +222,6 @@
 
     export default {
         name: 'croud-scheduler-editor',
-
-        model: {
-            prop: 'rootObject',
-        },
 
         props: {
             /**
@@ -284,7 +280,7 @@
                     },
                     limit: {
                         startsAt: moment().format('YYYY-MM-DD hh:mm:ss'),
-                        endsAt: '',
+                        endsAt: null,
                         maxExecutions: null,
                     },
                 },
@@ -314,7 +310,7 @@
                 schedulerObject['service=scheduler;table=timetables;field=ends_at;'] = schedule.limit.endsAt ? moment(schedule.limit.endsAt).format('YYYY-MM-DD hh:mm:ss') : null
                 schedulerObject['service=scheduler;table=timetables;field=max_executions;'] = schedule.limit.maxExecutions > 0 ? parseInt(schedule.limit.maxExecutions) : null
 
-                return schedulerObject
+                return { ...this.rootObject, ...schedulerObject }
             },
 
             periodOptions() {
@@ -351,7 +347,11 @@
             },
 
             getStartDate() {
-                return moment(this.schedule.limit.startsAt).toDate()
+                return this.schedule.limit.startsAt ? moment(this.schedule.limit.startsAt).toDate() : null
+            },
+
+            getEndDate() {
+                return this.schedule.limit.endsAt ? moment(this.schedule.limit.endsAt) : null
             },
         },
 
@@ -380,8 +380,8 @@
                 const endsAt = root['service=scheduler;table=timetables;field=ends_at;']
 
                 const limit = {}
-                limit.startsAt = startsAt ? moment(startsAt).format('YYYY-MM-DD hh:mm:ss') : ''
-                limit.endsAt = endsAt ? moment(endsAt).format('YYYY-MM-DD hh:mm:ss') : ''
+                limit.startsAt = startsAt ? moment(startsAt, 'YYYY-MM-DD hh:mm:ss').format('YYYY-MM-DD hh:mm:ss') : ''
+                limit.endsAt = endsAt ? moment(endsAt, 'YYYY-MM-DD hh:mm:ss').format('YYYY-MM-DD hh:mm:ss') : ''
                 limit.maxExecutions = root['service=scheduler;table=timetables;field=max_executions;'] || null
 
                 const build = {
@@ -488,24 +488,19 @@
 
             done() {
                 this.$emit('schedule-set', this.getSchedulerObject)
-            },
-        },
-
-        watch: {
-            schedule: {
-                deep: true,
-                handler() {
-                    this.$emit('input', defaultsDeep(this.getSchedulerObject, this.rootObject))
-                },
+                this.$nextTick(this.getSchedule())
             },
         },
 
         mounted() {
             this.getSchedule()
-            this.$nextTick(() => $(this.$el).children('.ui.checkbox').checkbox())
             this.$watch('getStartDate', this.$refs.endDate.create)
             this.$refs.startDate.$refs.pickerfield.setAttribute('readonly', 'true')
             this.$refs.endDate.$refs.pickerfield.setAttribute('readonly', 'true')
+            this.$nextTick(() => {
+                $(this.$el).children('.ui.checkbox').checkbox()
+                this.$refs.endDate.picker.setMoment(this.getEndDate)
+            })
         },
     }
 </script>
