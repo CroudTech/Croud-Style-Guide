@@ -1,7 +1,7 @@
 import Vue from 'vue'
 import VueSemantic from 'croud-vue-semantic'
 import moment from 'moment'
-import SchedulerModal from '../../../src/components/shared/misc/SchedulerModal'
+import SchedulerModal from '../../../src/components/shared/scheduler/SchedulerModal'
 import '../../../semantic/dist/semantic'
 
 Vue.use(VueSemantic)
