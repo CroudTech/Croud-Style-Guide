@@ -1,7 +1,7 @@
 <template>
     <span>
         <div class="ui action input" :class="{fluid: fluid}">
-            <input ref="pickerfield" @click.prevent.enter="updateDate" :value="displayDate" type="text" :placeholder="placeholder">
+            <input ref="pickerfield" @click.prevent.enter="updateDate" :value="displayDate" type="text" :placeholder="placeholder" readonly>
             <button @click.prevent ref="pickerbutton" class="ui icon button">
                 <i class="calendar outline icon"></i>
             </button>

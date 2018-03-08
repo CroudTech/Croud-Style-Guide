@@ -291,8 +291,6 @@
         mounted() {
             this.getSchedule()
             this.$watch('getStartDate', this.$refs.endDate.create)
-            this.$refs.startDate.$refs.pickerfield.setAttribute('readonly', 'true')
-            this.$refs.endDate.$refs.pickerfield.setAttribute('readonly', 'true')
             this.$nextTick(() => {
                 $(this.$el).children('.ui.checkbox').checkbox()
                 this.$refs.endDate.picker.setMoment(this.getEndDate)
