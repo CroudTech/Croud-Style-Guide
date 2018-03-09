@@ -296,5 +296,9 @@
                 this.$refs.endDate.picker.setMoment(this.getEndDate)
             })
         },
+
+        watch: {
+            rootObject: 'getSchedule',
+        },
     }
 </script>
