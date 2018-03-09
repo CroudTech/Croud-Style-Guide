@@ -4,6 +4,12 @@ import moment from 'moment-timezone'
 export default {
     data() {
         return {
+            keys: {
+                frequency: 'service=scheduler;table=timetables;field=frequency;',
+                startsAt: 'service=scheduler;table=timetables;field=starts_at;',
+                endsAt: 'service=scheduler;table=timetables;field=ends_at;',
+                maxExecutions: 'service=scheduler;table=timetables;field=max_executions;',
+            },
             periods: {
                 daily: 'Daily on above days',
                 everyFortnight: 'Every alternating week',
@@ -54,7 +60,7 @@ export default {
     methods: {
         getSchedule() {
             const root = cloneDeep(this.rootObject)
-            const frequency = root['service=scheduler;table=timetables;field=frequency;'] ? root['service=scheduler;table=timetables;field=frequency;'] : {}
+            const frequency = root[this.keys.frequency] || {}
 
             const months = {}
             moment.months().forEach((key) => { months[key.toLowerCase()] = false })
@@ -72,13 +78,13 @@ export default {
                 timezone: frequency.timezone || 'Europe/London',
             }
 
-            const startsAt = root['service=scheduler;table=timetables;field=starts_at;']
-            const endsAt = root['service=scheduler;table=timetables;field=ends_at;']
+            const startsAt = root[this.keys.startsAt]
+            const endsAt = root[this.keys.endsAt]
 
             const limit = {}
             limit.startsAt = startsAt ? moment(startsAt, 'YYYY-MM-DD hh:mm:ss').format('YYYY-MM-DD hh:mm:ss') : ''
             limit.endsAt = endsAt ? moment(endsAt, 'YYYY-MM-DD hh:mm:ss').format('YYYY-MM-DD hh:mm:ss') : ''
-            limit.maxExecutions = root['service=scheduler;table=timetables;field=max_executions;'] || null
+            limit.maxExecutions = root[this.keys.maxExecutions] || null
 
             const build = {
                 frequency: freq,
