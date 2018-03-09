@@ -459,7 +459,7 @@ exports[`Scheduler Editor should match the snapshot 1`] = `
                 <input
                   type="text"
                   placeholder="Select start date.."
-                  readonly="true"
+                  readonly="readonly"
                 />
                 <button
                   class="ui icon button"
@@ -484,7 +484,7 @@ exports[`Scheduler Editor should match the snapshot 1`] = `
                 <input
                   type="text"
                   placeholder="Select end date.."
-                  readonly="true"
+                  readonly="readonly"
                 />
                 <button
                   class="ui icon button"
