@@ -7,6 +7,13 @@ Vue.use(VueSemantic)
 
 const Constructor = Vue.extend(SchedulerText)
 
+const keys = {
+    frequency: 'service=scheduler;table=timetables;field=frequency;',
+    startsAt: 'service=scheduler;table=timetables;field=starts_at;',
+    endsAt: 'service=scheduler;table=timetables;field=ends_at;',
+    maxExecutions: 'service=scheduler;table=timetables;field=max_executions;',
+}
+
 const noScheduleVm = new Constructor({
     propsData: {
         rootObject: { id: 1, name: 'rootObject' },
@@ -18,16 +25,16 @@ const vm = new Constructor({
         rootObject: {
             id: 1,
             name: 'rootObject',
-            'service=scheduler;table=timetables;field=frequency;': {
+            [keys.frequency]: {
                 recur: 'everyFortnight',
                 at: ['00:00'],
                 timezone: 'Europe/London',
                 months: ['march', 'april', 'may'],
                 days: ['monday'],
             },
-            'service=scheduler;table=timetables;field=max_executions;': 10,
-            'service=scheduler;table=timetables;field=starts_at;': '2018-03-07 12:00:00',
-            'service=scheduler;table=timetables;field=ends_at;': '2018-03-08 12:00:00',
+            [keys.maxExecutions]: 10,
+            [keys.startsAt]: '2018-03-07 12:00:00',
+            [keys.endsAt]: '2018-03-08 12:00:00',
         },
     },
 }).$mount()
@@ -53,7 +60,7 @@ describe('Scheduler Text', () => {
 
         it('should react to the prop change', (done) => {
             noScheduleVm.rootObject = {
-                'service=scheduler;table=timetables;field=frequency;': {
+                [keys.frequency]: {
                     days: ['friday'],
                 },
             }
@@ -72,7 +79,7 @@ describe('Scheduler Text', () => {
         describe('days', () => {
             it('should handle a list', (done) => {
                 vm.rootObject = {
-                    'service=scheduler;table=timetables;field=frequency;': {
+                    [keys.frequency]: {
                         days: ['monday', 'tuesday', 'wednesday'],
                     },
                 }
@@ -85,7 +92,7 @@ describe('Scheduler Text', () => {
 
             it('should notice all weekdays', (done) => {
                 vm.rootObject = {
-                    'service=scheduler;table=timetables;field=frequency;': {
+                    [keys.frequency]: {
                         days: ['monday', 'tuesday', 'wednesday', 'thursday', 'friday'],
                     },
                 }
@@ -100,8 +107,8 @@ describe('Scheduler Text', () => {
         describe('limits', () => {
             it('should handle no date limits', (done) => {
                 vm.rootObject = {
-                    'service=scheduler;table=timetables;field=starts_at;': null,
-                    'service=scheduler;table=timetables;field=ends_at;': null,
+                    [keys.startsAt]: null,
+                    [keys.endsAt]: null,
                 }
                 vm.$nextTick(() => {
                     expect(vm.datesText).toBe('')
@@ -111,8 +118,8 @@ describe('Scheduler Text', () => {
 
             it('should handle an upcoming date range', (done) => {
                 vm.rootObject = {
-                    'service=scheduler;table=timetables;field=starts_at;': moment().add(1, 'day').format('YYYY-MM-DD hh:mm:ss'),
-                    'service=scheduler;table=timetables;field=ends_at;': moment().add(2, 'day').format('YYYY-MM-DD hh:mm:ss'),
+                    [keys.startsAt]: moment().add(1, 'day').format('YYYY-MM-DD hh:mm:ss'),
+                    [keys.endsAt]: moment().add(2, 'day').format('YYYY-MM-DD hh:mm:ss'),
                 }
                 vm.$nextTick(() => {
                     expect(vm.datesText).toContain('between')
@@ -123,7 +130,7 @@ describe('Scheduler Text', () => {
             describe('end date', () => {
                 it('should handle end date', (done) => {
                     vm.rootObject = {
-                        'service=scheduler;table=timetables;field=ends_at;': moment().add(1, 'day').format('YYYY-MM-DD hh:mm:ss'),
+                        [keys.endsAt]: moment().add(1, 'day').format('YYYY-MM-DD hh:mm:ss'),
                     }
                     vm.$nextTick(() => {
                         expect(vm.datesText).toContain('ending')
@@ -134,7 +141,7 @@ describe('Scheduler Text', () => {
 
                 it('should handle passed end date', (done) => {
                     vm.rootObject = {
-                        'service=scheduler;table=timetables;field=ends_at;': moment().subtract(1, 'day').format('YYYY-MM-DD hh:mm:ss'),
+                        [keys.endsAt]: moment().subtract(1, 'day').format('YYYY-MM-DD hh:mm:ss'),
                     }
                     vm.$nextTick(() => {
                         expect(vm.datesText).toContain('ended')
