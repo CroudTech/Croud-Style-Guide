@@ -1,7 +1,7 @@
 import Vue from 'vue'
 import VueSemantic from 'croud-vue-semantic'
 import moment from 'moment'
-import SchedulerEditor from '../../../src/components/shared/misc/SchedulerEditor'
+import SchedulerEditor from '../../../src/components/shared/scheduler/SchedulerEditor'
 import '../../../semantic/dist/semantic'
 
 Vue.use(VueSemantic)
