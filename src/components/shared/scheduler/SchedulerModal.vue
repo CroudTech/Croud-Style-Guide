@@ -12,7 +12,12 @@
 <script>
     import CroudSchedulerEditor from './SchedulerEditor'
 
+    /**
+     * @example ./croud-scheduler-modal.md
+     */
     export default {
+        name: 'croud-scheduler-modal',
+
         components: {
             CroudSchedulerEditor,
         },
