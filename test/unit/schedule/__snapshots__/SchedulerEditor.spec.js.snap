@@ -1,6 +1,84 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Scheduler Editor should match the snapshot 1`] = `
+exports[`Scheduler Editor data transformation input frequency should match snapshot 1`] = `
+Object {
+  "at": "00:00",
+  "days": Object {
+    "friday": false,
+    "monday": true,
+    "saturday": true,
+    "sunday": false,
+    "thursday": false,
+    "tuesday": false,
+    "wednesday": true,
+  },
+  "months": Object {
+    "april": true,
+    "august": false,
+    "december": true,
+    "february": false,
+    "january": false,
+    "july": false,
+    "june": false,
+    "march": true,
+    "may": false,
+    "november": false,
+    "october": false,
+    "september": false,
+  },
+  "recur": "thirdWeekOfMonth",
+  "timezone": "Europe/Berlin",
+}
+`;
+
+exports[`Scheduler Editor data transformation input limits should match snapshot 1`] = `
+Object {
+  "endsAt": "2018-04-07 12:00:00",
+  "maxExecutions": 10,
+  "startsAt": "2018-03-07 12:00:00",
+}
+`;
+
+exports[`Scheduler Editor data transformation input should match snapshot 1`] = `
+Object {
+  "frequency": Object {
+    "at": "00:00",
+    "days": Object {
+      "friday": false,
+      "monday": true,
+      "saturday": true,
+      "sunday": false,
+      "thursday": false,
+      "tuesday": false,
+      "wednesday": true,
+    },
+    "months": Object {
+      "april": true,
+      "august": false,
+      "december": true,
+      "february": false,
+      "january": false,
+      "july": false,
+      "june": false,
+      "march": true,
+      "may": false,
+      "november": false,
+      "october": false,
+      "september": false,
+    },
+    "recur": "thirdWeekOfMonth",
+    "timezone": "Europe/Berlin",
+  },
+  "limit": Object {
+    "endsAt": "2018-04-07 12:00:00",
+    "maxExecutions": 10,
+    "startsAt": "2018-03-07 12:00:00",
+  },
+  "timezone": "Europe/Berlin",
+}
+`;
+
+exports[`Scheduler Editor empty schedule should match the snapshot 1`] = `
 <div
   class="ui segment basic"
 >
