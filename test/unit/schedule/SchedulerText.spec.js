@@ -105,21 +105,10 @@ describe('Scheduler Text', () => {
         })
 
         describe('limits', () => {
-            it('should handle no date limits', (done) => {
-                vm.rootObject = {
-                    [keys.startsAt]: null,
-                    [keys.endsAt]: null,
-                }
-                vm.$nextTick(() => {
-                    expect(vm.datesText).toBe('')
-                    done()
-                })
-            })
-
             it('should handle an upcoming date range', (done) => {
                 vm.rootObject = {
-                    [keys.startsAt]: moment().add(1, 'day').format('YYYY-MM-DD hh:mm:ss'),
-                    [keys.endsAt]: moment().add(2, 'day').format('YYYY-MM-DD hh:mm:ss'),
+                    [keys.startsAt]: moment().add(1, 'day').format('YYYY-MM-DD HH:mm:ss'),
+                    [keys.endsAt]: moment().add(2, 'day').format('YYYY-MM-DD HH:mm:ss'),
                 }
                 vm.$nextTick(() => {
                     expect(vm.datesText).toContain('between')
@@ -130,7 +119,8 @@ describe('Scheduler Text', () => {
             describe('end date', () => {
                 it('should handle end date', (done) => {
                     vm.rootObject = {
-                        [keys.endsAt]: moment().add(1, 'day').format('YYYY-MM-DD hh:mm:ss'),
+                        [keys.startsAt]: moment().subtract(1, 'day').format('YYYY-MM-DD HH:mm:ss'),
+                        [keys.endsAt]: moment().add(1, 'day').format('YYYY-MM-DD HH:mm:ss'),
                     }
                     vm.$nextTick(() => {
                         expect(vm.datesText).toContain('ending')
@@ -141,7 +131,8 @@ describe('Scheduler Text', () => {
 
                 it('should handle passed end date', (done) => {
                     vm.rootObject = {
-                        [keys.endsAt]: moment().subtract(1, 'day').format('YYYY-MM-DD hh:mm:ss'),
+                        [keys.startsAt]: moment().subtract(2, 'day').format('YYYY-MM-DD HH:mm:ss'),
+                        [keys.endsAt]: moment().subtract(1, 'day').format('YYYY-MM-DD HH:mm:ss'),
                     }
                     vm.$nextTick(() => {
                         expect(vm.datesText).toContain('ended')
