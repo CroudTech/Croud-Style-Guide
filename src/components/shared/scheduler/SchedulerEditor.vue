@@ -67,7 +67,7 @@
                         <label>Time this schedule runs at</label>
                         <semantic-form-dropdown v-model="schedule.frequency.at" :options="timeOptions"></semantic-form-dropdown>
                         <div class="ui light" style="margin-top:5px">
-                            (Timezone: <strong>{{ schedule.timezone }}</strong>)
+                            (Timezone: <strong>{{ schedule.frequency.timezone }}</strong>)
                         </div>
                     </div>
 

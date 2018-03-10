@@ -74,7 +74,6 @@ Object {
     "maxExecutions": 10,
     "startsAt": "2018-03-07 12:00:00",
   },
-  "timezone": "Europe/Berlin",
 }
 `;
 
@@ -2754,8 +2753,7 @@ Object {
   "limit": Object {
     "endsAt": "",
     "maxExecutions": null,
-    "startsAt": "",
+    "startsAt": "2018-03-10 12:00:00",
   },
-  "timezone": "Europe/London",
 }
 `;

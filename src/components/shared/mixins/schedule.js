@@ -71,25 +71,21 @@ export default {
             if (frequency && frequency.days) frequency.days.forEach((key) => { days[key] = true })
 
             const freq = {
+                ...frequency,
                 days,
                 months,
-                at: frequency.at ? frequency.at[0] : '00:00',
-                recur: frequency.recur || 'daily',
-                timezone: frequency.timezone || 'Europe/London',
+                at: frequency.at ? frequency.at[0] : undefined,
             }
 
-            const startsAt = root[this.keys.startsAt]
-            const endsAt = root[this.keys.endsAt]
-
-            const limit = {}
-            limit.startsAt = startsAt ? moment(startsAt, 'YYYY-MM-DD hh:mm:ss').format('YYYY-MM-DD hh:mm:ss') : ''
-            limit.endsAt = endsAt ? moment(endsAt, 'YYYY-MM-DD hh:mm:ss').format('YYYY-MM-DD hh:mm:ss') : ''
-            limit.maxExecutions = root[this.keys.maxExecutions] || null
+            const limit = {
+                startsAt: root[this.keys.startsAt] || undefined,
+                endsAt: root[this.keys.endsAt] || undefined,
+                maxExecutions: root[this.keys.maxExecutions] || undefined,
+            }
 
             const build = {
                 frequency: freq,
                 limit,
-                timezone: frequency.timezone || 'Europe/London',
             }
 
             this.schedule = defaultsDeep(build, this.schedule)
