@@ -20,11 +20,15 @@
             @dropdown-selected="dropdownSelected"
         />
 
-        <div v-else-if="selectedLength < 2" :data-tooltip="summary" :data-inverted="true">
-            {{ model }}
+        <div v-else-if="selectedLength < 1" :data-inverted="true">
+            {{ placeholder }}
         </div>
 
-        <div v-else :data-tooltip="summary" :data-inverted="true">
+        <div v-else-if="selectedLength < 2" :data-tooltip="selectedItems" :data-inverted="true">
+            {{ selectedItems }}
+        </div>
+
+        <div v-else :data-tooltip="selectedItems" :data-inverted="true">
              {{ selectedLength }} Selected
         </div>
     </div>
@@ -190,10 +194,9 @@
             },
 
             setLabel() {
-                if (!(this.selectedLength && this.$refs.summarisedSelector)) return
-
-                if (this.selectedLength === 1) {
-                    $(this.$refs.summarisedSelector.$el).dropdown('set text', this.model)
+                if (this.model.length < 1) return
+                if (this.selectedLength < 2) {
+                    $(this.$refs.summarisedSelector.$el).dropdown('set text', this.selectedItems)
                 } else {
                     $(this.$refs.summarisedSelector.$el).dropdown('set text', `${this.selectedLength} Selected`)
                 }
