@@ -6,7 +6,7 @@ import moment from 'moment-timezone'
 import SchedulerEditor from '../../../src/components/shared/scheduler/SchedulerEditor'
 import '../../../semantic/dist/semantic'
 
-moment.tz.guess = jest.fn(() => 'Europe/London')
+moment.tz.guess = jest.fn(() => 'Etc/UTC')
 
 Vue.use(VueSemantic)
 

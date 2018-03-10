@@ -2687,7 +2687,7 @@ exports[`Scheduler Editor empty schedule should match the snapshot 1`] = `
           >
             (Timezone: 
             <strong>
-              Europe/London
+              Etc/UTC
             </strong>
             )
           </div>
@@ -2748,7 +2748,7 @@ Object {
       "september": false,
     },
     "recur": "daily",
-    "timezone": "Europe/London",
+    "timezone": "Etc/UTC",
   },
   "limit": Object {
     "endsAt": "",
