@@ -2720,3 +2720,42 @@ exports[`Scheduler Editor empty schedule should match the snapshot 1`] = `
   </div>
 </div>
 `;
+
+exports[`Scheduler Editor empty schedule should match the snapshot 2`] = `
+Object {
+  "frequency": Object {
+    "at": "00:00",
+    "days": Object {
+      "friday": false,
+      "monday": false,
+      "saturday": false,
+      "sunday": false,
+      "thursday": false,
+      "tuesday": false,
+      "wednesday": false,
+    },
+    "months": Object {
+      "april": false,
+      "august": false,
+      "december": false,
+      "february": false,
+      "january": false,
+      "july": false,
+      "june": false,
+      "march": false,
+      "may": false,
+      "november": false,
+      "october": false,
+      "september": false,
+    },
+    "recur": "daily",
+    "timezone": "Europe/London",
+  },
+  "limit": Object {
+    "endsAt": "",
+    "maxExecutions": null,
+    "startsAt": "",
+  },
+  "timezone": "Europe/London",
+}
+`;
