@@ -33,9 +33,9 @@ Object {
 
 exports[`Scheduler Editor data transformation input limits should match snapshot 1`] = `
 Object {
-  "endsAt": "2018-04-07 12:00:00",
+  "endsAt": "2018-04-07 00:00:00",
   "maxExecutions": 10,
-  "startsAt": "2018-03-07 12:00:00",
+  "startsAt": "2018-03-07 00:00:00",
 }
 `;
 
@@ -70,9 +70,9 @@ Object {
     "timezone": "Europe/Berlin",
   },
   "limit": Object {
-    "endsAt": "2018-04-07 12:00:00",
+    "endsAt": "2018-04-07 00:00:00",
     "maxExecutions": 10,
-    "startsAt": "2018-03-07 12:00:00",
+    "startsAt": "2018-03-07 00:00:00",
   },
 }
 `;
@@ -97,15 +97,15 @@ Object {
 
 exports[`Scheduler Editor data transformation output limits should match snapshot 1`] = `
 Object {
-  "service=scheduler;table=timetables;field=ends_at;": "2018-04-06 12:00:00",
+  "service=scheduler;table=timetables;field=ends_at;": "2018-04-06 00:00:00",
   "service=scheduler;table=timetables;field=max_executions;": 2,
-  "service=scheduler;table=timetables;field=starts_at;": "2018-04-07 12:00:00",
+  "service=scheduler;table=timetables;field=starts_at;": "2018-04-07 00:00:00",
 }
 `;
 
 exports[`Scheduler Editor data transformation output should match snapshot 1`] = `
 Object {
-  "service=scheduler;table=timetables;field=ends_at;": "2018-04-03 12:00:00",
+  "service=scheduler;table=timetables;field=ends_at;": "2018-04-03 00:00:00",
   "service=scheduler;table=timetables;field=frequency;": Object {
     "at": Array [
       "22:55",
@@ -124,7 +124,7 @@ Object {
     "timezone": "Europe/Madrid",
   },
   "service=scheduler;table=timetables;field=max_executions;": 7,
-  "service=scheduler;table=timetables;field=starts_at;": "2018-04-02 12:00:00",
+  "service=scheduler;table=timetables;field=starts_at;": "2018-04-02 00:00:00",
 }
 `;
 
@@ -2753,7 +2753,7 @@ Object {
   "limit": Object {
     "endsAt": "",
     "maxExecutions": null,
-    "startsAt": "2018-03-10 12:00:00",
+    "startsAt": "2018-03-10 00:00:00",
   },
 }
 `;

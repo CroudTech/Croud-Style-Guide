@@ -129,7 +129,7 @@
         data() {
             return {
                 alternatingStart: 0,
-                dateFormat: 'YYYY-MM-DD hh:mm:ss',
+                dateFormat: 'YYYY-MM-DD HH:mm:ss',
             }
         },
 
