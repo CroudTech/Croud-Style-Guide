@@ -139,24 +139,19 @@
                 const days = Object.keys(schedule.frequency.days).filter(day => schedule.frequency.days[day])
                 const months = Object.keys(schedule.frequency.months).filter(month => schedule.frequency.months[month])
 
-                const frequency = {
-                    recur: schedule.frequency.recur,
-                    at: schedule.frequency.at = [schedule.frequency.at],
-                    timezone: schedule.frequency.timezone,
+                return {
+                    ...this.rootObject,
+                    [this.keys.frequency]: {
+                        recur: schedule.frequency.recur,
+                        at: schedule.frequency.at ? [schedule.frequency.at] : null,
+                        timezone: schedule.frequency.timezone,
+                        days: days.length ? days : null,
+                        months: months.length ? months : null,
+                    },
+                    [this.keys.startsAt]: schedule.limit.startsAt ? moment(schedule.limit.startsAt).format(this.dateFormat) : null,
+                    [this.keys.endsAt]: schedule.limit.endsAt ? moment(schedule.limit.endsAt).format(this.dateFormat) : null,
+                    [this.keys.maxExecutions]: schedule.limit.maxExecutions > 0 ? parseInt(schedule.limit.maxExecutions, 10) : null,
                 }
-
-                frequency.months = months.length ? months : null
-                frequency.days = days.length ? days : null
-
-                const schedulerObject = {
-                    [this.keys.frequency]: frequency,
-                }
-
-                schedulerObject[this.keys.startsAt] = schedule.limit.startsAt ? moment(schedule.limit.startsAt).format('YYYY-MM-DD hh:mm:ss') : null
-                schedulerObject[this.keys.endsAt] = schedule.limit.endsAt ? moment(schedule.limit.endsAt).format('YYYY-MM-DD hh:mm:ss') : null
-                schedulerObject[this.keys.maxExecutions] = schedule.limit.maxExecutions > 0 ? parseInt(schedule.limit.maxExecutions, 10) : null
-
-                return { ...this.rootObject, ...schedulerObject }
             },
 
             periodOptions() {
