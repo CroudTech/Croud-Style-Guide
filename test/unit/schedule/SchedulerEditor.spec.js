@@ -1,9 +1,12 @@
 import Vue from 'vue'
 import { pick } from 'lodash'
 import VueSemantic from 'croud-vue-semantic'
+import moment from 'moment-timezone'
 
 import SchedulerEditor from '../../../src/components/shared/scheduler/SchedulerEditor'
 import '../../../semantic/dist/semantic'
+
+moment.tz.guess = jest.fn(() => 'Europe/London')
 
 Vue.use(VueSemantic)
 
