@@ -2602,7 +2602,7 @@ exports[`Scheduler Modal open modal should show scheduler 1`] = `
                 >
                   (Timezone: 
                   <strong>
-                    Europe/London
+                    Etc/UTC
                   </strong>
                   )
                 </div>
