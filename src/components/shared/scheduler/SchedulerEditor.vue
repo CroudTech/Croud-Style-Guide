@@ -128,7 +128,8 @@
 
         data() {
             return {
-                alternating_start: 0,
+                alternatingStart: 0,
+                dateFormat: 'YYYY-MM-DD hh:mm:ss',
             }
         },
 
@@ -198,11 +199,11 @@
 
         methods: {
             setStartDate(option) {
-                this.schedule.limit.startsAt = option.format('YYYY-MM-DD hh:mm:ss')
+                this.schedule.limit.startsAt = option.format(this.dateFormat)
             },
 
             setEndDate(option) {
-                this.schedule.limit.endsAt = option.format('YYYY-MM-DD hh:mm:ss')
+                this.schedule.limit.endsAt = option.format(this.dateFormat)
             },
 
             setAllMonths(option = true) {
@@ -217,8 +218,8 @@
             },
 
             setAlternateMonths() {
-                this.alternating_start = this.alternating_start === 1 ? 0 : 1
-                const index = this.alternating_start % 2 ? 1 : 0
+                this.alternatingStart = this.alternatingStart === 1 ? 0 : 1
+                const index = this.alternatingStart % 2 ? 1 : 0
 
                 moment.months().forEach((month, i) => {
                     this.schedule.frequency.months[moment().month(i).format('MMMM').toLowerCase()] = i % 2 === index
