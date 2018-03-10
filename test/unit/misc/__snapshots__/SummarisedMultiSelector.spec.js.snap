@@ -5,7 +5,7 @@ exports[`summarised multi selector read only should match the snapshot 1`] = `
   class="dropdown-wrapper"
 >
   <div
-    data-tooltip="Select an item"
+    data-tooltip=""
     data-inverted="true"
   >
     
@@ -36,7 +36,9 @@ exports[`summarised multi selector should match the snapshot 1`] = `
     />
     <div
       class="default text"
-    />
+    >
+      
+    </div>
     <i
       class="dropdown icon"
     />
