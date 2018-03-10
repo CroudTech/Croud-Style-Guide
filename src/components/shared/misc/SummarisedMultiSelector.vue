@@ -97,6 +97,16 @@
             },
 
             /**
+            * Which field in the options to use in the summary popup
+            */
+            summaryField: {
+                type: String,
+                default() {
+                    return 'name'
+                },
+            },
+
+            /**
             * Semantic ui dropdown configuration
             */
             dropdownSettings: {
