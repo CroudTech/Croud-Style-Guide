@@ -162,16 +162,25 @@
                 },
             },
 
-            summary() {
-                const summary = this.model && Array.isArray(this.model) ? this.model.join(', ') : this.model.split(',').join(', ')
-                if (summary.length) {
-                    return summary
-                }
-                return this.defaultSummary
+            computedModel() {
+                return Array.isArray(this.model) ? this.model : this.model.split(',')
             },
 
             selectedLength() {
-                return Array.isArray(this.model) ? this.model.length : this.model.split(',').length
+                return this.computedModel.length
+            },
+
+            selectedItems() {
+                return this.options.filter((option) => {
+                    if (this.computedModel.toString().indexOf(option[this.fields.value].toString()) > -1) {
+                        return option[this.fields.value]
+                    } return null
+                }).map(selected => selected[this.summaryField]).join(', ')
+            },
+
+            summary() {
+                if (this.model.length < 1) return this.defaultSummary
+                return this.selectedItems
             },
         },
 
