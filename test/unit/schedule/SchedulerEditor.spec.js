@@ -32,6 +32,7 @@ describe('Scheduler Editor', () => {
         it('should match the snapshot', () => {
             schedule = vm.schedule
             expect(vm.$el).toMatchSnapshot()
+            expect(vm.schedule).toMatchSnapshot()
         })
 
         it('should update the schedule when root object prop changes', (done) => {
@@ -46,6 +47,7 @@ describe('Scheduler Editor', () => {
             }
 
             vm.$nextTick(() => {
+                console.log('limits', schedule.limit.startsAt)
                 expect(vm.schedule).not.toBe(schedule)
                 done()
             })
