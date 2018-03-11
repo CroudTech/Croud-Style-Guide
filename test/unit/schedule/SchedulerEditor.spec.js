@@ -7,6 +7,7 @@ import SchedulerEditor from '../../../src/components/shared/scheduler/SchedulerE
 import '../../../semantic/dist/semantic'
 
 moment.tz.guess = jest.fn(() => 'Etc/UTC')
+Date.now = jest.fn(() => 1520640000000)
 
 Vue.use(VueSemantic)
 

@@ -1,4 +1,4 @@
-import { cloneDeep, defaultsDeep } from 'lodash'
+import { cloneDeep, defaultsDeep, defaults } from 'lodash'
 import moment from 'moment-timezone'
 
 export default {
@@ -70,12 +70,11 @@ export default {
             moment.weekdays().forEach((key) => { days[key.toLowerCase()] = false })
             if (frequency && frequency.days) frequency.days.forEach((key) => { days[key] = true })
 
-            const freq = {
-                ...frequency,
+            const freq = defaults({
                 days,
                 months,
                 at: frequency.at ? frequency.at[0] : undefined,
-            }
+            }, frequency)
 
             const limit = {
                 startsAt: root[this.keys.startsAt] || undefined,
