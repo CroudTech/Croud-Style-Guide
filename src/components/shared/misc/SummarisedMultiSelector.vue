@@ -11,8 +11,8 @@
             :auto-update="false"
             :autoUpdateOptions="false"
             :full_text_search="true"
-            :title_field="fields.title"
-            :value_field="fields.value"
+            :title_field="computedFields.title"
+            :value_field="computedFields.value"
             :inline="inline"
             :fluid="fluid"
             search multiple
@@ -53,14 +53,12 @@
             },
 
             /**
-            * Maps the dropdown to the title/value fields on your options array.
+            * Maps the dropdown to the title/value/summary fields on your options array. By default, value will use the 'id' field and title and summary will use the 'name' field
             */
             fields: {
                 type: Object,
                 default() {
                     return {
-                        title: 'name',
-                        value: 'id',
                     }
                 },
             },
@@ -96,15 +94,6 @@
                 },
             },
 
-            /**
-            * Which field in the options to use in the summary popup
-            */
-            summaryField: {
-                type: String,
-                default() {
-                    return 'name'
-                },
-            },
 
             /**
             * Semantic ui dropdown configuration
@@ -162,6 +151,15 @@
                 },
             },
 
+            computedFields() {
+                return {
+                    value: 'id',
+                    title: 'name',
+                    summary: 'name',
+                    ...this.fields,
+                }
+            },
+
             computedModel() {
                 return Array.isArray(this.model) ? this.model : this.model.split(',')
             },
@@ -171,11 +169,13 @@
             },
 
             selectedItems() {
+                const normalised = this.computedModel.map(v => v.toString())
+
                 return this.options.filter((option) => {
-                    if (this.computedModel.toString().indexOf(option[this.fields.value].toString()) > -1) {
-                        return option[this.fields.value]
+                    if (normalised.indexOf(option[this.computedFields.value].toString()) > -1) {
+                        return option[this.computedFields.value]
                     } return null
-                }).map(selected => selected[this.summaryField]).join(', ')
+                }).map(selected => selected[this.computedFields.summary]).join(', ')
             },
 
             summary() {
