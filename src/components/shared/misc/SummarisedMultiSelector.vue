@@ -2,7 +2,7 @@
     <div class="dropdown-wrapper">
         <semantic-form-dropdown
             ref="summarisedSelector"
-            v-if="!readOnly"
+            v-show="!readOnly"
             v-model="model"
             :options="options"
             :data-tooltip="summary"
@@ -20,15 +20,15 @@
             @dropdown-selected="dropdownSelected"
         />
 
-        <div v-else-if="selectedLength < 1" :data-inverted="true">
+        <div v-if="readOnly && selectedLength < 1" :data-inverted="true">
             {{ placeholder }}
         </div>
 
-        <div v-else-if="selectedLength < 2" :data-tooltip="selectedItems" :data-inverted="true">
+        <div v-else-if="readOnly && selectedLength < 2" :data-tooltip="selectedItems" :data-inverted="true">
             {{ selectedItems }}
         </div>
 
-        <div v-else :data-tooltip="selectedItems" :data-inverted="true">
+        <div v-else-if="readOnly && selectedLength > 1" :data-tooltip="selectedItems" :data-inverted="true">
              {{ selectedLength }} Selected
         </div>
     </div>
