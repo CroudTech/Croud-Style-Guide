@@ -20,7 +20,7 @@
             @dropdown-selected="dropdownSelected"
         />
 
-        <div v-if="readOnly && selectedLength < 1" :data-inverted="true">
+        <div v-if="readOnly && selectedLength < 1">
             {{ placeholder }}
         </div>
 
@@ -175,6 +175,7 @@
             },
 
             selectedItems() {
+                console.log(this.computedModel.toString())
                 return this.options.filter((option) => {
                     if (this.computedModel.toString().indexOf(option[this.fields.value].toString()) > -1) {
                         return option[this.fields.value]
