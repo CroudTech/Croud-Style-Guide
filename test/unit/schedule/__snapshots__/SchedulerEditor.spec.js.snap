@@ -2751,7 +2751,7 @@ Object {
     "timezone": "Etc/UTC",
   },
   "limit": Object {
-    "endsAt": "",
+    "endsAt": null,
     "maxExecutions": null,
     "startsAt": "2018-03-10 00:00:00",
   },

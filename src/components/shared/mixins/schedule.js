@@ -50,7 +50,7 @@ export default {
                 },
                 limit: {
                     startsAt: moment().format('YYYY-MM-DD hh:mm:ss'),
-                    endsAt: '',
+                    endsAt: null,
                     maxExecutions: null,
                 },
             },
