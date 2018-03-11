@@ -24,12 +24,8 @@
             {{ placeholder }}
         </div>
 
-        <div v-else-if="readOnly && selectedLength < 2" :data-tooltip="selectedItems" :data-inverted="true">
-            {{ selectedItems }}
-        </div>
-
-        <div v-else-if="readOnly && selectedLength > 1" :data-tooltip="selectedItems" :data-inverted="true">
-             {{ selectedLength }} Selected
+        <div v-else-if="readOnly && selectedLength" :data-tooltip="selectedItems" :data-inverted="true">
+            {{ displayText }}
         </div>
     </div>
 </template>
@@ -175,7 +171,6 @@
             },
 
             selectedItems() {
-                console.log(this.computedModel.toString())
                 return this.options.filter((option) => {
                     if (this.computedModel.toString().indexOf(option[this.fields.value].toString()) > -1) {
                         return option[this.fields.value]
@@ -187,6 +182,13 @@
                 if (this.model.length < 1) return this.defaultSummary
                 return this.selectedItems
             },
+
+            displayText() {
+                if (this.selectedLength < 2) {
+                    return this.selectedItems
+                }
+                return `${this.selectedLength} Selected`
+            },
         },
 
         methods: {
@@ -196,11 +198,7 @@
 
             setLabel() {
                 if (this.model.length < 1) return
-                if (this.selectedLength < 2) {
-                    $(this.$refs.summarisedSelector.$el).dropdown('set text', this.selectedItems)
-                } else {
-                    $(this.$refs.summarisedSelector.$el).dropdown('set text', `${this.selectedLength} Selected`)
-                }
+                $(this.$refs.summarisedSelector.$el).dropdown('set text', this.displayText)
             },
 
             reset() {
