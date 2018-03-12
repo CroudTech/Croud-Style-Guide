@@ -11,8 +11,8 @@
             :auto-update="false"
             :autoUpdateOptions="false"
             :full_text_search="true"
-            :title_field="fields.title"
-            :value_field="fields.value"
+            :title_field="computedFields.title"
+            :value_field="computedFields.value"
             :inline="inline"
             :fluid="fluid"
             search multiple
@@ -20,16 +20,12 @@
             @dropdown-selected="dropdownSelected"
         />
 
-        <div v-if="readOnly && selectedLength < 1" :data-inverted="true">
+        <div v-if="readOnly && selectedLength < 1">
             {{ placeholder }}
         </div>
 
-        <div v-else-if="readOnly && selectedLength < 2" :data-tooltip="selectedItems" :data-inverted="true">
-            {{ selectedItems }}
-        </div>
-
-        <div v-else-if="readOnly && selectedLength > 1" :data-tooltip="selectedItems" :data-inverted="true">
-             {{ selectedLength }} Selected
+        <div v-else-if="readOnly && selectedLength" :data-tooltip="selectedItems" :data-inverted="true">
+            {{ displayText }}
         </div>
     </div>
 </template>
@@ -57,14 +53,12 @@
             },
 
             /**
-            * Maps the dropdown to the title/value fields on your options array.
+            * Maps the dropdown to the title/value/summary fields on your options array. By default, value will use the 'id' field and title and summary will use the 'name' field
             */
             fields: {
                 type: Object,
                 default() {
                     return {
-                        title: 'name',
-                        value: 'id',
                     }
                 },
             },
@@ -100,15 +94,6 @@
                 },
             },
 
-            /**
-            * Which field in the options to use in the summary popup
-            */
-            summaryField: {
-                type: String,
-                default() {
-                    return 'name'
-                },
-            },
 
             /**
             * Semantic ui dropdown configuration
@@ -166,6 +151,15 @@
                 },
             },
 
+            computedFields() {
+                return {
+                    value: 'id',
+                    title: 'name',
+                    summary: 'name',
+                    ...this.fields,
+                }
+            },
+
             computedModel() {
                 return Array.isArray(this.model) ? this.model : this.model.split(',')
             },
@@ -175,16 +169,25 @@
             },
 
             selectedItems() {
+                const normalised = this.computedModel.map(v => v.toString())
+
                 return this.options.filter((option) => {
-                    if (this.computedModel.toString().indexOf(option[this.fields.value].toString()) > -1) {
-                        return option[this.fields.value]
+                    if (normalised.indexOf(option[this.computedFields.value].toString()) > -1) {
+                        return option[this.computedFields.value]
                     } return null
-                }).map(selected => selected[this.summaryField]).join(', ')
+                }).map(selected => selected[this.computedFields.summary]).join(', ')
             },
 
             summary() {
                 if (this.model.length < 1) return this.defaultSummary
                 return this.selectedItems
+            },
+
+            displayText() {
+                if (this.selectedLength < 2) {
+                    return this.selectedItems
+                }
+                return `${this.selectedLength} Selected`
             },
         },
 
@@ -195,11 +198,7 @@
 
             setLabel() {
                 if (this.model.length < 1) return
-                if (this.selectedLength < 2) {
-                    $(this.$refs.summarisedSelector.$el).dropdown('set text', this.selectedItems)
-                } else {
-                    $(this.$refs.summarisedSelector.$el).dropdown('set text', `${this.selectedLength} Selected`)
-                }
+                $(this.$refs.summarisedSelector.$el).dropdown('set text', this.displayText)
             },
 
             reset() {
