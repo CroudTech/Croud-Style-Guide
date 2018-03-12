@@ -67,7 +67,7 @@
                         <label>Time this schedule runs at</label>
                         <semantic-form-dropdown v-model="schedule.frequency.at" :options="timeOptions"></semantic-form-dropdown>
                         <div class="ui light" style="margin-top:5px">
-                            (Timezone: <strong>{{ schedule.timezone }}</strong>)
+                            (Timezone: <strong>{{ schedule.frequency.timezone }}</strong>)
                         </div>
                     </div>
 
@@ -128,7 +128,8 @@
 
         data() {
             return {
-                alternating_start: 0,
+                alternatingStart: 0,
+                dateFormat: 'YYYY-MM-DD HH:mm:ss',
             }
         },
 
@@ -138,24 +139,19 @@
                 const days = Object.keys(schedule.frequency.days).filter(day => schedule.frequency.days[day])
                 const months = Object.keys(schedule.frequency.months).filter(month => schedule.frequency.months[month])
 
-                const frequency = {
-                    recur: schedule.frequency.recur,
-                    at: schedule.frequency.at = [schedule.frequency.at],
-                    timezone: schedule.frequency.timezone,
+                return {
+                    ...this.rootObject,
+                    [this.keys.frequency]: {
+                        recur: schedule.frequency.recur,
+                        at: schedule.frequency.at ? [schedule.frequency.at] : null,
+                        timezone: schedule.frequency.timezone,
+                        days: days.length ? days : null,
+                        months: months.length ? months : null,
+                    },
+                    [this.keys.startsAt]: schedule.limit.startsAt ? moment(schedule.limit.startsAt).format(this.dateFormat) : null,
+                    [this.keys.endsAt]: schedule.limit.endsAt ? moment(schedule.limit.endsAt).format(this.dateFormat) : null,
+                    [this.keys.maxExecutions]: schedule.limit.maxExecutions > 0 ? parseInt(schedule.limit.maxExecutions, 10) : null,
                 }
-
-                frequency.months = months.length ? months : null
-                frequency.days = days.length ? days : null
-
-                const schedulerObject = {
-                    [this.keys.frequency]: frequency,
-                }
-
-                schedulerObject[this.keys.startsAt] = schedule.limit.startsAt ? moment(schedule.limit.startsAt).format('YYYY-MM-DD hh:mm:ss') : null
-                schedulerObject[this.keys.endsAt] = schedule.limit.endsAt ? moment(schedule.limit.endsAt).format('YYYY-MM-DD hh:mm:ss') : null
-                schedulerObject[this.keys.maxExecutions] = schedule.limit.maxExecutions > 0 ? parseInt(schedule.limit.maxExecutions, 10) : null
-
-                return { ...this.rootObject, ...schedulerObject }
             },
 
             periodOptions() {
@@ -198,11 +194,11 @@
 
         methods: {
             setStartDate(option) {
-                this.schedule.limit.startsAt = option.format('YYYY-MM-DD hh:mm:ss')
+                this.schedule.limit.startsAt = option.format(this.dateFormat)
             },
 
             setEndDate(option) {
-                this.schedule.limit.endsAt = option.format('YYYY-MM-DD hh:mm:ss')
+                this.schedule.limit.endsAt = option.format(this.dateFormat)
             },
 
             setAllMonths(option = true) {
@@ -217,8 +213,8 @@
             },
 
             setAlternateMonths() {
-                this.alternating_start = this.alternating_start === 1 ? 0 : 1
-                const index = this.alternating_start % 2 ? 1 : 0
+                this.alternatingStart = this.alternatingStart === 1 ? 0 : 1
+                const index = this.alternatingStart % 2 ? 1 : 0
 
                 moment.months().forEach((month, i) => {
                     this.schedule.frequency.months[moment().month(i).format('MMMM').toLowerCase()] = i % 2 === index

@@ -1,8 +1,11 @@
 import Vue from 'vue'
 import VueSemantic from 'croud-vue-semantic'
+import moment from 'moment-timezone'
 
 import '../../../semantic/dist/semantic'
 import SchedulerModal from '../../../src/components/shared/scheduler/SchedulerModal'
+
+moment.tz.guess = jest.fn(() => 'Etc/UTC')
 
 Vue.use(VueSemantic)
 

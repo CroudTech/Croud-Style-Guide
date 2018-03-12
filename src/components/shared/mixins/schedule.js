@@ -1,4 +1,4 @@
-import { cloneDeep, defaultsDeep } from 'lodash'
+import { cloneDeep, defaultsDeep, defaults } from 'lodash'
 import moment from 'moment-timezone'
 
 export default {
@@ -50,7 +50,7 @@ export default {
                 },
                 limit: {
                     startsAt: moment().format('YYYY-MM-DD hh:mm:ss'),
-                    endsAt: '',
+                    endsAt: null,
                     maxExecutions: null,
                 },
             },
@@ -70,26 +70,21 @@ export default {
             moment.weekdays().forEach((key) => { days[key.toLowerCase()] = false })
             if (frequency && frequency.days) frequency.days.forEach((key) => { days[key] = true })
 
-            const freq = {
+            const freq = defaults({
                 days,
                 months,
-                at: frequency.at ? frequency.at[0] : '00:00',
-                recur: frequency.recur || 'daily',
-                timezone: frequency.timezone || 'Europe/London',
+                at: frequency.at ? frequency.at[0] : undefined,
+            }, frequency)
+
+            const limit = {
+                startsAt: root[this.keys.startsAt] || undefined,
+                endsAt: root[this.keys.endsAt] || undefined,
+                maxExecutions: root[this.keys.maxExecutions] || undefined,
             }
-
-            const startsAt = root[this.keys.startsAt]
-            const endsAt = root[this.keys.endsAt]
-
-            const limit = {}
-            limit.startsAt = startsAt ? moment(startsAt, 'YYYY-MM-DD hh:mm:ss').format('YYYY-MM-DD hh:mm:ss') : ''
-            limit.endsAt = endsAt ? moment(endsAt, 'YYYY-MM-DD hh:mm:ss').format('YYYY-MM-DD hh:mm:ss') : ''
-            limit.maxExecutions = root[this.keys.maxExecutions] || null
 
             const build = {
                 frequency: freq,
                 limit,
-                timezone: frequency.timezone || 'Europe/London',
             }
 
             this.schedule = defaultsDeep(build, this.schedule)

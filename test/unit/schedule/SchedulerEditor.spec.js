@@ -1,9 +1,13 @@
 import Vue from 'vue'
 import { pick } from 'lodash'
 import VueSemantic from 'croud-vue-semantic'
+import moment from 'moment-timezone'
 
 import SchedulerEditor from '../../../src/components/shared/scheduler/SchedulerEditor'
 import '../../../semantic/dist/semantic'
+
+moment.tz.guess = jest.fn(() => 'Etc/UTC')
+Date.now = jest.fn(() => 1520640000000)
 
 Vue.use(VueSemantic)
 
@@ -150,22 +154,22 @@ describe('Scheduler Editor', () => {
             describe('limits', () => {
                 it('should set the start date', (done) => {
                     vm.rootObject = {
-                        [keys.startsAt]: '2018-03-07 12:00:00',
+                        [keys.startsAt]: '2018-03-07 00:00:00',
                     }
 
                     vm.$nextTick(() => {
-                        expect(vm.schedule.limit.startsAt).toBe('2018-03-07 12:00:00')
+                        expect(vm.schedule.limit.startsAt).toBe('2018-03-07 00:00:00')
                         done()
                     })
                 })
 
                 it('should set the end date', (done) => {
                     vm.rootObject = {
-                        [keys.endsAt]: '2018-03-07 12:00:00',
+                        [keys.endsAt]: '2018-03-07 00:00:00',
                     }
 
                     vm.$nextTick(() => {
-                        expect(vm.schedule.limit.endsAt).toBe('2018-03-07 12:00:00')
+                        expect(vm.schedule.limit.endsAt).toBe('2018-03-07 00:00:00')
                         done()
                     })
                 })
@@ -183,8 +187,8 @@ describe('Scheduler Editor', () => {
 
                 it('should match snapshot', (done) => {
                     vm.rootObject = {
-                        [keys.startsAt]: '2018-03-07 12:00:00',
-                        [keys.endsAt]: '2018-04-07 12:00:00',
+                        [keys.startsAt]: '2018-03-07 00:00:00',
+                        [keys.endsAt]: '2018-04-07 00:00:00',
                         [keys.maxExecutions]: 10,
                     }
 
@@ -204,8 +208,8 @@ describe('Scheduler Editor', () => {
                         timezone: 'Europe/Berlin',
                         recur: 'thirdWeekOfMonth',
                     },
-                    [keys.startsAt]: '2018-03-07 12:00:00',
-                    [keys.endsAt]: '2018-04-07 12:00:00',
+                    [keys.startsAt]: '2018-03-07 00:00:00',
+                    [keys.endsAt]: '2018-04-07 00:00:00',
                     [keys.maxExecutions]: 10,
                 }
 
@@ -311,19 +315,19 @@ describe('Scheduler Editor', () => {
 
             describe('limits', () => {
                 it('should set the start date', (done) => {
-                    vm.schedule.limit.startsAt = '2018-04-07 12:00:00'
+                    vm.schedule.limit.startsAt = '2018-04-07 00:00:00'
 
                     vm.$nextTick(() => {
-                        expect(vm.getSchedulerObject[keys.startsAt]).toBe('2018-04-07 12:00:00')
+                        expect(vm.getSchedulerObject[keys.startsAt]).toBe('2018-04-07 00:00:00')
                         done()
                     })
                 })
 
                 it('should set the end date', (done) => {
-                    vm.schedule.limit.endsAt = '2018-04-07 12:00:00'
+                    vm.schedule.limit.endsAt = '2018-04-07 00:00:00'
 
                     vm.$nextTick(() => {
-                        expect(vm.getSchedulerObject[keys.endsAt]).toBe('2018-04-07 12:00:00')
+                        expect(vm.getSchedulerObject[keys.endsAt]).toBe('2018-04-07 00:00:00')
                         done()
                     })
                 })
@@ -338,8 +342,8 @@ describe('Scheduler Editor', () => {
                 })
 
                 it('should match snapshot', (done) => {
-                    vm.schedule.limit.startsAt = '2018-04-07 12:00:00'
-                    vm.schedule.limit.endsAt = '2018-04-06 12:00:00'
+                    vm.schedule.limit.startsAt = '2018-04-07 00:00:00'
+                    vm.schedule.limit.endsAt = '2018-04-06 00:00:00'
                     vm.schedule.limit.maxExecutions = 2
 
                     vm.$nextTick(() => {
@@ -379,8 +383,8 @@ describe('Scheduler Editor', () => {
                     },
                 }
 
-                vm.schedule.limit.startsAt = '2018-04-02 12:00:00'
-                vm.schedule.limit.endsAt = '2018-04-03 12:00:00'
+                vm.schedule.limit.startsAt = '2018-04-02 00:00:00'
+                vm.schedule.limit.endsAt = '2018-04-03 00:00:00'
                 vm.schedule.limit.maxExecutions = 7
 
                 vm.$nextTick(() => {
