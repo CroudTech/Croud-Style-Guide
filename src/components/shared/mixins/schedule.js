@@ -1,9 +1,15 @@
-import { cloneDeep, defaultsDeep } from 'lodash'
+import { cloneDeep, defaultsDeep, defaults } from 'lodash'
 import moment from 'moment-timezone'
 
 export default {
     data() {
         return {
+            keys: {
+                frequency: 'service=scheduler;table=timetables;field=frequency;',
+                startsAt: 'service=scheduler;table=timetables;field=starts_at;',
+                endsAt: 'service=scheduler;table=timetables;field=ends_at;',
+                maxExecutions: 'service=scheduler;table=timetables;field=max_executions;',
+            },
             periods: {
                 daily: 'Daily on above days',
                 everyFortnight: 'Every alternating week',
@@ -30,13 +36,13 @@ export default {
                         december: false,
                     },
                     days: {
+                        sunday: false,
                         monday: false,
                         tuesday: false,
                         wednesday: false,
                         thursday: false,
                         friday: false,
                         saturday: false,
-                        sunday: false,
                     },
                     recur: 'daily',
                     at: '00:00',
@@ -44,7 +50,7 @@ export default {
                 },
                 limit: {
                     startsAt: moment().format('YYYY-MM-DD hh:mm:ss'),
-                    endsAt: '',
+                    endsAt: null,
                     maxExecutions: null,
                 },
             },
@@ -54,7 +60,7 @@ export default {
     methods: {
         getSchedule() {
             const root = cloneDeep(this.rootObject)
-            const frequency = root['service=scheduler;table=timetables;field=frequency;'] ? root['service=scheduler;table=timetables;field=frequency;'] : {}
+            const frequency = root[this.keys.frequency] || {}
 
             const months = {}
             moment.months().forEach((key) => { months[key.toLowerCase()] = false })
@@ -64,26 +70,21 @@ export default {
             moment.weekdays().forEach((key) => { days[key.toLowerCase()] = false })
             if (frequency && frequency.days) frequency.days.forEach((key) => { days[key] = true })
 
-            const freq = {
+            const freq = defaults({
                 days,
                 months,
-                at: frequency.at ? frequency.at[0] : '00:00',
-                recur: frequency.recur || 'daily',
-                timezone: frequency.timezone || 'Europe/London',
+                at: frequency.at ? frequency.at[0] : undefined,
+            }, frequency)
+
+            const limit = {
+                startsAt: root[this.keys.startsAt] || undefined,
+                endsAt: root[this.keys.endsAt] || undefined,
+                maxExecutions: root[this.keys.maxExecutions] || undefined,
             }
-
-            const startsAt = root['service=scheduler;table=timetables;field=starts_at;']
-            const endsAt = root['service=scheduler;table=timetables;field=ends_at;']
-
-            const limit = {}
-            limit.startsAt = startsAt ? moment(startsAt, 'YYYY-MM-DD hh:mm:ss').format('YYYY-MM-DD hh:mm:ss') : ''
-            limit.endsAt = endsAt ? moment(endsAt, 'YYYY-MM-DD hh:mm:ss').format('YYYY-MM-DD hh:mm:ss') : ''
-            limit.maxExecutions = root['service=scheduler;table=timetables;field=max_executions;'] || null
 
             const build = {
                 frequency: freq,
                 limit,
-                timezone: frequency.timezone || 'Europe/London',
             }
 
             this.schedule = defaultsDeep(build, this.schedule)

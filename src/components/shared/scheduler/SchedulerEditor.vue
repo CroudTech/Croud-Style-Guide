@@ -11,52 +11,10 @@
                         </div>
                     </div>
                     <div class="grouped fields">
-                        <div class="field">
+                        <div class="field" v-for="(day, key) in schedule.frequency.days" :key="key">
                             <div class="ui toggle checkbox">
-                                <input type="checkbox" value="1" v-model="schedule.frequency.days.sunday">
-                                <label>Sunday</label>
-                            </div>
-                        </div>
-
-                        <div class="field">
-                            <div class="ui toggle checkbox">
-                                <input type="checkbox" value="1" v-model="schedule.frequency.days.monday">
-                                <label>Monday</label>
-                            </div>
-                        </div>
-
-                        <div class="field">
-                            <div class="ui toggle checkbox">
-                                <input type="checkbox" value="1" v-model="schedule.frequency.days.tuesday">
-                                <label>Tuesday</label>
-                            </div>
-                        </div>
-
-                        <div class="field">
-                            <div class="ui toggle checkbox">
-                                <input type="checkbox" value="1" v-model="schedule.frequency.days.wednesday">
-                                <label>Wednesday</label>
-                            </div>
-                        </div>
-
-                        <div class="field">
-                            <div class="ui toggle checkbox">
-                                <input type="checkbox" value="1" v-model="schedule.frequency.days.thursday">
-                                <label>Thursday</label>
-                            </div>
-                        </div>
-
-                        <div class="field">
-                            <div class="ui toggle checkbox">
-                                <input type="checkbox" value="1" v-model="schedule.frequency.days.friday">
-                                <label>Friday</label>
-                            </div>
-                        </div>
-
-                        <div class="field">
-                            <div class="ui toggle checkbox">
-                                <input type="checkbox" value="1" v-model="schedule.frequency.days.saturday">
-                                <label>Saturday</label>
+                                <input type="checkbox" value="1" v-model="schedule.frequency.days[key]">
+                                <label>{{ key | capitalise }}</label>
                             </div>
                         </div>
                     </div>
@@ -80,87 +38,10 @@
                             <button class="ui button mini" @click="setAllMonths(false)">Clear</button>
                         </div>
 
-                        <div class="field">
+                        <div class="field" v-for="(month, key) in schedule.frequency.months" :key="key">
                             <div class="ui toggle checkbox">
-                                <input type="checkbox" value="1" v-model="schedule.frequency.months.january">
-                                <label>January</label>
-                            </div>
-                        </div>
-
-                        <div class="field">
-                            <div class="ui toggle checkbox">
-                                <input type="checkbox" value="1" v-model="schedule.frequency.months.february">
-                                <label>February</label>
-                            </div>
-                        </div>
-
-                        <div class="field">
-                            <div class="ui toggle checkbox">
-                                <input type="checkbox" value="1" v-model="schedule.frequency.months.march">
-                                <label>March</label>
-                            </div>
-                        </div>
-
-                        <div class="field">
-                            <div class="ui toggle checkbox">
-                                <input type="checkbox" value="1" v-model="schedule.frequency.months.april">
-                                <label>April</label>
-                            </div>
-                        </div>
-
-                        <div class="field">
-                            <div class="ui toggle checkbox">
-                                <input type="checkbox" value="1" v-model="schedule.frequency.months.may">
-                                <label>May</label>
-                            </div>
-                        </div>
-
-                        <div class="field">
-                            <div class="ui toggle checkbox">
-                                <input type="checkbox" value="1" v-model="schedule.frequency.months.june">
-                                <label>June</label>
-                            </div>
-                        </div>
-
-                        <div class="field">
-                            <div class="ui toggle checkbox">
-                                <input type="checkbox" value="1" v-model="schedule.frequency.months.july">
-                                <label>July</label>
-                            </div>
-                        </div>
-
-                        <div class="field">
-                            <div class="ui toggle checkbox">
-                                <input type="checkbox" value="1" v-model="schedule.frequency.months.august">
-                                <label>August</label>
-                            </div>
-                        </div>
-
-                        <div class="field">
-                            <div class="ui toggle checkbox">
-                                <input type="checkbox" value="1" v-model="schedule.frequency.months.september">
-                                <label>September</label>
-                            </div>
-                        </div>
-
-                        <div class="field">
-                            <div class="ui toggle checkbox">
-                                <input type="checkbox" value="1" v-model="schedule.frequency.months.october">
-                                <label>October</label>
-                            </div>
-                        </div>
-
-                        <div class="field">
-                            <div class="ui toggle checkbox">
-                                <input type="checkbox" value="1" v-model="schedule.frequency.months.november">
-                                <label>November</label>
-                            </div>
-                        </div>
-
-                        <div class="field">
-                            <div class="ui toggle checkbox">
-                                <input type="checkbox" value="1" v-model="schedule.frequency.months.december">
-                                <label>December</label>
+                                <input type="checkbox" value="1" v-model="schedule.frequency.months[key]">
+                                <label>{{ key | capitalise }}</label>
                             </div>
                         </div>
                     </div>
@@ -186,7 +67,7 @@
                         <label>Time this schedule runs at</label>
                         <semantic-form-dropdown v-model="schedule.frequency.at" :options="timeOptions"></semantic-form-dropdown>
                         <div class="ui light" style="margin-top:5px">
-                            (Timezone: <strong>{{ schedule.timezone }}</strong>)
+                            (Timezone: <strong>{{ schedule.frequency.timezone }}</strong>)
                         </div>
                     </div>
 
@@ -212,6 +93,7 @@
     import { defaultsDeep, cloneDeep } from 'lodash'
     import moment from 'moment-timezone'
 
+    import scheduleMixin from '../mixins/schedule'
     import CroudDatepicker from '../forms/DatePicker'
 
     /**
@@ -222,6 +104,8 @@
 
     export default {
         name: 'croud-scheduler-editor',
+
+        mixins: [scheduleMixin],
 
         props: {
             /**
@@ -238,52 +122,14 @@
             CroudDatepicker,
         },
 
+        filters: {
+            capitalise: string => string.charAt(0).toUpperCase() + string.slice(1),
+        },
+
         data() {
             return {
-                alternating_start: 0,
-                periods: {
-                    daily: 'Daily on above days',
-                    everyFortnight: 'Every alternating week',
-                    firstWeekOfMonth: 'The first week only',
-                    secondWeekOfMonth: 'The second week only',
-                    thirdWeekOfMonth: 'The third week only',
-                    fourthWeekOfMonth: 'The fourth week only',
-                },
-                schedule: {
-                    frequency: {
-                        months: {
-                            january: false,
-                            february: false,
-                            march: false,
-                            april: false,
-                            may: false,
-                            june: false,
-                            july: false,
-                            august: false,
-                            september: false,
-                            october: false,
-                            november: false,
-                            december: false,
-                        },
-                        days: {
-                            monday: false,
-                            tuesday: false,
-                            wednesday: false,
-                            thursday: false,
-                            friday: false,
-                            saturday: false,
-                            sunday: false,
-                        },
-                        recur: 'daily',
-                        at: '00:00',
-                        timezone: moment.tz.guess(),
-                    },
-                    limit: {
-                        startsAt: moment().format('YYYY-MM-DD hh:mm:ss'),
-                        endsAt: null,
-                        maxExecutions: null,
-                    },
-                },
+                alternatingStart: 0,
+                dateFormat: 'YYYY-MM-DD HH:mm:ss',
             }
         },
 
@@ -293,35 +139,26 @@
                 const days = Object.keys(schedule.frequency.days).filter(day => schedule.frequency.days[day])
                 const months = Object.keys(schedule.frequency.months).filter(month => schedule.frequency.months[month])
 
-                const frequency = {
-                    recur: schedule.frequency.recur,
-                    at: schedule.frequency.at = [schedule.frequency.at],
-                    timezone: schedule.frequency.timezone,
+                return {
+                    ...this.rootObject,
+                    [this.keys.frequency]: {
+                        recur: schedule.frequency.recur,
+                        at: schedule.frequency.at ? [schedule.frequency.at] : null,
+                        timezone: schedule.frequency.timezone,
+                        days: days.length ? days : null,
+                        months: months.length ? months : null,
+                    },
+                    [this.keys.startsAt]: schedule.limit.startsAt ? moment(schedule.limit.startsAt).format(this.dateFormat) : null,
+                    [this.keys.endsAt]: schedule.limit.endsAt ? moment(schedule.limit.endsAt).format(this.dateFormat) : null,
+                    [this.keys.maxExecutions]: schedule.limit.maxExecutions > 0 ? parseInt(schedule.limit.maxExecutions, 10) : null,
                 }
-
-                frequency.months = months.length ? months : null
-                frequency.days = days.length ? days : null
-
-                const schedulerObject = {
-                    'service=scheduler;table=timetables;field=frequency;': frequency,
-                }
-
-                schedulerObject['service=scheduler;table=timetables;field=starts_at;'] = schedule.limit.startsAt ? moment(schedule.limit.startsAt).format('YYYY-MM-DD hh:mm:ss') : null
-                schedulerObject['service=scheduler;table=timetables;field=ends_at;'] = schedule.limit.endsAt ? moment(schedule.limit.endsAt).format('YYYY-MM-DD hh:mm:ss') : null
-                schedulerObject['service=scheduler;table=timetables;field=max_executions;'] = schedule.limit.maxExecutions > 0 ? parseInt(schedule.limit.maxExecutions) : null
-
-                return { ...this.rootObject, ...schedulerObject }
             },
 
             periodOptions() {
-                const arr = []
-                for (const key in this.periods) {
-                    arr.push({
-                        id: key,
-                        name: this.periods[key],
-                    })
-                }
-                return arr
+                return Object.keys(this.periods).map(key => ({
+                    id: key,
+                    name: this.periods[key],
+                }))
             },
 
             timeOptions() {
@@ -356,49 +193,12 @@
         },
 
         methods: {
-            getSchedule() {
-                const root = cloneDeep(this.rootObject)
-                const frequency = root['service=scheduler;table=timetables;field=frequency;'] ? root['service=scheduler;table=timetables;field=frequency;'] : {}
-
-                const months = {}
-                moment.months().forEach((key) => { months[key.toLowerCase()] = false })
-                if (frequency && frequency.months) frequency.months.forEach((key) => { months[key] = true })
-
-                const days = {}
-                moment.weekdays().forEach((key) => { days[key.toLowerCase()] = false })
-                if (frequency && frequency.days) frequency.days.forEach((key) => { days[key] = true })
-
-                const freq = {
-                    days,
-                    months,
-                    at: frequency.at ? frequency.at[0] : '00:00',
-                    recur: frequency.recur || 'daily',
-                    timezone: frequency.timezone || 'Europe/London',
-                }
-
-                const startsAt = root['service=scheduler;table=timetables;field=starts_at;']
-                const endsAt = root['service=scheduler;table=timetables;field=ends_at;']
-
-                const limit = {}
-                limit.startsAt = startsAt ? moment(startsAt, 'YYYY-MM-DD hh:mm:ss').format('YYYY-MM-DD hh:mm:ss') : ''
-                limit.endsAt = endsAt ? moment(endsAt, 'YYYY-MM-DD hh:mm:ss').format('YYYY-MM-DD hh:mm:ss') : ''
-                limit.maxExecutions = root['service=scheduler;table=timetables;field=max_executions;'] || null
-
-                const build = {
-                    frequency: freq,
-                    limit,
-                    timezone: frequency.timezone || 'Europe/London',
-                }
-
-                this.schedule = defaultsDeep(build, this.schedule)
-            },
-
             setStartDate(option) {
-                this.schedule.limit.startsAt = option.format('YYYY-MM-DD hh:mm:ss')
+                this.schedule.limit.startsAt = option.format(this.dateFormat)
             },
 
             setEndDate(option) {
-                this.schedule.limit.endsAt = option.format('YYYY-MM-DD hh:mm:ss')
+                this.schedule.limit.endsAt = option.format(this.dateFormat)
             },
 
             setAllMonths(option = true) {
@@ -409,40 +209,28 @@
                     months[month.format('MMMM').toLowerCase()] = option
                 }
 
-                this.schedule.frequency = defaultsDeep({ months }, this.schedule.frequency)
+                this.schedule.frequency.months = months
             },
 
             setAlternateMonths() {
-                let month
-                const months = {}
-                this.alternating_start = this.alternating_start === 1 ? 0 : 1
+                this.alternatingStart = this.alternatingStart === 1 ? 0 : 1
+                const index = this.alternatingStart % 2 ? 1 : 0
 
-                const index = this.alternating_start % 2 ? 1 : 0
-                const altIndex = this.alternating_start % 2 ? 0 : 1
-
-                for (let i = index; i < 12; i += 2) {
-                    month = moment().month(i)
-                    months[month.format('MMMM').toLowerCase()] = true
-                }
-
-                for (let i = altIndex; i < 12; i += 2) {
-                    month = moment().month(i)
-                    months[month.format('MMMM').toLowerCase()] = false
-                }
-
-                this.schedule.frequency = defaultsDeep({ months }, this.schedule.frequency)
+                moment.months().forEach((month, i) => {
+                    this.schedule.frequency.months[moment().month(i).format('MMMM').toLowerCase()] = i % 2 === index
+                })
             },
 
             setAllWorking() {
                 this.schedule.frequency = defaultsDeep({
                     days: {
+                        sunday: false,
                         monday: true,
                         tuesday: true,
                         wednesday: true,
                         thursday: true,
                         friday: true,
                         saturday: false,
-                        sunday: false,
                     },
                 }, this.schedule.frequency)
             },
@@ -452,13 +240,13 @@
                 this.$nextTick(() => {
                     this.schedule.frequency = defaultsDeep({
                         days: {
+                            sunday: true,
                             monday: true,
                             tuesday: true,
                             wednesday: true,
                             thursday: true,
                             friday: true,
                             saturday: true,
-                            sunday: true,
                         },
                     }, this.schedule.frequency)
                 })
@@ -469,13 +257,13 @@
                 this.$nextTick(() => {
                     this.schedule.frequency = defaultsDeep({
                         days: {
+                            sunday: false,
                             monday: false,
                             tuesday: false,
                             wednesday: false,
                             thursday: false,
                             friday: false,
                             saturday: false,
-                            sunday: false,
                         },
                     }, this.schedule.frequency)
                 })
@@ -495,12 +283,14 @@
         mounted() {
             this.getSchedule()
             this.$watch('getStartDate', this.$refs.endDate.create)
-            this.$refs.startDate.$refs.pickerfield.setAttribute('readonly', 'true')
-            this.$refs.endDate.$refs.pickerfield.setAttribute('readonly', 'true')
             this.$nextTick(() => {
                 $(this.$el).children('.ui.checkbox').checkbox()
                 this.$refs.endDate.picker.setMoment(this.getEndDate)
             })
+        },
+
+        watch: {
+            rootObject: 'getSchedule',
         },
     }
 </script>

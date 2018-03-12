@@ -1,8 +1,11 @@
 import Vue from 'vue'
 import VueSemantic from 'croud-vue-semantic'
-import moment from 'moment'
-import SchedulerModal from '../../../src/components/shared/scheduler/SchedulerModal'
+import moment from 'moment-timezone'
+
 import '../../../semantic/dist/semantic'
+import SchedulerModal from '../../../src/components/shared/scheduler/SchedulerModal'
+
+moment.tz.guess = jest.fn(() => 'Etc/UTC')
 
 Vue.use(VueSemantic)
 
@@ -10,44 +13,30 @@ const Constructor = Vue.extend(SchedulerModal)
 
 const vm = new Constructor({
     propsData: {
-        schedule: {
-            months: {
-                january: false,
-                february: false,
-                march: false,
-                april: false,
-                may: false,
-                june: false,
-                july: false,
-                august: false,
-                september: false,
-                october: false,
-                november: false,
-                december: false,
-            },
-            days: {
-                monday: false,
-                tuesday: false,
-                wednesday: false,
-                thursday: false,
-                friday: false,
-                saturday: false,
-                sunday: false,
-            },
-            recur: 'daily',
-            at: '00:00',
-            timezone: ' Europe/London',
-            limit: {
-                from: moment().format('YYYY-MM-DD hh:mm:ss'),
-                to: '',
-                count: null,
-            },
+        rootObject: {
+            id: 1,
+            name: 'rootObject',
         },
     },
 }).$mount()
 
 describe('Scheduler Modal', () => {
-    it('should match the snapshot', () => {
-        expect(vm.$el).toMatchSnapshot()
+    describe('closed modal', () => {
+        it('should not show scheduler', () => {
+            expect(vm.$children[0].$children.length).toBe(0)
+            expect(vm.$children[0].$el).toMatchSnapshot()
+        })
+    })
+
+    describe('open modal', () => {
+        it('should show scheduler', (done) => {
+            vm.showModal = true
+
+            vm.$nextTick(() => {
+                expect(vm.$children[0].$children.length).toBe(1)
+                expect(vm.$children[0].$el).toMatchSnapshot()
+                done()
+            })
+        })
     })
 })
