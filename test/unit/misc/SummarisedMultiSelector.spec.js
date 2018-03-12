@@ -46,7 +46,7 @@ describe('summarised multi selector', () => {
                     })
                 })
 
-                it('should handle mutliple values', () => {
+                it('should handle multiple values', () => {
                     vm.value = [1, 2]
                     vm.$nextTick(() => {
                         expect(vm.selectedItems).toBe('PPC, Paid Social')
@@ -69,7 +69,7 @@ describe('summarised multi selector', () => {
                     })
                 })
 
-                it('should handle mutliple values', () => {
+                it('should handle multiple values', () => {
                     vm.value = '1,2'
                     vm.$nextTick(() => {
                         expect(vm.selectedItems).toBe('PPC, Paid Social')
