@@ -191,6 +191,10 @@ export default {
         alert(...text) {
             alert(...text)
         },
+
+        updateRootObject(updatedObject) {
+            this.schedulerSchema = Object.assign(updatedObject)
+        },
     },
 
     mounted() {
