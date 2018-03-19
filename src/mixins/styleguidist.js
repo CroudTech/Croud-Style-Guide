@@ -144,9 +144,9 @@ export default {
             listExamples: {
                 selected: {},
                 basic: [
-                    { name: 'one' },
-                    { name: 'two' },
-                    { name: 'three' },
+                    { id: 1, name: 'One' },
+                    { id: 2, name: 'Two' },
+                    { id: 3, name: 'Three' },
                 ],
                 scoped: [
                     { name: 'Handpicked Hotels' },
@@ -170,6 +170,12 @@ export default {
                     { id: 4, name: 'Jack Overdue' },
                 ],
             },
+
+            summarisedDropdownOne: [],
+            summarisedDropdownTwo: [1, 2],
+            summarisedDropdownThree: [],
+            summarisedDropdownFour: 'PPC',
+            summarisedChannels: [{ id: 1, name: 'PPC' }, { id: 2, name: 'Paid Social' }, { id: 3, name: 'SEO' }],
 
             schedulerSchema: {
                 id: 1,
