@@ -176,12 +176,30 @@ export default {
             summarisedDropdownThree: [],
             summarisedDropdownFour: 'PPC',
             summarisedChannels: [{ id: 1, name: 'PPC' }, { id: 2, name: 'Paid Social' }, { id: 3, name: 'SEO' }],
+
+            schedulerSchema: {
+                id: 1,
+                name: 'rootObject',
+                'service=scheduler;table=timetables;field=frequency;': {
+                    recur: 'everyFortnight',
+                    at: ['00:00'],
+                    timezone: 'Europe/London',
+                    months: ['march', 'april', 'may'],
+                    days: ['monday', 'tuesday', 'wednesday', 'thursday', 'friday'],
+                },
+                'service=scheduler;table=timetables;field=max_executions;': 10,
+                'service=scheduler;table=timetables;field=starts_at;': '2018-03-09 12:00:00',
+                'service=scheduler;table=timetables;field=ends_at;': '2018-03-10 12:00:00' },
         }
     },
 
     methods: {
         alert(...text) {
             alert(...text)
+        },
+
+        updateRootObject(updatedObject) {
+            this.schedulerSchema = Object.assign(updatedObject)
         },
     },
 
