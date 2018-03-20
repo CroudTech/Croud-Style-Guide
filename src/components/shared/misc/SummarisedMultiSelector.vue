@@ -104,6 +104,7 @@
                     return {
                         useLabels: false,
                         showOnFocus: true,
+                        direction: 'downward',
                         onHide: () => this.$emit('dropdown-hidden'),
                     }
                 },
