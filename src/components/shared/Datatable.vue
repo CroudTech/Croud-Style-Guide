@@ -41,7 +41,7 @@
                         'vuetable:loaded': () => { this.loading = false },
                     },
                 }),
-                createElement('div', { class: ['ui', 'segment', 'grid', 'basic'] }, [
+                this.paginated ? createElement('div', { class: ['ui', 'segment', 'grid', 'basic'] }, [
                     createElement('vuetable-pagination-info', {
                         ref: 'paginationInfo',
                         props: {
@@ -54,7 +54,7 @@
                             'vuetable-pagination:change-page': this.onChangePage,
                         },
                     }),
-                ]),
+                ]) : null,
                 createElement('div', {
                     class: {
                         ui: true,
@@ -129,9 +129,12 @@
 
         methods: {
             onPaginationData(paginationData) {
+                this.paginated = true
                 this.$emit('vuetable:pagination-data', paginationData)
-                this.$refs.pagination.setPaginationData(paginationData)
-                this.$refs.paginationInfo.setPaginationData(paginationData)
+                this.$nextTick(() => {
+                    this.$refs.pagination.setPaginationData(paginationData)
+                    this.$refs.paginationInfo.setPaginationData(paginationData)
+                })
             },
 
             onChangePage(page) {
@@ -146,6 +149,7 @@
         data() {
             return {
                 loading: false,
+                paginated: false,
             }
         },
 
