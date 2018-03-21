@@ -1,5 +1,53 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`Datatable local data no data should match the snapshot 1`] = `
+<div
+  class="ui basic segment"
+>
+  <table
+    class="vuetable ui table"
+  >
+    <thead>
+      <tr>
+        <th
+          id="_id"
+          class="vuetable-th-id"
+        >
+          Id
+        </th>
+      </tr>
+    </thead>
+    <tbody
+      class="vuetable-body"
+    >
+      <tr>
+        <td
+          colspan="1"
+          class="vuetable-empty-result"
+        >
+          <div
+            class="ui center aligned basic segment"
+          >
+            <i
+              class="big circular yellow list icon"
+            />
+            <br />
+            No Results
+          </div>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  <div
+    class="ui inverted dimmer"
+  >
+    <div
+      class="ui text large loader"
+    />
+  </div>
+</div>
+`;
+
 exports[`Datatable local data should match the snapshot 1`] = `
 <div
   class="ui basic segment"

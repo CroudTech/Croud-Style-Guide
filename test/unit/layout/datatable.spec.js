@@ -2,27 +2,24 @@ import Vue from 'vue'
 import axios from 'axios'
 import Datatable from '../../../src/components/shared/Datatable'
 
-const mock = jest.fn(() => {
-    console.log('load api')
-    return Promise.resolve({
-        data: {
-            data: [
-                { id: 3 },
-                { id: 4 },
-            ],
-            meta: {
-                pagination: {
-                    count: 2,
-                    current_page: 1,
-                    links: {},
-                    per_page: 15,
-                    total: 2,
-                    total_pages: 1,
-                },
+const mock = jest.fn(() => Promise.resolve({
+    data: {
+        data: [
+            { id: 3 },
+            { id: 4 },
+        ],
+        meta: {
+            pagination: {
+                count: 2,
+                current_page: 1,
+                links: {},
+                per_page: 15,
+                total: 2,
+                total_pages: 1,
             },
         },
-    })
-})
+    },
+}))
 
 axios.get = mock
 const Constructor = Vue.extend(Datatable)
@@ -55,6 +52,16 @@ describe('Datatable', () => {
 
         it('should match the snapshot', () => {
             expect(local.$el).toMatchSnapshot()
+        })
+
+        describe('no data', () => {
+            it('should match the snapshot', (done) => {
+                local.vuetableConfig.data = []
+                setTimeout(() => {
+                    expect(local.$el).toMatchSnapshot()
+                    done()
+                }, 1000)
+            })
         })
     })
 
