@@ -49,6 +49,8 @@
         },
 
         mounted() {
+            if (!this.isSupported) return
+
             this.clipboard = new Clipboard(this.$refs.button)
 
             this.clipboard.on('success', (e) => {
