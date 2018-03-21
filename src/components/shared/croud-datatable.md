@@ -30,6 +30,19 @@ vuetableConfig: {
         :getSortParam="(sortOrder) => sortOrder.map(sort => (`${sort.sortField}|${sort.direction}`)).join(',')"
     />
 
+### Local Data
+You can use a local dataset if you already have the data in your component, you will need to set the **api-mode** flag to **false** and use the **data** key to point at this local data.
+
+Also, if there is no pagination data emitted from the datatable component, this wrapper will automatically hide the pagination bar.
+
+    <croud-datatable
+        :vuetable-config="{
+            fields: ['name', 'email', { name:'birthdate', title: 'DOB' }],
+            'api-mode': false,
+            data: [{ name: 'Foo', email: 'foo@test.com', birthdate: '1971-12-07 00:00:00' }, { name: 'Bar', email: 'bar@test.com', birthdate: '1970-01-01 00:00:00' }],
+        }"
+    />
+
 ### Change paginator
 By default, this component will show the [croud-paginator](#croud-paginator) at the bottom of the datatable, you can use the **paginator-component** prop to change this. See the [vuetable docs](https://ratiw.github.io/vuetable-2/#/Pagination?id=vuetablepagination) for more info on their built in paginators.
 
