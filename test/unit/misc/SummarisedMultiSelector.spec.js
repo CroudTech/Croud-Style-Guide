@@ -9,6 +9,7 @@ const Constructor = Vue.extend(SummarisedMultiSelector)
 
 const vm = new Constructor({
     propsData: {
+        value: '',
         readOnly: false,
         options: [
             { id: 1, name: 'PPC' },
