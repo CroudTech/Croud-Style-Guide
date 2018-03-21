@@ -66,6 +66,10 @@ describe('Datatable', () => {
     })
 
     describe('remote data', () => {
+        it('should request remote data', () => {
+            expect(mock.mock.calls).not.toBe(0)
+        })
+
         it('should show pagination', () => {
             expect(Object.keys(vm.$refs)).toContain('paginationInfo')
             expect(Object.keys(vm.$refs)).toContain('pagination')
