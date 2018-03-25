@@ -1,0 +1,11 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Date Input should match the snapshot 1`] = `
+<div
+  class="ui input"
+>
+  <input
+    type="date"
+  />
+</div>
+`;
