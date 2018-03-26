@@ -5,7 +5,7 @@
             v-show="!readOnly"
             v-model="model"
             :options="options"
-            :data-tooltip="summary"
+            :data-tooltip="dropdownSummary"
             :placeholder="placeholder"
             :data-inverted="true"
             :auto-update="false"
@@ -40,6 +40,12 @@
     export default {
 
         name: 'croud-summarised-multi-selector',
+
+        data() {
+            return {
+                showSummary: true,
+            }
+        },
 
         props: {
             /**
@@ -104,7 +110,13 @@
                     return {
                         useLabels: false,
                         showOnFocus: true,
-                        onHide: () => this.$emit('dropdown-hidden'),
+                        onShow: () => {
+                            this.showSummary = false
+                        },
+                        onHide: () => {
+                            this.showSummary = true
+                            this.$emit('dropdown-hidden')
+                        },
                     }
                 },
             },
@@ -181,6 +193,10 @@
             summary() {
                 if (this.model.length < 1) return this.defaultSummary
                 return this.selectedItems
+            },
+
+            dropdownSummary() {
+                return this.showSummary ? this.summary : this.showSummary
             },
 
             displayText() {
