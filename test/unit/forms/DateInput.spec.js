@@ -28,6 +28,11 @@ describe('Date Input', () => {
             invalid.mockReset()
             validation.mockReset()
         })
+
+        it('shouldn\'t be in an error state by default', () => {
+            expect(vm.error).toBe(false)
+        })
+
         it('should fire input event when date changes', (done) => {
             vm.date = moment().add(1, 'd')
             vm.$nextTick(() => {
@@ -36,11 +41,22 @@ describe('Date Input', () => {
             })
         })
 
-        it('should fire invalid-date event when date is cleared', (done) => {
-            vm.date = ''
-            vm.$nextTick(() => {
-                expect(invalid).toBeCalled()
-                done()
+        describe('invalid date', () => {
+            it('should fire invalid-date event when date is cleared', (done) => {
+                vm.date = ''
+                vm.$nextTick(() => {
+                    expect(invalid).toBeCalled()
+                    done()
+                })
+            })
+
+            it('should notice an invalid date and add error class', (done) => {
+                vm.date = '2018-04-31'
+                vm.$nextTick(() => {
+                    expect(invalid).toBeCalled()
+                    expect(vm.error).toBe(true)
+                    done()
+                })
             })
         })
 
@@ -51,6 +67,7 @@ describe('Date Input', () => {
                 vm.date = moment()
                 vm.$nextTick(() => {
                     expect(validation).toBeCalled()
+                    expect(vm.error).toBe(true)
                     done()
                 })
             })
@@ -62,6 +79,7 @@ describe('Date Input', () => {
 
                 vm.$nextTick(() => {
                     expect(validation).toBeCalled()
+                    expect(vm.error).toBe(true)
                     done()
                 })
             })
@@ -73,6 +91,7 @@ describe('Date Input', () => {
 
                 vm.$nextTick(() => {
                     expect(validation).not.toBeCalled()
+                    expect(vm.error).toBe(false)
                     done()
                 })
             })
