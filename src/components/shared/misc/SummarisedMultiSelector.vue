@@ -125,7 +125,7 @@
             inline: {
                 type: Boolean,
                 default() {
-                    return true
+                    return false
                 },
             },
 
@@ -135,7 +135,7 @@
             fluid: {
                 type: Boolean,
                 default() {
-                    return true
+                    return false
                 },
             },
         },
