@@ -95,10 +95,31 @@ describe('summarised multi selector', () => {
                     })
                 })
             })
+
+            describe('if dropdown is open', () => {
+                beforeEach(() => {
+                    vm.showSummary = false
+                    vm.value = '1,2'
+                    vm.fields = {
+                        summary: 'id',
+                    }
+                })
+
+                it('should not render the summary field', () => {
+                    vm.$nextTick(() => {
+                        expect(vm.dropdownSummary).toBe(false)
+                    })
+                })
+
+                it('should match the snapshot', () => {
+                    expect(vm.$el).toMatchSnapshot()
+                })
+            })
         })
 
         describe('read only', () => {
             beforeEach(() => {
+                vm.showSummary = true
                 vm.readOnly = true
                 vm.value = '1,2'
                 vm.fields = {}
