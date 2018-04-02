@@ -5,7 +5,7 @@ exports[`summarised multi selector none selected read only should match the snap
   class="dropdown-wrapper"
 >
   <div
-    class="ui dropdown search fluid multiple inline"
+    class="ui selection dropdown search multiple"
     data-tooltip="Select an item"
     data-inverted="true"
     style="display: none;"
@@ -25,7 +25,7 @@ exports[`summarised multi selector none selected read only should match the snap
     <div
       class="default text"
     >
-      
+
     </div>
     <i
       class="dropdown icon"
@@ -61,7 +61,7 @@ exports[`summarised multi selector none selected read only should match the snap
     data-tooltip=""
     data-inverted="true"
   >
-    
+
   </div>
 </div>
 `;
@@ -71,7 +71,7 @@ exports[`summarised multi selector none selected should match the snapshot 1`] =
   class="dropdown-wrapper"
 >
   <div
-    class="ui dropdown search fluid multiple inline"
+    class="ui selection dropdown search multiple"
     data-tooltip="Select an item"
     data-inverted="true"
   >
@@ -90,7 +90,7 @@ exports[`summarised multi selector none selected should match the snapshot 1`] =
     <div
       class="default text"
     >
-      
+
     </div>
     <i
       class="dropdown icon"
@@ -131,7 +131,7 @@ exports[`summarised multi selector some selected build summary from array should
   class="dropdown-wrapper"
 >
   <div
-    class="ui dropdown search fluid multiple inline"
+    class="ui selection dropdown search multiple"
     data-tooltip="PPC, Paid Social"
     data-inverted="true"
     style="display: none;"
@@ -197,7 +197,7 @@ exports[`summarised multi selector some selected build summary from string shoul
   class="dropdown-wrapper"
 >
   <div
-    class="ui dropdown search fluid multiple inline"
+    class="ui selection dropdown search multiple"
     data-tooltip="PPC, Paid Social"
     data-inverted="true"
     style="display: none;"
