@@ -1,0 +1,390 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`summarised multi selector none selected read only should match the snapshot 1`] = `
+<div
+  class="dropdown-wrapper"
+>
+  <div
+    class="ui selection dropdown search multiple"
+    data-tooltip="Select an item"
+    data-inverted="true"
+    style="display: none;"
+  >
+    <input
+      type="hidden"
+      name=""
+    />
+    <input
+      class="search"
+      autocomplete="off"
+      tabindex="0"
+    />
+    <span
+      class="sizer"
+    />
+    <div
+      class="default text"
+    >
+      
+    </div>
+    <i
+      class="dropdown icon"
+    />
+    <div
+      class="menu dropdown_menu"
+      tabindex="-1"
+    >
+      <div
+        data-value="1"
+        data-text="PPC"
+        class="item"
+      >
+        PPC
+      </div>
+      <div
+        data-value="2"
+        data-text="Paid Social"
+        class="item"
+      >
+        Paid Social
+      </div>
+      <div
+        data-value="3"
+        data-text="SEO"
+        class="item"
+      >
+        SEO
+      </div>
+    </div>
+  </div>
+  <div
+    data-tooltip=""
+    data-inverted="true"
+  >
+    
+  </div>
+</div>
+`;
+
+exports[`summarised multi selector none selected should match the snapshot 1`] = `
+<div
+  class="dropdown-wrapper"
+>
+  <div
+    class="ui selection dropdown search multiple"
+    data-tooltip="Select an item"
+    data-inverted="true"
+  >
+    <input
+      type="hidden"
+      name=""
+    />
+    <input
+      class="search"
+      autocomplete="off"
+      tabindex="0"
+    />
+    <span
+      class="sizer"
+    />
+    <div
+      class="default text"
+    >
+      
+    </div>
+    <i
+      class="dropdown icon"
+    />
+    <div
+      class="menu dropdown_menu"
+      tabindex="-1"
+    >
+      <div
+        data-value="1"
+        data-text="PPC"
+        class="item"
+      >
+        PPC
+      </div>
+      <div
+        data-value="2"
+        data-text="Paid Social"
+        class="item"
+      >
+        Paid Social
+      </div>
+      <div
+        data-value="3"
+        data-text="SEO"
+        class="item"
+      >
+        SEO
+      </div>
+    </div>
+  </div>
+  <!--  -->
+</div>
+`;
+
+exports[`summarised multi selector some selected build summary from array should match the snapshot 1`] = `
+<div
+  class="dropdown-wrapper"
+>
+  <div
+    class="ui selection dropdown search multiple"
+    data-tooltip="PPC, Paid Social"
+    data-inverted="true"
+    style="display: none;"
+  >
+    <input
+      type="hidden"
+      name=""
+    />
+    <input
+      class="search"
+      autocomplete="off"
+      tabindex="0"
+    />
+    <span
+      class="sizer"
+    />
+    <div
+      class="text"
+    >
+      2 Selected
+    </div>
+    <i
+      class="dropdown icon"
+    />
+    <div
+      class="menu dropdown_menu"
+      tabindex="-1"
+    >
+      <div
+        data-value="1"
+        data-text="PPC"
+        class="item"
+      >
+        PPC
+      </div>
+      <div
+        data-value="2"
+        data-text="Paid Social"
+        class="item"
+      >
+        Paid Social
+      </div>
+      <div
+        data-value="3"
+        data-text="SEO"
+        class="item"
+      >
+        SEO
+      </div>
+    </div>
+  </div>
+  <div
+    data-tooltip="PPC, Paid Social"
+    data-inverted="true"
+  >
+    2 Selected
+  </div>
+</div>
+`;
+
+exports[`summarised multi selector some selected build summary from string should match the snapshot 1`] = `
+<div
+  class="dropdown-wrapper"
+>
+  <div
+    class="ui selection dropdown search multiple"
+    data-tooltip="PPC, Paid Social"
+    data-inverted="true"
+    style="display: none;"
+  >
+    <input
+      type="hidden"
+      name=""
+    />
+    <input
+      class="search"
+      autocomplete="off"
+      tabindex="0"
+    />
+    <span
+      class="sizer"
+    />
+    <div
+      class="text"
+    >
+      2 Selected
+    </div>
+    <i
+      class="dropdown icon"
+    />
+    <div
+      class="menu dropdown_menu"
+      tabindex="-1"
+    >
+      <div
+        data-value="1"
+        data-text="PPC"
+        class="item"
+      >
+        PPC
+      </div>
+      <div
+        data-value="2"
+        data-text="Paid Social"
+        class="item"
+      >
+        Paid Social
+      </div>
+      <div
+        data-value="3"
+        data-text="SEO"
+        class="item"
+      >
+        SEO
+      </div>
+    </div>
+  </div>
+  <div
+    data-tooltip="PPC, Paid Social"
+    data-inverted="true"
+  >
+    2 Selected
+  </div>
+</div>
+`;
+
+exports[`summarised multi selector some selected build summary if dropdown is open should match the snapshot 1`] = `
+<div
+  class="dropdown-wrapper"
+>
+  <div
+    class="ui selection dropdown search multiple"
+    data-inverted="true"
+    style="display: none;"
+  >
+    <input
+      type="hidden"
+      name=""
+    />
+    <input
+      class="search"
+      autocomplete="off"
+      tabindex="0"
+    />
+    <span
+      class="sizer"
+    />
+    <div
+      class="text"
+    >
+      2 Selected
+    </div>
+    <i
+      class="dropdown icon"
+    />
+    <div
+      class="menu dropdown_menu"
+      tabindex="-1"
+    >
+      <div
+        data-value="1"
+        data-text="PPC"
+        class="item"
+      >
+        PPC
+      </div>
+      <div
+        data-value="2"
+        data-text="Paid Social"
+        class="item"
+      >
+        Paid Social
+      </div>
+      <div
+        data-value="3"
+        data-text="SEO"
+        class="item"
+      >
+        SEO
+      </div>
+    </div>
+  </div>
+  <div
+    data-tooltip="1, 2"
+    data-inverted="true"
+  >
+    2 Selected
+  </div>
+</div>
+`;
+
+exports[`summarised multi selector some selected read only should match the snapshot 1`] = `
+<div
+  class="dropdown-wrapper"
+>
+  <div
+    class="ui selection dropdown search multiple"
+    data-inverted="true"
+    style="display: none;"
+    data-tooltip="PPC, Paid Social"
+  >
+    <input
+      type="hidden"
+      name=""
+    />
+    <input
+      class="search"
+      autocomplete="off"
+      tabindex="0"
+    />
+    <span
+      class="sizer"
+    />
+    <div
+      class="text"
+    >
+      2 Selected
+    </div>
+    <i
+      class="dropdown icon"
+    />
+    <div
+      class="menu dropdown_menu"
+      tabindex="-1"
+    >
+      <div
+        data-value="1"
+        data-text="PPC"
+        class="item"
+      >
+        PPC
+      </div>
+      <div
+        data-value="2"
+        data-text="Paid Social"
+        class="item"
+      >
+        Paid Social
+      </div>
+      <div
+        data-value="3"
+        data-text="SEO"
+        class="item"
+      >
+        SEO
+      </div>
+    </div>
+  </div>
+  <div
+    data-tooltip="PPC, Paid Social"
+    data-inverted="true"
+  >
+    2 Selected
+  </div>
+</div>
+`;

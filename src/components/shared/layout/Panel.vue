@@ -1,6 +1,6 @@
 <template>
     <div class="ui segments">
-        <div class="ui basic segment text menu">
+        <div v-if="title || showCollapseToggle" class="ui basic segment text menu">
             <div class="item">
                 <h2 class="heading ui-sortable-handle">{{ title }}</h2>
             </div>
@@ -96,16 +96,11 @@
         background: $croud-colour-card;
     }
 
-    .ui.basic {
-        /*padding: 0 1em;*/
-    }
 </style>
 
 <style lang="scss">
 
     .ui.segment.filterbox.text.menu {
-        /*margin-left: -1em
-        margin-right: -1em*/
         border-bottom: 1px solid hsla(0,0%,39%,.07);
 
         + .loader-container {

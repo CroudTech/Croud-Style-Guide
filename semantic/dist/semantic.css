@@ -5418,7 +5418,7 @@ h5 {
   -webkit-box-shadow: 0 0 0 1px inset !important;
   box-shadow: 0 0 0 1px inset !important;
   background-color: transparent!important;
-  opacity: 0.8;
+  opacity: 1;
 }
 
 .ui.basic.button.success {
@@ -5435,10 +5435,6 @@ h5 {
 
 .ui.basic.button.warning {
   color: #f3c91d !important;
-}
-
-.ui.basic.button:hover {
-  opacity: 1;
 }
 /*!
  * # Semantic UI 2.2.11 - Container
@@ -38778,30 +38774,30 @@ a.ui.nag {
 
 .ui.indicating.progress[data-percent^="1"] .bar,
 .ui.indicating.progress[data-percent^="2"] .bar {
-  background-color: #D95C5C;
+  background-color: #ea6b65;
 }
 
 .ui.indicating.progress[data-percent^="3"] .bar {
-  background-color: #EFBC72;
+  background-color: #ea6b65;
 }
 
 .ui.indicating.progress[data-percent^="4"] .bar,
 .ui.indicating.progress[data-percent^="5"] .bar {
-  background-color: #E6BB48;
+  background-color: #f4c91b;
 }
 
 .ui.indicating.progress[data-percent^="6"] .bar {
-  background-color: #DDC928;
+  background-color: #f4c91b;
 }
 
 .ui.indicating.progress[data-percent^="7"] .bar,
-.ui.indicating.progress[data-percent^="8"] .bar {
-  background-color: #B4D95C;
+.ui.indicating.progress[data-percent^="8"] .bar,
+.ui.indicating.progress[data-percent^="9"] .bar {
+  background-color: #f4c91b;
 }
 
-.ui.indicating.progress[data-percent^="9"] .bar,
 .ui.indicating.progress[data-percent^="100"] .bar {
-  background-color: #66DA81;
+  background-color: #6dd1be;
 }
 
 /* Indicating Label */
@@ -38845,7 +38841,7 @@ a.ui.nag {
 .ui.indicating.progress[data-percent="7"] .bar,
 .ui.indicating.progress[data-percent="8"] .bar,
 .ui.indicating.progress[data-percent="9"] .bar {
-  background-color: #D95C5C;
+  background-color: #ea6b65;
 }
 
 .ui.indicating.progress[data-percent="1"] .label,

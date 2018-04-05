@@ -1,27 +1,5 @@
 ### Installation
-This component should be set up in your App.vue...
-
-```html static
-// App.vue
-<template>
-    ...
-    <croud-confirm ref="confirmation"/>
-    ...
-</template>
-
-<script>
-    import CroudConfirm from 'croud-style-guide/src/components/shared/misc/Confirm'
-    export default {
-        components {
-            CroudConfirm,
-        },
-        mounted() {
-            Vue.confirm = this.$refs.confirmation.confirm
-            Vue.prototype.$confirm = this.$refs.confirmation.confirm
-        },
-    }
-</script>
-```
+This component is now loaded in croud-layout as of v1.11.1
 
 ### Promise
 Then you will be able to use this promise method from any component in your project.

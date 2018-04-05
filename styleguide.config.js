@@ -73,6 +73,10 @@ module.exports = {
             ],
         },
         {
+            name: 'Scheduler',
+            components: 'src/components/shared/scheduler/**/*.vue',
+        },
+        {
             name: 'Misc',
             components: 'src/components/shared/misc/**/*.vue',
             sections: [

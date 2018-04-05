@@ -1,0 +1,8 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Scheduler Text existing schedule should match the snapshot 1`] = `
+"Ran at 00:00 on Monday 
+        on Every alternating week during March, April & May but ended on Mar 8, 2018"
+`;
+
+exports[`Scheduler Text no schedule data should match the snapshot 1`] = `"Runs at 00:00 every day   "`;

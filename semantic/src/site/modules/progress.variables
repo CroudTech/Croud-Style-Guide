@@ -65,12 +65,12 @@
         Types
 --------------------*/
 
-@indicatingFirstColor: #D95C5C;
-@indicatingSecondColor: #EFBC72;
-@indicatingThirdColor: #E6BB48;
-@indicatingFourthColor: #DDC928;
-@indicatingFifthColor: #B4D95C;
-@indicatingSixthColor: #66DA81;
+@indicatingFirstColor: @croud-colour-red;
+@indicatingSecondColor: @croud-colour-red;
+@indicatingThirdColor: @croud-colour-yellow;
+@indicatingFourthColor: @croud-colour-yellow;
+@indicatingFifthColor: @croud-colour-yellow;
+@indicatingSixthColor: @croud-colour-green;
 
 @indicatingFirstLabelColor: @textColor;
 @indicatingSecondLabelColor: @textColor;
