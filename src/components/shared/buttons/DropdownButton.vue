@@ -1,6 +1,6 @@
 
 <template>
-    <div class="ui floating dropdown icon button" ref="dropdown" :class="{disabled: loading}">
+    <div class="ui floating dropdown icon button" ref="dropdown" :class="{disabled: loading || disabled}">
         <i class="dropdown icon" ></i>
         <div class="menu">
             <div v-for="item in menu" class="item" @click="item.action" :key="item.title">{{ item.title }}</div>
@@ -30,6 +30,14 @@
             * Loading flag to disable element
             */
             loading: {
+                type: Boolean,
+                default: false,
+            },
+
+            /*
+            * Disabled flag to disable element
+            */
+            disabled: {
                 type: Boolean,
                 default: false,
             },
