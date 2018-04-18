@@ -7,3 +7,8 @@ Use **menu** prop to populate the dropdown options
 Use **loading** prop to set loading state, when loading the save button and the dropdown atoms are disabled
 
     <croud-save-button-with-dropdown :loading="true" :menu="[{title: 'Foo', action: () => $toasted.show('Foo')}, {title: 'Bar', action: () => $toasted.show('Bar')}]" @click="$toasted.success('saved')"/>
+
+### Disabled
+Use **disabled** prop to set disabled state
+
+    <croud-save-button-with-dropdown :disabled="true" :menu="[{title: 'Foo', action: () => $toasted.show('Foo')}, {title: 'Bar', action: () => $toasted.show('Bar')}]" @click="$toasted.success('saved')"/>
