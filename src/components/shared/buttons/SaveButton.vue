@@ -19,15 +19,10 @@
                     loading: context.props.loading,
                 },
                 attrs: {
-                    disabled: context.props.loading,
+                    disabled: context.props.loading || context.props.disabled,
                 },
                 on: context.listeners,
             }, 'Save')
         },
     }
 </script>
-
-<style scoped>
-
-</style>
-

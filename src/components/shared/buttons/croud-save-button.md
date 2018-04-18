@@ -9,3 +9,7 @@ When this component is in a loading state, it is disabled and so the click liste
 
     <croud-save-button :loading="true" @click="$toasted.success('saved')"/>
 
+### Disabled state
+You can also use the disabled prop to disable the button
+
+    <croud-save-button :disabled="true" @click="$toasted.success('saved')"/>
