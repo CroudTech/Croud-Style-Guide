@@ -50,8 +50,3 @@
         },
     }
 </script>
-
-<style scoped>
-
-</style>
-
