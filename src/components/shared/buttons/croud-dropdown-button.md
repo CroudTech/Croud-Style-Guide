@@ -7,3 +7,9 @@ Use **menu** prop to populate the dropdown options
 Use **loading** prop to set loading state, when loading the dropdown is disabled
 
     <croud-dropdown-button :loading="true"/>
+
+
+### Disabled
+Use **disabled** prop to disable dropdown
+
+    <croud-dropdown-button :disabled="true"/>
