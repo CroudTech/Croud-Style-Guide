@@ -177,7 +177,8 @@
             vuetableConfig: {
                 deep: true,
                 handler: debounce(function () {
-                    if (this.$refs.vuetable && this.$refs.vuetable.$el) this.$refs.vuetable.refresh()
+                    if (!this.$refs.vuetable || (this.$refs.vuetable && !this.$refs.vuetable.$el)) return
+                    this.$refs.vuetable.refresh()
                 }, 500),
             },
         },
