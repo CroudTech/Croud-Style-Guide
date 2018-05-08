@@ -1,0 +1,39 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`collapsed is false should match the snapshot 1`] = `
+<div
+  class="collapsable-header"
+>
+  <div
+    class="title"
+  >
+    Test Header
+  </div>
+  <div
+    class="caret"
+  >
+    <i
+      class="large angle right icon"
+    />
+  </div>
+</div>
+`;
+
+exports[`toggle-header should match the snapshot 1`] = `
+<div
+  class="collapsable-header"
+>
+  <div
+    class="title"
+  >
+    Test Header
+  </div>
+  <div
+    class="caret"
+  >
+    <i
+      class="large angle down icon"
+    />
+  </div>
+</div>
+`;
