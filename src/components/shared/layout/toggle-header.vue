@@ -10,7 +10,7 @@
 
 <script>
     /**
-    * A collapsable header component
+    * A basic toggle header showing a collapsed or expanded state
     *
     * @example ./croud-toggle-header.md
     */
