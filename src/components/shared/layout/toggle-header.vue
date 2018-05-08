@@ -1,8 +1,8 @@
 <template>
-    <div :class="['category-header', { pointer: showCollapseToggle }]" @click="toggle">
+    <div class="collapsable-header" @click="_collapsed = !_collapsed">
         <div class="title">{{ title }}</div>
-        <div v-if="showCollapseToggle" class="carret">
-            <i v-if="collapse" class="large angle right icon"></i>
+        <div class="caret">
+            <i v-if="_collapsed" class="large angle right icon"></i>
             <i v-else class="large angle down icon"></i>
         </div>
     </div>
@@ -27,24 +27,22 @@
             },
 
             /**
-             * Allow/show collapse/open toggle
+             * Collapsed prop - emits update:collapsed event compatible with prop.sync
              */
-            showCollapseToggle: {
+            collapsed: {
                 type: Boolean,
-                default: true,
+                default: false,
             },
         },
 
-        data() {
-            return {
-                collapse: true,
-            }
-        },
-
-        methods: {
-            toggle() {
-                if (!this.showCollapseToggle) return
-                this.collapse = !this.collapse
+        computed: {
+            _collapsed: {
+                get() {
+                    return this.collapsed
+                },
+                set(val) {
+                    this.$emit('update:collapsed', val)
+                },
             },
         },
     }
@@ -56,7 +54,7 @@
     $border-size: 1px;
     $border-colour: $croud-colour-grey-lighter;
 
-    .category-header {
+    .collapsable-header {
         display: flex;
         align-items: center;
         height: 35px;
@@ -70,19 +68,17 @@
         font-weight: 800;
         text-transform: capitalize;
 
+        cursor: pointer;
+
         .title {
             width: 90%;
             text-align: left;
         }
 
-        .carret {
+        .caret {
             color: $croud-colour-grey-dark;
             width: 10%;
             text-align: right;
         }
-    }
-
-    .pointer {
-        cursor: pointer;
     }
 </style>
