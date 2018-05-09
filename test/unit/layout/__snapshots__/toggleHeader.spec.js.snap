@@ -13,7 +13,7 @@ exports[`collapsed is false should match the snapshot 1`] = `
     class="caret"
   >
     <i
-      class="chevron down icon"
+      class="chevron icon down"
     />
   </div>
 </div>
