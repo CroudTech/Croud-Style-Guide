@@ -21,6 +21,7 @@
                     [context.props.direction || 'right']: true,
                     ...context.data.class || {},
                 },
+                on: context.listeners,
             })
         },
     }
