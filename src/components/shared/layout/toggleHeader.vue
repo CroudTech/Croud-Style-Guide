@@ -2,13 +2,14 @@
     <div class="collapsable-header" @click="_collapsed = !_collapsed">
         <div class="title">{{ title }}</div>
         <div class="caret">
-            <i v-if="_collapsed" class="chevron down icon"></i>
-            <i v-else class="chevron right icon"></i>
+            <croud-dropdown-indicator-button :collapsed="_collapsed"/>
         </div>
     </div>
 </template>
 
 <script>
+    import CroudDropdownIndicatorButton from '../buttons/DropdownIndicatorButton'
+
     /**
     * A basic toggle header showing a collapsed or expanded state
     *
@@ -16,6 +17,10 @@
     */
     export default {
         name: 'croud-toggle-header',
+
+        components: {
+            CroudDropdownIndicatorButton,
+        },
 
         props: {
             /**

@@ -32,7 +32,7 @@ exports[`toggle-header should match the snapshot 1`] = `
     class="caret"
   >
     <i
-      class="chevron right icon"
+      class="chevron icon right"
     />
   </div>
 </div>
