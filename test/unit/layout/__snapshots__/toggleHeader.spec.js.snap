@@ -13,7 +13,7 @@ exports[`collapsed is false should match the snapshot 1`] = `
     class="caret"
   >
     <i
-      class="large angle right icon"
+      class="chevron down icon"
     />
   </div>
 </div>
@@ -32,7 +32,7 @@ exports[`toggle-header should match the snapshot 1`] = `
     class="caret"
   >
     <i
-      class="large angle down icon"
+      class="chevron right icon"
     />
   </div>
 </div>

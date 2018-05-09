@@ -1,6 +1,6 @@
 
 import Vue from 'vue'
-import toggleHeader from '../../../src/components/shared/layout/toggle-header'
+import toggleHeader from '../../../src/components/shared/layout/toggleHeader'
 
 const Constructor = Vue.extend(toggleHeader)
 
@@ -17,7 +17,7 @@ describe('toggle-header', () => {
     })
 
     it('should show the collapse button', () => {
-        expect(vm.$el.querySelectorAll('.large.angle.down.icon').length).toBe(1)
+        expect(vm.$el.querySelectorAll('.chevron.right.icon').length).toBe(1)
     })
 })
 
@@ -31,6 +31,6 @@ describe('collapsed is false', () => {
     })
 
     it('should show the expand button', () => {
-        expect(vm.$el.querySelectorAll('.large.angle.right.icon').length).toBe(1)
+        expect(vm.$el.querySelectorAll('.chevron.down.icon').length).toBe(1)
     })
 })
