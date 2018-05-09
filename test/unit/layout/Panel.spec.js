@@ -19,7 +19,7 @@ describe('Panel', () => {
     })
 
     it('should show the show / collapse button', () => {
-        expect(vm.$el.querySelectorAll('.circular.angle.icon').length).toBe(1)
+        expect(vm.$el.querySelectorAll('.chevron.icon').length).toBe(1)
     })
 
     it('should show the text segment', () => {
@@ -33,7 +33,7 @@ describe('showCollapseToggle is false', () => {
     })
 
     it('shouldnt show the show / collapse button', () => {
-        expect(vm.$el.querySelectorAll('.circular.angle.icon').length).toBe(0)
+        expect(vm.$el.querySelectorAll('.chevron.icon').length).toBe(0)
     })
 })
 

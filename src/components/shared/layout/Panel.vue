@@ -6,7 +6,7 @@
             </div>
             <div class="right item">
                 <slot name="extra"></slot>
-                <i v-if="showCollapseToggle" class="circular angle icon" :class="{down: !collapse, left: collapse }" @click="collapse = !collapse"></i>
+                <croud-dropdown-indicator-button v-if="showCollapseToggle" :collapsed="collapse" @click="collapse = !collapse"/>
             </div>
         </div>
         <div class="ui basic">
@@ -20,6 +20,8 @@
 </template>
 
 <script>
+    import CroudDropdownIndicatorButton from '../buttons/DropdownIndicatorButton'
+
     /**
      * Generic Croud card component
      *
@@ -27,6 +29,10 @@
      */
     export default {
         name: 'croud-panel',
+
+        components: {
+            CroudDropdownIndicatorButton,
+        },
 
         props: {
             /**

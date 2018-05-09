@@ -7,7 +7,7 @@ const Constructor = Vue.extend(toggleHeader)
 const vm = new Constructor({
     propsData: {
         title: 'Test Header',
-        collapsed: false,
+        collapsed: true,
     },
 }).$mount()
 
@@ -23,7 +23,7 @@ describe('toggle-header', () => {
 
 describe('collapsed is false', () => {
     beforeEach(() => {
-        vm.collapsed = true
+        vm.collapsed = false
     })
 
     it('should match the snapshot', () => {

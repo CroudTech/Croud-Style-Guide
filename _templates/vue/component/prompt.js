@@ -8,7 +8,7 @@ module.exports = [
     {
         type: 'input',
         name: 'name',
-        message: 'What is the name of your vue component?',
+        message: 'What is the name of your vue component? (PascalCase)',
     },
     {
         type: 'list',
@@ -18,6 +18,7 @@ module.exports = [
             'buttons',
             'forms',
             'hoc',
+            'icons',
             'layout',
             'menus',
             'misc',
