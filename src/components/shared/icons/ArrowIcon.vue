@@ -14,7 +14,6 @@
         name: 'croud-arrow-icon',
 
         render(h, context) {
-            console.log(context)
             return h('i', {
                 class: {
                     chevron: true,
