@@ -2,8 +2,8 @@
     <div class="collapsable-header" @click="_collapsed = !_collapsed">
         <div class="title">{{ title }}</div>
         <div class="caret">
-            <i v-if="_collapsed" class="large angle right icon"></i>
-            <i v-else class="large angle down icon"></i>
+            <i v-if="_collapsed" class="chevron down icon"></i>
+            <i v-else class="chevron right icon"></i>
         </div>
     </div>
 </template>
@@ -64,7 +64,7 @@
 
         font-family: $croud-font-body;
         color: $croud-colour-black;
-        font-size: $croud-font-size-large;
+        font-size: $croud-font-size-medium;
         font-weight: 800;
         text-transform: capitalize;
 
