@@ -19,8 +19,8 @@ to: src/components/shared/<%= dir %>/<%= name %>.vue
         name: '<%= componentName %>',
 
         render(h) {
-            return h('div', "<%= name %>")
-        }
+            return h('div', '<%= name %>')
+        },
     }
 </script>
 
