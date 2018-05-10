@@ -60,15 +60,13 @@
     $border-colour: $croud-colour-grey-lighter;
 
     .collapsable-header {
+        height: 35px;
         display: flex;
         align-items: center;
-        height: 35px;
-        width: 100%;
+
         border: solid $border-size $border-colour;
         padding: 0 10px;
 
-        font-family: $croud-font-body;
-        color: $croud-colour-black;
         font-size: $croud-font-size-medium;
         font-weight: 800;
         text-transform: capitalize;
@@ -76,14 +74,12 @@
         cursor: pointer;
 
         .title {
-            width: 90%;
-            text-align: left;
+            flex-grow: 1;
         }
 
         .caret {
             color: $croud-colour-grey-dark;
-            width: 10%;
-            text-align: right;
+            flex-grow: 0;
         }
     }
 </style>
