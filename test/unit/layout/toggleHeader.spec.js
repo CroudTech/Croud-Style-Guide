@@ -1,6 +1,6 @@
 
 import Vue from 'vue'
-import toggleHeader from '../../../src/components/shared/layout/toggleHeader'
+import toggleHeader from '../../../src/components/shared/layout/ToggleHeader'
 
 const Constructor = Vue.extend(toggleHeader)
 
