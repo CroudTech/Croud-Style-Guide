@@ -56,15 +56,10 @@
 <style lang="scss" scoped>
     @import '../../../resources/sass/variables/_all.scss';
 
-    $border-size: 1px;
-    $border-colour: $croud-colour-grey-lighter;
-
     .collapsable-header {
         height: 35px;
         display: flex;
         align-items: center;
-
-        border: solid $border-size $border-colour;
         padding: 0 10px;
 
         font-size: $croud-font-size-medium;
