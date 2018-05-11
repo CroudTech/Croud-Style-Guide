@@ -4,6 +4,7 @@ import Status from '../../../src/components/shared/misc/Status'
 const Constructor = Vue.extend(Status)
 
 const context = {
+    status: 'test',
     contextual_status: {
         status: 'in progress',
         colour: 'yellow',
