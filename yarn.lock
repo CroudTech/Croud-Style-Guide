@@ -3254,9 +3254,9 @@ cross-spawn@^3.0.0:
     lru-cache "^4.0.1"
     which "^1.2.9"
 
-"croud-date-parser@git+https://github.com/CroudSupport/croud-date-parser.git":
+"croud-date-parser@git+https://github.com/CroudTech/croud-date-parser.git":
   version "0.0.4"
-  resolved "git+https://github.com/CroudSupport/croud-date-parser.git#6bae710602c6c4b088644055126b9af2a8e6c4c4"
+  resolved "git+https://github.com/CroudTech/croud-date-parser.git#6bae710602c6c4b088644055126b9af2a8e6c4c4"
   dependencies:
     chrono-node "^1.1.6"
 
