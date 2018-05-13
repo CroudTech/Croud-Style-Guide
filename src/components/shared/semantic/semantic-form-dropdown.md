@@ -1,5 +1,5 @@
 ### semantic-form-dropdown
-For our form dropdowns, we use the semantic-form-dropdown component from the [croud-vue-semantic](https://github.com/CroudSupport/vue-semantic) library. Below are a few examples of semantic-form-dropdown in action. Click [here](http://croudsupport.github.io/vue-semantic/#semantic-form-dropdown) for full component docs.
+For our form dropdowns, we use the semantic-form-dropdown component from the [croud-vue-semantic](https://github.com/croudtech/vue-semantic) library. Below are a few examples of semantic-form-dropdown in action. Click [here](http://croudtech.github.io/vue-semantic/#semantic-form-dropdown) for full component docs.
 
 ### Basic usage
 

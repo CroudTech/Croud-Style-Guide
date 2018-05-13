@@ -1,5 +1,5 @@
 ### semantic-checkbox
-For our checkboxes, we use the semantic-checkbox component from the [croud-vue-semantic](https://github.com/CroudSupport/vue-semantic) library. Below are a few examples of semantic-checkbox in action. Click [here](http://croudsupport.github.io/vue-semantic/#semantic-checkbox) for full component docs.
+For our checkboxes, we use the semantic-checkbox component from the [croud-vue-semantic](https://github.com/croudtech/vue-semantic) library. Below are a few examples of semantic-checkbox in action. Click [here](http://croudtech.github.io/vue-semantic/#semantic-checkbox) for full component docs.
 
 ### Basic usage
 

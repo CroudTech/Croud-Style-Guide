@@ -1,5 +1,5 @@
 ## vue-full-calendar
-We use [vue-full-calendar](https://github.com/CroudSupport/vue-fullcalendar) for our calendar component. View this [repo](https://github.com/BrockReece/vue-fullcalendar-example) for a full webpack project using the vue-full-calendar.
+We use [vue-full-calendar](https://github.com/croudtech/vue-fullcalendar) for our calendar component. View this [repo](https://github.com/BrockReece/vue-fullcalendar-example) for a full webpack project using the vue-full-calendar.
 
 **Installation**
 
@@ -12,7 +12,7 @@ Vue.use(VueFullCalendar)
 
 **Events**
 
-See the [docs](https://github.com/CroudSupport/vue-fullcalendar#using-a-json-feed) for formatting an event array or loading from an API
+See the [docs](https://github.com/croudtech/vue-fullcalendar#using-a-json-feed) for formatting an event array or loading from an API
 
 ### Basic usage
 

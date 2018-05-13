@@ -1,5 +1,5 @@
 ### semantic-radiobutton
-For our radio selectors, we use the semantic-radiobutton component from the [croud-vue-semantic](https://github.com/CroudSupport/vue-semantic) library. Below are a few examples of semantic-radiobutton in action. Click [here](http://croudsupport.github.io/vue-semantic/#semantic-radiobutton) for full component docs.
+For our radio selectors, we use the semantic-radiobutton component from the [croud-vue-semantic](https://github.com/croudtech/vue-semantic) library. Below are a few examples of semantic-radiobutton in action. Click [here](http://croudtech.github.io/vue-semantic/#semantic-radiobutton) for full component docs.
 
 ### Basic Usage
 You can pass a form label in as the **default** slot

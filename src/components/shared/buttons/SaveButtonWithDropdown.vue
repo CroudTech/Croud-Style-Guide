@@ -8,8 +8,8 @@
     *
     * *This is a functional component which has no state so does not need to define any props*
     * @see https://vuejs.org/v2/guide/render-function.html#Functional-Components
-    * @see https://croudsupport.github.io/Croud-Style-Guide/technical/#!/croud-save-button
-    * @see https://croudsupport.github.io/Croud-Style-Guide/technical/#!/croud-dropdown-button
+    * @see https://croudtech.github.io/Croud-Style-Guide/technical/#!/croud-save-button
+    * @see https://croudtech.github.io/Croud-Style-Guide/technical/#!/croud-dropdown-button
     *
     * @example ./croud-save-button-with-dropdown.md
     */
