@@ -17,6 +17,7 @@
                     blue: true,
                     button: true,
                     loading: context.props.loading,
+                    ...context.data.class || {},
                 },
                 attrs: {
                     disabled: context.props.loading || context.props.disabled,
