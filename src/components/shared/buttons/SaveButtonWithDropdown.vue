@@ -21,7 +21,12 @@
         render(createElement, context) {
             return createElement('div',
                 {
-                    class: 'ui blue buttons',
+                    class: {
+                        ui: true,
+                        blue: true,
+                        buttons: true,
+                        ...context.data.class || {},
+                    },
                 },
                 [
                     createElement(Save, {
@@ -32,7 +37,7 @@
                         props: context.props,
                     }),
                 ],
-        )
+            )
         },
     }
 </script>
