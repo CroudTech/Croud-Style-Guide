@@ -267,16 +267,13 @@
         },
 
         mounted() {
+            this.activate()
             this.$nextTick(() => {
                 this.$emit('update:title', this.title)
                 if (this.dateRangeOnly || !moment(this.localStart).endOf('day').isSame(this.localEnd)) {
                     this.isRange = true
                 }
             })
-        },
-
-        activated() {
-            this.activate()
         },
 
         watch: {
