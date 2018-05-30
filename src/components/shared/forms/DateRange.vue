@@ -98,6 +98,7 @@
 
         data() {
             return {
+                activated: false,
                 localStart: moment(this.start),
                 localEnd: moment(this.end),
                 picker: null,
@@ -242,6 +243,9 @@
             },
 
             activate() {
+                if (this.activated) return
+                this.activated = true
+
                 $(this.$refs.input)
                 .popup({
                     inline: true,
@@ -274,6 +278,10 @@
                     this.isRange = true
                 }
             })
+        },
+
+        activated() {
+            this.activate()
         },
 
         watch: {
