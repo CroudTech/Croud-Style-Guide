@@ -1,44 +1,49 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Filerbar should match the snapshot 1`] = `
-<div
-  class="ui secondary basic segment"
->
+<div>
   <div
-    class="ui text menu"
+    class="ui secondary basic segment"
   >
     <div
-      class="left item"
+      class="ui text menu"
     >
       <div
-        class="ui compact basic segment"
+        class="left item"
       >
-        <strong>
-          Search
-        </strong>
         <div
-          class="ui text menu"
+          class="ui compact basic segment"
         >
+          <strong>
+            Search
+          </strong>
           <div
-            class="item"
+            class="ui text menu"
           >
             <div
-              class="ui icon input"
+              class="item"
             >
-              <i
-                class="search icon"
-              />
-              <input
-                placeholder=""
-              />
+              <div
+                class="ui icon input"
+              >
+                <i
+                  class="search icon"
+                />
+                <input
+                  placeholder=""
+                />
+              </div>
             </div>
           </div>
         </div>
       </div>
+      <div
+        class="right item"
+      >
+        <!--  -->
+      </div>
     </div>
-    <div
-      class="right item"
-    />
   </div>
+  <!--  -->
 </div>
 `;
