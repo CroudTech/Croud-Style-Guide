@@ -17,7 +17,7 @@
                         <button class="ui button" @click="step('today')">Today</button>
                     </div>
                     &nbsp;
-                    <div class="ui tiny buttons">
+                    <div class="ui tiny view buttons">
                         <button class="ui button" v-for="view in views" :key="view.view" :class="{blue: currentView === view.view}" @click="changeView(view.view)">{{ view.title }}</button>
                     </div>
                 </div>

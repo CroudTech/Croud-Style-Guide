@@ -1,0 +1,150 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`FullCalendar should match the snapshot 1`] = `
+<div>
+  <div
+    class="ui basic secondary segment"
+  >
+    <div
+      class="ui three column middle aligned grid"
+    >
+      <div
+        class="seven wide left column"
+      >
+        <div
+          class="ui tiny icon buttons"
+        >
+          <button
+            class="ui button"
+          >
+            <i
+              class="left chevron icon"
+            />
+          </button>
+          <button
+            class="ui button"
+          >
+            <i
+              class="right chevron icon"
+            />
+          </button>
+        </div>
+        <div
+          class="ui tiny buttons"
+        >
+          <button
+            class="ui button"
+          >
+            Today
+          </button>
+        </div>
+        <div
+          class="ui tiny view buttons"
+        >
+          <button
+            class="ui button"
+          >
+            Month
+          </button>
+          <button
+            class="ui button"
+          >
+            Week
+          </button>
+          <button
+            class="ui button"
+          >
+            Day
+          </button>
+        </div>
+      </div>
+      <div
+        class="two wide center aligned column"
+      >
+        <h2
+          class="ui grey header"
+        >
+          
+        </h2>
+      </div>
+      <div
+        class="seven wide right aligned column"
+      >
+        <div
+          class="ui text menu"
+        >
+          <div
+            class="right item"
+          >
+            <div
+              class="ui text menu"
+            >
+              <div
+                class="item"
+              >
+                
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div
+    class="calendar-wrapper"
+  >
+    <full-calendar
+      config="[object Object]"
+      class="calendar"
+    />
+    <div
+      class="ui inverted dimmer croud-loader"
+    >
+      <div
+        class="ui text loader large"
+      >
+        Loading
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`FullCalendar views changes views based on props 1`] = `
+<div
+  class="ui tiny view buttons"
+>
+  <button
+    class="ui button"
+  >
+    Agenda
+  </button>
+  <button
+    class="ui button"
+  >
+    Basic
+  </button>
+</div>
+`;
+
+exports[`FullCalendar views show default views 1`] = `
+<div
+  class="ui tiny view buttons"
+>
+  <button
+    class="ui button"
+  >
+    Month
+  </button>
+  <button
+    class="ui button"
+  >
+    Week
+  </button>
+  <button
+    class="ui button"
+  >
+    Day
+  </button>
+</div>
+`;
