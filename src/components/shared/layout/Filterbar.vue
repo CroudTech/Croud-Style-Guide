@@ -22,7 +22,7 @@
                         <div class="ui center aligned compact basic segment">
                             <div class="ui text menu">
                                 <div class="item form">
-                                    <croud-morph-button :active="1" :options="[{name: 'Hide', method: toggleCollapse}, {name: 'Advanced', method: toggleCollapse}]" />
+                                    <croud-morph-button :active="1" :options="[{name: 'Advanced', method: toggleCollapse}, {name: 'Hide', method: toggleCollapse}]" />
                                 </div>
                             </div>
                         </div>
