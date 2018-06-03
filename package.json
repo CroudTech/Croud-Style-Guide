@@ -38,7 +38,7 @@
       "vue"
     ],
     "transformIgnorePatterns": [
-      "node_modules/(?!croud-vue-semantic|vue-quill)"
+      "node_modules/(?!croud-vue-semantic|vue-quill|vue-full-calendar)"
     ],
     "transform": {
       "^.+\\.js$": "<rootDir>/node_modules/babel-jest",
