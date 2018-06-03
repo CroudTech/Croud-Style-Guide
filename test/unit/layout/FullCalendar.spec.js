@@ -35,6 +35,16 @@ describe('FullCalendar', () => {
         })
     })
 
+    describe('config', () => {
+        it('sets default config', () => {
+            expect(vm.$refs.calendar.fireMethod('option', 'header')).toBe(false)
+        })
+
+        it('merges config from prop', () => {
+            expect(vm.$refs.calendar.fireMethod('option', 'defaultView')).toBe('basicWeek')
+        })
+    })
+
     describe('views', () => {
         it('show default views', () => {
             expect(vm.$el.querySelector('.ui.view.buttons')).toMatchSnapshot()
