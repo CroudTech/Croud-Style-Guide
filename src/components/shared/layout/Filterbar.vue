@@ -40,7 +40,6 @@
 </template>
 
 <script>
-    import CroudDropdownIndicatorButton from '../buttons/DropdownIndicatorButton'
     import CroudMorphButton from '../buttons/MorphButton'
     /**
      * Filter bar to be used above datagrids and other searchable/filterable data sets
@@ -51,7 +50,6 @@
         name: 'croud-filterbar',
 
         components: {
-            CroudDropdownIndicatorButton,
             CroudMorphButton,
         },
 
