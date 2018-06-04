@@ -32,7 +32,7 @@
         </div>
 
         <transition name="slide-down">
-            <div v-if="collapse" class="ui secondary basic segment">
+            <div v-if="!collapse" class="ui secondary basic segment">
                 <slot name="advanced-filters"></slot>
             </div>
         </transition>
@@ -55,7 +55,7 @@
 
         data() {
             return {
-                collapse: false,
+                collapse: true,
             }
         },
 
