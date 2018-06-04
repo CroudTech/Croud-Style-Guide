@@ -26,15 +26,6 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="ui center aligned compact basic segment">
-                            <div class="ui text menu">
-                                <div class="item form">
-                                    <button class="ui icon button" @click="toggleCollapse">
-                                        <croud-dropdown-indicator-button :collapsed="collapse"/>
-                                    </button>
-                                </div>
-                            </div>
-                        </div>
                     </div>
                 </div>
             </div>
