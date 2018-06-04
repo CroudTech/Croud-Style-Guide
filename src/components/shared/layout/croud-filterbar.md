@@ -13,7 +13,7 @@ Pass additional inputs and options through the filterbar's slot
     </croud-filterbar>
 
 ### Advanced Filters
-Add additional advanced filters on a second row using the "advanced-filters" slot, if this slot is used a advanced toggle button will show
+Add additional advanced filters on a second row using the "advanced-filters" slot, if this slot is used an advanced toggle button will show
 on the right hand side like below
 
     <croud-filterbar class="filter-bar" :search.sync="searchText" placeholder="Clients, Summary, Description">
