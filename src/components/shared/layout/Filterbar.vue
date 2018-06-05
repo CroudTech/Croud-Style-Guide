@@ -1,27 +1,46 @@
 <template>
-    <div class="ui secondary basic segment">
-        <div class="ui text menu">
-            <div class="left item">
-                <div class="ui compact basic segment">
-                    <strong>Search</strong>
-                    <div class="ui text menu">
-                        <div class="item">
-                            <div class="ui icon input">
-                                <i class="search icon"></i>
-                                <input :placeholder="placeholder" v-model="_search"/>
+    <div>
+        <div class="ui secondary basic segment">
+            <div class="ui text menu">
+                <div class="left item">
+                    <div class="ui compact basic segment">
+                        <strong>Search</strong>
+                        <div class="ui text menu">
+                            <div class="item">
+                                <div class="ui icon input">
+                                    <i class="search icon"></i>
+                                    <input :placeholder="placeholder" v-model="_search"/>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="right item">
+                    <slot></slot>
+
+                    <div v-if="$slots['advanced-filters']" class="item">
+                        <div class="ui center aligned compact basic segment">
+                            <div class="ui text menu">
+                                <div class="item form">
+                                    <croud-morph-button :active="1" :options="[{name: 'Advanced', method: toggleCollapse}, {name: 'Hide', method: toggleCollapse}]" />
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-            <div class="right item">
-                <slot></slot>
-            </div>
         </div>
+
+        <transition name="slide-down">
+            <div v-if="!collapse" class="ui secondary basic segment">
+                <slot name="advanced-filters"></slot>
+            </div>
+        </transition>
     </div>
 </template>
 
 <script>
+    import CroudMorphButton from '../buttons/MorphButton'
     /**
      * Filter bar to be used above datagrids and other searchable/filterable data sets
      *
@@ -29,6 +48,16 @@
      */
     export default {
         name: 'croud-filterbar',
+
+        components: {
+            CroudMorphButton,
+        },
+
+        data() {
+            return {
+                collapse: true,
+            }
+        },
 
         props: {
            /**
@@ -56,6 +85,12 @@
                 set(val) {
                     this.$emit('update:search', val)
                 },
+            },
+        },
+
+        methods: {
+            toggleCollapse() {
+                this.collapse = !this.collapse
             },
         },
     }
@@ -94,5 +129,16 @@
                 }
             }
         }
+    }
+
+    .slide-down-enter-active, .slide-down-leave-active {
+        max-height: 1000px;
+        transition: all .3s ease;
+    }
+
+    .slide-down-enter, .slide-down-leave-to {
+        max-height: 0;
+        opacity: 0;
+        overflow-y: hidden;
     }
 </style>
