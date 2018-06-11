@@ -63,8 +63,7 @@
 
         computed: {
             exportUrl() {
-                const regex = /\/$/gm
-                return `${this.url.replace(regex, '')}?${Object.keys(this.additionalParams).length ? this.urlParamGen(this.additionalParams) : ''}`
+                return `${this.url}${Object.keys(this.additionalParams).length ? `?${this.urlParamGen(this.additionalParams)}` : ''}`
             },
         },
 
