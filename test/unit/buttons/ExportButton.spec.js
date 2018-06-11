@@ -52,8 +52,10 @@ const exportPaths = {
                         assets: {
                             channels: [
                                 { id: 1 },
-                                2,
-                                3,
+                                { id: 2 },
+                                { id: 3 },
+                                4,
+                                5,
                                 'four',
                                 {},
                             ],
@@ -65,7 +67,7 @@ const exportPaths = {
                 },
             },
         },
-        expectedResult: 'search=&query%5Bclient_id%5D=123&query%5BdeepObject%5D%5BevenDeeper%5D%5Binternal%5D=true&query%5BdeepObject%5D%5BevenDeeper%5D%5Bassets%5D%5Bchannels%5D%5Bid%5D=1&query%5BdeepObject%5D%5BevenDeeper%5D%5Bassets%5D%5Bchannels%5D%5B%5D=2&query%5BdeepObject%5D%5BevenDeeper%5D%5Bassets%5D%5Bchannels%5D%5B%5D=3&query%5BdeepObject%5D%5BevenDeeper%5D%5Bassets%5D%5Bchannels%5D%5B%5D=four&query%5BdeepObject%5D%5BevenDeeper%5D%5Bassets%5D%5Banother%5D%5Btest%5D=true',
+        expectedResult: 'search=&query%5Bclient_id%5D=123&query%5BdeepObject%5D%5BevenDeeper%5D%5Binternal%5D=true&query%5BdeepObject%5D%5BevenDeeper%5D%5Bassets%5D%5Bchannels%5D%5B0%5D%5Bid%5D=1&query%5BdeepObject%5D%5BevenDeeper%5D%5Bassets%5D%5Bchannels%5D%5B1%5D%5Bid%5D=2&query%5BdeepObject%5D%5BevenDeeper%5D%5Bassets%5D%5Bchannels%5D%5B2%5D%5Bid%5D=3&query%5BdeepObject%5D%5BevenDeeper%5D%5Bassets%5D%5Bchannels%5D%5B%5D=4&query%5BdeepObject%5D%5BevenDeeper%5D%5Bassets%5D%5Bchannels%5D%5B%5D=5&query%5BdeepObject%5D%5BevenDeeper%5D%5Bassets%5D%5Bchannels%5D%5B%5D=four&query%5BdeepObject%5D%5BevenDeeper%5D%5Bassets%5D%5Banother%5D%5Btest%5D=true',
     },
 }
 

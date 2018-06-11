@@ -8,7 +8,7 @@ export default {
                     if (Array.isArray(paramObject[key])) {
                         paramObject[key].forEach((param) => {
                             if (typeof param === 'object') {
-                                str.push(this.urlParamGen(param, prefix.length ? `${prefix}[${key}]` : key))
+                                str.push(this.urlParamGen(param, prefix.length ? `${prefix}[${key}][${str.length}]` : key))
                             } else {
                                 str.push(`${encodeURIComponent(prefix.length ? `${prefix}[${key}][]` : `${key}[]`)}=${encodeURIComponent(`${param}`)}`)
                             }
