@@ -7,10 +7,14 @@ export default {
                 case 'object':
                     if (Array.isArray(paramObject[key])) {
                         paramObject[key].forEach((param) => {
-                            str.push(`${encodeURIComponent(prefix.length ? `${prefix}[${key}][]` : `${key}[]`)}=${encodeURIComponent(`${param}`)}`)
+                            if (typeof param === 'object') {
+                                str.push(this.urlParamGen(param, prefix.length ? `${prefix}[${key}]` : key))
+                            } else {
+                                str.push(`${encodeURIComponent(prefix.length ? `${prefix}[${key}][]` : `${key}[]`)}=${encodeURIComponent(`${param}`)}`)
+                            }
                         })
                     } else {
-                        str.push(this.urlParamGen(paramObject[key], key))
+                        str.push(this.urlParamGen(paramObject[key], prefix.length ? `${prefix}[${key}]` : key))
                     }
                     break
                 default:
