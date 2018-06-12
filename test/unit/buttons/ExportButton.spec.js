@@ -1,4 +1,5 @@
 import Vue from 'vue'
+import { param } from 'jquery'
 import ExportButton from '../../../src/components/shared/buttons/ExportButton'
 
 const Constructor = Vue.extend(ExportButton)
@@ -17,7 +18,6 @@ const exportPaths = {
                 client_ids: [123, 456, 789],
             },
         },
-        expectedResult: 'search=search_term&query%5Bclient_ids%5D%5B%5D=123&query%5Bclient_ids%5D%5B%5D=456&query%5Bclient_ids%5D%5B%5D=789',
     },
     'single query id': {
         params: {
@@ -26,7 +26,6 @@ const exportPaths = {
                 client_id: 123,
             },
         },
-        expectedResult: 'search=&query%5Bclient_id%5D=123',
     },
     'handles empty objects / arrays': {
         params: {
@@ -39,7 +38,6 @@ const exportPaths = {
             object: {},
             array: [],
         },
-        expectedResult: 'search=&query%5Bclient_id%5D=123',
     },
     'handles deep objects recursively': {
         params: {
@@ -67,7 +65,6 @@ const exportPaths = {
                 },
             },
         },
-        expectedResult: 'search=&query%5Bclient_id%5D=123&query%5BdeepObject%5D%5BevenDeeper%5D%5Binternal%5D=true&query%5BdeepObject%5D%5BevenDeeper%5D%5Bassets%5D%5Bchannels%5D%5B0%5D%5Bid%5D=1&query%5BdeepObject%5D%5BevenDeeper%5D%5Bassets%5D%5Bchannels%5D%5B1%5D%5Bid%5D=2&query%5BdeepObject%5D%5BevenDeeper%5D%5Bassets%5D%5Bchannels%5D%5B2%5D%5Bid%5D=3&query%5BdeepObject%5D%5BevenDeeper%5D%5Bassets%5D%5Bchannels%5D%5B%5D=4&query%5BdeepObject%5D%5BevenDeeper%5D%5Bassets%5D%5Bchannels%5D%5B%5D=5&query%5BdeepObject%5D%5BevenDeeper%5D%5Bassets%5D%5Bchannels%5D%5B%5D=four&query%5BdeepObject%5D%5BevenDeeper%5D%5Bassets%5D%5Banother%5D%5Btest%5D=true',
     },
 }
 
@@ -81,7 +78,7 @@ describe('urlParamGen', () => {
     Object.keys(exportPaths).forEach((path) => {
         test(`${path}`, () => {
             expect(
-                vm.urlParamGen(exportPaths[path].params)).toBe(exportPaths[path].expectedResult)
+                vm.urlParamGen(exportPaths[path].params)).toBe(param(exportPaths[path].params))
         })
     })
 })
