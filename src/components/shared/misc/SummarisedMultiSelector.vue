@@ -155,7 +155,7 @@
         computed: {
             model: {
                 get() {
-                    return this.value
+                    return this.value.length && this.value[0] ? this.value : ''
                 },
 
                 set(val) {
