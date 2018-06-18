@@ -208,8 +208,8 @@
         },
 
         methods: {
-            dropdownSelected(value) {
-                this.$emit('dropdown-selected', value)
+            dropdownSelected(val) {
+                this.$emit('dropdown-selected', this.getArray(val))
             },
 
             setLabel() {
