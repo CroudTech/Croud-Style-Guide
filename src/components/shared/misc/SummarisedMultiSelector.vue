@@ -155,11 +155,11 @@
         computed: {
             model: {
                 get() {
-                    return this.value.length && this.value[0] ? this.value : ''
+                    return this.value
                 },
 
                 set(val) {
-                    this.$emit('input', val)
+                    this.getArray(val)
                 },
             },
 
@@ -223,6 +223,11 @@
                     $(this.$refs.summarisedSelector.$el).dropdown('refresh')
                     this.$nextTick(this.$forceUpdate())
                 })
+            },
+
+            getArray(val) {
+                if (val === '') return []
+                return val.split(',')
             },
         },
 
