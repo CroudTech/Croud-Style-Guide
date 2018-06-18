@@ -159,7 +159,7 @@
                 },
 
                 set(val) {
-                    this.getArray(val)
+                    this.$emit('input', this.getArray(val))
                 },
             },
 
