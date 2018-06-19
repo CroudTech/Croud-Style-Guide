@@ -159,7 +159,7 @@
                 },
 
                 set(val) {
-                    this.$emit('input', val)
+                    this.$emit('input', this.getArray(val))
                 },
             },
 
@@ -208,8 +208,8 @@
         },
 
         methods: {
-            dropdownSelected(value) {
-                this.$emit('dropdown-selected', value)
+            dropdownSelected(val) {
+                this.$emit('dropdown-selected', this.getArray(val))
             },
 
             setLabel() {
@@ -223,6 +223,11 @@
                     $(this.$refs.summarisedSelector.$el).dropdown('refresh')
                     this.$nextTick(this.$forceUpdate())
                 })
+            },
+
+            getArray(val) {
+                if (val === '') return []
+                return val.split(',')
             },
         },
 
@@ -242,17 +247,30 @@
 <style scoped lang="scss">
     @import '../../../resources/sass/variables/_all.scss';
 
-    .dropdown-wrapper /deep/ .ui.dropdown.search.fluid.multiple.inline {
-        padding: 0;
+    .dropdown-wrapper {
+        width: 100%;
 
-        .menu {
-            overflow-x: visible;
-            overflow-y: visible;
-            max-height: initial;
-        }
+        /deep/ .ui.dropdown {
 
-        span.sizer {
-            display: none;
+            .menu {
+                overflow-x: visible;
+                overflow-y: visible;
+                max-height: initial;
+            }
+
+            .text {
+                overflow: hidden;
+                white-space: nowrap;
+                text-overflow: ellipsis;
+            }
+
+            span.sizer {
+                display: none;
+            }
+
+            &.inline {
+                padding: 0;
+            }
         }
     }
 
