@@ -42,7 +42,7 @@ module.exports = {
                 },
                 {
                     name: 'full-calendar',
-                    content: 'src/components/shared/layout/fullcalendar.md',
+                    content: 'src/components/shared/layout/vue-fullcalendar.md',
                 },
             ],
         },
