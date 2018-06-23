@@ -226,7 +226,7 @@
             },
 
             getArray(val) {
-                if (val === '') return []
+                if (!val) return []
                 return val.split(',')
             },
         },
