@@ -1,5 +1,5 @@
 <template>
-    <semantic-form-dropdown value="" :options="[]" :settings="computedSettings" :placeholder="placeholder" search/>
+    <semantic-form-dropdown value="" :options="[]" :settings="computedSettings" :placeholder="placeholder" search :fluid="fluid"/>
 </template>
 
 <script>
@@ -35,7 +35,7 @@
             */
             value: {
                 required: false,
-                type: String,
+                type: [String, Number],
             },
 
            /**
@@ -56,6 +56,14 @@
                 default() {
                     return {}
                 },
+            },
+
+            /**
+            * Allow the dropdown to take up available space
+            */
+            fluid: {
+                type: Boolean,
+                default: false,
             },
         },
 
@@ -94,7 +102,6 @@
                         title: 'name',
                         value: 'id',
                     },
-                    minCharacters: 3,
                     selectOnKeydown: false,
                     searchDelay: 200,
                     onChange: (...args) => {
