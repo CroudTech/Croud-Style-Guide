@@ -1,5 +1,5 @@
 <template>
-    <semantic-form-dropdown value="" :options="[]" :settings="computedSettings" :placeholder="placeholder" search :fluid="fluid"/>
+    <semantic-form-dropdown value="" :options="[]" :settings="computedSettings" :placeholder="placeholder" v-bind="$attrs" search/>
 </template>
 
 <script>
@@ -56,14 +56,6 @@
                 default() {
                     return {}
                 },
-            },
-
-            /**
-            * Allow the dropdown to take up available space
-            */
-            fluid: {
-                type: Boolean,
-                default: false,
             },
         },
 
