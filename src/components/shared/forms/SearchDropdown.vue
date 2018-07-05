@@ -94,6 +94,7 @@
                         title: 'name',
                         value: 'id',
                     },
+                    minCharacters: 3,
                     selectOnKeydown: false,
                     searchDelay: 200,
                     onChange: (...args) => {
