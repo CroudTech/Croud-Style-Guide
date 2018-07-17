@@ -1,0 +1,36 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`SaveButtonWithDropdown should build component should match the snapshot 1`] = `
+<div
+  class="ui blue buttons"
+>
+  <button
+    class="ui blue button"
+  >
+    Save
+  </button>
+  <div
+    class="ui floating dropdown icon button"
+    tabindex="0"
+  >
+    <i
+      class="dropdown icon"
+    />
+    <div
+      class="menu"
+      tabindex="-1"
+    >
+      <div
+        class="item"
+      >
+        foo
+      </div>
+      <div
+        class="item"
+      >
+        bar
+      </div>
+    </div>
+  </div>
+</div>
+`;

@@ -190,6 +190,8 @@ export default {
                 'service=scheduler;table=timetables;field=max_executions;': 10,
                 'service=scheduler;table=timetables;field=starts_at;': '2018-03-09 12:00:00',
                 'service=scheduler;table=timetables;field=ends_at;': '2018-03-10 12:00:00' },
+
+            headerCollapsed: false,
         }
     },
 

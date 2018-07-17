@@ -1,0 +1,182 @@
+@import '/sass/variables/_fonts.scss';
+@import '/sass/variables/_colours.scss';
+
+@import '~fullcalendar/dist/fullcalendar.css';
+
+$completed-event-colour: #454545;
+$stripe-colour: rgba(255, 255, 255, 0.15);
+$event-container-colour: #f5f5f5;
+$today-highlight: #fcf8e3;
+
+$button-hover-background: #CACBCD;
+$inverted-muted-text-color: rgba(0, 0, 0, 0.6);
+$secondary-segment-colour: lighten($croud-colour-black, (0.8 * 100));
+
+.calendar /deep/ {
+    .fc-content {
+        cursor: pointer;
+        font-family: $croud-font-body;
+        min-height: 2em;
+    }
+
+    .calAvatar {
+        background: $croud-colour-white;
+        float: left;
+        border-radius: 50%;
+        position: absolute;
+        margin: 2px 5px 2px 3px;
+    }
+
+    .fc-widget-content .fc-list-empty {
+        vertical-align: top;
+    }
+
+    .globalCalendar {
+        text-shadow: none;
+        vertical-align: middle;
+        color: $croud-colour-grey-medium;
+        display: inline-block;
+        margin: 2px 4px 0 2px;
+    }
+
+    .fc-title {
+        min-height: 22px;
+        display: block;
+        padding:3px 3px 3px 35px;
+    }
+
+    .fc-day {
+        background-color: $event-container-colour;
+    }
+
+    .fc-day.fc-state-highlight {
+        background-color: $today-highlight;
+    }
+
+    .fc-row .fc-content-skeleton td, .fc-row .fc-helper-skeleton td {
+        border-color: $croud-colour-white;
+        border-width: 2px;
+    }
+
+    .fc-event {
+        padding: 4px;
+        border: none;
+        border-radius: 0;
+        color: $croud-colour-white;
+    }
+
+    .fc-event.inProgress, .fc-event.active {
+        color: $croud-colour-grey-darker;
+        background: $croud-colour-secondary-yellow;
+        border-color: $croud-colour-secondary-yellow;
+    }
+
+    .fc-event.complete, .fc-event.completed {
+        background: $completed-event-colour;
+        border-color: $completed-event-colour;
+    }
+
+    .fc-event.recurring {
+        background: $croud-colour-grey-light;
+        background-image: linear-gradient(45deg, $stripe-colour 25%, transparent 25%, transparent 50%, $stripe-colour 50%, $stripe-colour 75%, transparent 75%, transparent);
+        background-size: 40px 40px;
+        border-color: $croud-colour-grey-light;
+        color: $croud-colour-grey-darker;
+
+        .fc-event-skin  {
+            background: $croud-colour-grey-light;
+            border-color: $croud-colour-grey-light;
+        }
+    }
+
+    .fc-unthemed > th, td, hr, thead, tbody, .fc-row {
+        border-color: $croud-colour-white;
+    }
+
+    .fc-grid .fc-day-content {
+        clear: both;
+        padding: 2px 2px 1px;
+    }
+
+    .fc-view-agendaDay td.fc-widget-content,
+    .fc-view-agendaWeek td.fc-widget-content {
+        border: none;
+    }
+
+    .fc-unthemed th, .fc-unthemed thead {
+        border: none;
+    }
+
+    .fc-toolbar {
+        border-bottom: 1px solid $croud-colour-grey-lighter;
+        margin: 0;
+        background: $secondary-segment-colour;
+        padding: 1.5em 1em;
+        color: $inverted-muted-text-color;
+
+        h2 {
+            font-weight: 300;
+            font-size: $croud-font-size-heading;
+            text-decoration: none;
+            border: none;
+            margin: 0;
+            padding: 0;
+        }
+    }
+
+    .fc-button {
+        color: $inverted-muted-text-color;
+        font-family: $croud-font-body;
+        font-size: $croud-font-size-medium;
+        font-weight: 700;
+        text-transform: capitalize;
+        text-shadow: none;
+        text-decoration: none;
+        text-align: center;
+        background: $croud-colour-grey-lighter;
+        white-space: nowrap;
+        display: inline-block;
+        vertical-align: middle;
+        border: none;
+        border-radius: 0.2em;
+        cursor: pointer;
+        outline: 0;
+        padding: 0.8em 1.5em;
+        line-height: 1em;
+        cursor: pointer;
+        background-image: none;
+        margin: 2px;
+        -webkit-font-smoothing: antialiased;
+        height: auto;
+    }
+
+    .fc-state-active {
+        background: $croud-colour-blue;
+        color: $croud-colour-white;
+        box-shadow: none;
+    }
+
+    .fc-state-hover, .fc-state-down {
+        background: $button-hover-background;
+        box-shadow: none;
+    }
+
+    .fc-day-grid-event > .fc-content {
+        white-space: pre-wrap;
+        overflow: visible;
+    }
+
+    .fc-header td {
+        padding: 0 0 0 10px;
+        border-bottom: 1px solid $croud-colour-grey-lighter;
+    }
+
+    .fc-widget-header th {
+        border: none;
+        color: $croud-colour-grey-dark;
+        font-family: $croud-font-body;
+        font-size: $croud-font-size-medium;
+        line-height: 3em;
+        font-weight: 400;
+    }
+}

@@ -20,6 +20,10 @@ module.exports = {
             components: 'src/components/shared/buttons/**/*.vue',
         },
         {
+            name: 'Icons',
+            components: 'src/components/shared/icons/**/*.vue',
+        },
+        {
             name: 'Menus',
             components: 'src/components/shared/menus/**/*.vue',
         },

@@ -5,13 +5,18 @@
 </template>
 
 <script>
+    import urlParams from '../mixins/urlParams'
+
     /**
      * Universal export button
      *
      * @example ./croud-export-button.md
      */
+
     export default {
         name: 'croud-export-button',
+
+        mixins: [urlParams],
 
         props: {
            /**
@@ -20,6 +25,16 @@
             url: {
                 type: String,
                 required: true,
+            },
+
+            /**
+            * optional url param object to be appended to the export url
+            */
+            additionalParams: {
+                type: Object,
+                default() {
+                    return {}
+                },
             },
 
            /**
@@ -46,12 +61,18 @@
             }
         },
 
+        computed: {
+            exportUrl() {
+                return `${this.url}${Object.keys(this.additionalParams).length ? `?${this.urlParamGen(this.additionalParams)}` : ''}`
+            },
+        },
+
         methods: {
             exportData() {
                 const xhr = new XMLHttpRequest()
                 const self = this
 
-                xhr.open('GET', this.url, true)
+                xhr.open('GET', this.exportUrl, true)
                 xhr.responseType = 'blob'
                 xhr.setRequestHeader('Authorization', `Bearer ${localStorage.getItem('jwt')}`)
 

@@ -1,0 +1,13 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`DropdownIndicatorButton should change direction when collapsed 1`] = `
+<i
+  class="chevron icon right"
+/>
+`;
+
+exports[`DropdownIndicatorButton should match the snapshot 1`] = `
+<i
+  class="chevron icon down"
+/>
+`;

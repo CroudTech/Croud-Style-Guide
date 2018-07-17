@@ -20,7 +20,7 @@ exports[`Panel should match the snapshot 1`] = `
       class="right item"
     >
       <i
-        class="circular angle icon down"
+        class="chevron icon down"
       />
     </div>
   </div>

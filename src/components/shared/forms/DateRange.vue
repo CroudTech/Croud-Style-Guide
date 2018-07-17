@@ -8,7 +8,7 @@
                 <div class="sixteen wide column">
                     <h2 class="ui croud header">{{ display }}</h2>
                 </div>
-                <div class="six wide column">
+                <div class="six wide column ui text menu">
                     <strong>Quick Selection</strong>
                     <div v-if="!dateRangeOnly" class="ui fluid vertical menu">
                         <a class="item" @click="quickSet('today')">Today</a>
@@ -43,7 +43,7 @@
 <script>
     import Pikaday from 'pikaday'
     import moment from 'moment'
-    import { cloneDeep } from 'lodash'
+    import { cloneDeep, debounce } from 'lodash'
     import CroudCheckbox from './Checkbox'
 
     /**
@@ -240,9 +240,34 @@
             closePopup() {
                 $(this.$refs.input).popup('hide')
             },
+
+            activate: debounce(function () {
+                $(this.$refs.input)
+                .popup({
+                    inline: true,
+                    on: 'click',
+                    hoverable: true,
+                    position: 'left center',
+                    lastResort: 'left center',
+                    onShow: () => {
+                        this.buildCal()
+                        this.prevStart = cloneDeep(this.localStart)
+                        this.prevEnd = cloneDeep(this.localEnd)
+                    },
+                    onHidden: () => {
+                        this.picker.destroy()
+                        this.$nextTick(() => {
+                            if (!moment(this.prevStart).isSame(this.localStart)) this.$emit('update:start', this.localStart)
+                            if (!moment(this.prevEnd).isSame(this.localEnd)) this.$emit('update:end', this.localEnd)
+                            this.$emit('update:title', this.title)
+                        })
+                    },
+                })
+            }, 100),
         },
 
         mounted() {
+            this.activate()
             this.$nextTick(() => {
                 this.$emit('update:title', this.title)
                 if (this.dateRangeOnly || !moment(this.localStart).endOf('day').isSame(this.localEnd)) {
@@ -252,27 +277,7 @@
         },
 
         activated() {
-            $(this.$refs.input)
-              .popup({
-                  inline: true,
-                  on: 'click',
-                  hoverable: true,
-                  position: 'left center',
-                  lastResort: 'left center',
-                  onShow: () => {
-                      this.buildCal()
-                      this.prevStart = cloneDeep(this.localStart)
-                      this.prevEnd = cloneDeep(this.localEnd)
-                  },
-                  onHidden: () => {
-                      this.picker.destroy()
-                      this.$nextTick(() => {
-                          if (!moment(this.prevStart).isSame(this.localStart)) this.$emit('update:start', this.localStart)
-                          if (!moment(this.prevEnd).isSame(this.localEnd)) this.$emit('update:end', this.localEnd)
-                          this.$emit('update:title', this.title)
-                      })
-                  },
-              })
+            this.activate()
         },
 
         watch: {
@@ -311,7 +316,8 @@
     }
 
     .ui.flowing.popup {
-        min-width: 465px;
+        width: 465px;
+        max-width: 465px;
 
         .ui.croud.header {
             margin: 0 auto;

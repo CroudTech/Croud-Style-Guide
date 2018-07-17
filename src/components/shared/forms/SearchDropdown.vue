@@ -1,5 +1,5 @@
 <template>
-    <semantic-form-dropdown value="" :options="[]" :settings="computedSettings" :placeholder="placeholder" search/>
+    <semantic-form-dropdown value="" :options="[]" :settings="computedSettings" :placeholder="placeholder" v-bind="$attrs" search/>
 </template>
 
 <script>
@@ -35,7 +35,7 @@
             */
             value: {
                 required: false,
-                type: String,
+                type: [String, Number],
             },
 
            /**

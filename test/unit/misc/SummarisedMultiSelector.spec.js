@@ -130,4 +130,75 @@ describe('summarised multi selector', () => {
             })
         })
     })
+
+    describe('get array', () => {
+        it('should return an empty array if value is undefined', () => {
+            vm.value = undefined
+
+            const result = vm.getArray(vm.value)
+            const isArray = Array.isArray(result)
+
+            expect(isArray).toBe(true)
+            expect(result).toEqual([])
+        })
+
+        it('should return an empty array if value is an empty string', () => {
+            vm.value = ''
+
+            const result = vm.getArray(vm.value)
+            const isArray = Array.isArray(result)
+
+            expect(isArray).toBe(true)
+            expect(result).toEqual([])
+        })
+
+        it('should return an array of selected options', () => {
+            vm.value = 'foo,bar,baz'
+
+            const result = vm.getArray(vm.value)
+            const isArray = Array.isArray(result)
+
+            expect(isArray).toBe(true)
+            expect(result).toEqual([
+                'foo', 'bar', 'baz',
+            ])
+        })
+    })
+
+    describe('model setter', () => {
+        const mock = jest.fn()
+        vm.$emit = mock
+
+        beforeEach(() => {
+            mock.mockClear()
+        })
+
+        describe('should always emit an array', () => {
+            const modelSetterTests = {
+                undefined: {
+                    input: undefined,
+                    output: [],
+                },
+                'empty string': {
+                    input: '',
+                    output: [],
+                },
+                'populated string': {
+                    input: '1,2,3',
+                    output: ['1', '2', '3'],
+                },
+            }
+
+            Object.keys(modelSetterTests).forEach((test) => {
+                it(test, (done) => {
+                    vm.model = modelSetterTests[test].input
+
+                    vm.$nextTick(() => {
+                        expect(mock).toBeCalledWith('input', modelSetterTests[test].output)
+                        done()
+                    })
+                })
+            })
+        })
+    })
 })

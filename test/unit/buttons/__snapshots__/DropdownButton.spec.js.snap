@@ -1,0 +1,53 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`DropdownButton should disable the dropdown if loading 1`] = `
+<div
+  class="ui floating dropdown icon button disabled"
+  tabindex="0"
+>
+  <i
+    class="dropdown icon"
+  />
+  <div
+    class="menu"
+    tabindex="-1"
+  >
+    <div
+      class="item"
+    >
+      foo
+    </div>
+    <div
+      class="item"
+    >
+      bar
+    </div>
+  </div>
+</div>
+`;
+
+exports[`DropdownButton should match the snapshot 1`] = `
+<div
+  class="ui floating dropdown icon button"
+  tabindex="0"
+>
+  <i
+    class="dropdown icon"
+  />
+  <div
+    class="menu"
+    tabindex="-1"
+  >
+    <div
+      class="item"
+    >
+      foo
+    </div>
+    <div
+      class="item"
+    >
+      bar
+    </div>
+  </div>
+</div>
+`;

@@ -1,0 +1,19 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ArrowIcon should accept classes 1`] = `
+<i
+  class="chevron icon left disabled"
+/>
+`;
+
+exports[`ArrowIcon should change direction 1`] = `
+<i
+  class="chevron icon left"
+/>
+`;
+
+exports[`ArrowIcon should match the snapshot 1`] = `
+<i
+  class="chevron icon right"
+/>
+`;
