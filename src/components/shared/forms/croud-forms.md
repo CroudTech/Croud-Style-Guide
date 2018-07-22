@@ -1,8 +1,8 @@
-We use [croud-forms](https://github.com/CroudSupport/croud-forms) for building our web forms.
+We use [croud-forms](https://github.com/croudtech/croud-forms) for building our web forms.
 
-Note, this component can also handle [validation](https://github.com/CroudSupport/croud-forms#vuelidate-integration), but it crashes in styleguidist 😢
+Note, this component can also handle [validation](https://github.com/croudtech/croud-forms#vuelidate-integration), but it crashes in styleguidist 😢
 
-See the [docs](https://github.com/CroudSupport/croud-forms#bringing-it-all-together) for more details.
+See the [docs](https://github.com/croudtech/croud-forms#bringing-it-all-together) for more details.
 
     <div>
         <croud-form-builder :schema="formSchema" v-model="user" />

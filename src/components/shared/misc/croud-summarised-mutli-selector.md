@@ -1,6 +1,6 @@
 This is a custom iteration of our dropdown component, which shows a selected items summary popup on hover, and shows a single value (based on the summary field on the fields prop) if one option is selected and a count summary if more than one item is selected, it is ideal for use in a multi selection scenario.
 
-We use the semantic-form-dropdown component from the [croud-vue-semantic](https://github.com/CroudSupport/vue-semantic) library. Click [here](http://croudsupport.github.io/vue-semantic/#semantic-form-dropdown) for full component docs.
+We use the semantic-form-dropdown component from the [croud-vue-semantic](https://github.com/croudtech/vue-semantic) library. Click [here](http://croudtech.github.io/vue-semantic/#semantic-form-dropdown) for full component docs.
 
 ### Basic Usage
 Simply provide the value prop, v-model and an options array to the selector for a basic setup

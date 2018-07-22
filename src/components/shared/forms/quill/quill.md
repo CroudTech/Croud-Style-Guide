@@ -1,5 +1,5 @@
 ### vue-quill
-We use the [vue-quill](https://github.com/CroudSupport/vue-quill) package for wrapping quill for usage in Vue. Vue quill can output the contents in Quill deltas or straight html. For more config options and examples, view the [docs](https://github.com/CroudSupport/vue-quill)
+We use the [vue-quill](https://github.com/croudtech/vue-quill) package for wrapping quill for usage in Vue. Vue quill can output the contents in Quill deltas or straight html. For more config options and examples, view the [docs](https://github.com/croudtech/vue-quill)
 
 ### Croud Theme
 We have created our own quill theme that can be imported with this bit of bootstrap.
