@@ -66,6 +66,8 @@
 <style lang="scss" scoped>
     @import '../../../resources/sass/variables/_all.scss';
 
+    $collapsed-cc-menu-width: 55px;
+
     .ui.segments.universal-editor {
         z-index: $croud-layer-8;
         margin: 0;
@@ -143,5 +145,13 @@
         .segment:first-child {
             border-radius: 0;
         }
+    }
+
+    @media (max-width: 768px) {
+
+        .ui.segments.universal-editor.responsive {
+            width: calc(100vw - #{$collapsed-cc-menu-width});
+        }
+
     }
 </style>
