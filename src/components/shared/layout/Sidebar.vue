@@ -66,7 +66,9 @@
 <style lang="scss" scoped>
     @import '../../../resources/sass/variables/_all.scss';
 
+    $sidebar-max-width: 700px;
     $collapsed-cc-menu-width: 55px;
+    $full-screen-breakpoint: $sidebar-max-width + $collapsed-cc-menu-width;
 
     .ui.segments.universal-editor {
         z-index: $croud-layer-8;
@@ -147,11 +149,14 @@
         }
     }
 
-    @media (max-width: 768px) {
+    @media (max-width: $full-screen-breakpoint) {
 
         .ui.segments.universal-editor.responsive {
             width: calc(100vw - #{$collapsed-cc-menu-width});
-        }
 
+            &.no-offset {
+                 width: 100vw;
+            }
+        }
     }
 </style>

@@ -66,3 +66,25 @@ For use with croudLayout, If you apply a class of 'responsive' to the sidebar it
             </div>
         </croud-sidebar>
     </div
+
+If you do not need to offset the side menu simply also add the class .no-offset
+    <div>
+        <button class="ui basic info button" @click="toggleSidebar = true">
+            Test No Offset
+        </button>
+        <croud-sidebar class="responsive no-offset" v-show="toggleSidebar" @close="toggleSidebar = false" @save="() => {this.$toasted.success('Saved')}" title="Super Long Title: this will probably be in need of truncation">
+            <croud-overflow-menu slot="options"  :options="[{name: 'Delete', method() {}}]"></croud-overflow-menu>
+            <div class="ui very padded basic segment">
+                <div class="ui form">
+                    <div class="field">
+                        <label>Name</label>
+                        <input />
+                    </div>
+                    <div class="field">
+                        <label>Email</label>
+                        <input />
+                    </div>
+                </div>
+            </div>
+        </croud-sidebar>
+    </div
