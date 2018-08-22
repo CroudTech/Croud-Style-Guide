@@ -67,7 +67,7 @@ For use with croudLayout, If you apply a class of 'responsive' to the sidebar it
         </croud-sidebar>
     </div
 
-If you do not need to offset the side menu simply also add the class .no-offset
+If you do not need to offset the side menu simply also add the class .no-offset.
     <div>
         <button class="ui basic info button" @click="toggleSidebar = true">
             Test No Offset
