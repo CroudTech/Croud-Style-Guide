@@ -252,12 +252,6 @@
 
         /deep/ .ui.dropdown {
 
-            .menu {
-                overflow-x: visible;
-                overflow-y: visible;
-                max-height: initial;
-            }
-
             .text {
                 overflow: hidden;
                 white-space: nowrap;
