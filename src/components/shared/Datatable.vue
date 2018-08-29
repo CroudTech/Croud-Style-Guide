@@ -34,11 +34,11 @@
                     scopedSlots: this.$scopedSlots,
                     ref: 'vuetable',
                     on: {
-                        ...this.$listeners,
                         'vuetable:pagination-data': this.onPaginationData,
                         'vuetable:cell-clicked': this.onCellClicked,
                         'vuetable:loading': () => { this.loading = true },
                         'vuetable:loaded': () => { this.loading = false },
+                        ...this.$listeners,
                     },
                 }),
                 createElement('div', { class: ['ui', 'segment', 'grid', 'basic'] }, [
