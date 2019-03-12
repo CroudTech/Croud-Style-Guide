@@ -47,6 +47,7 @@ export default {
             radio: 1,
             cleave: '123456789012345',
             telephone: '01743211176',
+            time: '09:00',
 
             showSchema: false,
             formSchema: [
